@@ -16,7 +16,8 @@
 //
 // Release History:
 // - Version 1.0 20/03/19: Create;
-// - Version 1.1 20/03/19: Add Specific Description.
+// - Version 1.1 20/03/19: Add Specific Description;
+// - Version 1.2 20/03/20: Fix some errors.
 //
 // Notes:
 // - <Problems>;
@@ -44,14 +45,16 @@ module template(input_variable_a, input_variable_b, output_variable_a, clk, rst_
 // This always part controls the signal temp, which is ...
 //
 always @ (posedge clk) begin // One always part only controls one output signal
-	if (rst_n) begin  // Both spaces are two <space>, and there is one <space> between "if" and the brackets. Don't use <Tab>.
-		temp <= IDLE;
+  if (rst_n) begin  // Both spaces are two <space>, and there is one <space> between "if" and the brackets. Don't use <Tab>.
+	  temp <= IDLE;
   end
-  else
+  else begin
     case (input_variable_a)  // Don't use casex, x and z
       1'b0: temp <= 1'b0;  // <Reason>
-      1'b1: temp <= 1'b0;  // <Reason>
+      1'b1: temp <= 1'b1;  // <Reason>
       default: temp <= IDLE;  // Don't forget default
     endcase
   end
 end
+
+endmodule
