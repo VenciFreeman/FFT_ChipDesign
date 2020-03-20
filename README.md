@@ -30,8 +30,8 @@
     - 工作频率
       - 工艺
       - 电路结构：优化
-    - 面积开销
-      - I/O个数：流水/并行
+    - 面积开销 (4.376464mm<sup>2</sup>)
+      - I/O个数：流水/并行 (88个管脚)
       - 中间逻辑开销：优化
 
 ### 技术问题
@@ -39,6 +39,14 @@
 - 大量输入输出
 - 提高面积利用率
 - 需采用部分展开
+
+## 参与人员
+
+|    人员    |                        GitHub                        |
+| :--------: | :--------------------------------------------------: |
+| Yang Wenxi | [**@VenciFreeman**](https://github.com/VenciFreeman) |
+|  Luo Tian  | [**@luotian12345**](https://github.com/luotian12345) |
+| Qi Yixiang |  [**mikeq123456**](https://github.com/mikeq123456)   |
 
 ## 前端设计
 
