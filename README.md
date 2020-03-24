@@ -1,7 +1,7 @@
 # DIC-Design
 > The project of DICD. Maybe an Adder or FFT chip layout, including Verilog codes and netlists. 
 
- ![Generic badge](https://img.shields.io/badge/Language-Verilog HDL-red.svg)
+ <img src="https://img.shields.io/badge/Language-Verilog_HDL-red.svg" alt="Generic badge"  />
 
 [TOC]
 
@@ -40,13 +40,13 @@
 - 提高面积利用率
 - 需采用部分展开
 
-## 参与人员
+## 参与人员及分工
 
-|    人员    |                        GitHub                        |
-| :--------: | :--------------------------------------------------: |
-| Yang Wenxi | [**@VenciFreeman**](https://github.com/VenciFreeman) |
-|  Luo Tian  | [**@luotian12345**](https://github.com/luotian12345) |
-| Qi Yixiang |  [**mikeq123456**](https://github.com/mikeq123456)   |
+|    人员    |                        GitHub                        |         分工          |
+| :--------: | :--------------------------------------------------: | :-------------------: |
+| Yang Wenxi | [**@VenciFreeman**](https://github.com/VenciFreeman) |  蝶形运算和MUX/DEMUX  |
+|  Luo Tian  | [**@luotian12345**](https://github.com/luotian12345) | 串并/并串转换和寄存器 |
+| Qi Yixiang |  [**mikeq123456**](https://github.com/mikeq123456)   |  控制模块和testbench  |
 
 ## 前端设计
 
