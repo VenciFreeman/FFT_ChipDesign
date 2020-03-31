@@ -174,3 +174,16 @@
 
 - data_out[33:0] *16
   - 16组测试数据结果
+
+
+$$
+W_{16}^1=cos\frac{\pi}{8}-jsin\frac{\pi}{8}=0.9238-j0.3826\\
+W_{16}^2=cos\frac{2\pi}{8}-jsin\frac{2\pi}{8}=0.7071-j0.7071\\
+W_{16}^3=cos\frac{3\pi}{8}-jsin\frac{3\pi}{8}=0.3826-j0.9238\\
+W_{16}^4=cos\frac{4\pi}{8}-jsin\frac{4\pi}{8}=-j\\
+W_{16}^5=cos\frac{5\pi}{8}-jsin\frac{5\pi}{8}=-0.3826-j0.9238\\
+W_{16}^6=cos\frac{6\pi}{8}-jsin\frac{6\pi}{8}=-0.7071-j0.7071\\
+W_{16}^7=cos\frac{7\pi}{8}-jsin\frac{7\pi}{8}=-0.9238-j0.3826\\
+W_{16}^8=cos\pi-jsin\pi=-1\\
+W_{16}^9=cos\frac{9\pi}{8}-jsin\frac{9\pi}{8}=-0.9238+j0.3826\\
+$$
