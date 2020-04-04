@@ -7,7 +7,7 @@
 //
 // Type: Sequential
 //
-// Purpose: <Specific Function Description>
+// Purpose: control rotation factors and set flag, has been verified correctly in Modelsim
 // 
 //
 // Details:
@@ -35,35 +35,35 @@ module ctrl(clk, rst_n, s_p_flag_in, mux_flag, rotation, demux_flag); // s_p_fla
   output rotation;
   output demux_flag;
 
-  parameter STOP <= 3'b0;
-  parameter MUX_IDLE <= 3'b0;
-  parameter DEMUX_IDLE <= 3'b0;
-  parameter ROT_IDLE <= 3'b0;
-  parameter S_P_SEL_0 <= 3'b0;
-  parameter S_P_SEL_1 <= 3'b001;
-  parameter S_P_SEL_2 <= 3'b010;
-  parameter S_P_SEL_3 <= 3'b011;
-  parameter REG_SEL_0 <= 3'b100;
-  parameter REG_SEL_1 <= 3'b101;
-  parameter REG_SEL_2 <= 3'b110;
-  parameter REG_SEL_3 <= 3'b111;
-  parameter P_S_SEL_0 <= 3'b0;
-  parameter P_S_SEL_1 <= 3'b001;
-  parameter P_S_SEL_2 <= 3'b010;
-  parameter P_S_SEL_3 <= 3'b011;
-  parameter W_K0123469_N4 <= 3'b000;
-  parameter W_K0_N16 <= 3'b001;
-  parameter W_K123_N16 <= 3'b010;
-  parameter W_K246_N16 <= 3'b011;
-  parameter W_K369_N16 <= 3'b100;
+  parameter STOP = 3'b0;
+  parameter MUX_IDLE = 3'b0;
+  parameter DEMUX_IDLE = 3'b0;
+  parameter ROT_IDLE = 3'b0;
+  parameter S_P_SEL_0 = 3'b0;
+  parameter S_P_SEL_1 = 3'b001;
+  parameter S_P_SEL_2 = 3'b010;
+  parameter S_P_SEL_3 = 3'b011;
+  parameter REG_SEL_0 = 3'b100;
+  parameter REG_SEL_1 = 3'b101;
+  parameter REG_SEL_2 = 3'b110;
+  parameter REG_SEL_3 = 3'b111;
+  parameter P_S_SEL_0 = 3'b0;
+  parameter P_S_SEL_1 = 3'b001;
+  parameter P_S_SEL_2 = 3'b010;
+  parameter P_S_SEL_3 = 3'b011;
+  parameter W_K0123469_N4 = 3'b000;
+  parameter W_K0_N16 = 3'b001;
+  parameter W_K123_N16 = 3'b010;
+  parameter W_K246_N16 = 3'b011;
+  parameter W_K369_N16 = 3'b100;
 
   wire clk;
   wire rst_n;
   wire s_p_flag_in;
 
-  reg mux_flag;
+  reg[2:0] mux_flag;
   reg[2:0] rotation;
-  reg demux_flag;
+  reg[2:0] demux_flag;
   reg[2:0] core_tick;  // count how many sequential logic 时序逻辑
 
 always @ (posedge clk or negedge rst_n) begin
