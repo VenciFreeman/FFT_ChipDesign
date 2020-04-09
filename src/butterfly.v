@@ -19,7 +19,8 @@
 // - Version 1.0 20/03/27: Create;
 // - Version 1.1 20/03/20: Modify;
 // - Version 1.2 20/04/06: Modify the multiply method;
-// - Version 1.3 20/04/07: Add state machine.
+// - Version 1.3 20/04/07: Add state machine；
+// - Version 1.4 20/04/09: Rewrite multiply commands. Still many things need to rewrite.
 //
 // Notes:
 // - rotation_factor format: (Re,Im);
@@ -41,9 +42,9 @@ module butterfly(
 
 
   wire signed [16:0] row1_1_real, row1_1_imag;  // row means stage of FFT. 16-point 4-radix FFT has 2 stages.
-  wire signed [16:0] row1_2_real, row1_2_imag, comp_part_1;
-  wire signed [16:0] row1_3_real, row1_3_imag, comp_part_2;
-  wire signed [16:0] row1_4_real, row1_4_imag, comp_part_3;
+  wire signed [16:0] row1_2_real, row1_2_imag, row1_2_real_b, row1_2_imag_b, comp_part_1;
+  wire signed [16:0] row1_3_real, row1_3_imag, row1_3_real_b, row1_3_imag_b, comp_part_2;
+  wire signed [16:0] row1_4_real, row1_4_imag, row1_4_real_b, row1_4_imag_b, comp_part_3;
 
   wire signed [16:0] row2_1_real, row2_1_imag;
   wire signed [16:0] row2_2_real, row2_2_imag;
@@ -177,17 +178,68 @@ module butterfly(
   assign row1_1_real = calc_in[33:17];  // A
   assign row1_1_imag = calc_in[16:0];
 
-  assign comp_part_1 = (calc_in[67:51] - calc_in[50:34]) * rotation_factor1[16:8];  // Need the specific figures to rewrite as shift operation.
-  assign row1_2_real = (rotation_factor1[16:8] - rotation_factor1[7:0]) * calc_in[50:34] + comp_part_1;  // BW^P
-  assign row1_2_imag = (rotation_factor1[16:8] + rotation_factor1[7:0]) * calc_in[67:51] - comp_part_1;
+//  assign comp_part_1 = (calc_in[67:51] - calc_in[50:34]) * rotation_factor1[16:8];  // Need the specific figures to rewrite as shift operation.
+//  assign row1_2_real = (rotation_factor1[16:8] - rotation_factor1[7:0]) * calc_in[50:34] + comp_part_1;  // BW^P
+//  assign row1_2_imag = (rotation_factor1[16:8] + rotation_factor1[7:0]) * calc_in[67:51] - comp_part_1;
+  multi16 multi1_2_1 (.a_in((calc_in[67:51] - calc_in[50:34])),  // need to rewrite as signed wire
+                      .b_in({8'b0, rotation_factor1[16:8]}),
+                      .result(comp_part_1)
+                     );
 
-  assign comp_part_2 = (calc_in[101:85] - calc_in[84:68]) * rotation_factor2[16:8];  // Need the specific figures to rewrite as shift operation.
-  assign row1_3_real = (rotation_factor2[16:8] - rotation_factor2[7:0]) * calc_in[84:68] + comp_part_2;  // CW^{2P}
-  assign row1_3_imag = (rotation_factor2[16:8] + rotation_factor2[7:0]) * calc_in[101:85] - comp_part_2;
-.
-  assign comp_part_3 = (calc_in[135:119] - calc_in[118:102]) * rotation_factor3[16:8];  // Need the specific figures to rewrite as shift operation.
-  assign row1_4_real = (rotation_factor3[16:8] - rotation_factor3[7:0]) * calc_in[118:102] + comp_part_3;  // DW^{3P}
-  assign row1_4_imag = (rotation_factor3[16:8] + rotation_factor3[7:0]) * calc_in[135:119] - comp_part_3;
+  multi16 multi1_2_2 (.a_in((rotation_factor1[16:8] - rotation_factor1[7:0])),
+                      .b_in(calc_in[50:34]),
+                      .result(row1_2_real_b)
+                     );
+
+  multi16 multi1_2_3 (.a_in((rotation_factor1[16:8] + rotation_factor1[7:0])),
+                      .b_in(calc_in[67:51]),
+                      .result(row1_2_imag_b)
+                     );
+
+  assign row1_2_real = row1_2_real_b + comp_part_1;
+  assign row1_2_imag = row1_2_imag_b - comp_part_1;
+
+//  assign comp_part_2 = (calc_in[101:85] - calc_in[84:68]) * rotation_factor2[16:8];  // Need the specific figures to rewrite as shift operation.
+//  assign row1_3_real = (rotation_factor2[16:8] - rotation_factor2[7:0]) * calc_in[84:68] + comp_part_2;  // CW^{2P}
+//  assign row1_3_imag = (rotation_factor2[16:8] + rotation_factor2[7:0]) * calc_in[101:85] - comp_part_2;
+  multi16 multi1_3_1 (.a_in((calc_in[101:85] - calc_in[84:68])),  // need to rewrite as signed wire
+                      .b_in({8'b0, rotation_factor2[16:8]}),
+                      .result(comp_part_2)
+                     );
+
+  multi16 multi1_3_2 (.a_in((rotation_factor2[16:8] - rotation_factor2[7:0])),
+                      .b_in(calc_in[84:68]),
+                      .result(row1_3_real_b)
+                     );
+
+  multi16 multi1_3_3 (.a_in((rotation_factor2[16:8] + rotation_factor2[7:0])),
+                      .b_in(calc_in[101:85]),
+                      .result(row1_3_imag_b)
+                     );
+
+  assign row1_3_real = row1_3_real_b + comp_part_2;
+  assign row1_3_imag = row1_3_imag_b - comp_part_2;
+
+//  assign comp_part_3 = (calc_in[135:119] - calc_in[118:102]) * rotation_factor3[16:8];  // Need the specific figures to rewrite as shift operation.
+//  assign row1_4_real = (rotation_factor3[16:8] - rotation_factor3[7:0]) * calc_in[118:102] + comp_part_3;  // DW^{3P}
+//  assign row1_4_imag = (rotation_factor3[16:8] + rotation_factor3[7:0]) * calc_in[135:119] - comp_part_3;
+  multi16 multi1_3_1 (.a_in((calc_in[135:119] - calc_in[118:102])),  // need to rewrite as signed wire
+                      .b_in({8'b0, rotation_factor3[16:8]}),
+                      .result(comp_part_3)
+                     );
+
+  multi16 multi1_3_2 (.a_in((rotation_factor3[16:8] - rotation_factor3[7:0])),
+                      .b_in(calc_in[118:102]),
+                      .result(row1_4_real_b)
+                     );
+
+  multi16 multi1_3_3 (.a_in((rotation_factor3[16:8] + rotation_factor3[7:0])),
+                      .b_in(calc_in[135:119]),
+                      .result(row1_4_imag_b)
+                     );
+
+  assign row1_4_real = row1_4_real_b + comp_part_3;
+  assign row1_4_imag = row1_4_imag_b - comp_part_3;
 
 // Butterfly reg2
   assign row2_1_real = row1_1_real + row1_3_real;  // A + CW^{2P}
