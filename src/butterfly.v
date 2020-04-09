@@ -30,14 +30,14 @@
 module butterfly(
 
   input  wire[135:0] calc_in,  // The 4 numbers which need to be calculated. Format: in4(Re,Im), in3(Re,Im), in2(Re,Im), in1(Re,Im)
-  input  wire[2:0]  rotation,  // number of each butterfly computation (8 in total)
+  input  wire[2:0]   rotation, // number of each butterfly computation (8 in total)
   output reg[135:0]  calc_out  // The 4 output numbers. Format: out4(Re,Im), out3(Re,Im), out2(Re,Im), out1(Re,Im)
 
   );
 
-  parameter sin_1pi_8 = 8'b01100001;  // 0.3827. sin(pi/8) = sin(7pi/8) = cos(3pi/8) = - cos(5pi/8)
-  parameter sin_2pi_8 = 8'b10110101;  // 0.7071. sin(2pi/8) = sin(6pi/8) = cos(2pi/8) = - cos(6pi/8)
-  parameter sin_3pi_8 = 8'b11101100;  // 0.9239. sin(3pi/8) = sin(5pi/8) = cos(1pi/8) = - cos(7pi/8)
+  parameter sin_1pi_8 = 8'b;  // 0.3827. sin(pi/8) = sin(7pi/8) = cos(3pi/8) = - cos(5pi/8)
+  parameter sin_2pi_8 = 8'b;  // 0.7071. sin(2pi/8) = sin(6pi/8) = cos(2pi/8) = - cos(6pi/8)
+  parameter sin_3pi_8 = 8'b;  // 0.9239. sin(3pi/8) = sin(5pi/8) = cos(1pi/8) = - cos(7pi/8)
 
 
   wire signed [16:0] row1_1_real, row1_1_imag;  // row means stage of FFT. 16-point 4-radix FFT has 2 stages.
@@ -64,35 +64,35 @@ module butterfly(
     case ( rotation ) begin
       3'b000: begin
         rotation_factor1[16:8] = ;
-        rotation_factor1[7:0] =  ;
+        rotation_factor1[7:0]  = ;
       end
       3'b001: begin
         rotation_factor1[16:8] = ;
-        rotation_factor1[7:0] =  ;
+        rotation_factor1[7:0]  = ;
       end
-      3'b002: begin
+      3'b010: begin
         rotation_factor1[16:8] = ;
-        rotation_factor1[7:0] =  ;
+        rotation_factor1[7:0]  = ;
       end
-      3'b003: begin
+      3'b011: begin
         rotation_factor1[16:8] = ;
-        rotation_factor1[7:0] =  ;
+        rotation_factor1[7:0]  = ;
       end
-      3'b004: begin
+      3'b100: begin
         rotation_factor1[16:8] = ;
-        rotation_factor1[7:0] =  ;
+        rotation_factor1[7:0]  = ;
       end
-      3'b005: begin
+      3'b101: begin
         rotation_factor1[16:8] = ;
-        rotation_factor1[7:0] =  ;
+        rotation_factor1[7:0]  = ;
       end
-      3'b006: begin
+      3'b110: begin
         rotation_factor1[16:8] = ;
-        rotation_factor1[7:0] =  ;
+        rotation_factor1[7:0]  = ;
       end
-      3'b007: begin
+      3'b111: begin
         rotation_factor1[16:8] = ;
-        rotation_factor1[7:0] =  ;
+        rotation_factor1[7:0]  = ;
       end
     end
   end 
@@ -102,35 +102,35 @@ module butterfly(
     case ( rotation ) begin
       3'b000: begin
         rotation_factor2[16:8] = ;
-        rotation_factor2[7:0] =  ;
+        rotation_factor2[7:0]  = ;
       end
       3'b001: begin
         rotation_factor2[16:8] = ;
-        rotation_factor2[7:0] =  ;
+        rotation_factor2[7:0]  = ;
       end
-      3'b002: begin
+      3'b010: begin
         rotation_factor2[16:8] = ;
-        rotation_factor2[7:0] =  ;
+        rotation_factor2[7:0]  = ;
       end
-      3'b003: begin
+      3'b011: begin
         rotation_factor2[16:8] = ;
-        rotation_factor2[7:0] =  ;
+        rotation_factor2[7:0]  = ;
       end
-      3'b004: begin
+      3'b100: begin
         rotation_factor2[16:8] = ;
-        rotation_factor2[7:0] =  ;
+        rotation_factor2[7:0]  = ;
       end
-      3'b005: begin
+      3'b101: begin
         rotation_factor2[16:8] = ;
-        rotation_factor2[7:0] =  ;
+        rotation_factor2[7:0]  = ;
       end
-      3'b006: begin
+      3'b110: begin
         rotation_factor2[16:8] = ;
-        rotation_factor2[7:0] =  ;
+        rotation_factor2[7:0]  = ;
       end
-      3'b007: begin
+      3'b111: begin
         rotation_factor2[16:8] = ;
-        rotation_factor2[7:0] =  ;
+        rotation_factor2[7:0]  = ;
       end
     end
   end 
@@ -140,31 +140,31 @@ module butterfly(
     case ( rotation ) begin
       3'b000: begin
         rotation_factor3[16:8] = ;
-        rotation_factor3[7:0] = ;
+        rotation_factor3[7:0]  = ;
       end
       3'b001: begin
         rotation_factor3[16:8] = ;
-        rotation_factor3[7:0] = ;
+        rotation_factor3[7:0]  = ;
       end
-      3'b002: begin
+      3'b010: begin
         rotation_factor3[16:8] = ;
-        rotation_factor3[7:0] = ;
+        rotation_factor3[7:0]  = ;
       end
-      3'b003: begin
+      3'b011: begin
         rotation_factor3[16:8] = ;
-        rotation_factor3[7:0] = ;
+        rotation_factor3[7:0]  = ;
       end
-      3'b004: begin
+      3'b100: begin
         rotation_factor3[16:8] = ;
-        rotation_factor3[7:0] = ;
+        rotation_factor3[7:0]  = ;
       end
-      3'b005: begin
+      3'b101: begin
         rotation_factor3[16:8] = ;
-        rotation_factor3[7:0] = ;
+        rotation_factor3[7:0]  = ;
       end
-      3'b006: begin
+      3'b110: begin
         rotation_factor3[16:8] = ;
-        rotation_factor3[7:0] = ;
+        rotation_factor3[7:0]  = ;
       end
       3'b007: begin
         rotation_factor3[16:8] = ;
