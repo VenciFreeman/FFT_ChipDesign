@@ -5,33 +5,28 @@
 //
 // File Name: top
 //
-// Type: <Sequential or Combinational, etc.>
+// Type: Sequential
 //
-// Purpose: <Specific Function Description>
+// Purpose: Top moudule.
 // 
 //
 // Details:
-// - Design Logic;
-// - Variable setting.
 //
 // Release History:
-// - Version 1.0 20/03/24: Create.
+// - Version 1.0 20/03/24: Create;
+// - Version 1.1 20/04/06: Update butterfly top, and fix some errors.
 //
 // Notes:
-// - <Problems>;
-// - <Optimization Method>;
-// - <Other Useful Info>.
+// - Many modules still have not specific signal names.
 //**********************************************************
 
 `include "ctrl.v"
 `include "s_p.v"
-`include "mux.v"
 `include "butterfly.v"
-`include "demux.v"
-`include "reg1.v"
+`include "reg.v"
 `include "p_s.v"
 
-module top(clk, rst_n, data_in, data out)
+module top(clk, rst_n, data_in, data_out);
 
   input clk;  // clock
   input rst_n;  // reset signal
@@ -46,15 +41,15 @@ module top(clk, rst_n, data_in, data out)
   reg [33:0] data_out;  // All the output signals should use reg
 
   ctrl ctrl0(
-    .clk(clk),
-    .rst_n(rst_n),
-    .s_p_flag_out(s_p_flag_out),
+  .clk(clk),
+  .rst_n(rst_n),
+  .s_p_flag_out(s_p_flag_out),
 	.s_p_lag_mux(s_p_flag_mux),
-    .reg1_flag_mux(reg1_flag_mux),
-    .mux_flag(mux_flag),
-    .rotation(rotation),
+  .reg1_flag_mux(reg1_flag_mux),
+  .mux_flag(mux_flag),
+  .rotation(rotation),
 	.demux_flag(demux_flag)
-);
+  );
 
   s_p s_p0(
 	.clk(clk),
@@ -63,22 +58,16 @@ module top(clk, rst_n, data_in, data out)
 	.data_out_0(data_out_0)
   );
 
-  mux mux0(
-	data_out_0(data_out_0),
-	data_out_1(data_out_1),
-	clac_in(clac_in)
-  );
-
   butterfly butterfly0(
-
+  .clac_in(clac_in),
+  .rotation_factors(rotation_factors),
+  .clac_out(clac_out)
   );
 
   reg2 reg20(
-
-  );
-
-  demux demux0(
-
+	data_out_0(data_out_0),
+	data_out_1(data_out_1),
+	clac_in(clac_in)
   );
 
   p_s p_s0(
