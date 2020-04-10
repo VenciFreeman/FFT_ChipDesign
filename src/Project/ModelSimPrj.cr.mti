@@ -1,8 +1,0 @@
-C:/Users/Venci/Desktop/FFT_ChipDesign/src/butterfly.v {1 {vlog -work ModelSimPrj -vopt C:/Users/Venci/Desktop/FFT_ChipDesign/src/butterfly.v
-Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
--- Compiling module butterfly
-
-Top level modules:
-	butterfly
-
-} {} {}}
