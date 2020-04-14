@@ -27,7 +27,7 @@
 `include "mux.v"
 `include "butterfly.v"
 `include "demux.v"
-`include "reg.v"
+`include "reg1.v"
 `include "p_s.v"
 
 module top(
@@ -76,7 +76,7 @@ module top(
     .clac_out(data_4)         // output to demux
   );
 
-  reg2 reg20(
+  reg1 reg10(
     .clk(clk),                // input from top
     .rst_n(rst_n),            // input from top
     .data_in(data_5),
