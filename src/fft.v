@@ -15,7 +15,8 @@
 // Release History:
 // - Version 1.0 20/03/24: Create;
 // - Version 1.1 20/04/06: Update butterfly top, and fix some errors;
-// - Version 1.2 20/04/14: Update and check tops, and comment.
+// - Version 1.2 20/04/14: Update and check tops, and comment;
+// - Version 1.3 20/04/14: Add statements.
 //
 // Notes:
 // - Many modules still have not specific signal names.
@@ -33,10 +34,14 @@ module top(
 
   input wire       clk,       // clock
   input wire       rst_n,     // reset
-  input wire[33:0] data_in,
-  output reg[33:0] data_out
+  input wire[33:0] data_in,   // input from pin
+  output reg[33:0] data_out   // output to pin
 
   );
+
+  wire        mux_flag, demux_flag, s_p_flag;  // seems need a signal called ps_s_flag. Refer warning 02.
+  wire[2:0]   rotation;
+  wire[135:0] data_1, data_2, data_3, data_4, data_5, data_6;
 
   ctrl ctrl0(
     .clk(clk),                // input from top
