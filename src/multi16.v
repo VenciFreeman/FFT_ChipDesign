@@ -20,13 +20,14 @@
 // - Version 3.3 20/04/12: Fix some errors, compile successful;
 // - Version 3.4 20/04/12: Add comments;
 // - Version 3.5 20/04/14: Transform to 17-bit input;
-// - Version 3.6 20/04/16: Fix some simulation errors.
+// - Version 3.6 20/04/16: Fix some simulation errors;
+// - Version 3.7 20/04/16: Simulate successful. Still need to check results.
 //
 // Notes: 
 //
 //**********************************************************
 
-module multi17(
+module multi16(
 
   input wire clk,              // clock
   input wire rst_n,            // reset
