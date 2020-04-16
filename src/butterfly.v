@@ -27,7 +27,8 @@
 // - Version 2.0 20/04/12: Fix some errors, compile successful;
 // - Version 2.1 20/04/12: Optimize layout, change to 2's complement and add notes;
 // - Version 2.2 20/04/14: Update rotation factors;
-// - Version 2.3 20/04/16: Fix some simulation errors.
+// - Version 2.3 20/04/16: Fix some simulation errors;
+// - Version 2.4 20/04/16: Fix some errors about bits.
 //
 // Notes:
 // - rotation_factor format: (Re,Im);
@@ -56,32 +57,32 @@ module butterfly(
   parameter parn9239 = 8'b10001010;  // -0.9239. sin(3pi/8) = sin(5pi/8) = cos(1pi/8) = - cos(7pi/8)
   parameter para1111 = 8'b01111111;  //  1.0000. sin(4pi/8) = sin(4pi/8) = coa(0pi/8) = - cos(8pi/8)
   
-  reg  [15:0] rotation_factor1;  // For input B
-  reg  [15:0] rotation_factor2;  // For input C
-  reg  [15:0] rotation_factor3;  // For input D
+  reg  [16:0] rotation_factor1;  // For input B
+  reg  [16:0] rotation_factor2;  // For input C
+  reg  [16:0] rotation_factor3;  // For input D
 
   wire [7:0]  in_8bit_1_1, in_8bit_1_2, in_8bit_1_3;  // For multiplier of B
   wire [7:0]  in_8bit_2_1, in_8bit_2_2, in_8bit_2_3;  // For multiplier of C
   wire [7:0]  in_8bit_3_1, in_8bit_3_2, in_8bit_3_3;  // For multiplier of D
 
-  wire [16:0] in_17bit_1_1, in_17bit_1_2, in_17bit_1_3;  // For multiplier of B
-  wire [16:0] in_17bit_2_1, in_17bit_2_2, in_17bit_2_3;  // For multiplier of C
-  wire [16:0] in_17bit_3_1, in_17bit_3_2, in_17bit_3_3;  // For multiplier of D
+  wire [15:0] in_17bit_1_1, in_17bit_1_2, in_17bit_1_3;  // For multiplier of B
+  wire [15:0] in_17bit_2_1, in_17bit_2_2, in_17bit_2_3;  // For multiplier of C
+  wire [15:0] in_17bit_3_1, in_17bit_3_2, in_17bit_3_3;  // For multiplier of D
 
-  wire [15:0] row1_1_real, row1_1_imag;  // Row means stage of FFT. 16-point 4-radix FFT has 2 stages.
-  wire [15:0] row1_2_real, row1_2_imag, row1_2_real_b, row1_2_imag_b, comp_part_1;  // The last three lines are used for intermediate data transfer
-  wire [15:0] row1_3_real, row1_3_imag, row1_3_real_b, row1_3_imag_b, comp_part_2;
-  wire [15:0] row1_4_real, row1_4_imag, row1_4_real_b, row1_4_imag_b, comp_part_3;
+  wire [16:0] row1_1_real, row1_1_imag;  // Row means stage of FFT. 16-point 4-radix FFT has 2 stages.
+  wire [16:0] row1_2_real, row1_2_imag, row1_2_real_b, row1_2_imag_b, comp_part_1;  // The last three lines are used for intermediate data transfer
+  wire [16:0] row1_3_real, row1_3_imag, row1_3_real_b, row1_3_imag_b, comp_part_2;
+  wire [16:0] row1_4_real, row1_4_imag, row1_4_real_b, row1_4_imag_b, comp_part_3;
 
-  wire [15:0] row2_1_real, row2_1_imag;  // A + CW ^ {2P}
-  wire [15:0] row2_2_real, row2_2_imag;  // A - CW ^ {2P}
-  wire [15:0] row2_3_real, row2_3_imag;  // BW ^ P + DW ^ {3P}
-  wire [15:0] row2_4_real, row2_4_imag;  // BW ^ P - DW ^ {3P}
+  wire [16:0] row2_1_real, row2_1_imag;  // A + CW ^ {2P}
+  wire [16:0] row2_2_real, row2_2_imag;  // A - CW ^ {2P}
+  wire [16:0] row2_3_real, row2_3_imag;  // BW ^ P + DW ^ {3P}
+  wire [16:0] row2_4_real, row2_4_imag;  // BW ^ P - DW ^ {3P}
 
-  wire [15:0] row3_1_real, row3_1_imag;  // (A + CW ^ {2P}) +  (BW ^ P + DW ^ {3P})
-  wire [15:0] row3_2_real, row3_2_imag;  // (A + CW ^ {2P}) -  (BW ^ P + DW ^ {3P})
-  wire [15:0] row3_3_real, row3_3_imag;  // (A - CW ^ {2P}) + j(BW ^ P - DW ^ {3P})
-  wire [15:0] row3_4_real, row3_4_imag;  // (A - CW ^ {2P}) - j(BW ^ P - DW ^ {3P})
+  wire [16:0] row3_1_real, row3_1_imag;  // (A + CW ^ {2P}) +  (BW ^ P + DW ^ {3P})
+  wire [16:0] row3_2_real, row3_2_imag;  // (A + CW ^ {2P}) -  (BW ^ P + DW ^ {3P})
+  wire [16:0] row3_3_real, row3_3_imag;  // (A - CW ^ {2P}) + j(BW ^ P - DW ^ {3P})
+  wire [16:0] row3_4_real, row3_4_imag;  // (A - CW ^ {2P}) - j(BW ^ P - DW ^ {3P})
 
 // This always part controls signal rotation_factor1.
   always @ ( posedge clk ) begin
@@ -163,35 +164,35 @@ module butterfly(
   always @ ( posedge clk ) begin
     case ( rotation )
       3'b000: begin
-        rotation_factor3[16:8] <= para1111;
+        rotation_factor3[15:8] <= para1111;
         rotation_factor3[7:0]  <= para0000;
       end
       3'b001: begin
-        rotation_factor3[16:8] <= para1111;
+        rotation_factor3[15:8] <= para1111;
         rotation_factor3[7:0]  <= para0000;
       end
       3'b010: begin
-        rotation_factor3[16:8] <= para1111;
+        rotation_factor3[15:8] <= para1111;
         rotation_factor3[7:0]  <= para0000;
       end
       3'b011: begin
-        rotation_factor3[16:8] <= para1111;
+        rotation_factor3[15:8] <= para1111;
         rotation_factor3[7:0]  <= para0000;
       end
       3'b100: begin
-        rotation_factor3[16:8] <= para1111;  // cos(0) = 1            W_16^0
+        rotation_factor3[15:8] <= para1111;  // cos(0) = 1            W_15^0
         rotation_factor3[7:0]  <= para0000;  // sin(0) = 0
       end
       3'b101: begin
-        rotation_factor3[16:8] <= para3827;  // cos(3pi/4) = 0.3827   W_16^3
+        rotation_factor3[15:8] <= para3827;  // cos(3pi/4) = 0.3827   W_15^3
         rotation_factor3[7:0]  <= para9239;  // sin(3pi/4) = 0.9239
       end
       3'b110: begin
-        rotation_factor3[16:8] <= parn7071;  // cos(3pi/4) = -0.7071  W_16^6
+        rotation_factor3[15:8] <= parn7071;  // cos(3pi/4) = -0.7071  W_15^6
         rotation_factor3[7:0]  <= para7071;  // sin(3pi/4) = 0.7071
       end
       3'b111: begin
-        rotation_factor3[16:8] <= parn9239;  // cos(9pi/8) = -0.9239  W_16^9
+        rotation_factor3[15:8] <= parn9239;  // cos(9pi/8) = -0.9239  W_15^9
         rotation_factor3[7:0]  <= parn3827;  // sin(9pi/8) = -0.3827
       end
     endcase
@@ -206,10 +207,6 @@ module butterfly(
                     row3_2_real, row3_2_imag,
                     row3_1_real, row3_1_imag };
   end
-
-// Butterfly reg1
-  assign row1_1_real = calc_in[33:17];  // A
-  assign row1_1_imag = calc_in[16:0];
 
 //****************************** The following is the Instantiations *****************************
 
@@ -278,6 +275,9 @@ module butterfly(
 
 //**************************** The following is the assign statements ****************************
 //**************************************** Butterfly Reg 1 ***************************************
+
+  assign row1_1_real = calc_in[33:17];  // A
+  assign row1_1_imag = calc_in[16:0];
 
   assign in_8bit_1_1  = rotation_factor1[16:8];
   assign in_17bit_1_1 = calc_in[67:51] - calc_in[50:34];
