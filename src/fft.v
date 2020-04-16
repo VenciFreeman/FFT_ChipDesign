@@ -16,7 +16,8 @@
 // - Version 1.0 20/03/24: Create;
 // - Version 1.1 20/04/06: Update butterfly top, and fix some errors;
 // - Version 1.2 20/04/14: Update and check tops, and comment;
-// - Version 1.3 20/04/14: Add statements.
+// - Version 1.3 20/04/14: Add statements;
+// - Version 1.4 20/04/16: Fix some errors.
 //
 // Notes:
 // - Many modules still have not specific signal names.
@@ -26,7 +27,6 @@
 `include "s_p.v"
 `include "mux.v"
 `include "butterfly.v"
-`include "demux.v"
 `include "reg1.v"
 `include "p_s.v"
 
@@ -80,14 +80,7 @@ module top(
     .clk(clk),                // input from top
     .rst_n(rst_n),            // input from top
     .data_in(data_5),
-    .data_out_1(data_2),
-  );
-
-  demux demux0(
-    .demux_flag(demux_flag),  // input from ctrl
-    .data_in(data_4),         // input from butterfly
-    .data_out_1(data_5),      // output to reg2
-    .data_out_2(data_6)       // output to p_s
+    .data_out_1(data_2)
   );
 
   p_s p_s0(
