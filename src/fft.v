@@ -71,9 +71,9 @@ module top(
   butterfly butterfly0(
     .clk(clk),                // input from top
     .rst_n(rst_n),            // input from top
-    .clac_in(data_3),         // input from mux
+    .calc_in(data_3),         // input from mux
     .rotation(rotation),      // input from ctrl
-    .clac_out(data_4)         // output to demux
+    .calc_out(data_4)         // output to demux
   );
 
   reg1 reg10(

@@ -26,7 +26,8 @@
 // - Version 1.7 20/04/12: Edit decimal multiplier, rewrite wire/reg;
 // - Version 2.0 20/04/12: Fix some errors, compile successful;
 // - Version 2.1 20/04/12: Optimize layout, change to 2's complement and add notes;
-// - Version 2.2 20/04/14: Update rotation factors.
+// - Version 2.2 20/04/14: Update rotation factors;
+// - Version 2.3 20/04/16: Fix some simulation errors.
 //
 // Notes:
 // - rotation_factor format: (Re,Im);
@@ -63,9 +64,9 @@ module butterfly(
   wire [7:0]  in_8bit_2_1, in_8bit_2_2, in_8bit_2_3;  // For multiplier of C
   wire [7:0]  in_8bit_3_1, in_8bit_3_2, in_8bit_3_3;  // For multiplier of D
 
-  wire [15:0] in_16bit_1_1, in_16bit_1_2, in_16bit_1_3;  // For multiplier of B
-  wire [15:0] in_16bit_2_1, in_16bit_2_2, in_16bit_2_3;  // For multiplier of C
-  wire [15:0] in_16bit_3_1, in_16bit_3_2, in_16bit_3_3;  // For multiplier of D
+  wire [16:0] in_17bit_1_1, in_17bit_1_2, in_17bit_1_3;  // For multiplier of B
+  wire [16:0] in_17bit_2_1, in_17bit_2_2, in_17bit_2_3;  // For multiplier of C
+  wire [16:0] in_17bit_3_1, in_17bit_3_2, in_17bit_3_3;  // For multiplier of D
 
   wire [15:0] row1_1_real, row1_1_imag;  // Row means stage of FFT. 16-point 4-radix FFT has 2 stages.
   wire [15:0] row1_2_real, row1_2_imag, row1_2_real_b, row1_2_imag_b, comp_part_1;  // The last three lines are used for intermediate data transfer
@@ -214,63 +215,63 @@ module butterfly(
 
   multi16 multi1_2_1 (.clk(clk),
                       .rst_n(rst_n),
-                      .in_17bit(in_16bit_1_1),
+                      .in_17bit(in_17bit_1_1),
                       .in_8bit(in_8bit_1_1),
                       .out(comp_part_1)
                      );
 
   multi16 multi1_2_2 (.clk(clk),
                       .rst_n(rst_n),
-                      .in_17bit(in_16bit_1_2),
+                      .in_17bit(in_17bit_1_2),
                       .in_8bit(in_8bit_1_2),
                       .out(row1_2_real_b)
                       );
 
   multi16 multi1_2_3 (.clk(clk),
                       .rst_n(rst_n),
-                      .in_17bit(in_16bit_1_3),
+                      .in_17bit(in_17bit_1_3),
                       .in_8bit(in_8bit_1_3),
                       .out(row1_2_imag_b)
                       );
 
   multi16 multi1_3_1 (.clk(clk),
                       .rst_n(rst_n),
-                      .in_17bit(in_16bit_2_1),
+                      .in_17bit(in_17bit_2_1),
                       .in_8bit(in_8bit_2_1),
                       .out(comp_part_2)
                      );
 
   multi16 multi1_3_2 (.clk(clk),
                       .rst_n(rst_n),
-                      .in_17bit(in_16bit_2_2),
+                      .in_17bit(in_17bit_2_2),
                       .in_8bit(in_8bit_2_2),
                       .out(row1_3_real_b)
                       );
 
   multi16 multi1_3_3 (.clk(clk),
                       .rst_n(rst_n),
-                      .in_17bit(in_16bit_1_3),
+                      .in_17bit(in_17bit_1_3),
                       .in_8bit(in_8bit_1_3),
                       .out(row1_3_imag_b)
                       );
 
   multi16 multi1_4_1 (.clk(clk),
                       .rst_n(rst_n),
-                      .in_17bit(in_16bit_3_1),
+                      .in_17bit(in_17bit_3_1),
                       .in_8bit(in_8bit_3_1),
                       .out(comp_part_3)
                      );
 
   multi16 multi1_4_2 (.clk(clk),
                       .rst_n(rst_n),
-                      .in_17bit(in_16bit_3_2),
+                      .in_17bit(in_17bit_3_2),
                       .in_8bit(in_8bit_3_2),
                       .out(row1_4_real_b)
                       );
 
   multi16 multi1_4_3 (.clk(clk),
                       .rst_n(rst_n),
-                      .in_17bit(in_16bit_3_3),
+                      .in_17bit(in_17bit_3_3),
                       .in_8bit(in_8bit_3_3),
                       .out(row1_4_imag_b)
                       );
@@ -279,37 +280,37 @@ module butterfly(
 //**************************************** Butterfly Reg 1 ***************************************
 
   assign in_8bit_1_1  = rotation_factor1[16:8];
-  assign in_16bit_1_1 = calc_in[67:51] - calc_in[50:34];
+  assign in_17bit_1_1 = calc_in[67:51] - calc_in[50:34];
 
   assign in_8bit_1_2  = rotation_factor1[16:8] - rotation_factor1[7:0];
-  assign in_16bit_1_2 = rotation_factor1[50:34];
+  assign in_17bit_1_2 = rotation_factor1[50:34];
 
   assign in_8bit_1_3  = rotation_factor1[16:8] + rotation_factor1[7:0];
-  assign in_16bit_1_3 = calc_in[67:51];
+  assign in_17bit_1_3 = calc_in[67:51];
 
   assign row1_2_real  = row1_2_real_b + comp_part_1;
   assign row1_2_imag  = row1_2_imag_b - comp_part_1;
 
   assign in_8bit_2_1  = rotation_factor2[16:8];
-  assign in_16bit_2_1 = calc_in[101:85] - calc_in[84:68];
+  assign in_17bit_2_1 = calc_in[101:85] - calc_in[84:68];
 
   assign in_8bit_2_2  = rotation_factor2[16:8] - rotation_factor2[7:0];
-  assign in_16bit_2_2 = rotation_factor2[84:68];
+  assign in_17bit_2_2 = rotation_factor2[84:68];
 
   assign in_8bit_2_3  = rotation_factor2[16:8] + rotation_factor2[7:0];
-  assign in_16bit_2_3 = calc_in[101:85];
+  assign in_17bit_2_3 = calc_in[101:85];
 
   assign row1_3_real  = row1_3_real_b + comp_part_2;
   assign row1_3_imag  = row1_3_imag_b - comp_part_2;
 
   assign in_8bit_3_1  = rotation_factor3[16:8];
-  assign in_16bit_3_1 = calc_in[135:119] - calc_in[118:102];
+  assign in_17bit_3_1 = calc_in[135:119] - calc_in[118:102];
 
   assign in_8bit_3_2  = rotation_factor3[16:8] - rotation_factor3[7:0];
-  assign in_16bit_3_2 = rotation_factor3[118:102];
+  assign in_17bit_3_2 = rotation_factor3[118:102];
 
   assign in_8bit_3_3  = rotation_factor3[16:8] + rotation_factor3[7:0];
-  assign in_16bit_3_3 = calc_in[135:119];
+  assign in_17bit_3_3 = calc_in[135:119];
 
   assign row1_4_real  = row1_4_real_b + comp_part_3;
   assign row1_4_imag  = row1_4_imag_b - comp_part_3;

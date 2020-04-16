@@ -19,7 +19,8 @@
 // - Version 3.2 20/04/12: Add rst_n to the sensitive list;
 // - Version 3.3 20/04/12: Fix some errors, compile successful;
 // - Version 3.4 20/04/12: Add comments;
-// - Version 3.5 20/04/14: Transform to 17-bit input.
+// - Version 3.5 20/04/14: Transform to 17-bit input;
+// - Version 3.6 20/04/16: Fix some simulation errors.
 //
 // Notes: 
 //
@@ -27,18 +28,18 @@
 
 module multi17(
 
-  input clk,              // clock
-  input rst_n,            // reset
-  input [16:0] in_17bit,  // 17-bit input  data
-  input [7:0] in_8bit,    // 8-bit  input  data
-  output reg[16:0] out    // 17-bit output data
+  input wire clk,              // clock
+  input wire rst_n,            // reset
+  input wire [16:0] in_17bit,  // 17-bit input  data
+  input wire [7:0]  in_8bit,   // 8-bit  input  data
+  output reg [16:0] out        // 17-bit output data
   
   );
 
   reg flag;               // determine the sign of the product
   reg [16:0] in_17bit_b;  // store 17-bit true form data
   reg [7:0]  in_8bit_b;   // store 8-bit  true form data
-  reg [21:0] sum;         //
+  reg [21:0] sum;
   reg [23:0] sum_b;
 
 // This always part controls signal in_17bit_b. Feature: 2's Complement ==> True Form

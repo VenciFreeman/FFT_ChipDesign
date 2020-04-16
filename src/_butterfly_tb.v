@@ -12,7 +12,8 @@
 // Details: 
 //
 // Release History:
-// - Version 1.0 20/04/15: Create.
+// - Version 1.0 20/04/15: Create;
+// - Version 2.0 20/04/16: Fix some errors.
 //
 // Notes:
 // - data format: in4(Re,Im), in3(Re,Im), in2(Re,Im), in1(Re,Im).
@@ -36,9 +37,9 @@ module butterfly_tb( );
   butterfly butterfly0(
     .clk(clk_test),
     .rst_n(rst_n_test),
-    .clac_in(data_in_test),
+    .calc_in(clac_in_test),
     .rotation(rotation_test),
-    .clac_out(data_out_test)
+    .calc_out(clac_out_test)
   );
 
   initial begin
@@ -49,61 +50,61 @@ module butterfly_tb( );
   end
 
   always begin
-      #(clk_frac / 2) clk_test = ~ clk_test;	// create a 100MHz clock
+      #(clk_freq / 2) clk_test = ~ clk_test;	// create a 100MHz clock
       rst_n_test = 1;
   end
 
   initial begin
     $display("\n\nLoad Data\n");
-    #10  data_in = 135'b00000000000000000000000000000000000000000000000000000000000000000000;
-    #10  rotation = 3'b000;
+    #10  clac_in_test = 135'b00000000000000000000000000000000000000000000000000000000000000000000;
+    #10  rotation_test = 3'b000;
 
-    temp1 = data_out;
+    temp1 = clac_out_test;
 
-    #20  data_in = 135'b00000000000000000000000100000000000000010000000000000000001000000000;
-    #20  rotation = 3'b001;
+    #20  clac_in_test = 135'b00000000000000000000000100000000000000010000000000000000001000000000;
+    #20  rotation_test = 3'b001;
 
-    temp2 = data_out;
+    temp2 = clac_out_test;
 
-    #30  data_in = 135'b00000000000000000000000100000000000000000000000000000000000000000000;
-    #30  rotation = 3'b010;
+    #30  clac_in_test = 135'b00000000000000000000000100000000000000000000000000000000000000000000;
+    #30  rotation_test = 3'b010;
 
-    temp3 = data_out;
+    temp3 = clac_out_test;
 
-    #40  data_in = 135'b00000000000000000000000000000000000000000000000000000000000000000000;
-    #40  rotation = 3'b011;
+    #40  clac_in_test = 135'b00000000000000000000000000000000000000000000000000000000000000000000;
+    #40  rotation_test = 3'b011;
 
-    temp4 = data_out;
+    temp4 = clac_out_test;
 
     $display("\n\nStage 2\n");
 
-    #50  data_in = temp1;
-    #50  rotation = 3'b100;
-    $display("%b + j%b\n", data_out[135:119][118:102]);
-    $display("%b + j%b\n", data_out[101:85][84:68]);
-    $display("%b + j%b\n", data_out[67:51][50:34]);
-    $display("%b + j%b\n", data_out[33:17][16:0]);
+    #50  clac_in_test = temp1;
+    #50  rotation_test = 3'b100;
+    $display("%b + j%b\n", clac_out_test[135:119], clac_out_test[118:102]);
+    $display("%b + j%b\n", clac_out_test[101:85], clac_out_test[84:68]);
+    $display("%b + j%b\n", clac_out_test[67:51], clac_out_test[50:34]);
+    $display("%b + j%b\n", clac_out_test[33:17], clac_out_test[16:0]);
 
-    #60  data_in = temp2;
-    #60  rotation = 3'b101;
-    $display("%b + j%b\n", data_out[135:119][118:102]);
-    $display("%b + j%b\n", data_out[101:85][84:68]);
-    $display("%b + j%b\n", data_out[67:51][50:34]);
-    $display("%b + j%b\n", data_out[33:17][16:0]);
+    #60  clac_in_test = temp2;
+    #60  rotation_test = 3'b101;
+    $display("%b + j%b\n", clac_out_test[135:119], clac_out_test[118:102]);
+    $display("%b + j%b\n", clac_out_test[101:85], clac_out_test[84:68]);
+    $display("%b + j%b\n", clac_out_test[67:51], clac_out_test[50:34]);
+    $display("%b + j%b\n", clac_out_test[33:17], clac_out_test[16:0]);
 
-    #70  data_in = temp3;
-    #70  rotation = 3'b110;
-    $display("%b + j%b\n", data_out[135:119][118:102]);
-    $display("%b + j%b\n", data_out[101:85][84:68]);
-    $display("%b + j%b\n", data_out[67:51][50:34]);
-    $display("%b + j%b\n", data_out[33:17][16:0]);
+    #70  clac_in_test = temp3;
+    #70  rotation_test = 3'b110;
+    $display("%b + j%b\n", clac_out_test[135:119], clac_out_test[118:102]);
+    $display("%b + j%b\n", clac_out_test[101:85], clac_out_test[84:68]);
+    $display("%b + j%b\n", clac_out_test[67:51], clac_out_test[50:34]);
+    $display("%b + j%b\n", clac_out_test[33:17], clac_out_test[16:0]);
 
-    #80  data_in = temp4;
-    #80  rotation = 3'b111;
-    $display("%b + j%b\n", data_out[135:119][118:102]);
-    $display("%b + j%b\n", data_out[101:85][84:68]);
-    $display("%b + j%b\n", data_out[67:51][50:34]);
-    $display("%b + j%b\n", data_out[33:17][16:0]);
+    #80  clac_in_test = temp4;
+    #80  rotation_test = 3'b111;
+    $display("%b + j%b\n", clac_out_test[135:119], clac_out_test[118:102]);
+    $display("%b + j%b\n", clac_out_test[101:85], clac_out_test[84:68]);
+    $display("%b + j%b\n", clac_out_test[67:51], clac_out_test[50:34]);
+    $display("%b + j%b\n", clac_out_test[33:17], clac_out_test[16:0]);
 
     #1000 $stop;   
   end
