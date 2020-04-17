@@ -29,7 +29,8 @@
 // - Version 2.2 20/04/14: Update rotation factors;
 // - Version 2.3 20/04/16: Fix some simulation errors;
 // - Version 2.4 20/04/16: Fix some errors about bits;
-// - Version 2.5 20/04/16: Simulate successful. Still need to check results.
+// - Version 2.5 20/04/16: Simulate successful. Still need to check results;
+// - Version 2.6 20/04/17: Check again, fix some errors. Simulate successful.
 //
 // Notes:
 // - rotation_factor format: (Re,Im);
@@ -45,7 +46,7 @@ module butterfly(
   input  wire        rst_n,    // Reset
   input  wire[135:0] calc_in,  // The 4 numbers which need to be calculated. Format: in4(Re,Im), in3(Re,Im), in2(Re,Im), in1(Re,Im)
   input  wire[2:0]   rotation, // Number of each butterfly computation (8 in total)
-  output reg[135:0]  calc_out  // The 4 output numbers. Format: out4(Re,Im), out3(Re,Im), out2(Re,Im), out1(Re,Im)
+  output reg [135:0] calc_out  // The 4 output numbers. Format: out4(Re,Im), out3(Re,Im), out2(Re,Im), out1(Re,Im)
 
   );
 
@@ -58,9 +59,9 @@ module butterfly(
   parameter parn9239 = 8'b10001010;  // -0.9239. sin(3pi/8) = sin(5pi/8) = cos(1pi/8) = - cos(7pi/8)
   parameter para1111 = 8'b01111111;  //  1.0000. sin(4pi/8) = sin(4pi/8) = coa(0pi/8) = - cos(8pi/8)
   
-  reg  [16:0] rotation_factor1;  // For input B
-  reg  [16:0] rotation_factor2;  // For input C
-  reg  [16:0] rotation_factor3;  // For input D
+  reg  [15:0] rotation_factor1;  // For input B
+  reg  [15:0] rotation_factor2;  // For input C
+  reg  [15:0] rotation_factor3;  // For input D
 
   wire [7:0]  in_8bit_1_1, in_8bit_1_2, in_8bit_1_3;  // For multiplier of B
   wire [7:0]  in_8bit_2_1, in_8bit_2_2, in_8bit_2_3;  // For multiplier of C
@@ -284,7 +285,7 @@ module butterfly(
   assign in_17bit_1_1 = calc_in[67:51] - calc_in[50:34];
 
   assign in_8bit_1_2  = rotation_factor1[15:8] - rotation_factor1[7:0];
-  assign in_17bit_1_2 = rotation_factor1[50:34];
+  assign in_17bit_1_2 = calc_in[50:34];
 
   assign in_8bit_1_3  = rotation_factor1[15:8] + rotation_factor1[7:0];
   assign in_17bit_1_3 = calc_in[67:51];
@@ -296,7 +297,7 @@ module butterfly(
   assign in_17bit_2_1 = calc_in[101:85] - calc_in[84:68];
 
   assign in_8bit_2_2  = rotation_factor2[15:8] - rotation_factor2[7:0];
-  assign in_17bit_2_2 = rotation_factor2[84:68];
+  assign in_17bit_2_2 = calc_in[84:68];
 
   assign in_8bit_2_3  = rotation_factor2[15:8] + rotation_factor2[7:0];
   assign in_17bit_2_3 = calc_in[101:85];
@@ -308,7 +309,7 @@ module butterfly(
   assign in_17bit_3_1 = calc_in[135:119] - calc_in[118:102];
 
   assign in_8bit_3_2  = rotation_factor3[15:8] - rotation_factor3[7:0];
-  assign in_17bit_3_2 = rotation_factor3[118:102];
+  assign in_17bit_3_2 = calc_in[118:102];
 
   assign in_8bit_3_3  = rotation_factor3[15:8] + rotation_factor3[7:0];
   assign in_17bit_3_3 = calc_in[135:119];
