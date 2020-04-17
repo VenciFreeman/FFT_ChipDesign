@@ -16,7 +16,8 @@
 // - Version 2.0 20/04/16: Fix some errors;
 // - Version 2.1 20/04/17: Change test vectors;
 // - Version 2.2 20/04/17: Edit display style;
-// - Version 2.3 20/04/17: Change latency.
+// - Version 2.3 20/04/17: Change latency;
+// - Version 2.4 20/04/17: Fix input vectors.
 //
 // Notes:
 // - data format: in4(Re,Im), in3(Re,Im), in2(Re,Im), in1(Re,Im).
@@ -60,24 +61,24 @@ module butterfly_tb( );
   initial begin
     $display("\n\nLoad Data\n");
     #20 begin
-      clac_in_test = 136'b0000000010000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000;
-      //                  |   x[1]Real    ||    x[1]Imag   ||    x[2]Real   ||    x[1]Imag   ||    x[3]Real   ||    x[3]Imag   ||    x[4]Real   ||   x[4]Imag    |
+      clac_in_test = 136'b0000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000;
+      //                  |   x[4]Real    ||    x[4]Imag   ||    x[3]Real   ||    x[3]Imag   ||    x[2]Real   ||    x[2]Imag   ||    x[1]Real   ||   x[1]Imag    |
       rotation_test = 3'b000;
     end
 
     temp1 = clac_out_test;
 
     #10 begin
-      clac_in_test = 136'b0000000110000000000000000000000000000000010000000000000001000000000000000000100000000000001000000000000000000100000000000000001000000000;
-      //                  |   x[5]Real    ||    x[5]Imag   ||    x[6]Real   ||    x[6]Imag   ||    x[7]Real   ||    x[7]Imag   ||    x[8]Real   ||   x[8]Imag    |
+      clac_in_test = 136'b0000000100000000000000001000000000000000001000000000000010000000000000000001000000000000000100000000000000000110000000000000000000000000;
+      //                  |   x[8]Real    ||    x[8]Imag   ||    x[7]Real   ||    x[7]Imag   ||    x[6]Real   ||    x[6]Imag   ||    x[5]Real   ||   x[5]Imag    |
       rotation_test = 3'b001;
     end
 
     temp2 = clac_out_test;
 
     #10 begin
-      clac_in_test = 136'b0000000010000000000000000000000000000000010000000000000001000000000000000000100000000000000000000000000000000000000000000000000000000000;
-      //                  |   x[9]Real    ||    x[9]Imag   ||    x[10]Real  ||    x[10]Imag  ||    x[11]Real  ||    x[11]Imag  ||    x[12]Real  ||   x[12]Imag   |
+      clac_in_test = 136'b0000000000000000000000000000000000000000001000000000000000000000000000000001000000000000000100000000000000000010000000000000000000000000;
+      //                  |   x[12]Real   ||   x[12]Imag   ||    x[11]Real  ||    x[11]Imag  ||    x[10]Real  ||    x[10]Imag  ||    x[9]Real   ||   x[9]Imag    |
       rotation_test = 3'b010;
     end
 
@@ -85,7 +86,7 @@ module butterfly_tb( );
 
     #10 begin
       clac_in_test = 136'b0000000010000000000000000000000000000000001000000000000000000000000000000000100000000000000000000000000000000010000000000000000000000000;
-    //                    |   x[13]Real   ||    x[13]Imag  ||    x[14]Real  ||    x[14]Imag  ||    x[15]Real  ||    x[15]Imag  ||    x[16]Real  ||   x[16]Imag   |
+    //                    |   x[16]Real   ||    x[16]Imag  ||    x[15]Real  ||    x[15]Imag  ||    x[14]Real  ||    x[14]Imag  ||    x[13]Real  ||   x[13]Imag   |
       rotation_test = 3'b011;
     end
 
