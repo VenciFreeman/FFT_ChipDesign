@@ -49,7 +49,7 @@ module multi16(
     if( !rst_n )
       in_17bit_b <= 17'b0;
     else
-      in_17bit_b <= (in_17bit[16] == 1) ? {in_17bit[16] , ~in_17bit[14:0] + 1'b1} : in_17bit;
+      in_17bit_b <= (in_17bit[16] == 1) ? {in_17bit[16] , ~in_17bit[15:0] + 1'b1} : in_17bit;
     // If in_17bit is a negative number, transform to 2's complement, otherwise remain the same.
   end
 
