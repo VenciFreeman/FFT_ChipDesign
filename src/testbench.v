@@ -45,7 +45,7 @@ end
 initial begin
 	rst_n = 1'b0;
   $display("\n\nLoad Data\n");  
-  $readmemb("G:/brainchild/verilog/FFT_Design/Data_Input.txt", InputData);
+  $readmemb("test/Data_Input.txt", InputData);
   #250 begin
     rst_n = 1'b1;
     for(i = 0; i < 16; i = i + 1) begin

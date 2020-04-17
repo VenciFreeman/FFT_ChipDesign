@@ -63,8 +63,8 @@ module top(
 
   mux mux0(
     .mux_flag(mux_flag),      // input from ctrl 
-    .data_in_1(data_1),       // input from s_p
-    .data_in_2(data_2),       // input from reg2
+    .data_in_2(data_1),       // input from s_p
+    .data_in_1(data_2),       // input from reg1
     .data_out(data_3)         // output to butterfly
   );
 
@@ -79,14 +79,15 @@ module top(
   reg1 reg10(
     .clk(clk),                // input from top
     .rst_n(rst_n),            // input from top
-    .data_in(data_5),
-    .data_out_1(data_2)
+    .data_in_2(data_5),
+    .data_out_2(data_2),
+    reg_datain_flag(demux_flag)
   );
 
   p_s p_s0(
     .clk(clk),                // input from top
     .rst_n(rst_n),            // input from top
-    .p_s_flag_in(),           // input from ctrl  #* Warning 02: Please check no p_s_flag in ctrl *#
+    .p_s_flag_in(demux_flag),           // input from ctrl  #* Warning 02: Please check no p_s_flag in ctrl *#
     .data_in_3(data_6),       // input from demux
     .data_out_3(data_out)     // output to top
   );

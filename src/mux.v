@@ -27,7 +27,7 @@ module mux(
 
   );
 
-  always @ ( mux_flag ) begin
+  always @ ( mux_flag or data_in_1 or data_in_2) begin
     if ( mux_flag )
       data_out <= data_in_1;
     else
