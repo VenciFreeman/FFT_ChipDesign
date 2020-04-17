@@ -30,11 +30,12 @@
 // - Version 2.3 20/04/16: Fix some simulation errors;
 // - Version 2.4 20/04/16: Fix some errors about bits;
 // - Version 2.5 20/04/16: Simulate successful. Still need to check results;
-// - Version 2.6 20/04/17: Check again, fix some errors. Simulate successful.
+// - Version 2.6 20/04/17: Check again, fix some errors. Simulate successful;
+// - Version 2.7 20/04/17: Add signed.
 //
 // Notes:
 // - rotation_factor format: (Re,Im);
-// - clac_in format: in4(Re,Im), in3(Re,Im), in2(Re,Im), in1(Re,Im).
+// - calc_in format: in4(Re,Im), in3(Re,Im), in2(Re,Im), in1(Re,Im).
 // - Input and output are both 2's Complements.
 //
 //**********************************************************
@@ -67,24 +68,24 @@ module butterfly(
   wire [7:0]  in_8bit_2_1, in_8bit_2_2, in_8bit_2_3;  // For multiplier of C
   wire [7:0]  in_8bit_3_1, in_8bit_3_2, in_8bit_3_3;  // For multiplier of D
 
-  wire [16:0] in_17bit_1_1, in_17bit_1_2, in_17bit_1_3;  // For multiplier of B
-  wire [16:0] in_17bit_2_1, in_17bit_2_2, in_17bit_2_3;  // For multiplier of C
-  wire [16:0] in_17bit_3_1, in_17bit_3_2, in_17bit_3_3;  // For multiplier of D
+  wire signed [16:0] in_17bit_1_1, in_17bit_1_2, in_17bit_1_3;  // For multiplier of B
+  wire signed [16:0] in_17bit_2_1, in_17bit_2_2, in_17bit_2_3;  // For multiplier of C
+  wire signed [16:0] in_17bit_3_1, in_17bit_3_2, in_17bit_3_3;  // For multiplier of D
 
-  wire [16:0] row1_1_real, row1_1_imag;  // Row means stage of FFT. 16-point 4-radix FFT has 2 stages.
-  wire [16:0] row1_2_real, row1_2_imag, row1_2_real_b, row1_2_imag_b, comp_part_1;  // The last three lines are used for intermediate data transfer
-  wire [16:0] row1_3_real, row1_3_imag, row1_3_real_b, row1_3_imag_b, comp_part_2;
-  wire [16:0] row1_4_real, row1_4_imag, row1_4_real_b, row1_4_imag_b, comp_part_3;
+  wire signed [16:0] row1_1_real, row1_1_imag;  // Row means stage of FFT. 16-point 4-radix FFT has 2 stages.
+  wire signed [16:0] row1_2_real, row1_2_imag, row1_2_real_b, row1_2_imag_b, comp_part_1;  // The last three lines are used for intermediate data transfer
+  wire signed [16:0] row1_3_real, row1_3_imag, row1_3_real_b, row1_3_imag_b, comp_part_2;
+  wire signed [16:0] row1_4_real, row1_4_imag, row1_4_real_b, row1_4_imag_b, comp_part_3;
 
-  wire [16:0] row2_1_real, row2_1_imag;  // A + CW ^ {2P}
-  wire [16:0] row2_2_real, row2_2_imag;  // A - CW ^ {2P}
-  wire [16:0] row2_3_real, row2_3_imag;  // BW ^ P + DW ^ {3P}
-  wire [16:0] row2_4_real, row2_4_imag;  // BW ^ P - DW ^ {3P}
+  wire signed [16:0] row2_1_real, row2_1_imag;  // A + CW ^ {2P}
+  wire signed [16:0] row2_2_real, row2_2_imag;  // A - CW ^ {2P}
+  wire signed [16:0] row2_3_real, row2_3_imag;  // BW ^ P + DW ^ {3P}
+  wire signed [16:0] row2_4_real, row2_4_imag;  // BW ^ P - DW ^ {3P}
 
-  wire [16:0] row3_1_real, row3_1_imag;  // (A + CW ^ {2P}) +  (BW ^ P + DW ^ {3P})
-  wire [16:0] row3_2_real, row3_2_imag;  // (A + CW ^ {2P}) -  (BW ^ P + DW ^ {3P})
-  wire [16:0] row3_3_real, row3_3_imag;  // (A - CW ^ {2P}) + j(BW ^ P - DW ^ {3P})
-  wire [16:0] row3_4_real, row3_4_imag;  // (A - CW ^ {2P}) - j(BW ^ P - DW ^ {3P})
+  wire signed [16:0] row3_1_real, row3_1_imag;  // (A + CW ^ {2P}) +  (BW ^ P + DW ^ {3P})
+  wire signed [16:0] row3_2_real, row3_2_imag;  // (A + CW ^ {2P}) -  (BW ^ P + DW ^ {3P})
+  wire signed [16:0] row3_3_real, row3_3_imag;  // (A - CW ^ {2P}) + j(BW ^ P - DW ^ {3P})
+  wire signed [16:0] row3_4_real, row3_4_imag;  // (A - CW ^ {2P}) - j(BW ^ P - DW ^ {3P})
 
 // This always part controls signal rotation_factor1.
   always @ ( posedge clk ) begin
