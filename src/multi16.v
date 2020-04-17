@@ -22,7 +22,8 @@
 // - Version 3.5 20/04/14: Transform to 17-bit input;
 // - Version 3.6 20/04/16: Fix some simulation errors;
 // - Version 3.7 20/04/16: Simulate successful. Still need to check results;
-// - Version 3.8 20/04/17: Check again, fix some errors and add comments.
+// - Version 3.8 20/04/17: Check again, fix some errors and add comments;
+// - Version 3.9 20/04/17: Fix 2's complement error.
 //
 // Notes: 
 //
@@ -41,7 +42,7 @@ module multi16(
   reg flag;               // determine the sign of the product
   reg [16:0] in_17bit_b;  // store 17-bit true form data
   reg [7:0]  in_8bit_b;   // store 8-bit  true form data
-  reg [21:0] sum;
+  reg [22:0] sum;
   reg [23:0] sum_b;
 
 // This always part controls signal in_17bit_b. Feature: 2's Complement ==> True Form
@@ -74,7 +75,7 @@ module multi16(
 // This always part controls signal sum. Feature: Calculate decimal
   always @ ( posedge clk or negedge rst_n ) begin
     if( !rst_n )
-      sum <= 22'b0;
+      sum <= 23'b0;
     else
       sum <= in_17bit_b[15:0] * in_8bit_b[6:0];
       // Calculate the absolute value of the product.
@@ -85,16 +86,16 @@ module multi16(
     if( !rst_n )
       sum_b <= 24'b0;
     else
-      sum_b <= {flag, sum, 1'b0};
+      sum_b <= {flag, sum};
     // Add the sign.
   end
 
 // This always part controls signal out. Feature: True Form ==> 2's Complement
   always @ ( posedge clk or negedge rst_n ) begin
     if( !rst_n )
-      out <= 17'b0;
+      out <= 24'b0;
     else
-      out <= sum_b[23] ? {sum_b[23], ~sum_b[22:7] + 1'b1} : sum_b[23:7];  // Output only keep 17 bits
+      out <= sum_b[23] ? {sum_b[23], ~sum_b[22:7] + 9'b100000000} : sum_b[23:7];  // Output only keep 17 bits
   end
 
 endmodule
