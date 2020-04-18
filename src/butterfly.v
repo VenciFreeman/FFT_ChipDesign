@@ -32,7 +32,8 @@
 // - Version 2.5 20/04/16: Simulate successful. Still need to check results;
 // - Version 2.6 20/04/17: Check again, fix some errors. Simulate successful;
 // - Version 2.7 20/04/17: Add signed;
-// - Version 2.8 20/04/18: Check again, add comments.
+// - Version 2.8 20/04/18: Check again, add comments;
+// - Version 2.9 20/04/18: Fix rotation factors.
 //
 // Notes:
 // - rotation_factor format: (Re,Im). The highest bit is sign bit, 7 data bits;
@@ -61,13 +62,16 @@ module butterfly(
   parameter parn9239 = 8'b10001010;  // -0.9239. sin(3pi/8) = sin(5pi/8) = cos(1pi/8) = - cos(7pi/8)
   parameter para1111 = 8'b01111111;  //  1.0000. sin(4pi/8) = sin(4pi/8) = coa(0pi/8) = - cos(8pi/8)
   
-  reg  [15:0] rotation_factor1;  // For input B
-  reg  [15:0] rotation_factor2;  // For input C
-  reg  [15:0] rotation_factor3;  // For input D
+  reg  signed [7:0]  rotation_factor1_real;  // For input B
+  reg  signed [7:0]  rotation_factor1_imag;  // For input B
+  reg  signed [7:0]  rotation_factor2_real;  // For input C
+  reg  signed [7:0]  rotation_factor2_imag;  // For input C
+  reg  signed [7:0]  rotation_factor3_real;  // For input D
+  reg  signed [7:0]  rotation_factor3_imag;  // For input D
 
-  wire [7:0]  in_8bit_1_1, in_8bit_1_2, in_8bit_1_3;  // For multiplier of B
-  wire [7:0]  in_8bit_2_1, in_8bit_2_2, in_8bit_2_3;  // For multiplier of C
-  wire [7:0]  in_8bit_3_1, in_8bit_3_2, in_8bit_3_3;  // For multiplier of D
+  wire signed [7:0]  in_8bit_1_1, in_8bit_1_2, in_8bit_1_3;  // For multiplier of B
+  wire signed [7:0]  in_8bit_2_1, in_8bit_2_2, in_8bit_2_3;  // For multiplier of C
+  wire signed [7:0]  in_8bit_3_1, in_8bit_3_2, in_8bit_3_3;  // For multiplier of D
 
   wire signed [16:0] in_17bit_1_1, in_17bit_1_2, in_17bit_1_3;  // For multiplier of B
   wire signed [16:0] in_17bit_2_1, in_17bit_2_2, in_17bit_2_3;  // For multiplier of C
@@ -88,117 +92,87 @@ module butterfly(
   wire signed [16:0] row3_3_real, row3_3_imag;  // (A - CW ^ {2P}) + j(BW ^ P - DW ^ {3P})
   wire signed [16:0] row3_4_real, row3_4_imag;  // (A - CW ^ {2P}) - j(BW ^ P - DW ^ {3P})
 
-// This always part controls signal rotation_factor1.
+// This always part controls signal rotation_factor1_real.
   always @ ( posedge clk ) begin
     case ( rotation )
-      3'b000: begin
-        rotation_factor1[15:8] <= para1111;
-        rotation_factor1[7:0]  <= para0000;
-      end
-      3'b001: begin
-        rotation_factor1[15:8] <= para1111;
-        rotation_factor1[7:0]  <= para0000;
-      end
-      3'b010: begin
-        rotation_factor1[15:8] <= para1111;
-        rotation_factor1[7:0]  <= para0000;
-      end
-      3'b011: begin
-        rotation_factor1[15:8] <= para1111;
-        rotation_factor1[7:0]  <= para0000;
-      end
-      3'b100: begin
-        rotation_factor1[15:8] <= para1111;  // cos(0) = 1            W_16^0
-        rotation_factor1[7:0]  <= para0000;  // sin(0) = 0
-      end
-      3'b101: begin
-        rotation_factor1[15:8] <= para9239;  // cos(pi/8) = 0.9239    W_16^1
-        rotation_factor1[7:0]  <= para3827;  // sin(pi/8) = 0.3827
-      end
-      3'b110: begin
-        rotation_factor1[15:8] <= para7071;  // cos(pi/4) = 0.7071    W_16^2
-        rotation_factor1[7:0]  <= para7071;  // sin(pi/4) = 0.7071
-      end
-      3'b111: begin
-        rotation_factor1[15:8] <= para3827;  // cos(3pi/8) = 0.3827   W_16^3
-        rotation_factor1[7:0]  <= para9239;  // sin(3pi/8) = 0.9239
-      end
+      3'b000: rotation_factor1_real <= para1111;
+      3'b001: rotation_factor1_real <= para1111;
+      3'b010: rotation_factor1_real <= para1111;
+      3'b011: rotation_factor1_real <= para1111;
+      3'b100: rotation_factor1_real <= para1111;  // cos(0)     = 1        W_16^0
+      3'b101: rotation_factor1_real <= para9239;  // cos(pi/8)  = 0.9239   W_16^1
+      3'b110: rotation_factor1_real <= para7071;  // cos(pi/4)  = 0.7071   W_16^2
+      3'b111: rotation_factor1_real <= para3827;  // cos(3pi/8) = 0.3827   W_16^3
     endcase
   end
 
-// This always part controls signal rotation_factor2.
+// This always part controls signal rotation_factor1_imag.
   always @ ( posedge clk ) begin
     case ( rotation )
-      3'b000: begin
-        rotation_factor2[15:8] <= para1111;
-        rotation_factor2[7:0]  <= para0000;
-      end
-      3'b001: begin
-        rotation_factor2[15:8] <= para1111;
-        rotation_factor2[7:0]  <= para0000;
-      end
-      3'b010: begin
-        rotation_factor2[15:8] <= para1111;
-        rotation_factor2[7:0]  <= para0000;
-      end
-      3'b011: begin
-        rotation_factor2[15:8] <= para1111;
-        rotation_factor2[7:0]  <= para0000;
-      end
-      3'b100: begin
-        rotation_factor2[15:8] <= para1111;  // cos(0) = 1            W_16^0
-        rotation_factor2[7:0]  <= para0000;  // sin(0) = 0
-      end
-      3'b101: begin
-        rotation_factor2[15:8] <= para7071;  // cos(pi/4) = 0.7071    W_16^2
-        rotation_factor2[7:0]  <= para7071;  // sin(pi/4) = 0.7071
-      end
-      3'b110: begin
-        rotation_factor2[15:8] <= para0000;  // cos(pi/2) = 0         W_16^4
-        rotation_factor2[7:0]  <= para1111;  // sin(pi/2) = 1
-      end
-      3'b111: begin
-        rotation_factor2[15:8] <= parn7071;  // cos(3pi/4) = -0.7071  W_16^6
-        rotation_factor2[7:0]  <= para7071;  // sin(3pi/4) = 0.7071
-      end
+      3'b000: rotation_factor1_imag <= para0000;
+      3'b001: rotation_factor1_imag <= para0000;
+      3'b010: rotation_factor1_imag <= para0000;
+      3'b011: rotation_factor1_imag <= para0000;
+      3'b100: rotation_factor1_imag <= para0000;  // sin(0)     = 0        W_16^0
+      3'b101: rotation_factor1_imag <= para3827;  // sin(pi/8)  = 0.3827   W_16^1
+      3'b110: rotation_factor1_imag <= para7071;  // sin(pi/4)  = 0.7071   W_16^2
+      3'b111: rotation_factor1_imag <= para9239;  // sin(3pi/8) = 0.9239   W_16^3
     endcase
   end
 
-// This always part controls signal rotation_factor3.
+// This always part controls signal rotation_factor2_real.
   always @ ( posedge clk ) begin
     case ( rotation )
-      3'b000: begin
-        rotation_factor3[15:8] <= para1111;
-        rotation_factor3[7:0]  <= para0000;
-      end
-      3'b001: begin
-        rotation_factor3[15:8] <= para1111;
-        rotation_factor3[7:0]  <= para0000;
-      end
-      3'b010: begin
-        rotation_factor3[15:8] <= para1111;
-        rotation_factor3[7:0]  <= para0000;
-      end
-      3'b011: begin
-        rotation_factor3[15:8] <= para1111;
-        rotation_factor3[7:0]  <= para0000;
-      end
-      3'b100: begin
-        rotation_factor3[15:8] <= para1111;  // cos(0) = 1            W_15^0
-        rotation_factor3[7:0]  <= para0000;  // sin(0) = 0
-      end
-      3'b101: begin
-        rotation_factor3[15:8] <= para3827;  // cos(3pi/4) = 0.3827   W_15^3
-        rotation_factor3[7:0]  <= para9239;  // sin(3pi/4) = 0.9239
-      end
-      3'b110: begin
-        rotation_factor3[15:8] <= parn7071;  // cos(3pi/4) = -0.7071  W_15^6
-        rotation_factor3[7:0]  <= para7071;  // sin(3pi/4) = 0.7071
-      end
-      3'b111: begin
-        rotation_factor3[15:8] <= parn9239;  // cos(9pi/8) = -0.9239  W_15^9
-        rotation_factor3[7:0]  <= parn3827;  // sin(9pi/8) = -0.3827
-      end
+      3'b000: rotation_factor2_real <= para1111;
+      3'b001: rotation_factor2_real <= para1111;
+      3'b010: rotation_factor2_real <= para1111;
+      3'b011: rotation_factor2_real <= para1111;
+      3'b100: rotation_factor2_real <= para1111;  // cos(0)     = 1        W_16^0
+      3'b101: rotation_factor2_real <= para7071;  // cos(pi/4)  = 0.7071   W_16^2
+      3'b110: rotation_factor2_real <= para0000;  // cos(pi/2)  = 0        W_16^4
+      3'b111: rotation_factor2_real <= parn7071;  // cos(3pi/4) = -0.7071  W_16^6
+    endcase
+  end
+
+// This always part controls signal rotation_factor2_imag.
+  always @ ( posedge clk ) begin
+    case ( rotation )
+      3'b000: rotation_factor2_imag <= para0000;
+      3'b001: rotation_factor2_imag <= para0000;
+      3'b010: rotation_factor2_imag <= para0000;
+      3'b011: rotation_factor2_imag <= para0000;
+      3'b100: rotation_factor2_imag <= para0000;  // sin(0)     = 0        W_16^0
+      3'b101: rotation_factor2_imag <= para7071;  // sin(pi/8)  = 0.7071   W_16^2
+      3'b110: rotation_factor2_imag <= para1111;  // sin(pi/4)  = 0.1      W_16^4
+      3'b111: rotation_factor2_imag <= para7071;  // sin(3pi/8) = 0.7071   W_16^6
+    endcase
+  end
+
+// This always part controls signal rotation_factor3_real.
+  always @ ( posedge clk ) begin
+    case ( rotation )
+      3'b000: rotation_factor3_real <= para1111;
+      3'b001: rotation_factor3_real <= para1111;
+      3'b010: rotation_factor3_real <= para1111;
+      3'b011: rotation_factor3_real <= para1111;
+      3'b100: rotation_factor3_real <= para1111;  // cos(0)     = 1        W_16^0
+      3'b101: rotation_factor3_real <= para3827;  // cos(3pi/8) = 0.7071   W_16^3
+      3'b110: rotation_factor3_real <= parn7071;  // cos(6pi/8) = 0        W_16^6
+      3'b111: rotation_factor3_real <= parn9239;  // cos(93pi/8)= -0.7071  W_16^9
+    endcase
+  end
+
+// This always part controls signal rotation_factor3_imag.
+  always @ ( posedge clk ) begin
+    case ( rotation )
+      3'b000: rotation_factor3_imag <= para0000;
+      3'b001: rotation_factor3_imag <= para0000;
+      3'b010: rotation_factor3_imag <= para0000;
+      3'b011: rotation_factor3_imag <= para0000;
+      3'b100: rotation_factor3_imag <= para0000;  // sin(0)     = 0        W_16^0
+      3'b101: rotation_factor3_imag <= para9239;  // sin(3pi/8) = 0.7071   W_16^3
+      3'b110: rotation_factor3_imag <= para7071;  // sin(6pi/8) = 0.1      W_16^6
+      3'b111: rotation_factor3_imag <= parn3827;  // sin(9pi/8) = 0.7071   W_16^9
     endcase
   end
 
@@ -292,18 +266,18 @@ module butterfly(
 
 //************************************************************************************************
 
-//  comp_part_1 = (calc_in[67:51] - calc_in[50:34]) * rotation_factor1[16:8];
-//  row1_2_real = (rotation_factor1[16:8] - rotation_factor1[7:0]) * calc_in[50:34] + comp_part_1;  // BW^P	(real)
-//  row1_2_imag = (rotation_factor1[16:8] + rotation_factor1[7:0]) * calc_in[67:51] - comp_part_1;  // BW^P (imag)
+//  comp_part_1 = (calc_in[67:51] - calc_in[50:34]) * rotation_factor1_real[16:8];
+//  row1_2_real = (rotation_factor1_real[16:8] - rotation_factor1_real[7:0]) * calc_in[50:34] + comp_part_1;  // BW^P	(real)
+//  row1_2_imag = (rotation_factor1_real[16:8] + rotation_factor1_real[7:0]) * calc_in[67:51] - comp_part_1;  // BW^P (imag)
 
 
-  assign in_8bit_1_1  = rotation_factor1[15:8];  // rotation factor for B (real)
+  assign in_8bit_1_1  = rotation_factor1_real;  // rotation factor for B (real)
   assign in_17bit_1_1 = calc_in[67:51] - calc_in[50:34];  // B (real - imag)
 
-  assign in_8bit_1_2  = rotation_factor1[15:8] - rotation_factor1[7:0];  // rotation factor (real - imag)
+  assign in_8bit_1_2  = rotation_factor1_real - rotation_factor1_imag;  // rotation factor (real - imag)
   assign in_17bit_1_2 = calc_in[50:34];  // B (imag)
 
-  assign in_8bit_1_3  = rotation_factor1[15:8] + rotation_factor1[7:0];  // rotation factor (real - imag)
+  assign in_8bit_1_3  = rotation_factor1_real + rotation_factor1_imag;  // rotation factor (real - imag)
   assign in_17bit_1_3 = calc_in[67:51];  // B (real)
 
   assign row1_2_real  = row1_2_real_b + comp_part_1;  // BW^P	(real)
@@ -311,17 +285,17 @@ module butterfly(
 
 //************************************************************************************************
 
-// comp_part_2 = (calc_in[101:85] - calc_in[84:68]) * rotation_factor2[16:8];
-// row1_3_real = (rotation_factor2[16:8] - rotation_factor2[7:0]) * calc_in[84:68]  + comp_part_2;  // CW^{2P} (real)
-// row1_3_imag = (rotation_factor2[16:8] + rotation_factor2[7:0]) * calc_in[101:85] - comp_part_2;  // CW^{2P} (imag)
+// comp_part_2 = (calc_in[101:85] - calc_in[84:68]) * rotation_factor2_real[16:8];
+// row1_3_real = (rotation_factor2_real[16:8] - rotation_factor2_real[7:0]) * calc_in[84:68]  + comp_part_2;  // CW^{2P} (real)
+// row1_3_imag = (rotation_factor2_real[16:8] + rotation_factor2_real[7:0]) * calc_in[101:85] - comp_part_2;  // CW^{2P} (imag)
 
-  assign in_8bit_2_1  = rotation_factor2[15:8];  // rotation factor for C (real)
+  assign in_8bit_2_1  = rotation_factor2_real;  // rotation factor for C (real)
   assign in_17bit_2_1 = calc_in[101:85] - calc_in[84:68]; // C (real - imag)
 
-  assign in_8bit_2_2  = rotation_factor2[15:8] - rotation_factor2[7:0];  // rotation factor (real - imag)
+  assign in_8bit_2_2  = rotation_factor2_real - rotation_factor2_imag;  // rotation factor (real - imag)
   assign in_17bit_2_2 = calc_in[84:68];   // C (imag)
 
-  assign in_8bit_2_3  = rotation_factor2[15:8] + rotation_factor2[7:0];  // rotation factor (real + imag)
+  assign in_8bit_2_3  = rotation_factor2_real + rotation_factor2_imag;  // rotation factor (real + imag)
   assign in_17bit_2_3 = calc_in[101:85];  // C (real)
 
   assign row1_3_real  = row1_3_real_b + comp_part_2;  // CW^{2P} (real)
@@ -329,17 +303,17 @@ module butterfly(
 
 //************************************************************************************************
 
-// comp_part_3 = (calc_in[135:119] - calc_in[118:102]) * rotation_factor3[16:8];
-// row1_4_real = (rotation_factor3[16:8] - rotation_factor3[7:0]) * calc_in[118:102] + comp_part_3;  // DW^{3P} (real)
-// row1_4_imag = (rotation_factor3[16:8] + rotation_factor3[7:0]) * calc_in[135:119] - comp_part_3;  // DW^{3P} (imag)
+// comp_part_3 = (calc_in[135:119] - calc_in[118:102]) * rotation_factor3_real[16:8];
+// row1_4_real = (rotation_factor3_real[16:8] - rotation_factor3_real[7:0]) * calc_in[118:102] + comp_part_3;  // DW^{3P} (real)
+// row1_4_imag = (rotation_factor3_real[16:8] + rotation_factor3_real[7:0]) * calc_in[135:119] - comp_part_3;  // DW^{3P} (imag)
 
-  assign in_8bit_3_1  = rotation_factor3[15:8];  // rotation factor for D (real)
+  assign in_8bit_3_1  = rotation_factor3_real;  // rotation factor for D (real)
   assign in_17bit_3_1 = calc_in[135:119] - calc_in[118:102];  // D (real - imag)
 
-  assign in_8bit_3_2  = rotation_factor3[15:8] - rotation_factor3[7:0];  // rotation factor (real - imag)
+  assign in_8bit_3_2  = rotation_factor3_real - rotation_factor3_imag;  // rotation factor (real - imag)
   assign in_17bit_3_2 = calc_in[118:102];  // D (imag)
 
-  assign in_8bit_3_3  = rotation_factor3[15:8] + rotation_factor3[7:0];  // rotation factor (real + imag)
+  assign in_8bit_3_3  = rotation_factor3_real + rotation_factor3_imag;  // rotation factor (real + imag)
   assign in_17bit_3_3 = calc_in[135:119];  // D (real)
 
   assign row1_4_real  = row1_4_real_b + comp_part_3;  // DW^{3P} (real)
