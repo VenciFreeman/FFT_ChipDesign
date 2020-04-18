@@ -22,7 +22,8 @@
 // - Version 2.3 20/04/17: Change latency;
 // - Version 2.4 20/04/17: Fix input vectors;
 // - Version 2.5 20/04/17: Change output display;
-// - Version 2.6 20/04/18: Check again, add comments.
+// - Version 2.6 20/04/18: Check again, add comments;
+// - Version 2.7 20/04/18: Transform to Combinatorial logic.
 //
 // Notes:
 // - Data format: in4(Re,Im), in3(Re,Im), in2(Re,Im), in1(Re,Im);
@@ -43,12 +44,9 @@ module butterfly_tb();
 
   parameter clk_freq = 10;  // or 8 for 125 MHz
 
-  butterfly butterfly0(  // Instantiate
-    .clk(clk_test),
-    .rst_n(rst_n_test),
-    .calc_in(calc_in_test),
-    .rotation(rotation_test),
-    .calc_out(calc_out_test)
+  butterfly butterfly0(.calc_in(calc_in_test),
+                       .rotation(rotation_test),
+                       .calc_out(calc_out_test)
   );
 
   initial begin
@@ -67,7 +65,7 @@ module butterfly_tb();
 //********************************* The following is the 16 inputs *******************************
     $display("\n\nLoad Data\n");
     #100 begin
-      calc_in_test = 136'b000000001000000000000000000000000000000000100000000000000000000000000000000110000000000000000000000000000000001000000000000000000000000;
+      calc_in_test = 136'b0000000010000000000000000000000000000000001000000000000000000000000000000001100000000000000000000000000000000010000000000000000000000000;
       //                  |   x[12]Real   ||   x[12]Imag   ||    x[8]Real   ||    x[8]Imag   ||    x[4]Real   ||    x[4]Imag   ||    x[0]Real   ||   x[0]Imag    |
       rotation_test = 3'b000;
     end

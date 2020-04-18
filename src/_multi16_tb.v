@@ -12,7 +12,9 @@
 // Details: 
 //
 // Release History:
-// - Version 1.0 20/04/17: Create.
+// - Version 1.0 20/04/17: Create;
+// - Version 1.1 20/04/18: Edit to multi-cycle;
+// - Version 1.2 20/04/18: Transform to Combinatorial logic.
 //
 // Notes:
 // - data format: in4(Re,Im), in3(Re,Im), in2(Re,Im), in1(Re,Im).
@@ -31,12 +33,9 @@ module multi16_tb( );
 
   parameter clk_freq = 10;
 
-  multi16 multi160(
-    .clk(clk_test),
-    .rst_n(rst_n_test),
-    .in_17bit(in_17bit_test),
-    .in_8bit(in_8bit_test),
-    .out(out_test)
+  multi16 multi160(.in_17bit(in_17bit_test),
+                   .in_8bit(in_8bit_test),
+                   .out(out_test)
   );
 
   initial begin
@@ -53,10 +52,17 @@ module multi16_tb( );
 
   initial begin
     #10 begin
-      in_17bit_test = 17'b00000000100000000;
-      in_8bit_test  = 8'b11111111;
+      in_17bit_test = 17'b00001000100001000;
+      in_8bit_test  = 8'b01111111;
     end
-    $display("%b %b.%b\n", out_test[16], out_test[15:8], out_test[7:0]);
+    
+    #100 begin
+      in_17bit_test = 17'b00000000100000000;
+      in_8bit_test  = 8'b01111111;
+    end  
+    
   end
 
 endmodule
+
+

@@ -33,7 +33,8 @@
 // - Version 2.6 20/04/17: Check again, fix some errors. Simulate successful;
 // - Version 2.7 20/04/17: Add signed;
 // - Version 2.8 20/04/18: Check again, add comments;
-// - Version 2.9 20/04/18: Fix rotation factors.
+// - Version 2.9 20/04/18: Fix rotation factors;
+// - Version 3.0 20/04/18: Transform to Combinatorial logic.
 //
 // Notes:
 // - rotation_factor format: (Re,Im). The highest bit is sign bit, 7 data bits;
@@ -45,11 +46,9 @@
 
 module butterfly(
 
-  input  wire        clk,      // Clock
-  input  wire        rst_n,    // Reset
   input  wire[135:0] calc_in,  // The 4 numbers which need to be calculated. Format: in4(Re,Im), in3(Re,Im), in2(Re,Im), in1(Re,Im)
   input  wire[2:0]   rotation, // Number of each butterfly computation (8 in total)
-  output reg [135:0] calc_out  // The 4 output numbers. Format: out4(Re,Im), out3(Re,Im), out2(Re,Im), out1(Re,Im)
+  output wire[135:0] calc_out  // The 4 output numbers. Format: out4(Re,Im), out3(Re,Im), out2(Re,Im), out1(Re,Im)
 
   );
 
@@ -93,119 +92,103 @@ module butterfly(
   wire signed [16:0] row3_4_real, row3_4_imag;  // (A - CW ^ {2P}) - j(BW ^ P - DW ^ {3P})
 
 // This always part controls signal rotation_factor1_real.
-  always @ ( posedge clk ) begin
+  always @ ( rotation ) begin
     case ( rotation )
-      3'b000: rotation_factor1_real <= para1111;
-      3'b001: rotation_factor1_real <= para1111;
-      3'b010: rotation_factor1_real <= para1111;
-      3'b011: rotation_factor1_real <= para1111;
-      3'b100: rotation_factor1_real <= para1111;  // cos(0)     = 1        W_16^0
-      3'b101: rotation_factor1_real <= para9239;  // cos(pi/8)  = 0.9239   W_16^1
-      3'b110: rotation_factor1_real <= para7071;  // cos(pi/4)  = 0.7071   W_16^2
-      3'b111: rotation_factor1_real <= para3827;  // cos(3pi/8) = 0.3827   W_16^3
+      3'b000: rotation_factor1_real = para1111;
+      3'b001: rotation_factor1_real = para1111;
+      3'b010: rotation_factor1_real = para1111;
+      3'b011: rotation_factor1_real = para1111;
+      3'b100: rotation_factor1_real = para1111;  // cos(0)     = 1        W_16^0
+      3'b101: rotation_factor1_real = para9239;  // cos(pi/8)  = 0.9239   W_16^1
+      3'b110: rotation_factor1_real = para7071;  // cos(pi/4)  = 0.7071   W_16^2
+      3'b111: rotation_factor1_real = para3827;  // cos(3pi/8) = 0.3827   W_16^3
     endcase
   end
 
 // This always part controls signal rotation_factor1_imag.
-  always @ ( posedge clk ) begin
+  always @ ( rotation ) begin
     case ( rotation )
-      3'b000: rotation_factor1_imag <= para0000;
-      3'b001: rotation_factor1_imag <= para0000;
-      3'b010: rotation_factor1_imag <= para0000;
-      3'b011: rotation_factor1_imag <= para0000;
-      3'b100: rotation_factor1_imag <= para0000;  // sin(0)     = 0        W_16^0
-      3'b101: rotation_factor1_imag <= para3827;  // sin(pi/8)  = 0.3827   W_16^1
-      3'b110: rotation_factor1_imag <= para7071;  // sin(pi/4)  = 0.7071   W_16^2
-      3'b111: rotation_factor1_imag <= para9239;  // sin(3pi/8) = 0.9239   W_16^3
+      3'b000: rotation_factor1_imag = para0000;
+      3'b001: rotation_factor1_imag = para0000;
+      3'b010: rotation_factor1_imag = para0000;
+      3'b011: rotation_factor1_imag = para0000;
+      3'b100: rotation_factor1_imag = para0000;  // sin(0)     = 0        W_16^0
+      3'b101: rotation_factor1_imag = para3827;  // sin(pi/8)  = 0.3827   W_16^1
+      3'b110: rotation_factor1_imag = para7071;  // sin(pi/4)  = 0.7071   W_16^2
+      3'b111: rotation_factor1_imag = para9239;  // sin(3pi/8) = 0.9239   W_16^3
     endcase
   end
 
 // This always part controls signal rotation_factor2_real.
-  always @ ( posedge clk ) begin
+  always @ ( rotation ) begin
     case ( rotation )
-      3'b000: rotation_factor2_real <= para1111;
-      3'b001: rotation_factor2_real <= para1111;
-      3'b010: rotation_factor2_real <= para1111;
-      3'b011: rotation_factor2_real <= para1111;
-      3'b100: rotation_factor2_real <= para1111;  // cos(0)     = 1        W_16^0
-      3'b101: rotation_factor2_real <= para7071;  // cos(pi/4)  = 0.7071   W_16^2
-      3'b110: rotation_factor2_real <= para0000;  // cos(pi/2)  = 0        W_16^4
-      3'b111: rotation_factor2_real <= parn7071;  // cos(3pi/4) = -0.7071  W_16^6
+      3'b000: rotation_factor2_real = para1111;
+      3'b001: rotation_factor2_real = para1111;
+      3'b010: rotation_factor2_real = para1111;
+      3'b011: rotation_factor2_real = para1111;
+      3'b100: rotation_factor2_real = para1111;  // cos(0)     = 1        W_16^0
+      3'b101: rotation_factor2_real = para7071;  // cos(pi/4)  = 0.7071   W_16^2
+      3'b110: rotation_factor2_real = para0000;  // cos(pi/2)  = 0        W_16^4
+      3'b111: rotation_factor2_real = parn7071;  // cos(3pi/4) = -0.7071  W_16^6
     endcase
   end
 
 // This always part controls signal rotation_factor2_imag.
-  always @ ( posedge clk ) begin
+  always @ ( rotation ) begin
     case ( rotation )
-      3'b000: rotation_factor2_imag <= para0000;
-      3'b001: rotation_factor2_imag <= para0000;
-      3'b010: rotation_factor2_imag <= para0000;
-      3'b011: rotation_factor2_imag <= para0000;
-      3'b100: rotation_factor2_imag <= para0000;  // sin(0)     = 0        W_16^0
-      3'b101: rotation_factor2_imag <= para7071;  // sin(pi/8)  = 0.7071   W_16^2
-      3'b110: rotation_factor2_imag <= para1111;  // sin(pi/4)  = 0.1      W_16^4
-      3'b111: rotation_factor2_imag <= para7071;  // sin(3pi/8) = 0.7071   W_16^6
+      3'b000: rotation_factor2_imag = para0000;
+      3'b001: rotation_factor2_imag = para0000;
+      3'b010: rotation_factor2_imag = para0000;
+      3'b011: rotation_factor2_imag = para0000;
+      3'b100: rotation_factor2_imag = para0000;  // sin(0)     = 0        W_16^0
+      3'b101: rotation_factor2_imag = para7071;  // sin(pi/8)  = 0.7071   W_16^2
+      3'b110: rotation_factor2_imag = para1111;  // sin(pi/4)  = 0.1      W_16^4
+      3'b111: rotation_factor2_imag = para7071;  // sin(3pi/8) = 0.7071   W_16^6
     endcase
   end
 
 // This always part controls signal rotation_factor3_real.
-  always @ ( posedge clk ) begin
+  always @ ( rotation ) begin
     case ( rotation )
-      3'b000: rotation_factor3_real <= para1111;
-      3'b001: rotation_factor3_real <= para1111;
-      3'b010: rotation_factor3_real <= para1111;
-      3'b011: rotation_factor3_real <= para1111;
-      3'b100: rotation_factor3_real <= para1111;  // cos(0)     = 1        W_16^0
-      3'b101: rotation_factor3_real <= para3827;  // cos(3pi/8) = 0.7071   W_16^3
-      3'b110: rotation_factor3_real <= parn7071;  // cos(6pi/8) = 0        W_16^6
-      3'b111: rotation_factor3_real <= parn9239;  // cos(93pi/8)= -0.7071  W_16^9
+      3'b000: rotation_factor3_real = para1111;
+      3'b001: rotation_factor3_real = para1111;
+      3'b010: rotation_factor3_real = para1111;
+      3'b011: rotation_factor3_real = para1111;
+      3'b100: rotation_factor3_real = para1111;  // cos(0)     = 1        W_16^0
+      3'b101: rotation_factor3_real = para3827;  // cos(3pi/8) = 0.7071   W_16^3
+      3'b110: rotation_factor3_real = parn7071;  // cos(6pi/8) = 0        W_16^6
+      3'b111: rotation_factor3_real = parn9239;  // cos(93pi/8)= -0.7071  W_16^9
     endcase
   end
 
 // This always part controls signal rotation_factor3_imag.
-  always @ ( posedge clk ) begin
+  always @ ( rotation ) begin
     case ( rotation )
-      3'b000: rotation_factor3_imag <= para0000;
-      3'b001: rotation_factor3_imag <= para0000;
-      3'b010: rotation_factor3_imag <= para0000;
-      3'b011: rotation_factor3_imag <= para0000;
-      3'b100: rotation_factor3_imag <= para0000;  // sin(0)     = 0        W_16^0
-      3'b101: rotation_factor3_imag <= para9239;  // sin(3pi/8) = 0.7071   W_16^3
-      3'b110: rotation_factor3_imag <= para7071;  // sin(6pi/8) = 0.1      W_16^6
-      3'b111: rotation_factor3_imag <= parn3827;  // sin(9pi/8) = 0.7071   W_16^9
+      3'b000: rotation_factor3_imag = para0000;
+      3'b001: rotation_factor3_imag = para0000;
+      3'b010: rotation_factor3_imag = para0000;
+      3'b011: rotation_factor3_imag = para0000;
+      3'b100: rotation_factor3_imag = para0000;  // sin(0)     = 0        W_16^0
+      3'b101: rotation_factor3_imag = para9239;  // sin(3pi/8) = 0.7071   W_16^3
+      3'b110: rotation_factor3_imag = para7071;  // sin(6pi/8) = 0.1      W_16^6
+      3'b111: rotation_factor3_imag = parn3827;  // sin(9pi/8) = 0.7071   W_16^9
     endcase
-  end
-
-  always @ ( posedge clk or negedge rst_n ) begin
-    if ( !rst_n )
-      calc_out <= 135'b0;
-    else 
-      calc_out <= { row3_4_real, row3_4_imag,
-                    row3_3_real, row3_3_imag,
-                    row3_2_real, row3_2_imag,
-                    row3_1_real, row3_1_imag };
   end
 
 //****************************** The following is the Instantiations *****************************
 //************************************** See Line 294 to 311 *************************************
 
-  multi16 multi1_2_1 (.clk(clk),
-                      .rst_n(rst_n),
-                      .in_17bit(in_17bit_1_1),
+  multi16 multi1_2_1 (.in_17bit(in_17bit_1_1),
                       .in_8bit(in_8bit_1_1),
                       .out(comp_part_1)    // (X - Y) * P
                      );
 
-  multi16 multi1_2_2 (.clk(clk),
-                      .rst_n(rst_n),
-                      .in_17bit(in_17bit_1_2),
+  multi16 multi1_2_2 (.in_17bit(in_17bit_1_2),
                       .in_8bit(in_8bit_1_2),
                       .out(row1_2_real_b)  // (P - Q) * Y
                       );
 
-  multi16 multi1_2_3 (.clk(clk),
-                      .rst_n(rst_n),
-                      .in_17bit(in_17bit_1_3),
+  multi16 multi1_2_3 (.in_17bit(in_17bit_1_3),
                       .in_8bit(in_8bit_1_3),
                       .out(row1_2_imag_b)  // (P + Q) * X
                       );
@@ -213,23 +196,17 @@ module butterfly(
 //************************************************************************************************
 //************************************** See Line 313 to 329 *************************************
 
-  multi16 multi1_3_1 (.clk(clk),
-                      .rst_n(rst_n),
-                      .in_17bit(in_17bit_2_1),
+  multi16 multi1_3_1 (.in_17bit(in_17bit_2_1),
                       .in_8bit(in_8bit_2_1),
                       .out(comp_part_2)    // (X - Y) * P
                      );
 
-  multi16 multi1_3_2 (.clk(clk),
-                      .rst_n(rst_n),
-                      .in_17bit(in_17bit_2_2),
+  multi16 multi1_3_2 (.in_17bit(in_17bit_2_2),
                       .in_8bit(in_8bit_2_2),
                       .out(row1_3_real_b)  // (P - Q) * Y
                       );
 
-  multi16 multi1_3_3 (.clk(clk),
-                      .rst_n(rst_n),
-                      .in_17bit(in_17bit_1_3),
+  multi16 multi1_3_3 (.in_17bit(in_17bit_1_3),
                       .in_8bit(in_8bit_1_3),
                       .out(row1_3_imag_b)  // (P + Q) * X
                       );
@@ -237,23 +214,17 @@ module butterfly(
 //************************************************************************************************
 //************************************** See Line 331 to 347 *************************************
 
-  multi16 multi1_4_1 (.clk(clk),
-                      .rst_n(rst_n),
-                      .in_17bit(in_17bit_3_1),
+  multi16 multi1_4_1 (.in_17bit(in_17bit_3_1),
                       .in_8bit(in_8bit_3_1),
                       .out(comp_part_3)    // (X - Y) * P
                      );
 
-  multi16 multi1_4_2 (.clk(clk),
-                      .rst_n(rst_n),
-                      .in_17bit(in_17bit_3_2),
+  multi16 multi1_4_2 (.in_17bit(in_17bit_3_2),
                       .in_8bit(in_8bit_3_2),
                       .out(row1_4_real_b)  // (P - Q) * Y
                       );
 
-  multi16 multi1_4_3 (.clk(clk),
-                      .rst_n(rst_n),
-                      .in_17bit(in_17bit_3_3),
+  multi16 multi1_4_3 (.in_17bit(in_17bit_3_3),
                       .in_8bit(in_8bit_3_3),
                       .out(row1_4_imag_b)  // (P + Q) * X
                       );
@@ -350,5 +321,11 @@ module butterfly(
 
   assign row3_4_real = row2_2_real + row2_4_imag;  // (A - CW ^ {2P}) (real) + (BW ^ P - DW ^ {3P}) (imag)
   assign row3_4_imag = row2_2_imag - row2_4_real;  // (A - CW ^ {2P}) (imag) - (BW ^ P - DW ^ {3P}) (real)
+
+//************************************************************************************************
+  assign calc_out = { row3_4_real, row3_4_imag,
+                      row3_3_real, row3_3_imag,
+                      row3_2_real, row3_2_imag,
+                      row3_1_real, row3_1_imag };
 
 endmodule
