@@ -31,11 +31,12 @@
 // - Version 2.4 20/04/16: Fix some errors about bits;
 // - Version 2.5 20/04/16: Simulate successful. Still need to check results;
 // - Version 2.6 20/04/17: Check again, fix some errors. Simulate successful;
-// - Version 2.7 20/04/17: Add signed.
+// - Version 2.7 20/04/17: Add signed;
+// - Version 2.8 20/04/18: Check again, add comments.
 //
 // Notes:
-// - rotation_factor format: (Re,Im);
-// - calc_in format: in4(Re,Im), in3(Re,Im), in2(Re,Im), in1(Re,Im).
+// - rotation_factor format: (Re,Im). The highest bit is sign bit, 7 data bits;
+// - calc_in format: in4(Re,Im), in3(Re,Im), in2(Re,Im), in1(Re,Im);
 // - Input and output are both 2's Complements.
 //
 //**********************************************************
@@ -52,11 +53,11 @@ module butterfly(
   );
 
   parameter para0000 = 8'b00000000;  //  0.0000. sin(0pi/8) = sin(8pi/8) = cos(4pi/8) = - cos(4pi/8)
-  parameter para3827 = 8'b01100001;  //  0.3827. sin(1pi/8) = sin(7pi/8) = cos(3pi/8) = - cos(5pi/8)
+  parameter para3827 = 8'b01100001;  //  0.3827. sin(1pi/8) = sin(7pi/8) = cos(3pi/8) = - cos(5pi/8) 0.0110000111111000101000001001000000101101111000000001
   parameter parn3827 = 8'b10011111;  // -0.3827. sin(1pi/8) = sin(7pi/8) = cos(3pi/8) = - cos(5pi/8)
-  parameter para7071 = 8'b01011010;  //  0.7071. sin(2pi/8) = sin(6pi/8) = cos(2pi/8) = - cos(6pi/8)
+  parameter para7071 = 8'b01011010;  //  0.7071. sin(2pi/8) = sin(6pi/8) = cos(2pi/8) = - cos(6pi/8) 0.1011010100000100100000010110111100000000011010001110
   parameter parn7071 = 8'b10100110;  // -0.7071. sin(2pi/8) = sin(6pi/8) = cos(2pi/8) = - cos(6pi/8)
-  parameter para9239 = 8'b01110110;  //  0.9239. sin(3pi/8) = sin(5pi/8) = cos(1pi/8) = - cos(7pi/8)
+  parameter para9239 = 8'b01110110;  //  0.9239. sin(3pi/8) = sin(5pi/8) = cos(1pi/8) = - cos(7pi/8) 0.1110110010000100101101011101110011000110001111110001
   parameter parn9239 = 8'b10001010;  // -0.9239. sin(3pi/8) = sin(5pi/8) = cos(1pi/8) = - cos(7pi/8)
   parameter para1111 = 8'b01111111;  //  1.0000. sin(4pi/8) = sin(4pi/8) = coa(0pi/8) = - cos(8pi/8)
   
@@ -212,138 +213,168 @@ module butterfly(
   end
 
 //****************************** The following is the Instantiations *****************************
+//************************************** See Line 294 to 311 *************************************
 
   multi16 multi1_2_1 (.clk(clk),
                       .rst_n(rst_n),
                       .in_17bit(in_17bit_1_1),
                       .in_8bit(in_8bit_1_1),
-                      .out(comp_part_1)
+                      .out(comp_part_1)    // (X - Y) * P
                      );
 
   multi16 multi1_2_2 (.clk(clk),
                       .rst_n(rst_n),
                       .in_17bit(in_17bit_1_2),
                       .in_8bit(in_8bit_1_2),
-                      .out(row1_2_real_b)
+                      .out(row1_2_real_b)  // (P - Q) * Y
                       );
 
   multi16 multi1_2_3 (.clk(clk),
                       .rst_n(rst_n),
                       .in_17bit(in_17bit_1_3),
                       .in_8bit(in_8bit_1_3),
-                      .out(row1_2_imag_b)
+                      .out(row1_2_imag_b)  // (P + Q) * X
                       );
+
+//************************************************************************************************
+//************************************** See Line 313 to 329 *************************************
 
   multi16 multi1_3_1 (.clk(clk),
                       .rst_n(rst_n),
                       .in_17bit(in_17bit_2_1),
                       .in_8bit(in_8bit_2_1),
-                      .out(comp_part_2)
+                      .out(comp_part_2)    // (X - Y) * P
                      );
 
   multi16 multi1_3_2 (.clk(clk),
                       .rst_n(rst_n),
                       .in_17bit(in_17bit_2_2),
                       .in_8bit(in_8bit_2_2),
-                      .out(row1_3_real_b)
+                      .out(row1_3_real_b)  // (P - Q) * Y
                       );
 
   multi16 multi1_3_3 (.clk(clk),
                       .rst_n(rst_n),
                       .in_17bit(in_17bit_1_3),
                       .in_8bit(in_8bit_1_3),
-                      .out(row1_3_imag_b)
+                      .out(row1_3_imag_b)  // (P + Q) * X
                       );
+
+//************************************************************************************************
+//************************************** See Line 331 to 347 *************************************
 
   multi16 multi1_4_1 (.clk(clk),
                       .rst_n(rst_n),
                       .in_17bit(in_17bit_3_1),
                       .in_8bit(in_8bit_3_1),
-                      .out(comp_part_3)
+                      .out(comp_part_3)    // (X - Y) * P
                      );
 
   multi16 multi1_4_2 (.clk(clk),
                       .rst_n(rst_n),
                       .in_17bit(in_17bit_3_2),
                       .in_8bit(in_8bit_3_2),
-                      .out(row1_4_real_b)
+                      .out(row1_4_real_b)  // (P - Q) * Y
                       );
 
   multi16 multi1_4_3 (.clk(clk),
                       .rst_n(rst_n),
                       .in_17bit(in_17bit_3_3),
                       .in_8bit(in_8bit_3_3),
-                      .out(row1_4_imag_b)
+                      .out(row1_4_imag_b)  // (P + Q) * X
                       );
 
 //**************************** The following is the assign statements ****************************
 //**************************************** Butterfly Reg 1 ***************************************
 
-  assign row1_1_real = calc_in[33:17];  // A
-  assign row1_1_imag = calc_in[16:0];
+  assign row1_1_real = calc_in[33:17];  // A (real)
+  assign row1_1_imag = calc_in[16:0];   // A (imag)
 
-  assign in_8bit_1_1  = rotation_factor1[15:8];
-  assign in_17bit_1_1 = calc_in[67:51] - calc_in[50:34];
+//************************************************************************************************
 
-  assign in_8bit_1_2  = rotation_factor1[15:8] - rotation_factor1[7:0];
-  assign in_17bit_1_2 = calc_in[50:34];
+//  comp_part_1 = (calc_in[67:51] - calc_in[50:34]) * rotation_factor1[16:8];
+//  row1_2_real = (rotation_factor1[16:8] - rotation_factor1[7:0]) * calc_in[50:34] + comp_part_1;  // BW^P	(real)
+//  row1_2_imag = (rotation_factor1[16:8] + rotation_factor1[7:0]) * calc_in[67:51] - comp_part_1;  // BW^P (imag)
 
-  assign in_8bit_1_3  = rotation_factor1[15:8] + rotation_factor1[7:0];
-  assign in_17bit_1_3 = calc_in[67:51];
 
-  assign row1_2_real  = row1_2_real_b + comp_part_1;
-  assign row1_2_imag  = row1_2_imag_b - comp_part_1;
+  assign in_8bit_1_1  = rotation_factor1[15:8];  // rotation factor for B (real)
+  assign in_17bit_1_1 = calc_in[67:51] - calc_in[50:34];  // B (real - imag)
 
-  assign in_8bit_2_1  = rotation_factor2[15:8];
-  assign in_17bit_2_1 = calc_in[101:85] - calc_in[84:68];
+  assign in_8bit_1_2  = rotation_factor1[15:8] - rotation_factor1[7:0];  // rotation factor (real - imag)
+  assign in_17bit_1_2 = calc_in[50:34];  // B (imag)
 
-  assign in_8bit_2_2  = rotation_factor2[15:8] - rotation_factor2[7:0];
-  assign in_17bit_2_2 = calc_in[84:68];
+  assign in_8bit_1_3  = rotation_factor1[15:8] + rotation_factor1[7:0];  // rotation factor (real - imag)
+  assign in_17bit_1_3 = calc_in[67:51];  // B (real)
 
-  assign in_8bit_2_3  = rotation_factor2[15:8] + rotation_factor2[7:0];
-  assign in_17bit_2_3 = calc_in[101:85];
+  assign row1_2_real  = row1_2_real_b + comp_part_1;  // BW^P	(real)
+  assign row1_2_imag  = row1_2_imag_b - comp_part_1;  // BW^P	(imag)
 
-  assign row1_3_real  = row1_3_real_b + comp_part_2;
-  assign row1_3_imag  = row1_3_imag_b - comp_part_2;
+//************************************************************************************************
 
-  assign in_8bit_3_1  = rotation_factor3[15:8];
-  assign in_17bit_3_1 = calc_in[135:119] - calc_in[118:102];
+// comp_part_2 = (calc_in[101:85] - calc_in[84:68]) * rotation_factor2[16:8];
+// row1_3_real = (rotation_factor2[16:8] - rotation_factor2[7:0]) * calc_in[84:68]  + comp_part_2;  // CW^{2P} (real)
+// row1_3_imag = (rotation_factor2[16:8] + rotation_factor2[7:0]) * calc_in[101:85] - comp_part_2;  // CW^{2P} (imag)
 
-  assign in_8bit_3_2  = rotation_factor3[15:8] - rotation_factor3[7:0];
-  assign in_17bit_3_2 = calc_in[118:102];
+  assign in_8bit_2_1  = rotation_factor2[15:8];  // rotation factor for C (real)
+  assign in_17bit_2_1 = calc_in[101:85] - calc_in[84:68]; // C (real - imag)
 
-  assign in_8bit_3_3  = rotation_factor3[15:8] + rotation_factor3[7:0];
-  assign in_17bit_3_3 = calc_in[135:119];
+  assign in_8bit_2_2  = rotation_factor2[15:8] - rotation_factor2[7:0];  // rotation factor (real - imag)
+  assign in_17bit_2_2 = calc_in[84:68];   // C (imag)
 
-  assign row1_4_real  = row1_4_real_b + comp_part_3;
-  assign row1_4_imag  = row1_4_imag_b - comp_part_3;
+  assign in_8bit_2_3  = rotation_factor2[15:8] + rotation_factor2[7:0];  // rotation factor (real + imag)
+  assign in_17bit_2_3 = calc_in[101:85];  // C (real)
+
+  assign row1_3_real  = row1_3_real_b + comp_part_2;  // CW^{2P} (real)
+  assign row1_3_imag  = row1_3_imag_b - comp_part_2;  // CW^{2P} (imag)
+
+//************************************************************************************************
+
+// comp_part_3 = (calc_in[135:119] - calc_in[118:102]) * rotation_factor3[16:8];
+// row1_4_real = (rotation_factor3[16:8] - rotation_factor3[7:0]) * calc_in[118:102] + comp_part_3;  // DW^{3P} (real)
+// row1_4_imag = (rotation_factor3[16:8] + rotation_factor3[7:0]) * calc_in[135:119] - comp_part_3;  // DW^{3P} (imag)
+
+  assign in_8bit_3_1  = rotation_factor3[15:8];  // rotation factor for D (real)
+  assign in_17bit_3_1 = calc_in[135:119] - calc_in[118:102];  // D (real - imag)
+
+  assign in_8bit_3_2  = rotation_factor3[15:8] - rotation_factor3[7:0];  // rotation factor (real - imag)
+  assign in_17bit_3_2 = calc_in[118:102];  // D (imag)
+
+  assign in_8bit_3_3  = rotation_factor3[15:8] + rotation_factor3[7:0];  // rotation factor (real + imag)
+  assign in_17bit_3_3 = calc_in[135:119];  // D (real)
+
+  assign row1_4_real  = row1_4_real_b + comp_part_3;  // DW^{3P} (real)
+  assign row1_4_imag  = row1_4_imag_b - comp_part_3;  // DW^{3P} (imag)
+
+// (X + Yj) * (P + Qj) = a + bj
+// a = (P - Q) * Y + (X - Y) * P
+// b = (P + Q) * X - (X - Y) * P
 
 //**************************************** Butterfly Reg 2 ***************************************
 
-  assign row2_1_real = row1_1_real + row1_3_real;  // A + CW ^ {2P}
-  assign row2_1_imag = row1_1_imag + row1_3_imag;
+  assign row2_1_real = row1_1_real + row1_3_real;  // A + CW ^ {2P} (real)
+  assign row2_1_imag = row1_1_imag + row1_3_imag;  // A + CW ^ {2P} (imag)
 
-  assign row2_2_real = row1_1_real - row1_3_real;  // A - CW ^ {2P}
-  assign row2_2_imag = row1_1_imag - row1_3_imag;
+  assign row2_2_real = row1_1_real - row1_3_real;  // A - CW ^ {2P} (real)
+  assign row2_2_imag = row1_1_imag - row1_3_imag;  // A - CW ^ {2P} (imag)
 
-  assign row2_3_real = row1_2_real + row1_4_real;  // BW ^ P + DW ^ {3P}
-  assign row2_3_imag = row1_2_imag + row1_4_imag;
+  assign row2_3_real = row1_2_real + row1_4_real;  // BW ^ P + DW ^ {3P} (real)
+  assign row2_3_imag = row1_2_imag + row1_4_imag;  // BW ^ P + DW ^ {3P} (imag)
 
-  assign row2_4_real = row1_2_real - row1_4_real;  // BW ^ P - DW ^ {3P}
-  assign row2_4_imag = row1_2_imag - row1_4_imag;
+  assign row2_4_real = row1_2_real - row1_4_real;  // BW ^ P - DW ^ {3P} (real)
+  assign row2_4_imag = row1_2_imag - row1_4_imag;  // BW ^ P - DW ^ {3P} (imag)
 
 //**************************************** Butterfly Reg 3 ***************************************
 
-  assign row3_1_real = row2_1_real + row2_3_real;  // (A + CW ^ {2P}) + (BW ^ P + DW ^ {3P})
-  assign row3_1_imag = row2_1_imag + row2_3_imag;
+  assign row3_1_real = row2_1_real + row2_3_real;  // (A + CW ^ {2P}) + (BW ^ P + DW ^ {3P}) (real)
+  assign row3_1_imag = row2_1_imag + row2_3_imag;  // (A + CW ^ {2P}) + (BW ^ P + DW ^ {3P}) (imag)
 
-  assign row3_2_real = row2_1_real - row2_3_real;  // (A + CW ^ {2P}) - (BW ^ P + DW ^ {3P})
-  assign row3_2_imag = row2_1_imag - row2_3_imag;
+  assign row3_2_real = row2_1_real - row2_3_real;  // (A + CW ^ {2P}) - (BW ^ P + DW ^ {3P}) (real)
+  assign row3_2_imag = row2_1_imag - row2_3_imag;  // (A + CW ^ {2P}) - (BW ^ P + DW ^ {3P}) (imag)
 
-  assign row3_3_real = row2_2_real - row2_4_imag;  // (A - CW ^ {2P}) + j(BW ^ P + DW ^ {3P})
-  assign row3_3_imag = row2_2_imag + row2_4_real;
+  assign row3_3_real = row2_2_real - row2_4_imag;  // (A - CW ^ {2P}) (real) - (BW ^ P + DW ^ {3P}) (imag)
+  assign row3_3_imag = row2_2_imag + row2_4_real;  // (A - CW ^ {2P}) (imag) + (BW ^ P + DW ^ {3P}) (real)
 
-  assign row3_4_real = row2_2_real + row2_4_imag;  // (A - CW ^ {2P}) - j(BW ^ P - DW ^ {3P})
-  assign row3_4_imag = row2_2_imag - row2_4_real;
+  assign row3_4_real = row2_2_real + row2_4_imag;  // (A - CW ^ {2P}) (real) + (BW ^ P - DW ^ {3P}) (imag)
+  assign row3_4_imag = row2_2_imag - row2_4_real;  // (A - CW ^ {2P}) (imag) - (BW ^ P - DW ^ {3P}) (real)
 
 endmodule
