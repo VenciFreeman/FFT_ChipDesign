@@ -10,6 +10,9 @@
 // Purpose: Test butterfly module.
 //
 // Details: 
+// - Input sequence:  12,8,4,0; 13,9,5,1; 14,10,6,2; 15,11,7,3;
+// - Temp read sequence: temp4, temp3, temp2, temp1, low to high;
+// - Output sequence: 3,2,1,0; 7,6,5,4; 11,10,9,8; 15,14,13,12.
 //
 // Release History:
 // - Version 1.0 20/04/15: Create;
@@ -18,16 +21,17 @@
 // - Version 2.2 20/04/17: Edit display style;
 // - Version 2.3 20/04/17: Change latency;
 // - Version 2.4 20/04/17: Fix input vectors;
-// - Version 2.5 20/04/17: Change output display.
+// - Version 2.5 20/04/17: Change output display;
+// - Version 2.6 20/04/18: Check again, add comments.
 //
 // Notes:
-// - data format: in4(Re,Im), in3(Re,Im), in2(Re,Im), in1(Re,Im).
+// - Data format: in4(Re,Im), in3(Re,Im), in2(Re,Im), in1(Re,Im);
 // - Input and output are both 2's Complements.
 //
 //**********************************************************
 `include "butterfly.v"
 
-module butterfly_tb( );
+module butterfly_tb();
 
   reg          clk_test;
   reg          rst_n_test;
@@ -37,9 +41,9 @@ module butterfly_tb( );
 
   reg  [135:0] temp1, temp2, temp3, temp4;
 
-  parameter clk_freq = 10;
+  parameter clk_freq = 10;  // or 8 for 125 MHz
 
-  butterfly butterfly0(
+  butterfly butterfly0(  // Instantiate
     .clk(clk_test),
     .rst_n(rst_n_test),
     .calc_in(calc_in_test),
@@ -55,11 +59,12 @@ module butterfly_tb( );
   end
 
   always begin
-      #(clk_freq / 2) clk_test = ~ clk_test;	// create a 100MHz clock
-      rst_n_test = 1;
+      #(clk_freq / 2) clk_test = ~ clk_test;	// create a 100 MHz clock
+      rst_n_test = 1;  // enable
   end
 
   initial begin
+//********************************* The following is the 16 inputs *******************************
     $display("\n\nLoad Data\n");
     #100 begin
       calc_in_test = 136'b000000001000000000000000000000000000000000100000000000000000000000000000000110000000000000000000000000000000001000000000000000000000000;
@@ -93,6 +98,7 @@ module butterfly_tb( );
 
     temp4 = calc_out_test;
 
+//************************************ The following is stage 2 **********************************
     $display("\n\nOUTPUT\n");
 
     #100 begin
