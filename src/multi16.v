@@ -26,7 +26,8 @@
 // - Version 3.9 20/04/17: Fix 2's complement error;
 // - Version 4.0 20/04/18: Transform to combinatorial logic;
 // - Version 4.1 20/04/19: Fix error, Merge branch from @mikeq123456；
-// - Version 4.2 20/04/19: Fix some errors.
+// - Version 4.2 20/04/19: Fix some errors;
+// - Version 4.3 20/04/19: Debug finished. No error, function correct.
 //
 // Notes: 
 //
@@ -40,28 +41,19 @@ module multi16(
   
   );
 
-  wire flag;               // determine the sign of the product
-  wire [16:0] in_17bit_b;  // store 17-bit true form data
-  wire [7:0]  in_8bit_b;   // store 8-bit  true form data
+  wire        flag;             // determine the sign of the product
+  wire [16:0] in_17bit_b;       // store 17-bit true form data
+  wire [7:0]  in_8bit_b;        // store 8-bit  true form data
   wire [24:0] mul;
   wire [16:0] mul_b;
 
-  assign  in_17bit_b = (in_17bit[16] == 1) ? ~in_17bit[16:0] + 1'b1 : in_17bit;
-  // If in_17bit is a negative number, transform to 2's complement, otherwise remain the same.
+//**************************** The following are assign statements ****************************
 
-  assign  in_8bit_b = (in_8bit[7] == 1) ? ~in_8bit[7:0] + 1'b1 : in_8bit;
-  // If in_8bit is a negative number, transform to 2's complement, otherwise remain the same.
-
-  assign  flag = in_17bit[16] + in_8bit[7];
-  // Determine the sign of the product. 
-
-  assign  mul = in_17bit_b[16:0] * in_8bit_b[7:0];
-  // Calculate the absolute value of the product.
-
-  assign  mul_b = {mul[23:15], mul[14:7]};
-  // Add the sign.
-
-  assign  out = (flag == 1) ? ~mul_b[16:0] + 1'b1 : mul_b;
-  // Output only keep 17 bits
+  assign  in_17bit_b = (in_17bit[16] == 1) ? ~in_17bit[16:0] + 1'b1 : in_17bit;  // If in_17bit is a negative number, transform to 2's complement, otherwise remain the same.
+  assign  in_8bit_b  = ( in_8bit[7]  == 1) ?  ~in_8bit[7:0]  + 1'b1 : in_8bit;   // If in_8bit is a negative number, transform to 2's complement, otherwise remain the same.
+  assign  flag  = in_17bit[16] + in_8bit[7];                  // Determine the sign of the product. 
+  assign  mul   = in_17bit_b[16:0] * in_8bit_b[7:0];          // Calculate the absolute value of the product.
+  assign  mul_b = {mul[23:15], mul[14:7]};                    // Shift, combining integer and fractional parts.
+  assign  out   = (flag == 1) ? ~mul_b[16:0] + 1'b1 : mul_b;  // Output only keep 17 bits.
 
 endmodule
