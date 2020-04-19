@@ -25,7 +25,8 @@
 // - Version 3.8 20/04/17: Check again, fix some errors and add comments;
 // - Version 3.9 20/04/17: Fix 2's complement error;
 // - Version 4.0 20/04/18: Transform to combinatorial logic;
-// - Version 4.1 20/04/19: Fix error, Merge branch from @mikeq123456.
+// - Version 4.1 20/04/19: Fix error, Merge branch from @mikeq123456；
+// - Version 4.2 20/04/19: Fix some errors.
 //
 // Notes: 
 //
@@ -54,10 +55,10 @@ module multi16(
   assign  flag = in_17bit[16] + in_8bit[7];
   // Determine the sign of the product. 
 
-  assign  mul_b = in_17bit_b[16:0] * in_8bit_b[7:0];
+  assign  mul = in_17bit_b[16:0] * in_8bit_b[7:0];
   // Calculate the absolute value of the product.
 
-  assign  mul_b = {mul_b[23:15], mul_b[14:7]};
+  assign  mul_b = {mul[23:15], mul[14:7]};
   // Add the sign.
 
   assign  out = (flag == 1) ? ~mul_b[16:0] + 1'b1 : mul_b;
