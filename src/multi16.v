@@ -42,8 +42,8 @@ module multi16(
   wire flag;               // determine the sign of the product
   wire [16:0] in_17bit_b;  // store 17-bit true form data
   wire [7:0]  in_8bit_b;   // store 8-bit  true form data
-  wire [24:0] sum;
-  wire [16:0] sum_b;
+  wire [24:0] mul;
+  wire [16:0] mul_b;
 
   assign  in_17bit_b = (in_17bit[16] == 1) ? ~in_17bit[16:0] + 1'b1 : in_17bit;
   // If in_17bit is a negative number, transform to 2's complement, otherwise remain the same.
@@ -57,10 +57,10 @@ module multi16(
   assign  mul_b = in_17bit_b[16:0] * in_8bit_b[7:0];
   // Calculate the absolute value of the product.
 
-  assign  mul_b_short = {mul_b[23:15], mul_b[14:7]};
+  assign  mul_b = {mul_b[23:15], mul_b[14:7]};
   // Add the sign.
 
-  assign  out = (flag == 1) ? ~mul_b_short[16:0] + 1'b1 : mul_b_short;
+  assign  out = (flag == 1) ? ~mul_b[16:0] + 1'b1 : mul_b;
   // Output only keep 17 bits
 
 endmodule
