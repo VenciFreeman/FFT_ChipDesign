@@ -5,7 +5,7 @@
 //
 // File Name: butterfly
 //
-// Type: Sequential
+// Type: Combinatorial
 //
 // Purpose: Butterfly computation for 16-bit 4-radix FFT.
 //
@@ -34,7 +34,8 @@
 // - Version 2.7 20/04/17: Add signed;
 // - Version 2.8 20/04/18: Check again, add comments;
 // - Version 2.9 20/04/18: Fix rotation factors;
-// - Version 3.0 20/04/18: Transform to Combinatorial logic.
+// - Version 3.0 20/04/18: Transform to combinatorial logic;
+// - Version 3.1 20/04/18: Merge branch from @mikeq123456.
 //
 // Notes:
 // - rotation_factor format: (Re,Im). The highest bit is sign bit, 7 data bits;

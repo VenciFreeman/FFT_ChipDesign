@@ -24,7 +24,8 @@
 // - Version 3.7 20/04/16: Simulate successful. Still need to check results;
 // - Version 3.8 20/04/17: Check again, fix some errors and add comments;
 // - Version 3.9 20/04/17: Fix 2's complement error;
-// - Version 4.0 20/04/18: Transform to Combinatorial logic.
+// - Version 4.0 20/04/18: Transform to combinatorial logic;
+// - Version 4.1 20/04/19: Fix error, Merge branch from @mikeq123456.
 //
 // Notes: 
 //
@@ -41,24 +42,25 @@ module multi16(
   wire flag;               // determine the sign of the product
   wire [16:0] in_17bit_b;  // store 17-bit true form data
   wire [7:0]  in_8bit_b;   // store 8-bit  true form data
-  wire [22:0] sum;
-  wire [23:0] sum_b;
+  wire [24:0] sum;
+  wire [16:0] sum_b;
 
-  assign in_17bit_b = (in_17bit[16] == 1) ? {in_17bit[16] , ~in_17bit[15:0] + 1'b1} : in_17bit;
+  assign  in_17bit_b = (in_17bit[16] == 1) ? ~in_17bit[16:0] + 1'b1 : in_17bit;
   // If in_17bit is a negative number, transform to 2's complement, otherwise remain the same.
 
-  assign in_8bit_b = (in_8bit[7] == 1) ? {in_8bit[7], ~in_8bit[6:0] + 1'b1} : in_8bit;
+  assign  in_8bit_b = (in_8bit[7] == 1) ? ~in_8bit[7:0] + 1'b1 : in_8bit;
   // If in_8bit is a negative number, transform to 2's complement, otherwise remain the same.
 
-  assign flag = in_17bit_b[16] ^ in_8bit_b[7];
-  // Determine the sign of the product.      
+  assign  flag = in_17bit[16] + in_8bit[7];
+  // Determine the sign of the product. 
 
-  assign sum = in_17bit_b[15:0] * in_8bit_b[6:0];
+  assign  mul_b = in_17bit_b[16:0] * in_8bit_b[7:0];
   // Calculate the absolute value of the product.
 
-  assign sum_b = {flag, sum};
+  assign  mul_b_short = {mul_b[23:15], mul_b[14:7]};
   // Add the sign.
-  assign out = sum_b[23] ? {sum_b[23], ~sum_b[22:7] + 9'b100000000} : sum_b[23:7];
+
+  assign  out = (flag == 1) ? ~mul_b_short[16:0] + 1'b1 : mul_b_short;
   // Output only keep 17 bits
 
 endmodule
