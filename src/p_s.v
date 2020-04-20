@@ -91,7 +91,6 @@ module p_s(clk,rst_n,data_in_3,p_s_flag_in,data_out_3);
              R4 <= data_in_3[67:34];
              R8 <= data_in_3[101:68];
              R12 <= data_in_3[135:102];
-             p_s_flag_out <= 1;
              end
        2'b01:begin
              R1 <= data_in_3[33:0];
@@ -141,9 +140,12 @@ always @(posedge clk)begin
   
    always @(posedge clk)begin
      if(!rst_n)begin
-       p_s_flag_out <= 0;
+       p_s_flag_out <= 1'b0;
        end
-     else begin
+     else if(!p_s_flag_in)begin 
+       p_s_flag_out <= 1'b1;
+     end
+       begin
          p_s_flag_out <= p_s_flag_out;
        end
      end
@@ -155,46 +157,46 @@ always @(posedge clk)begin
                  data_out_3 <= R0;
                  end
          4'b0001:begin
-                 data_out_3 <= R1;
+                 data_out_3 <= R4;
                  end
          4'b0010:begin
-                 data_out_3 <= R2;
+                 data_out_3 <= R8;
                  end
          4'b0011:begin
-                 data_out_3 <= R3;
+                 data_out_3 <= R12;
                  end
          4'b0100:begin
-                 data_out_3 <= R4;
+                 data_out_3 <= R1;
                  end
          4'b0101:begin
                  data_out_3 <= R5;
                  end
          4'b0110:begin
-                 data_out_3 <= R6;
+                 data_out_3 <= R9;
                  end
          4'b0111:begin
-                 data_out_3 <= R7;
+                 data_out_3 <= R13;
                  end
          4'b1000:begin
-                 data_out_3 <= R8;
+                 data_out_3 <= R2;
                  end
          4'b1001:begin
-                 data_out_3 <= R9;
+                 data_out_3 <= R6;
                  end
          4'b1010:begin
                  data_out_3 <= R10;
                  end
          4'b1011:begin
-                 data_out_3 <= R11;
+                 data_out_3 <= R14;
                  end
          4'b1100:begin
-                 data_out_3 <= R12;
+                 data_out_3 <= R3;
                  end
          4'b1101:begin
-                 data_out_3 <= R13;
+                 data_out_3 <= R7;
                  end
          4'b1110:begin
-                 data_out_3 <= R14;
+                 data_out_3 <= R11;
                  end
          4'b1111:begin
                  data_out_3 <= R15;
