@@ -1,0 +1,357 @@
+Warning: Design 'fft_chip' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Information: Updating graph... (UID-83)
+Warning: Design 'fft_chip' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Information: Updating design information... (UID-85)
+Warning: Design 'fft_chip' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : fft_chip
+Version: D-2010.03-SP5-3
+Date   : Fri Apr 17 22:08:01 2020
+****************************************
+
+
+   min_delay/hold ('clk' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack
+   -----------------------------------------------------------------
+   inst_fft/butterfly0/multi1_2_1/sum_b_reg[7]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_1/sum_b_reg[8]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_1/sum_b_reg[9]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_1/sum_b_reg[10]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_1/sum_b_reg[11]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_1/sum_b_reg[12]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_1/sum_b_reg[13]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_1/sum_b_reg[14]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_1/sum_b_reg[15]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_1/sum_b_reg[16]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_1/sum_b_reg[21]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_1/sum_b_reg[23]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_2/sum_b_reg[7]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_2/sum_b_reg[8]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_2/sum_b_reg[9]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_2/sum_b_reg[10]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_2/sum_b_reg[11]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_2/sum_b_reg[12]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_2/sum_b_reg[13]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_2/sum_b_reg[14]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_2/sum_b_reg[15]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_2/sum_b_reg[16]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_2/sum_b_reg[18]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_2/sum_b_reg[19]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_2/sum_b_reg[20]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_2/sum_b_reg[21]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_2/sum_b_reg[23]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_3/sum_b_reg[7]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_3/sum_b_reg[8]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_3/sum_b_reg[9]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_3/sum_b_reg[10]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_3/sum_b_reg[11]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_3/sum_b_reg[12]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_3/sum_b_reg[13]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_3/sum_b_reg[14]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_3/sum_b_reg[15]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_3/sum_b_reg[16]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_3/sum_b_reg[18]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_3/sum_b_reg[19]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_3/sum_b_reg[20]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_3/sum_b_reg[21]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_3/sum_b_reg[23]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_1/sum_b_reg[7]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_1/sum_b_reg[8]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_1/sum_b_reg[9]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_1/sum_b_reg[10]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_1/sum_b_reg[11]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_1/sum_b_reg[12]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_1/sum_b_reg[13]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_1/sum_b_reg[14]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_1/sum_b_reg[15]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_1/sum_b_reg[16]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_1/sum_b_reg[18]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_1/sum_b_reg[19]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_1/sum_b_reg[20]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_1/sum_b_reg[21]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_1/sum_b_reg[23]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_2/sum_b_reg[7]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_2/sum_b_reg[8]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_2/sum_b_reg[9]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_2/sum_b_reg[10]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_2/sum_b_reg[11]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_2/sum_b_reg[12]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_2/sum_b_reg[13]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_2/sum_b_reg[14]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_2/sum_b_reg[15]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_2/sum_b_reg[16]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_2/sum_b_reg[21]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_2/sum_b_reg[23]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_3/sum_b_reg[7]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_3/sum_b_reg[8]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_3/sum_b_reg[9]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_3/sum_b_reg[10]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_3/sum_b_reg[11]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_3/sum_b_reg[12]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_3/sum_b_reg[13]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_3/sum_b_reg[14]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_3/sum_b_reg[15]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_3/sum_b_reg[16]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_3/sum_b_reg[21]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_3/sum_b_reg[23]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_1/sum_b_reg[7]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_1/sum_b_reg[8]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_1/sum_b_reg[9]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_1/sum_b_reg[10]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_1/sum_b_reg[11]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_1/sum_b_reg[12]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_1/sum_b_reg[13]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_1/sum_b_reg[14]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_1/sum_b_reg[15]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_1/sum_b_reg[16]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_1/sum_b_reg[21]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_1/sum_b_reg[23]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_2/sum_b_reg[7]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_2/sum_b_reg[8]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_2/sum_b_reg[9]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_2/sum_b_reg[10]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_2/sum_b_reg[11]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_2/sum_b_reg[12]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_2/sum_b_reg[13]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_2/sum_b_reg[14]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_2/sum_b_reg[15]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_2/sum_b_reg[16]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_2/sum_b_reg[21]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_2/sum_b_reg[23]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_3/sum_b_reg[7]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_3/sum_b_reg[8]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_3/sum_b_reg[9]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_3/sum_b_reg[10]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_3/sum_b_reg[11]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_3/sum_b_reg[12]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_3/sum_b_reg[13]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_3/sum_b_reg[14]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_3/sum_b_reg[15]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_3/sum_b_reg[16]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_3/sum_b_reg[21]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_3/sum_b_reg[23]/D
+                                4.78           4.61 f        -0.17  (VIOLATED)
+   inst_fft/ctrl0/mux_flag_reg/D
+                                4.76           4.68 f        -0.08  (VIOLATED)
+   inst_fft/s_p0/counter_reg[0]/D
+                                4.64           4.59 f        -0.06  (VIOLATED)
+   inst_fft/s_p0/counter_reg[1]/D
+                                4.64           4.59 f        -0.06  (VIOLATED)
+   inst_fft/s_p0/counter_reg[2]/D
+                                4.64           4.59 f        -0.06  (VIOLATED)
+   inst_fft/s_p0/counter_reg[3]/D
+                                4.64           4.59 f        -0.06  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_1/sum_b_reg[17]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_1/sum_b_reg[18]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_1/sum_b_reg[19]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_1/sum_b_reg[20]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_1/sum_b_reg[22]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_2/sum_b_reg[17]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_2/sum_b_reg[22]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_3/sum_b_reg[17]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_3/sum_b_reg[22]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_1/sum_b_reg[17]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_1/sum_b_reg[22]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_2/sum_b_reg[17]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_2/sum_b_reg[18]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_2/sum_b_reg[19]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_2/sum_b_reg[20]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_2/sum_b_reg[22]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_3/sum_b_reg[17]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_3/sum_b_reg[18]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_3/sum_b_reg[19]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_3/sum_b_reg[20]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_3/sum_b_reg[22]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_1/sum_b_reg[17]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_1/sum_b_reg[18]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_1/sum_b_reg[19]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_1/sum_b_reg[20]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_1/sum_b_reg[22]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_2/sum_b_reg[17]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_2/sum_b_reg[18]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_2/sum_b_reg[19]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_2/sum_b_reg[20]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_2/sum_b_reg[22]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_3/sum_b_reg[17]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_3/sum_b_reg[18]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_3/sum_b_reg[19]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_3/sum_b_reg[20]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_4_3/sum_b_reg[22]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_1/flag_reg/D
+                                4.78           4.78 f         0.00  (VIOLATED: increase signficant digits)
+   inst_fft/butterfly0/multi1_2_2/flag_reg/D
+                                4.78           4.78 f         0.00  (VIOLATED: increase signficant digits)
+   inst_fft/butterfly0/multi1_2_3/flag_reg/D
+                                4.78           4.78 f         0.00  (VIOLATED: increase signficant digits)
+   inst_fft/butterfly0/multi1_3_1/flag_reg/D
+                                4.78           4.78 f         0.00  (VIOLATED: increase signficant digits)
+   inst_fft/butterfly0/multi1_3_2/flag_reg/D
+                                4.78           4.78 f         0.00  (VIOLATED: increase signficant digits)
+   inst_fft/butterfly0/multi1_3_3/flag_reg/D
+                                4.78           4.78 f         0.00  (VIOLATED: increase signficant digits)
+   inst_fft/butterfly0/multi1_4_1/flag_reg/D
+                                4.78           4.78 f         0.00  (VIOLATED: increase signficant digits)
+   inst_fft/butterfly0/multi1_4_2/flag_reg/D
+                                4.78           4.78 f         0.00  (VIOLATED: increase signficant digits)
+   inst_fft/butterfly0/multi1_4_3/flag_reg/D
+                                4.78           4.78 f         0.00  (VIOLATED: increase signficant digits)
+
+
+1

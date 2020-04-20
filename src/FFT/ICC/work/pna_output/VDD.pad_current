@@ -1,0 +1,6 @@
+Pad Cell vdd1_l at (0.000 836.420) Supplies  185.39 mA Current (36.71%)
+Pad Cell vdd1_r at (1452.060 306.945) Supplies  128.57 mA Current (25.46%)
+Pad Cell vdd1_t at (793.030 1449.360) Supplies  118.41 mA Current (23.45%)
+Pad Cell vdd1_b at (307.170 0.000) Supplies   72.68 mA Current (14.39%)
+Total Current from Pad Cells:  505.05 mA (100.00%)
+Total Current from Virtual Pads:    0.00 mA (0.00%)

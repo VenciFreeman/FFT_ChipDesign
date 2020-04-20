@@ -1,0 +1,267 @@
+
+  Loading design 'idct_chip'
+
+
+Information: Setting a dont_touch attribute on net 'din[4]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[3]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[2]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[1]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[0]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'mode[1]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'mode[0]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[12]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[11]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[10]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[9]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[8]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[7]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[6]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[5]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[4]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[3]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[2]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[1]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[0]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[15]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[14]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[13]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[12]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[11]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[10]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[9]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[8]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[7]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[6]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[5]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'start' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'rstn' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'clk' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout_mode[1]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout_mode[0]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[15]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[14]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[13]' because it is connected to a pad cell. (PSYN-088)
+
+
+Information: Library Manufacturing Grid(GridResolution) : 5
+Information: Time Unit from Milkyway design library: 'ns' 
+Information: Design Library and main library timing units are matched - 1.000 ns. 
+Information: Resistance Unit from Milkyway design library: 'kohm' 
+Information: Design Library and main library resistance units are matched - 1.000 kohm. 
+Information: Capacitance Unit from Milkyway design library: 'pf' 
+Information: Design Library and main library capacitance units are matched - 1.000 pf. 
+29225/29264 nets are routed
+Warning: Inconsistent library data found for layer POLY1. (RCEX-018)
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is global route TLU+. (RCEX-015)
+Information: Start mixed mode parasitic extraction. (RCEX-023)
+Information: Start rc extraction...
+Memory usage for extraction task 144 Mbytes -- main task 603 Mbytes.
+Warning: Net 'net_clk' is exceeding threshold (over 1000 pins) and will be skipped. (RCEX-020)
+Warning: Net 'net_rstn' is exceeding threshold (over 1000 pins) and will be skipped. (RCEX-020)
+Information: Parasitic source is LPE. (RCEX-040)
+Information: Parasitic mode is RealRVirtualC. (RCEX-041)
+Information: Using virtual shield extraction. (RCEX-081)
+Information: Extraction mode is MIN_MAX. (RCEX-042)
+Information: Extraction derate is 125/125/125. (RCEX-043)
+Information: Coupling capacitances are lumped to ground. (RCEX-044)
+Information: Start back annotation for parasitic extraction. (RCEX-023)
+Information: End back annotation for parasitic extraction. (RCEX-023)
+Information: Start timing update for parasitic extraction. (RCEX-023)
+Information: Postroute Elmore delays will be computed using RC annotations. (TIM-234)
+Information: End timing update for parasitic extraction. (RCEX-023)
+Information: End parasitic extraction. (RCEX-023)
+Information: Start rc update...
+****************************************************************
+Information: TLUPlus based RC computation is enabled. (RCEX-141)
+****************************************************************
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is TLU+. (RCEX-015)
+Information: Library Derived Cap for layer METAL1 : 0.00022 0.0002 (RCEX-011)
+Information: Library Derived Res for layer METAL1 : 0.00044 0.00024 (RCEX-011)
+Information: Library Derived Cap for layer METAL2 : 0.00021 0.00019 (RCEX-011)
+Information: Library Derived Res for layer METAL2 : 0.00036 0.0002 (RCEX-011)
+Information: Library Derived Cap for layer METAL3 : 0.00025 0.00023 (RCEX-011)
+Information: Library Derived Res for layer METAL3 : 0.00036 0.0002 (RCEX-011)
+Information: Library Derived Cap for layer METAL4 : 0.00021 0.00019 (RCEX-011)
+Information: Library Derived Res for layer METAL4 : 0.00036 0.0002 (RCEX-011)
+Information: Library Derived Cap for layer METAL5 : 0.00028 0.00026 (RCEX-011)
+Information: Library Derived Res for layer METAL5 : 0.0001 6.1e-05 (RCEX-011)
+Information: Library Derived Horizontal Cap : 0.00025 0.00023 (RCEX-011)
+Information: Library Derived Horizontal Res : 0.0003 0.00017 (RCEX-011)
+Information: Library Derived Vertical Cap : 0.00021 0.00019 (RCEX-011)
+Information: Library Derived Vertical Res : 0.00036 0.0002 (RCEX-011)
+Information: Using derived R and C coefficients. (RCEX-008)
+Information: Using region-based R and C coefficients. (RCEX-013)
+Information: Library Derived Via Res : 0.0095 0.001 (RCEX-011)
+Information: End rc update.
+Information: The mixed mode parasitic extraction has been performed. (RCEX-202)
+Information: Updating graph... (UID-83)
+Warning: Design 'idct_chip' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Information: Timing loop detected. (OPT-150)
+	inst_idct/inst_p2s2/U4/A inst_idct/inst_p2s2/U4/Y 
+Information: Timing loop detected. (OPT-150)
+	inst_idct/inst_p2s2/U5/A1N inst_idct/inst_p2s2/U5/Y 
+Warning: Disabling timing arc between pins 'A' and 'Y' on cell 'inst_idct/inst_p2s2/U4'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1N' and 'Y' on cell 'inst_idct/inst_p2s2/U5'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'Y' on cell 'inst_idct/inst_p2s1/U4'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1N' and 'Y' on cell 'inst_idct/inst_p2s1/U5'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'AN' and 'Y' on cell 'inst_idct/idct_cal_col/U5'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'Y' on cell 'inst_idct/idct_cal_col/U4'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1N' and 'Y' on cell 'inst_idct/inst_s2p1/U4'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1N' and 'Y' on cell 'inst_idct/inst_s2p1/U3'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'AN' and 'Y' on cell 'inst_idct/idct_cal_row/U5'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'Y' on cell 'inst_idct/idct_cal_row/U4'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1N' and 'Y' on cell 'inst_idct/inst_s2p2/U4'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1N' and 'Y' on cell 'inst_idct/inst_s2p2/U3'
+         to break a timing loop. (OPT-314)
+Information: Updating design information... (UID-85)
+Warning: Design 'idct_chip' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : idct_chip
+Version: D-2010.03-ICC-SP5-2
+Date   : Fri Apr 17 15:28:06 2020
+****************************************
+
+ * Some/all delay information is back-annotated.
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: slow   Library: slow
+	Parasitic source    : LPE
+	Parasitic mode      : RealRVirtualC
+	Extraction mode     : MIN_MAX
+	Extraction derating : 125/125/125
+
+Information: Percent of Arnoldi-based delays =  0.00%
+
+  Startpoint: mode[1] (input port clocked by clk)
+  Endpoint: inst_idct/inst_s2p1/dout8_reg_reg_116_
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: INPUTS
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    0.50       0.50 f
+  mode[1] (in)                                            1.27       1.77 f
+  PIW_mode1/C (PIW)                                       1.57 *     3.34 f
+  inst_idct/mode[1] (idct)                                0.00       3.34 f
+  inst_idct/inst_s2p1/mode[1] (s2p_0)                     0.00       3.34 f
+  inst_idct/inst_s2p1/U798/Y (NOR2X1)                     0.27 &     3.61 r
+  inst_idct/inst_s2p1/U528/Y (INVX1)                      0.11 &     3.72 f
+  inst_idct/inst_s2p1/U524/Y (NAND2X1)                    1.57 &     5.30 r
+  inst_idct/inst_s2p1/U60/Y (INVX1)                       0.32 &     5.61 f
+  inst_idct/inst_s2p1/U9/Y (INVX1)                        1.42 &     7.03 r
+  inst_idct/inst_s2p1/U431/Y (OAI22X1)                    0.26 &     7.29 f
+  inst_idct/inst_s2p1/dout8_reg_reg_116_/D (DFFRHQX1)     0.00 &     7.29 f
+  data arrival time                                                  7.29
+
+  clock clk (rise edge)                                  20.00      20.00
+  clock network delay (ideal)                             0.00      20.00
+  clock uncertainty                                      -0.20      19.80
+  inst_idct/inst_s2p1/dout8_reg_reg_116_/CK (DFFRHQX1)
+                                                          0.00      19.80 r
+  library setup time                                     -0.40      19.40
+  data required time                                                19.40
+  --------------------------------------------------------------------------
+  data required time                                                19.40
+  data arrival time                                                 -7.29
+  --------------------------------------------------------------------------
+  slack (MET)                                                       12.11
+
+
+  Startpoint: inst_idct/inst_p2s2/dout_reg_10_
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: dout[10] (output port clocked by clk)
+  Path Group: OUTPUTS
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  inst_idct/inst_p2s2/dout_reg_10_/CK (DFFRHQX1)          0.00 #     0.00 r
+  inst_idct/inst_p2s2/dout_reg_10_/Q (DFFRHQX1)           2.30       2.30 r
+  inst_idct/inst_p2s2/dout[10] (p2s_1)                    0.00       2.30 r
+  inst_idct/dout[10] (idct)                               0.00       2.30 r
+  PO8W_dout10/PAD (PO8W)                                  2.02 &     4.32 r
+  dout[10] (out)                                          0.00 *     4.32 r
+  data arrival time                                                  4.32
+
+  clock clk (rise edge)                                  20.00      20.00
+  clock network delay (ideal)                             0.00      20.00
+  clock uncertainty                                      -0.20      19.80
+  output external delay                                  -0.50      19.30
+  data required time                                                19.30
+  --------------------------------------------------------------------------
+  data required time                                                19.30
+  data arrival time                                                 -4.32
+  --------------------------------------------------------------------------
+  slack (MET)                                                       14.98
+
+
+  Startpoint: inst_idct/inst_mem_ctrl_tran/ram_reg
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: inst_idct/inst_s2p2/dout4_reg_reg_8_
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  inst_idct/inst_mem_ctrl_tran/ram_reg/CK (DFFRHQX1)      0.00 #     0.00 r
+  inst_idct/inst_mem_ctrl_tran/ram_reg/Q (DFFRHQX1)       0.42       0.42 f
+  inst_idct/inst_mem_ctrl_tran/U35/Y (INVX1)              1.05 &     1.47 r
+  inst_idct/inst_mem_ctrl_tran/U520/Y (MXI2X1)            2.64 &     4.11 r
+  inst_idct/inst_mem_ctrl_tran/addr_ram8x8_2[2] (mem_ctrl_tran)
+                                                          0.00       4.11 r
+  inst_idct/ram8x8_2/addr[2] (mem8x8_1)                   0.00       4.11 r
+  inst_idct/ram8x8_2/U2/Y (INVXL)                         0.72 &     4.83 f
+  inst_idct/ram8x8_2/U115/Y (INVX1)                       2.33 &     7.16 r
+  inst_idct/ram8x8_2/U194/Y (MX4X1)                       0.83 &     7.99 f
+  inst_idct/ram8x8_2/U192/Y (MX4X1)                       0.67 &     8.66 f
+  inst_idct/ram8x8_2/U191/Y (NOR2BX1)                     0.36 &     9.02 f
+  inst_idct/ram8x8_2/dout[8] (mem8x8_1)                   0.00       9.02 f
+  inst_idct/U23/Y (AOI222X1)                              0.82 &     9.84 r
+  inst_idct/U22/Y (NAND2X1)                               0.89 &    10.73 f
+  inst_idct/inst_s2p2/din[8] (s2p_1)                      0.00      10.73 f
+  inst_idct/inst_s2p2/U133/Y (INVX1)                      0.96 &    11.69 r
+  inst_idct/inst_s2p2/U98/Y (OAI22X1)                     0.23 &    11.93 f
+  inst_idct/inst_s2p2/dout4_reg_reg_8_/D (DFFRHQX1)       0.00 &    11.93 f
+  data arrival time                                                 11.93
+
+  clock clk (rise edge)                                  20.00      20.00
+  clock network delay (ideal)                             0.00      20.00
+  clock uncertainty                                      -0.20      19.80
+  inst_idct/inst_s2p2/dout4_reg_reg_8_/CK (DFFRHQX1)      0.00      19.80 r
+  library setup time                                     -0.40      19.40
+  data required time                                                19.40
+  --------------------------------------------------------------------------
+  data required time                                                19.40
+  data arrival time                                                -11.93
+  --------------------------------------------------------------------------
+  slack (MET)                                                        7.48
+
+
+1

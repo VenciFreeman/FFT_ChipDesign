@@ -1,0 +1,18 @@
+**************************************************************
+* Voltage Drop Violation Report
+*
+* Units:
+*   Length Unit         : um
+*   Length Scale        : 0.001
+*   Voltage Unit        : mV
+*
+* Cell Name : idct_chip
+* PG Net    : VDD
+*
+* Threshold: 211.155
+*
+* Format: [left bottom right top] on Layer is voltage
+*
+[1127390 1030880 1275890 1031680] on METAL1 is 211.155
+[1275890 1030880 1446370 1031680] on METAL1 is 211.155
+[1274920 1030880 1276860 1031680] on VIA12 is 211.155
