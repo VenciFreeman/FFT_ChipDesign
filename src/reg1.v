@@ -3,7 +3,7 @@
 // e-mail: luotian12345@sjtu.edu.cn
 // School: Shanghai Jiao Tong University
 //
-// File Name: reg1
+// File Name: reg
 //
 // Type: Combinational
 //
@@ -13,8 +13,7 @@
 //
 // Release History:
 // - Version 1.0 20/03/27: Create;
-// - Version 1.1 20/04/14: Modify；
-// - Version 1.2 20/04/16: Edit file name. (By @VenciFreeman)
+// - Version 1.1 20/02/20: Modify.
 //
 // Notes:
 //
@@ -32,6 +31,7 @@ module reg1(clk,rst_n,data_in_2,reg_datain_flag,data_out_2,reg_flag_mux);
   wire clk;
   wire rst_n;
   wire [135:0] data_in_2;
+  wire reg_datain_flag;
   reg [135:0] data_out_2;
   reg reg_flag_mux;
   
@@ -56,17 +56,14 @@ module reg1(clk,rst_n,data_in_2,reg_datain_flag,data_out_2,reg_flag_mux);
   reg [1:0] counter;
   reg [1:0] counter2;
   
-  always @(posedge clk or negedge rst_n)begin
-    if (!rst_n)begin
-      data_out_2 <= 136'b0;
-      reg_flag_mux <= 1'b0;
-      counter <= 2'b0;
-      counter2 <= 2'b0;
+  always @(posedge clk)begin
+    if(!rst_n)begin
+      counter <= 2'b00;
       end
-    else if (reg_datain_flag)begin
-        counter <= counter + 2'b01;
-        end
-  end
+    else if(reg_datain_flag)begin
+      counter <= counter + 1'b1;
+      end
+    end
 
   always @(posedge clk)begin
     if(reg_datain_flag)begin
@@ -99,9 +96,11 @@ module reg1(clk,rst_n,data_in_2,reg_datain_flag,data_out_2,reg_flag_mux);
     end
   end
   
-  always @
-  (posedge clk)begin
-    if(counter == 2'b11)begin
+  always @(posedge clk)begin
+    if(!rst_n)begin
+      reg_flag_mux <= 1'b0;
+      end
+    else if(counter == 2'b11)begin
       reg_flag_mux <= 1'b1;
       end
     else if(counter2 == 2'b11)begin
@@ -110,8 +109,11 @@ module reg1(clk,rst_n,data_in_2,reg_datain_flag,data_out_2,reg_flag_mux);
     end
   
   always @(posedge clk)begin
-    if(reg_flag_mux)begin
-      counter2 <= counter2 + 1;
+    if(!rst_n)begin
+      counter2 <= 2'b00;
+      end
+    else if(reg_flag_mux)begin
+      counter2 <= counter2 + 1'b1;
       end
     end
   
