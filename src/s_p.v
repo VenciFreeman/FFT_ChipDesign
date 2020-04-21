@@ -5,9 +5,9 @@
 //
 // File Name: s_p
 //
-// Type: Combinational
+// Type: Sequential
 //
-// Purpose: <Specific Function Description>
+// Purpose: Convert series input to parallel input.
 // 
 // Details:
 //
