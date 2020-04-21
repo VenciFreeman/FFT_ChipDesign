@@ -86,26 +86,26 @@ module s_p(
 // This always part controls signal data_in_1.
   always @ ( posedge clk or negedge rst_n ) begin
     case ( counter )
-      4'b0000: data_out_1  = {R15,R11,R7,R3};
-      4'b1101: data_out_1  = {R12,R8,R4,R0};
-      4'b1110: data_out_1  = {R13,R9,R5,R1};
-      4'b1111: data_out_1  = {R14,R10,R6,R2};
+      4'b0000: data_out_1  = {R15,  R11, R7,  R3};
+      4'b1101: data_out_1  = {R12,  R8,  R4,  R0};
+      4'b1110: data_out_1  = {R13,  R9,  R5,  R1};
+      4'b1111: data_out_1  = {R14,  R10, R6,  R2};
     endcase
 end
 
 // This always part controls register.
   always @(posedge clk or negedge rst_n)begin
     case(counter)
-      4'b0000: R0 <= data_in_1;
-      4'b0001: R1 <= data_in_1;
-      4'b0010: R2 <= data_in_1;
-      4'b0011: R3 <= data_in_1;
-      4'b0100: R4 <= data_in_1;
-      4'b0101: R5 <= data_in_1;
-      4'b0110: R6 <= data_in_1;
-      4'b0111: R7 <= data_in_1;
-      4'b1000: R8 <= data_in_1;
-      4'b1001: R9 <= data_in_1;
+      4'b0000: R0  <= data_in_1;
+      4'b0001: R1  <= data_in_1;
+      4'b0010: R2  <= data_in_1;
+      4'b0011: R3  <= data_in_1;
+      4'b0100: R4  <= data_in_1;
+      4'b0101: R5  <= data_in_1;
+      4'b0110: R6  <= data_in_1;
+      4'b0111: R7  <= data_in_1;
+      4'b1000: R8  <= data_in_1;
+      4'b1001: R9  <= data_in_1;
       4'b1010: R10 <= data_in_1;
       4'b1011: R11 <= data_in_1;
       4'b1100: R12 <= data_in_1;
