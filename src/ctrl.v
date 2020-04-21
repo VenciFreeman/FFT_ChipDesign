@@ -15,7 +15,8 @@
 // - Version 1.0 20/03/26: Create.
 // - Version 1.1 20/03/27: Create counter core_tick & mux/demux flag logic according to core_tick.
 // - Version 1.2 20/03/28: Create rotation logic according to core_tick & add specific parameters；
-// - Version 1.3 20/04/21: Edit format by @Vencifreeman.
+// - Version 1.3 20/04/21: Edit format by @Vencifreeman;
+// - Version 1.4 20/04/21: Edit rotation.
 //
 // Notes:
 //
@@ -46,11 +47,6 @@ module ctrl(
   parameter P_S_SEL_1 = 1'b0;
   parameter P_S_SEL_2 = 1'b0;
   parameter P_S_SEL_3 = 1'b0;
-  parameter W_K0_N16   = 3'b001;
-  parameter W_K123_N16 = 3'b010;
-  parameter W_K246_N16 = 3'b011;
-  parameter W_K369_N16 = 3'b100;
-  parameter W_K0123469_N4 = 3'b000;
 
   reg[2:0] core_tick;  // count how many sequential logic
 
@@ -109,19 +105,8 @@ module ctrl(
 always @ ( posedge clk or negedge rst_n ) begin
   if ( !rst_n )
     rotation <= ROT_IDLE; 
-  else begin
-    case ( core_tick )
-      3'b000: rotation <= W_K0123469_N4;  // Comment here to lower power consumption but no use
-      3'b001: rotation <= W_K0123469_N4;  // 15
-      3'b010: rotation <= W_K0123469_N4;  // 16
-      3'b011: rotation <= W_K0123469_N4;  // 17
-      3'b100: rotation <= W_K0_N16;  // 18
-      3'b101: rotation <= W_K123_N16;  // 19
-      3'b110: rotation <= W_K246_N16;  // 20
-      3'b111: rotation <= W_K369_N16;  // 21
-      // If MUX/DEMUX has 3 OPTIONS (SP/PS, REG, IDLE), but no use to lower power consumption because still need compute IDLE
-    endcase
-  end
+  else
+    rotation <=core_tick;
 end
     
 endmodule
