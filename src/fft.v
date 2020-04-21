@@ -3,7 +3,7 @@
 // e-mail: vencifreeman16@sjtu.edu.cn
 // School: Shanghai Jiao Tong University
 //
-// File Name: top
+// File Name: fft
 //
 // Type: Sequential
 //
@@ -18,31 +18,32 @@
 // - Version 1.2 20/04/14: Update and check tops, and comment;
 // - Version 1.3 20/04/14: Add statements;
 // - Version 1.4 20/04/16: Fix some errors;
-// - Version 1.5 20/04/21: Update connection, fix some errors.
+// - Version 1.5 20/04/21: Update connection, fix some errors;
+// - Version 1/6 20/04/21: Delete wire data_5.
 //
 // Notes:
 // - Many modules still have not specific signal names.
 //**********************************************************
 
-`include "../FFT_ChipDesign/src/ctrl.v"
-`include "../FFT_ChipDesign/src/s_p.v"
-`include "../FFT_ChipDesign/src/mux.v"
-`include "../FFT_ChipDesign/src/butterfly.v"
-`include "../FFT_ChipDesign/src/reg1.v"
-`include "../FFT_ChipDesign/src/p_s.v"
+`include "ctrl.v"
+`include "s_p.v"
+`include "mux.v"
+`include "butterfly.v"
+`include "reg1.v"
+`include "p_s.v"
 
-module top(
+module fft(
 
-  input wire        clk,       // clock
-  input wire        rst_n,     // reset
-  input wire[33:0]  data_in,   // input from pin
-  output wire[33:0] data_out   // output to pin
+  input  wire        clk,       // clock
+  input  wire        rst_n,     // reset
+  input  wire [33:0] data_in,   // input from pin
+  output wire [33:0] data_out   // output to pin
 
   );
 
   wire        mux_flag, demux_flag, s_p_flag;  // seems need a signal called ps_s_flag. Refer warning 02.
   wire[2:0]   rotation;
-  wire[135:0] data_1, data_2, data_3, data_4, data_5;
+  wire[135:0] data_1, data_2, data_3, data_4;
 
   ctrl ctrl0(
     .clk(clk),                // input from top
