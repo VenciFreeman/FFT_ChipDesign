@@ -16,7 +16,8 @@
 // Release History:
 // - Version 1.0 20/03/27: Create;
 // - Version 1.1 20/02/20: Modify;
-// - Version 1.2 20/04/21: Edit format by @VenciFreeman.
+// - Version 1.2 20/04/21: Edit format by @VenciFreeman;
+// - Version 1.3 20/04/21: Delete next_1 and next_2.
 //
 // Notes:
 //
@@ -47,8 +48,6 @@ module p_s(
   reg [33:0] R14;
   reg [33:0] R15;
 
-  reg [1:0]  next_1;
-  reg [3:0]  next_2; 
   reg [1:0]  counter_1;
   reg [3:0]  counter_2;
   reg        p_s_flag_out;
@@ -57,20 +56,10 @@ module p_s(
   always @ ( posedge clk or negedge rst_n ) begin
     if ( !rst_n )
       counter_1 <= 2'b0;
+    else if ( counter_1 == 2'b11 )
+      counter_1 <= 2'b0;
     else if ( !p_s_flag_in )
-      counter_1 <= next_1;
-    else
-      counter_1 <= counter_1;
-  end
-
-// This always part controls signal next_1.   
-  always @ ( posedge clk or negedge rst_n ) begin
-    if ( !rst_n )
-      next_1 <= 2'b0;
-    else if ( !p_s_flag_in )
-      next_1 <= counter_1 + 2'b01;
-    else
-      next_1 <= next_1;
+      counter_1 <= counter_1 + 2'b01;
   end
 
 // This always part controls registers. 
@@ -105,24 +94,14 @@ module p_s(
     end
   end
 
-// This always part controls counter_2. 
+// This always part controls signal counter_2. 
   always @ ( posedge clk or negedge rst_n ) begin
     if ( !rst_n )
       counter_2 <= 4'b0;
+    else if ( counter_1 == 4'b1111 )
+      counter_2 <= 4'b0;
     else if ( !p_s_flag_in )
-      counter_2 <= next_2;
-    else
-      counter_2 <= counter_2;
-  end
-
-// This always part controls next_2.  
-  always @ ( posedge clk or negedge rst_n ) begin
-    if ( !rst_n )
-      next_2 <= 4'b0;
-    else if ( !p_s_flag_in )
-      next_2 <= counter_2 + 4'b0001;
-    else
-      next_2 <= next_2;
+      counter_2 <= counter_2 + 4'b0001;
   end
 
 // This always part controls p_s_flag_out. 
