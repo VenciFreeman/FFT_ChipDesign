@@ -99,8 +99,8 @@ rc
 ########################################
 save_mw_cel -as 6_2_chip_finish_final
 set_write_stream_options -child_depth 200
-write_stream -cells 6_2_chip_finish_final ../outputs/idct_chip.gdsii
-write_verilog -no_corner_pad_cells ../outputs/idct_chip.v
+write_stream -cells 6_2_chip_finish_final ../outputs/fft_chip.gdsii
+write_verilog -no_corner_pad_cells ../outputs/fft_chip.v
 close_mw_cel
 close_mw_lib
 

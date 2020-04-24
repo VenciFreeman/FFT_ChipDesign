@@ -57,11 +57,10 @@ module reg1(clk,rst_n,data_in_2,reg_datain_flag,data_out_2);
   
   always @(posedge clk or negedge rst_n)begin
     if (!rst_n)begin
-      data_out_2 <= 136'b0;
-      reg_flag_mux <= 1'b0;
-      counter <= 2'b0;
-      counter2 <= 2'b0;
-      end
+     // reg_flag_mux <= 1'b0;
+     // counter <= 2'b0;
+     // counter2 <= 2'b0;
+     end
     else if (reg_datain_flag)begin
         counter <= counter + 2'b01;
         end
@@ -115,7 +114,10 @@ module reg1(clk,rst_n,data_in_2,reg_datain_flag,data_out_2);
     end
   
   always @(posedge clk)begin
-    if(reg_flag_mux)begin
+    if (!rst_n)begin
+	data_out_2 <= 136'b0;
+    end
+    else if(reg_flag_mux)begin
       case(counter2)
         2'b00:begin
               data_out_2 <= {R12,R8,R4,R0};

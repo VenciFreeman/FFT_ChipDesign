@@ -6,13 +6,13 @@
 *   Length Scale        : 0.001
 *   Voltage Unit        : mV
 *
-* Cell Name : idct_chip
+* Cell Name : 1_datasetup
 * PG Net    : VDD
 *
-* Threshold: 211.155
+* Threshold: 191.935
 *
 * Format: [left bottom right top] on Layer is voltage
 *
-[1127390 1030880 1275890 1031680] on METAL1 is 211.155
-[1275890 1030880 1446370 1031680] on METAL1 is 211.155
-[1274920 1030880 1276860 1031680] on VIA12 is 211.155
+[842270 1494560 1044890 1495360] on METAL1 is 191.935
+[1044890 1494560 1247510 1495360] on METAL1 is 191.935
+[1043920 1494560 1045860 1495360] on VIA12 is 191.935

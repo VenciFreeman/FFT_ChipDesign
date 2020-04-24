@@ -1,96 +1,48 @@
 #@ # 
 #@ # Running icc_shell Version D-2010.03-ICC-SP5-2 for amd64 -- Feb 01, 2011
-#@ # Date:   %sFri Apr 17 14:54:51 2020
+#@ # Date:   %sFri Apr 24 15:26:27 2020
 #@ # Run by: student@Student
 #@ 
 
+lappend search_path ~/Desktop/Workspace/SMIC18/db ../scripts ../design
+set_app_var target_library "slow.db"
+set_app_var link_library "* slow.db SP018W_V1p5_max.db"
+set_min_library slow.db -min_version fast.db
+set_min_library SP018W_V1p5_max.db -min_version SP018W_V1p5_min.db
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Physical Library settings
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+set mw_path "~/Desktop/Workspace/SMIC18/mw_lib"
+set tech_file "~/Desktop/Workspace/SMIC18/tech/smic18_5lm.tf"
+set tlup_map "~/Desktop/Workspace/SMIC18/tlup/smic018_5lm_map"
+set tlup_max "~/Desktop/Workspace/SMIC18/tlup/smiclog018_5lm_cell_max.tluplus"
+set tlup_min "~/Desktop/Workspace/SMIC18/tlup/smiclog018_5lm_cell_min.tluplus"
+set verilog_file "../design/fft_chip.v"
+set sdc_file "../design/fft_chip.sdc"
+create_mw_lib ../fft_chip.mw -open -technology $tech_file -mw_reference_library  "$mw_path/smic18_5ml $mw_path/SP018W_V1p5_5MT"
+import_designs $verilog_file -format verilog -top fft_chip
+set_tlu_plus_files -max_tluplus $tlup_max -min_tluplus $tlup_min -tech2itf_map  $tlup_map
+check_library
+check_tlu_plus_files
+#@ # GUI Debug: Building dc from empty. -- Time: 2sec 508ms
+
+list_libs
 start_gui
-lappend search_path ~/Desktop/Workspace/SMIC18/db ../scripts ../design
-set_app_var target_library "slow.db"
-set_app_var link_library "* slow.db SP018W_V1p5_max.db"
-set_min_library slow.db -min_version fast.db
-set_min_library SP018W_V1p5_max.db -min_version SP018W_V1p5_min.db
-set mw_path "~/Desktop/Workspace/SMIC18/mw_lib"
-set tech_file "~/Desktop/Workspace/SMIC18/tech/smic18_5lm.tf"
-set tlup_map "~/Desktop/Workspace/SMIC18/tlup/smic018_5lm_map"
-set tlup_max "~/Desktop/Workspace/SMIC18/tlup/smiclog018_5lm_cell_max.tluplus"
-set tlup_min "~/Desktop/Workspace/SMIC18/tlup/smiclog018_5lm_cell_min.tluplus"
-set verilog_file "../design/idct_chip.v"
-set sdc_file "../design/idct_chip.sdc"
-source run_data_setup.tcl^M
-source run_data_setup.tcl^M
-source run_data_setup.tcl^M
-set mw_path "~/Desktop/Workspace/SMIC18/mw_lib"
-set tech_file "~/Desktop/Workspace/SMIC18/tech/smic18_5lm.tf"
-set tlup_map "~/Desktop/Workspace/SMIC18/tlup/smic018_5lm_map"
-set tlup_max "~/Desktop/Workspace/SMIC18/tlup/smiclog018_5lm_cell_max.tluplus"
-set tlup_min "~/Desktop/Workspace/SMIC18/tlup/smiclog018_5lm_cell_min.tluplus"
-set verilog_file "../design/idct_chip.v"
-set sdc_file "../design/idct_chip.sdc"
-source run_data_setup.tcl^M
-source run_design_planning.tcl^M
-source run_placement.tcl^M
-source run_cts.tcl^M
-source run_route.tcl^M
-source run_finishing.tcl^M
-lappend search_path ~/Desktop/Workspace/SMIC18/db ../scripts ../design
-set_app_var target_library "slow.db"
-set_app_var link_library "* slow.db SP018W_V1p5_max.db"
-set_min_library slow.db -min_version fast.db
-set_min_library SP018W_V1p5_max.db -min_version SP018W_V1p5_min.db
-set mw_path "~/Desktop/Workspace/SMIC18/mw_lib"
-set tech_file "~/Desktop/Workspace/SMIC18/tech/smic18_5lm.tf"
-set tlup_map "~/Desktop/Workspace/SMIC18/tlup/smic018_5lm_map"
-set tlup_max "~/Desktop/Workspace/SMIC18/tlup/smiclog018_5lm_cell_max.tluplus"
-set tlup_min "~/Desktop/Workspace/SMIC18/tlup/smiclog018_5lm_cell_min.tluplus"
-set verilog_file "../design/idct_chip.v"
-set sdc_file "../design/idct_chip.sdc"
-source run_data_setup.tcl
-#@ # Script step 1 - Data Setup and Basic Flow
-#@ #
-#@ exec rm -rf ../idct_chip.mw
-#@ #
-#@ ############################################################
-#@ # Create Milkyway Design Library
-#@ ############################################################
-#@ create_mw_lib ../idct_chip.mw -open -technology $tech_file -mw_reference_library  "$mw_path/smic18_5ml $mw_path/SP018W_V1p5_5MT"
-#@ 
-#@ ############################################################
-#@ # Load the netlist, constraints and controls.
-#@ ############################################################
-#@ import_designs $verilog_file -format verilog -top idct_chip
-#@ win_set_filter -class cell -filter {cell_array }
-
-#@ win_set_filter -class placement_blockage -filter {wiring } -layer {}
-
-#@ win_set_filter -expand_cell_types {std io hard_macro soft_macro ilm other  }
-
-#@ win_set_select_class        {cell port plan_group edit_group shape via placement_blockage }
-
-#@ 
-#@ ############################################################
-#@ # Load TLU+ files
-#@ ############################################################
-#@ set_tlu_plus_files -max_tluplus $tlup_max -min_tluplus $tlup_min -tech2itf_map  $tlup_map
-#@ 
-#@ check_library
-#@ check_tlu_plus_files
-#@ # GUI Debug: Building dc from empty. -- Time: 8sec 104ms
-
-#@ list_libs
-#@ 
-#@ source derive_pg.tcl
+source derive_pg.tcl
 #@ derive_pg_connection -power_net VDD -power_pin VDD -ground_net VSS -ground_pin VSS
 #@ #derive_pg_connection -power_net VDDO -power_pin VDDO -ground_net VSSO -ground_pin VSSO
 #@ #derive_pg_connection -power_net VDDQ -power_pin VDDQ -ground_net VSSQ -ground_pin VSSQ
 #@ derive_pg_connection -power_net VDD -ground_net VSS -tie
 #@ # -- End source derive_pg.tcl
 
-#@ check_mv_design -power_nets
-#@ # GUI Debug: Building dc for netlist invalid. -- Time: 2sec 148ms
+win_set_filter -class cell -filter {cell_array }
+win_set_filter -class placement_blockage -filter {wiring } -layer {}
+win_set_filter -expand_cell_types {std io hard_macro soft_macro ilm other  }
+win_set_select_class        {cell port plan_group edit_group shape via placement_blockage }
+check_mv_design -power_nets
+#@ # GUI Debug: Building dc for netlist invalid. -- Time: 667ms
 
-#@ 
-#@ read_sdc $sdc_file
+read_sdc $sdc_file
 #@ define_proc_attributes all_physical_only_cells -info "Get the collection of physical only cells" -define_args {
 #@ { -coordinates "coordinates of bounding box" "llx lly urx ury" string {optional}} 
 #@ { -lib_cells "get cells related to these objects" "objects" list {optional}} 
@@ -194,15 +146,14 @@ source run_data_setup.tcl
 #@ }
 #@ # -- End source /usr/synopsys/ICC-2010.03-SP5-2/auxx/syn/all_command_option_def.tcl
 
-#@ check_timing
-#@ report_timing_requirements
-#@ report_disable_timing
-#@ report_case_analysis
-#@ report_clock
-#@ report_clock -skew
-#@ redirect -tee ../reports/data_setup.timing { report_timing }
-#@ 
-#@ source opt_ctrl.tcl
+check_timing
+report_timing_requirements
+report_disable_timing
+report_case_analysis
+report_clock
+report_clock -skew
+redirect -tee ../reports/data_setup.timing { report_timing }
+source opt_ctrl.tcl
 #@ # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #@ # General timing and optimization control settings
 #@ # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -227,19 +178,24 @@ source run_data_setup.tcl
 #@ # set_cost_priority {max_transistion max_delay}
 #@ # -- End source opt_ctrl.tcl
 
-#@ source zic_timing.tcl
+source zic_timing.tcl
 #@ set_zero_interconnect_delay_mode true
 #@ redirect -tee ../reports/data_setup_zic.timing { report_timing }
 #@ set_zero_interconnect_delay_mode false
 #@ # -- End source zic_timing.tcl
 
-#@ #exec cat zic.timing
-#@ #remove_ideal_network [get_ports scan_en]
-#@ save_mw_cel -as 1_datasetup
-#@ # -- End source run_data_setup.tcl
-
-gui_set_current_task -name {Design Planning}
-source pad_cell_cons.tcl
+#exec cat zic.timing
+#remove_ideal_network [get_ports scan_en]
+save_mw_cel -as 1_datasetup
+open_mw_cel 1_datasetup
+source run_design_planning.tcl
+#@ gui_set_current_task -name {Design Planning}
+#@ 
+#@ ######################################################################
+#@ # Initialize Floorplan
+#@ ######################################################################
+#@ # Create corners and P/G pads and define all pad cell locations:
+#@ source pad_cell_cons.tcl
 #@ # Create corners and P/G pads
 #@ create_cell {CornerLL CornerLR CornerTR CornerTL} PCORNERW
 #@ create_cell {vss1_l vss1_r vss1_t vss1_b} PVSS1W
@@ -256,106 +212,113 @@ source pad_cell_cons.tcl
 #@ # Define signal and PG pad locations
 #@ 
 #@ # Left side
-#@ set_pad_physical_constraints -pad_name "PIW_start" -side 1 -order 1
-#@ set_pad_physical_constraints -pad_name "PIW_mode0" -side 1 -order 2
-#@ set_pad_physical_constraints -pad_name "PIW_mode1" -side 1 -order 3
-#@ set_pad_physical_constraints -pad_name "PIW_mode2" -side 1 -order 4
-#@ set_pad_physical_constraints -pad_name "PIW_din0" -side 1 -order 5
-#@ set_pad_physical_constraints -pad_name "PIW_din1" -side 1 -order 6
-#@ set_pad_physical_constraints -pad_name "PIW_din2" -side 1 -order 7
-#@ set_pad_physical_constraints -pad_name "vdd2_l" -side 1 -order 8
-#@ set_pad_physical_constraints -pad_name "vdd1_l" -side 1 -order 9
-#@ set_pad_physical_constraints -pad_name "vss1_l" -side 1 -order 10
-#@ set_pad_physical_constraints -pad_name "vss2_l" -side 1 -order 11
-#@ set_pad_physical_constraints -pad_name "PIW_din3" -side 1 -order 12
-#@ set_pad_physical_constraints -pad_name "PIW_din4" -side 1 -order 13
-#@ set_pad_physical_constraints -pad_name "PIW_din5" -side 1 -order 14
+#@ set_pad_physical_constraints -pad_name "PIW_din0" -side 1 -order 1
+#@ set_pad_physical_constraints -pad_name "PIW_din1" -side 1 -order 2
+#@ set_pad_physical_constraints -pad_name "PIW_din2" -side 1 -order 3
+#@ set_pad_physical_constraints -pad_name "PIW_din3" -side 1 -order 4
+#@ set_pad_physical_constraints -pad_name "PIW_din4" -side 1 -order 5
+#@ set_pad_physical_constraints -pad_name "PIW_din5" -side 1 -order 6
+#@ set_pad_physical_constraints -pad_name "PIW_din6" -side 1 -order 7
+#@ set_pad_physical_constraints -pad_name "PIW_din7" -side 1 -order 8
+#@ set_pad_physical_constraints -pad_name "PIW_din8" -side 1 -order 9
+#@ set_pad_physical_constraints -pad_name "vdd2_l" -side 1 -order 10
+#@ set_pad_physical_constraints -pad_name "vdd1_l" -side 1 -order 11
+#@ set_pad_physical_constraints -pad_name "vss1_l" -side 1 -order 12
+#@ set_pad_physical_constraints -pad_name "vss2_l" -side 1 -order 13
+#@ set_pad_physical_constraints -pad_name "PIW_din9" -side 1 -order 14
+#@ set_pad_physical_constraints -pad_name "PIW_din10" -side 1 -order 15
+#@ set_pad_physical_constraints -pad_name "PIW_din11" -side 1 -order 16
+#@ set_pad_physical_constraints -pad_name "PIW_din12" -side 1 -order 17
+#@ set_pad_physical_constraints -pad_name "PIW_din13" -side 1 -order 18
+#@ set_pad_physical_constraints -pad_name "PIW_din14" -side 1 -order 19
+#@ set_pad_physical_constraints -pad_name "PIW_din15" -side 1 -order 20
+#@ set_pad_physical_constraints -pad_name "PIW_din16" -side 1 -order 21
+#@ set_pad_physical_constraints -pad_name "PIW_din17" -side 1 -order 22
 #@ 
 #@ # Top side
-#@ set_pad_physical_constraints -pad_name "PIW_din6" -side 2 -order 1
-#@ set_pad_physical_constraints -pad_name "PIW_din7" -side 2 -order 2
-#@ set_pad_physical_constraints -pad_name "PIW_din8" -side 2 -order 3
-#@ set_pad_physical_constraints -pad_name "PIW_din9" -side 2 -order 4
-#@ set_pad_physical_constraints -pad_name "PIW_din10" -side 2 -order 5
-#@ set_pad_physical_constraints -pad_name "PIW_din11" -side 2 -order 6
-#@ set_pad_physical_constraints -pad_name "vdd2_t" -side 2 -order 7
-#@ set_pad_physical_constraints -pad_name "vdd1_t" -side 2 -order 8
-#@ set_pad_physical_constraints -pad_name "vss1_t" -side 2 -order 9
-#@ set_pad_physical_constraints -pad_name "vss2_t" -side 2 -order 10
-#@ set_pad_physical_constraints -pad_name "PIW_din12" -side 2 -order 11
-#@ set_pad_physical_constraints -pad_name "PIW_din13" -side 2 -order 12
-#@ set_pad_physical_constraints -pad_name "PIW_din14" -side 2 -order 13
-#@ set_pad_physical_constraints -pad_name "PIW_din15" -side 2 -order 14
+#@ set_pad_physical_constraints -pad_name "PIW_din18" -side 2 -order 1
+#@ set_pad_physical_constraints -pad_name "PIW_din19" -side 2 -order 2
+#@ set_pad_physical_constraints -pad_name "PIW_din20" -side 2 -order 3
+#@ set_pad_physical_constraints -pad_name "PIW_din21" -side 2 -order 4
+#@ set_pad_physical_constraints -pad_name "PIW_din22" -side 2 -order 5
+#@ set_pad_physical_constraints -pad_name "PIW_din23" -side 2 -order 6
+#@ set_pad_physical_constraints -pad_name "PIW_din24" -side 2 -order 7
+#@ set_pad_physical_constraints -pad_name "PIW_din25" -side 2 -order 8
+#@ set_pad_physical_constraints -pad_name "PIW_din26" -side 2 -order 9
+#@ set_pad_physical_constraints -pad_name "vdd2_t" -side 2 -order 10
+#@ set_pad_physical_constraints -pad_name "vdd1_t" -side 2 -order 11
+#@ set_pad_physical_constraints -pad_name "vss1_t" -side 2 -order 12
+#@ set_pad_physical_constraints -pad_name "vss2_t" -side 2 -order 13
+#@ set_pad_physical_constraints -pad_name "PIW_din27" -side 2 -order 14
+#@ set_pad_physical_constraints -pad_name "PIW_din28" -side 2 -order 15
+#@ set_pad_physical_constraints -pad_name "PIW_din29" -side 2 -order 16
+#@ set_pad_physical_constraints -pad_name "PIW_din30" -side 2 -order 17
+#@ set_pad_physical_constraints -pad_name "PIW_din31" -side 2 -order 18
+#@ set_pad_physical_constraints -pad_name "PIW_din32" -side 2 -order 19
+#@ set_pad_physical_constraints -pad_name "PIW_din33" -side 2 -order 20
+#@ set_pad_physical_constraints -pad_name "PIW_clk" -side 2 -order 21
+#@ set_pad_physical_constraints -pad_name "PIW_rst_n" -side 2 -order 22
 #@ 
 #@ # Right side
-#@ set_pad_physical_constraints -pad_name "PO2W_dout0" -side 3 -order 1
-#@ set_pad_physical_constraints -pad_name "PO2W_dout1" -side 3 -order 2
-#@ set_pad_physical_constraints -pad_name "PO2W_dout2" -side 3 -order 3
-#@ set_pad_physical_constraints -pad_name "PO2W_dout3" -side 3 -order 4
-#@ set_pad_physical_constraints -pad_name "PO2W_dout4" -side 3 -order 5
-#@ set_pad_physical_constraints -pad_name "vdd2_r" -side 3 -order 6
-#@ set_pad_physical_constraints -pad_name "vdd1_r" -side 3 -order 7
-#@ set_pad_physical_constraints -pad_name "vss1_r" -side 3 -order 8
-#@ set_pad_physical_constraints -pad_name "vss2_r" -side 3 -order 9
-#@ set_pad_physical_constraints -pad_name "PO2W_dout5" -side 3 -order 10
-#@ set_pad_physical_constraints -pad_name "PO2W_dout6" -side 3 -order 11
-#@ set_pad_physical_constraints -pad_name "PO2W_dout7" -side 3 -order 12
-#@ set_pad_physical_constraints -pad_name "PO2W_dout8" -side 3 -order 13
-#@ set_pad_physical_constraints -pad_name "PO2W_dout9" -side 3 -order 14
+#@ set_pad_physical_constraints -pad_name "PO8W_dout0" -side 3 -order 1
+#@ set_pad_physical_constraints -pad_name "PO8W_dout1" -side 3 -order 2
+#@ set_pad_physical_constraints -pad_name "PO8W_dout2" -side 3 -order 3
+#@ set_pad_physical_constraints -pad_name "PO8W_dout3" -side 3 -order 4
+#@ set_pad_physical_constraints -pad_name "PO8W_dout4" -side 3 -order 5
+#@ set_pad_physical_constraints -pad_name "PO8W_dout5" -side 3 -order 6
+#@ set_pad_physical_constraints -pad_name "PO8W_dout6" -side 3 -order 7
+#@ set_pad_physical_constraints -pad_name "PO8W_dout7" -side 3 -order 8
+#@ set_pad_physical_constraints -pad_name "PO8W_dout8" -side 3 -order 9
+#@ set_pad_physical_constraints -pad_name "vdd2_r" -side 3 -order 10
+#@ set_pad_physical_constraints -pad_name "vdd1_r" -side 3 -order 11
+#@ set_pad_physical_constraints -pad_name "vss1_r" -side 3 -order 12
+#@ set_pad_physical_constraints -pad_name "vss2_r" -side 3 -order 13
+#@ set_pad_physical_constraints -pad_name "PO8W_dout9" -side 3 -order 14
+#@ set_pad_physical_constraints -pad_name "PO8W_dout10" -side 3 -order 15
+#@ set_pad_physical_constraints -pad_name "PO8W_dout11" -side 3 -order 16
+#@ set_pad_physical_constraints -pad_name "PO8W_dout12" -side 3 -order 17
+#@ set_pad_physical_constraints -pad_name "PO8W_dout13" -side 3 -order 18
+#@ set_pad_physical_constraints -pad_name "PO8W_dout14" -side 3 -order 19
+#@ set_pad_physical_constraints -pad_name "PO8W_dout15" -side 3 -order 20
+#@ set_pad_physical_constraints -pad_name "PO8W_dout16" -side 3 -order 21
 #@ 
 #@ # Bottom side
-#@ set_pad_physical_constraints -pad_name "PO2W_dout10" -side 4 -order 1
-#@ set_pad_physical_constraints -pad_name "PO2W_dout11" -side 4 -order 2
-#@ set_pad_physical_constraints -pad_name "vdd2_b" -side 4 -order 3
-#@ set_pad_physical_constraints -pad_name "vdd1_b" -side 4 -order 4
-#@ set_pad_physical_constraints -pad_name "vss1_b" -side 4 -order 5
-#@ set_pad_physical_constraints -pad_name "vss2_b" -side 4 -order 6
-#@ set_pad_physical_constraints -pad_name "PO2W_dout12" -side 4 -order 7
-#@ set_pad_physical_constraints -pad_name "PO2W_dout13" -side 4 -order 8
-#@ set_pad_physical_constraints -pad_name "PO2W_dout14" -side 4 -order 9
-#@ set_pad_physical_constraints -pad_name "PO2W_dout15" -side 4 -order 10
-#@ set_pad_physical_constraints -pad_name "PO2W_douten" -side 4 -order 11
-#@ set_pad_physical_constraints -pad_name "PIW_clk" -side 4 -order 12
-#@ set_pad_physical_constraints -pad_name "PIW_rst_n" -side 4 -order 13
+#@ set_pad_physical_constraints -pad_name "PO8W_dout17" -side 4 -order 1
+#@ set_pad_physical_constraints -pad_name "PO8W_dout18" -side 4 -order 2
+#@ set_pad_physical_constraints -pad_name "PO8W_dout19" -side 4 -order 3
+#@ set_pad_physical_constraints -pad_name "PO8W_dout20" -side 4 -order 4
+#@ set_pad_physical_constraints -pad_name "PO8W_dout21" -side 4 -order 5
+#@ set_pad_physical_constraints -pad_name "PO8W_dout22" -side 4 -order 6
+#@ set_pad_physical_constraints -pad_name "PO8W_dout23" -side 4 -order 7
+#@ set_pad_physical_constraints -pad_name "PO8W_dout24" -side 4 -order 8
+#@ set_pad_physical_constraints -pad_name "PO8W_dout25" -side 4 -order 9
+#@ set_pad_physical_constraints -pad_name "vdd2_b" -side 4 -order 10
+#@ set_pad_physical_constraints -pad_name "vdd1_b" -side 4 -order 11
+#@ set_pad_physical_constraints -pad_name "vss1_b" -side 4 -order 12
+#@ set_pad_physical_constraints -pad_name "vss2_b" -side 4 -order 13
+#@ set_pad_physical_constraints -pad_name "PO8W_dout26" -side 4 -order 14
+#@ set_pad_physical_constraints -pad_name "PO8W_dout27" -side 4 -order 15
+#@ set_pad_physical_constraints -pad_name "PO8W_dout28" -side 4 -order 16
+#@ set_pad_physical_constraints -pad_name "PO8W_dout29" -side 4 -order 17
+#@ set_pad_physical_constraints -pad_name "PO8W_dout30" -side 4 -order 18
+#@ set_pad_physical_constraints -pad_name "PO8W_dout31" -side 4 -order 19
+#@ set_pad_physical_constraints -pad_name "PO8W_dout32" -side 4 -order 20
+#@ set_pad_physical_constraints -pad_name "PO8W_dout33" -side 4 -order 21
+#@ 
 #@ # -- End source pad_cell_cons.tcl
 
-initialize_floorplan -core_utilization 0.8 -left_io2core 30.0 -bottom_io2core 30.0 -right_io2core 30.0 -top_io2core 30.0
-win_set_filter -class cell -filter {core cell_array }
-gui_zoom -window [gui_get_current_window -view] -full
-gui_zoom -window [gui_get_current_window -view] -rect {{167.579 1324.202} {78.861 1021.903}}
-gui_zoom -window [gui_get_current_window -view] -full
-gui_zoom -window [gui_get_current_window -view] -rect {{1225.627 1580.499} {1557.499 1383.347}}
-gui_zoom -window [gui_get_current_window -view] -full
-gui_zoom -window [gui_get_current_window -view] -rect {{49.288 1284.772} {322.015 1018.617}}
-win_select_objects -within { 222.052 1181.290 240.809 1182.304 } -slct_targets global -slct_targets_operation clear
-win_select_objects -within { 251.963 1151.379 259.060 1152.900 } -slct_targets global -slct_targets_operation clear
-gui_zoom -window [gui_get_current_window -view] -full
-gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting showCellCore -value true
-win_set_filter -class cell -filter {cell_array }
-gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting selectPortShape -value true
-win_set_select_class        {cell port plan_group edit_group shape via terminal placement_blockage }
-gui_zoom -window [gui_get_current_window -view] -full
-gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting selectPortShape -value false
-gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting selectPort -value false
-gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting selectPort -value true
-win_set_select_class        {cell port plan_group edit_group shape via placement_blockage }
-gui_zoom -window [gui_get_current_window -view] -full
-gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting showCellCore -value false
-gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting showCellCore -value true
-gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting showPortShape -value false
-gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting showPortShape -value true
-gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting showPort -value false
-gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting showPort -value true
-gui_zoom -window [gui_get_current_window -view] -full
-source derive_pg.tcl
+#@ initialize_floorplan -core_utilization 0.8 -left_io2core 30.0 -bottom_io2core 30.0 -right_io2core 30.0 -top_io2core 30.0
+#@ source derive_pg.tcl
 #@ derive_pg_connection -power_net VDD -power_pin VDD -ground_net VSS -ground_pin VSS
 #@ #derive_pg_connection -power_net VDDO -power_pin VDDO -ground_net VSSO -ground_pin VSSO
 #@ #derive_pg_connection -power_net VDDQ -power_pin VDDQ -ground_net VSSQ -ground_pin VSSQ
 #@ derive_pg_connection -power_net VDD -ground_net VSS -tie
 #@ # -- End source derive_pg.tcl
 
-save_mw_cel -as 2_1_floorplan_init
-source pns.tcl
+#@ save_mw_cel -as 2_1_floorplan_init
+#@ 
+#@ ### Build the power plan structure
+#@ source pns.tcl
 #@ ### Complete the power grid structure: Ring around individual PLL macro, vertical/horizontal straps, and core ring:
 #@ 
 #@ set_fp_rail_constraints -add_layer  -layer METAL5 -direction horizontal -max_strap 24 -min_strap 2 -min_width 2 -max_width 4 -spacing 0.6
@@ -367,85 +330,118 @@ source pns.tcl
 
 #@ # -- End source pns.tcl
 
-commit_fp_rail
-create_power_straps  -direction vertical  -start_at 1446.370 -nets VDD -layer 62 -width 10.000 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1448.670 -extend_low_ends off -extend_high_ends off -keep_floating_wire_pieces -ignore_parallel_targets -define_parallel_targets_by_wire_directions -mark_as_ring
-create_power_straps  -direction vertical  -start_at 215.690 -nets VDD -layer 62 -width 10.000 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1448.670 -extend_low_ends off -extend_high_ends off -keep_floating_wire_pieces -ignore_parallel_targets -define_parallel_targets_by_wire_directions -mark_as_ring
-create_power_straps  -direction horizontal  -start_at 215.690 -nets VDD -layer 63 -width 10.000 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1451.370 -extend_low_ends off -extend_high_ends off -keep_floating_wire_pieces -ignore_parallel_targets -define_parallel_targets_by_wire_directions -mark_as_ring
-create_power_straps  -direction horizontal  -start_at 1443.670 -nets VDD -layer 63 -width 10.000 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1451.370 -extend_low_ends off -extend_high_ends off -keep_floating_wire_pieces -ignore_parallel_targets -define_parallel_targets_by_wire_directions -mark_as_ring
-create_power_straps  -direction vertical  -start_at 1435.710 -nets VSS -layer 62 -width 10.000 -start_low_ends coordinate  -start_low_ends_coordinate 221.300 -start_high_ends coordinate  -start_high_ends_coordinate 1438.060 -extend_low_ends off -extend_high_ends off -keep_floating_wire_pieces -ignore_parallel_targets -define_parallel_targets_by_wire_directions -mark_as_ring
-create_power_straps  -direction vertical  -start_at 226.350 -nets VSS -layer 62 -width 10.000 -start_low_ends coordinate  -start_low_ends_coordinate 221.300 -start_high_ends coordinate  -start_high_ends_coordinate 1438.060 -extend_low_ends off -extend_high_ends off -keep_floating_wire_pieces -ignore_parallel_targets -define_parallel_targets_by_wire_directions -mark_as_ring
-create_power_straps  -direction horizontal  -start_at 226.300 -nets VSS -layer 63 -width 10.000 -start_low_ends coordinate  -start_low_ends_coordinate 221.350 -start_high_ends coordinate  -start_high_ends_coordinate 1440.710 -extend_low_ends off -extend_high_ends off -keep_floating_wire_pieces -ignore_parallel_targets -define_parallel_targets_by_wire_directions -mark_as_ring
-create_power_straps  -direction horizontal  -start_at 1433.060 -nets VSS -layer 63 -width 10.000 -start_low_ends coordinate  -start_low_ends_coordinate 221.350 -start_high_ends coordinate  -start_high_ends_coordinate 1440.710 -extend_low_ends off -extend_high_ends off -keep_floating_wire_pieces -ignore_parallel_targets -define_parallel_targets_by_wire_directions -mark_as_ring
-create_power_straps  -direction vertical  -start_at 382.910 -nets VDD  -layer 64 -width 2.000 -pitch_within_group 148.830 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1448.670 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
-create_power_straps  -direction vertical  -start_at 532.070 -nets VDD  -layer 64 -width 2.000 -pitch_within_group 148.830 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1448.670 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
-create_power_straps  -direction vertical  -start_at 680.570 -nets VDD  -layer 64 -width 2.000 -pitch_within_group 148.830 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1448.670 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
-create_power_straps  -direction vertical  -start_at 829.730 -nets VDD  -layer 64 -width 2.000 -pitch_within_group 148.830 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1448.670 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
-create_power_straps  -direction vertical  -start_at 978.230 -nets VDD  -layer 64 -width 2.000 -pitch_within_group 148.830 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1448.670 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
-create_power_straps  -direction vertical  -start_at 1127.390 -nets VDD  -layer 64 -width 2.000 -pitch_within_group 148.830 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1448.670 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
-create_power_straps  -direction vertical  -start_at 1275.890 -nets VDD  -layer 64 -width 2.000 -pitch_within_group 148.830 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1448.670 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
-create_power_straps  -direction vertical  -start_at 385.510 -nets VSS  -layer 64 -width 2.000 -pitch_within_group 148.830 -start_low_ends coordinate  -start_low_ends_coordinate 221.300 -start_high_ends coordinate  -start_high_ends_coordinate 1438.060 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
-create_power_straps  -direction vertical  -start_at 534.670 -nets VSS  -layer 64 -width 2.000 -pitch_within_group 148.830 -start_low_ends coordinate  -start_low_ends_coordinate 221.300 -start_high_ends coordinate  -start_high_ends_coordinate 1438.060 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
-create_power_straps  -direction vertical  -start_at 683.170 -nets VSS  -layer 64 -width 2.000 -pitch_within_group 148.830 -start_low_ends coordinate  -start_low_ends_coordinate 221.300 -start_high_ends coordinate  -start_high_ends_coordinate 1438.060 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
-create_power_straps  -direction vertical  -start_at 832.330 -nets VSS  -layer 64 -width 2.000 -pitch_within_group 148.830 -start_low_ends coordinate  -start_low_ends_coordinate 221.300 -start_high_ends coordinate  -start_high_ends_coordinate 1438.060 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
-create_power_straps  -direction vertical  -start_at 980.830 -nets VSS  -layer 64 -width 2.000 -pitch_within_group 148.830 -start_low_ends coordinate  -start_low_ends_coordinate 221.300 -start_high_ends coordinate  -start_high_ends_coordinate 1438.060 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
-create_power_straps  -direction vertical  -start_at 1129.990 -nets VSS  -layer 64 -width 2.000 -pitch_within_group 148.830 -start_low_ends coordinate  -start_low_ends_coordinate 221.300 -start_high_ends coordinate  -start_high_ends_coordinate 1438.060 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
-create_power_straps  -direction vertical  -start_at 1278.490 -nets VSS  -layer 64 -width 2.000 -pitch_within_group 148.830 -start_low_ends coordinate  -start_low_ends_coordinate 221.300 -start_high_ends coordinate  -start_high_ends_coordinate 1438.060 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
-create_power_straps  -direction horizontal  -start_at 382.430 -nets VDD  -layer 65 -width 2.000 -pitch_within_group 148.490 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1451.370 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
-create_power_straps  -direction horizontal  -start_at 531.580 -nets VDD  -layer 65 -width 2.000 -pitch_within_group 148.490 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1451.370 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
-create_power_straps  -direction horizontal  -start_at 679.780 -nets VDD  -layer 65 -width 2.000 -pitch_within_group 148.490 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1451.370 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
-create_power_straps  -direction horizontal  -start_at 827.980 -nets VDD  -layer 65 -width 2.000 -pitch_within_group 148.490 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1451.370 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
-create_power_straps  -direction horizontal  -start_at 977.130 -nets VDD  -layer 65 -width 2.000 -pitch_within_group 148.490 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1451.370 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
-create_power_straps  -direction horizontal  -start_at 1125.330 -nets VDD  -layer 65 -width 2.000 -pitch_within_group 148.490 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1451.370 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
-create_power_straps  -direction horizontal  -start_at 1273.530 -nets VDD  -layer 65 -width 2.000 -pitch_within_group 148.490 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1451.370 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
-create_power_straps  -direction horizontal  -start_at 385.030 -nets VSS  -layer 65 -width 2.000 -pitch_within_group 148.490 -start_low_ends coordinate  -start_low_ends_coordinate 221.350 -start_high_ends coordinate  -start_high_ends_coordinate 1440.710 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
-create_power_straps  -direction horizontal  -start_at 534.180 -nets VSS  -layer 65 -width 2.000 -pitch_within_group 148.490 -start_low_ends coordinate  -start_low_ends_coordinate 221.350 -start_high_ends coordinate  -start_high_ends_coordinate 1440.710 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
-create_power_straps  -direction horizontal  -start_at 682.380 -nets VSS  -layer 65 -width 2.000 -pitch_within_group 148.490 -start_low_ends coordinate  -start_low_ends_coordinate 221.350 -start_high_ends coordinate  -start_high_ends_coordinate 1440.710 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
-create_power_straps  -direction horizontal  -start_at 830.580 -nets VSS  -layer 65 -width 2.000 -pitch_within_group 148.490 -start_low_ends coordinate  -start_low_ends_coordinate 221.350 -start_high_ends coordinate  -start_high_ends_coordinate 1440.710 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
-create_power_straps  -direction horizontal  -start_at 979.730 -nets VSS  -layer 65 -width 2.000 -pitch_within_group 148.490 -start_low_ends coordinate  -start_low_ends_coordinate 221.350 -start_high_ends coordinate  -start_high_ends_coordinate 1440.710 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
-create_power_straps  -direction horizontal  -start_at 1127.930 -nets VSS  -layer 65 -width 2.000 -pitch_within_group 148.490 -start_low_ends coordinate  -start_low_ends_coordinate 221.350 -start_high_ends coordinate  -start_high_ends_coordinate 1440.710 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
-create_power_straps  -direction horizontal  -start_at 1276.130 -nets VSS  -layer 65 -width 2.000 -pitch_within_group 148.490 -start_low_ends coordinate  -start_low_ends_coordinate 221.350 -start_high_ends coordinate  -start_high_ends_coordinate 1440.710 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
-preroute_instances
-preroute_standard_cells -fill_empty_rows -remove_floating_pieces
-gui_zoom -window [gui_get_current_window -view] -full
-gui_zoom -window [gui_get_current_window -view] -full
-analyze_fp_rail -nets {VDD VSS} -voltage_supply 1.98 -pad_masters {PVSS1W PVDD1W}
-load_fp_rail_map -nets VDD -type IR -min 0.000000 -max 0.000000 -directory ./pna_output
-gui_zoom -window [gui_get_current_window -view] -full
-gui_zoom -window [gui_get_current_window -view] -full
-gui_show_map -window [gui_get_current_window -types Layout -mru] -map {voltage_drop} -show {false}
-gui_zoom -window [gui_get_current_window -view] -full
-gui_zoom -window [gui_get_current_window -view] -full
-save_mw_cel -as 2_2_floorplan_pns
-create_fp_placement -timing_driven -no_hierarchy_gravity
-#@ # GUI Debug: Building dc from empty. -- Time: 1sec 411ms
+#@ commit_fp_rail
+#@ create_power_straps  -direction vertical  -start_at 1876.690 -nets VDD -layer 62 -width 10.000 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1881.310 -extend_low_ends off -extend_high_ends off -keep_floating_wire_pieces -ignore_parallel_targets -define_parallel_targets_by_wire_directions -mark_as_ring
 
-route_zrt_global
-gui_zoom -window [gui_get_current_window -view] -full
-gui_zoom -window [gui_get_current_window -view] -full
-gui_show_map -window [gui_get_current_window -types Layout -mru] -map {AREAPARTITION} -show {true}
-report_congestion -grc_based -by_layer -routing_stage global
-#@ # GUI Debug: Building dc from empty. -- Time: 1sec 634ms
+#@ create_power_straps  -direction vertical  -start_at 215.690 -nets VDD -layer 62 -width 10.000 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1881.310 -extend_low_ends off -extend_high_ends off -keep_floating_wire_pieces -ignore_parallel_targets -define_parallel_targets_by_wire_directions -mark_as_ring
 
+#@ create_power_straps  -direction horizontal  -start_at 215.690 -nets VDD -layer 63 -width 10.000 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1881.690 -extend_low_ends off -extend_high_ends off -keep_floating_wire_pieces -ignore_parallel_targets -define_parallel_targets_by_wire_directions -mark_as_ring
+
+#@ create_power_straps  -direction horizontal  -start_at 1876.310 -nets VDD -layer 63 -width 10.000 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1881.690 -extend_low_ends off -extend_high_ends off -keep_floating_wire_pieces -ignore_parallel_targets -define_parallel_targets_by_wire_directions -mark_as_ring
+
+#@ create_power_straps  -direction vertical  -start_at 1866.030 -nets VSS -layer 62 -width 10.000 -start_low_ends coordinate  -start_low_ends_coordinate 221.300 -start_high_ends coordinate  -start_high_ends_coordinate 1870.700 -extend_low_ends off -extend_high_ends off -keep_floating_wire_pieces -ignore_parallel_targets -define_parallel_targets_by_wire_directions -mark_as_ring
+
+#@ create_power_straps  -direction vertical  -start_at 226.350 -nets VSS -layer 62 -width 10.000 -start_low_ends coordinate  -start_low_ends_coordinate 221.300 -start_high_ends coordinate  -start_high_ends_coordinate 1870.700 -extend_low_ends off -extend_high_ends off -keep_floating_wire_pieces -ignore_parallel_targets -define_parallel_targets_by_wire_directions -mark_as_ring
+
+#@ create_power_straps  -direction horizontal  -start_at 226.300 -nets VSS -layer 63 -width 10.000 -start_low_ends coordinate  -start_low_ends_coordinate 221.350 -start_high_ends coordinate  -start_high_ends_coordinate 1871.030 -extend_low_ends off -extend_high_ends off -keep_floating_wire_pieces -ignore_parallel_targets -define_parallel_targets_by_wire_directions -mark_as_ring
+
+#@ create_power_straps  -direction horizontal  -start_at 1865.700 -nets VSS -layer 63 -width 10.000 -start_low_ends coordinate  -start_low_ends_coordinate 221.350 -start_high_ends coordinate  -start_high_ends_coordinate 1871.030 -extend_low_ends off -extend_high_ends off -keep_floating_wire_pieces -ignore_parallel_targets -define_parallel_targets_by_wire_directions -mark_as_ring
+
+#@ create_power_straps  -direction vertical  -start_at 437.030 -nets VDD  -layer 64 -width 2.000 -pitch_within_group 202.620 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1881.310 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
+
+#@ create_power_straps  -direction vertical  -start_at 639.650 -nets VDD  -layer 64 -width 2.000 -pitch_within_group 202.620 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1881.310 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
+
+#@ create_power_straps  -direction vertical  -start_at 842.270 -nets VDD  -layer 64 -width 2.000 -pitch_within_group 202.620 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1881.310 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
+
+#@ create_power_straps  -direction vertical  -start_at 1044.890 -nets VDD  -layer 64 -width 2.000 -pitch_within_group 202.620 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1881.310 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
+
+#@ create_power_straps  -direction vertical  -start_at 1247.510 -nets VDD  -layer 64 -width 2.000 -pitch_within_group 202.620 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1881.310 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
+
+#@ create_power_straps  -direction vertical  -start_at 1450.130 -nets VDD  -layer 64 -width 2.000 -pitch_within_group 202.620 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1881.310 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
+
+#@ create_power_straps  -direction vertical  -start_at 1652.750 -nets VDD  -layer 64 -width 2.000 -pitch_within_group 202.620 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1881.310 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
+
+#@ create_power_straps  -direction vertical  -start_at 439.630 -nets VSS  -layer 64 -width 2.000 -pitch_within_group 202.620 -start_low_ends coordinate  -start_low_ends_coordinate 221.300 -start_high_ends coordinate  -start_high_ends_coordinate 1870.700 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
+
+#@ create_power_straps  -direction vertical  -start_at 642.250 -nets VSS  -layer 64 -width 2.000 -pitch_within_group 202.620 -start_low_ends coordinate  -start_low_ends_coordinate 221.300 -start_high_ends coordinate  -start_high_ends_coordinate 1870.700 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
+
+#@ create_power_straps  -direction vertical  -start_at 844.870 -nets VSS  -layer 64 -width 2.000 -pitch_within_group 202.620 -start_low_ends coordinate  -start_low_ends_coordinate 221.300 -start_high_ends coordinate  -start_high_ends_coordinate 1870.700 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
+
+#@ create_power_straps  -direction vertical  -start_at 1047.490 -nets VSS  -layer 64 -width 2.000 -pitch_within_group 202.620 -start_low_ends coordinate  -start_low_ends_coordinate 221.300 -start_high_ends coordinate  -start_high_ends_coordinate 1870.700 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
+
+#@ create_power_straps  -direction vertical  -start_at 1250.110 -nets VSS  -layer 64 -width 2.000 -pitch_within_group 202.620 -start_low_ends coordinate  -start_low_ends_coordinate 221.300 -start_high_ends coordinate  -start_high_ends_coordinate 1870.700 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
+
+#@ create_power_straps  -direction vertical  -start_at 1452.730 -nets VSS  -layer 64 -width 2.000 -pitch_within_group 202.620 -start_low_ends coordinate  -start_low_ends_coordinate 221.300 -start_high_ends coordinate  -start_high_ends_coordinate 1870.700 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
+
+#@ create_power_straps  -direction vertical  -start_at 1655.350 -nets VSS  -layer 64 -width 2.000 -pitch_within_group 202.620 -start_low_ends coordinate  -start_low_ends_coordinate 221.300 -start_high_ends coordinate  -start_high_ends_coordinate 1870.700 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
+
+#@ create_power_straps  -direction horizontal  -start_at 436.580 -nets VDD  -layer 65 -width 2.000 -pitch_within_group 202.570 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1881.690 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
+
+#@ create_power_straps  -direction horizontal  -start_at 639.880 -nets VDD  -layer 65 -width 2.000 -pitch_within_group 202.570 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1881.690 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
+
+#@ create_power_straps  -direction horizontal  -start_at 842.230 -nets VDD  -layer 65 -width 2.000 -pitch_within_group 202.570 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1881.690 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
+
+#@ create_power_straps  -direction horizontal  -start_at 1044.580 -nets VDD  -layer 65 -width 2.000 -pitch_within_group 202.570 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1881.690 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
+
+#@ create_power_straps  -direction horizontal  -start_at 1246.930 -nets VDD  -layer 65 -width 2.000 -pitch_within_group 202.570 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1881.690 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
+
+#@ create_power_straps  -direction horizontal  -start_at 1450.230 -nets VDD  -layer 65 -width 2.000 -pitch_within_group 202.570 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1881.690 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
+
+#@ create_power_straps  -direction horizontal  -start_at 1652.580 -nets VDD  -layer 65 -width 2.000 -pitch_within_group 202.570 -start_low_ends coordinate  -start_low_ends_coordinate 210.690 -start_high_ends coordinate  -start_high_ends_coordinate 1881.690 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
+
+#@ create_power_straps  -direction horizontal  -start_at 439.180 -nets VSS  -layer 65 -width 2.000 -pitch_within_group 202.570 -start_low_ends coordinate  -start_low_ends_coordinate 221.350 -start_high_ends coordinate  -start_high_ends_coordinate 1871.030 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
+
+#@ create_power_straps  -direction horizontal  -start_at 642.480 -nets VSS  -layer 65 -width 2.000 -pitch_within_group 202.570 -start_low_ends coordinate  -start_low_ends_coordinate 221.350 -start_high_ends coordinate  -start_high_ends_coordinate 1871.030 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
+
+#@ create_power_straps  -direction horizontal  -start_at 844.830 -nets VSS  -layer 65 -width 2.000 -pitch_within_group 202.570 -start_low_ends coordinate  -start_low_ends_coordinate 221.350 -start_high_ends coordinate  -start_high_ends_coordinate 1871.030 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
+
+#@ create_power_straps  -direction horizontal  -start_at 1047.180 -nets VSS  -layer 65 -width 2.000 -pitch_within_group 202.570 -start_low_ends coordinate  -start_low_ends_coordinate 221.350 -start_high_ends coordinate  -start_high_ends_coordinate 1871.030 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
+
+#@ create_power_straps  -direction horizontal  -start_at 1249.530 -nets VSS  -layer 65 -width 2.000 -pitch_within_group 202.570 -start_low_ends coordinate  -start_low_ends_coordinate 221.350 -start_high_ends coordinate  -start_high_ends_coordinate 1871.030 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
+
+#@ create_power_straps  -direction horizontal  -start_at 1452.830 -nets VSS  -layer 65 -width 2.000 -pitch_within_group 202.570 -start_low_ends coordinate  -start_low_ends_coordinate 221.350 -start_high_ends coordinate  -start_high_ends_coordinate 1871.030 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
+
+#@ create_power_straps  -direction horizontal  -start_at 1655.180 -nets VSS  -layer 65 -width 2.000 -pitch_within_group 202.570 -start_low_ends coordinate  -start_low_ends_coordinate 221.350 -start_high_ends coordinate  -start_high_ends_coordinate 1871.030 -extend_low_ends off -extend_high_ends off -num_placement_strap 1 -keep_floating_wire_pieces  -ignore_parallel_targets -define_parallel_targets_by_wire_directions 
+
+#@ preroute_instances
+#@ preroute_standard_cells -fill_empty_rows -remove_floating_pieces
+#@ analyze_fp_rail -nets {VDD VSS} -voltage_supply 1.98 -pad_masters {PVSS1W PVDD1W}
+#@ load_fp_rail_map -nets VDD -type IR -min 0.000000 -max 0.000000 -directory ./pna_output
+
+#@ save_mw_cel -as 2_2_floorplan_pns
+#@ 
+#@ set_pnet_options -complete "METAL4 METAL5"
+#@ create_fp_placement -timing_driven -no_hierarchy_gravity
+#@ # GUI Debug: Building dc from empty. -- Time: 524ms
+
+#@ route_zrt_global
+#@ 
+#@ #Perform timing analysis
+#@ redirect -tee ../reports/floorplan.timing { report_timing }
+#@ # GUI Debug: Building dc from empty. -- Time: 544ms
+
+#@ save_mw_cel -as 2_3_floorplan_complete
+#@ 
+#@ remove_placement -object_type standard_cell
+#@ write_def -version 5.6 -placed -all_vias -blockages -routed_nets -specialnets -rows_tracks_gcells -output ../outputs/fft_chip.def
+#@ # -- End source run_design_planning.tcl
+
+win_set_filter -class cell -filter {core cell_array }
+gui_zoom -window [gui_get_current_window -view] -full
+win_select_objects -within { 1996.201 923.565 2009.164 1169.849 } -slct_targets global -slct_targets_operation clear
+win_select_objects -within { 1973.517 959.211 2009.164 1189.293 } -slct_targets global -slct_targets_operation clear
+win_select_objects -within { 110.180 955.971 119.902 1166.609 } -slct_targets global -slct_targets_operation clear
+win_select_objects -within { 142.586 1503.630 184.713 1639.734 } -slct_targets global -slct_targets_operation clear
+win_select_objects -within { 1992.961 1432.337 1996.201 1626.772 } -slct_targets global -slct_targets_operation clear
+win_select_objects -within { 447.201 1963.793 1652.699 2012.402 } -slct_targets global -slct_targets_operation clear
+win_select_objects -within { 641.636 -90.739 1860.097 113.418 } -slct_targets global -slct_targets_operation clear
+change_selection 
 gui_zoom -window [gui_get_current_window -view] -full
 gui_zoom -window [gui_get_current_window -view] -full
 gui_zoom -window [gui_get_current_window -view] -full
-route_zrt_global
-win_select_objects -slct_targets global -at {685.497 722.731} -radius 0.254
-win_select_objects -slct_targets global -at {697.279 705.972} -radius 0.254
-win_select_objects -slct_targets global -at {689.103 716.231} -radius 0.254
-gui_zoom -window [gui_get_current_window -view] -full
-report_congestion -grc_based -by_layer -routing_stage global
-gui_zoom -window [gui_get_current_window -view] -full
-:q
-route_zrt_global
-gui_zoom -window [gui_get_current_window -view] -full
-redirect -tee ../reports/floorplan.timing { report_timing }
-save_mw_cel -as 2_3_floorplan_complete
-remove_placement -object_type standard_cell
-write_def -version 5.6 -placed -all_vias -blockages -routed_nets -specialnets -rows_tracks_gcells -output ../outputs/idct_chip.def
-gui_zoom -window [gui_get_current_window -view] -full
-gui_zoom -window [gui_get_current_window -view] -full
-gui_zoom -window [gui_get_current_window -view] -full
-gui_zoom -window [gui_get_current_window -view] -full
+win_select_objects -within { -162.058 2.840 2275.300 1963.747 } -slct_targets global -slct_targets_operation clear
+change_selection 
+change_working_design_stack {fft_chip.CEL;1}
 exit
-save_mw_cel  -design "idct_chip.CEL;1"
+save_mw_cel  -design "fft_chip.CEL;1"
+save_mw_cel  -design "1_datasetup.CEL;1"

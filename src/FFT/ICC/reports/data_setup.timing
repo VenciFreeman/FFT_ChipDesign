@@ -4,18 +4,18 @@ Report : timing
         -path full
         -delay max
         -max_paths 1
-Design : idct_chip
+Design : fft_chip
 Version: D-2010.03-ICC-SP5-2
-Date   : Fri Apr 17 15:05:02 2020
+Date   : Fri Apr 24 15:27:45 2020
 ****************************************
 
  # A fanout number of 1000 was used for high fanout net computations.
 
 Operating Conditions: slow   Library: slow
 
-  Startpoint: inst_idct/idct_cal_col/idct4_cal/mode_delay2_reg_1_
+  Startpoint: inst_fft/butterfly0/multi1_2_3/in_8bit_b_reg_5_
               (rising edge-triggered flip-flop clocked by clk)
-  Endpoint: inst_idct/idct_cal_col/idct8_cal/y1_tmp_reg_25_
+  Endpoint: inst_fft/butterfly0/multi1_2_3/sum_reg_20_
             (rising edge-triggered flip-flop clocked by clk)
   Path Group: clk
   Path Type: max
@@ -23,94 +23,73 @@ Operating Conditions: slow   Library: slow
   Point                                                   Incr       Path
   --------------------------------------------------------------------------
   clock clk (rise edge)                                   0.00       0.00
-  clock network delay (ideal)                             0.00       0.00
-  inst_idct/idct_cal_col/idct4_cal/mode_delay2_reg_1_/CK (DFFRHQX1)
-                                                          0.00 #     0.00 r
-  inst_idct/idct_cal_col/idct4_cal/mode_delay2_reg_1_/Q (DFFRHQX1)
-                                                          0.30       0.30 f
-  inst_idct/idct_cal_col/idct4_cal/U67/Y (OR2X2)          0.21       0.51 f
-  inst_idct/idct_cal_col/idct4_cal/U68/Y (INVX1)          0.32       0.82 r
-  inst_idct/idct_cal_col/idct4_cal/U39/Y (INVX1)          0.10       0.92 f
-  inst_idct/idct_cal_col/idct4_cal/U9/Y (INVX1)           0.15       1.07 r
-  inst_idct/idct_cal_col/idct4_cal/U6/Y (INVX1)           0.28       1.36 f
-  inst_idct/idct_cal_col/idct4_cal/U58/Y (AOI22X1)        0.25       1.60 r
-  inst_idct/idct_cal_col/idct4_cal/U57/Y (INVX1)          0.17       1.77 f
-  inst_idct/idct_cal_col/idct4_cal/y1[0] (idct4_shift7_add64)
-                                                          0.00       1.77 f
-  inst_idct/idct_cal_col/idct8_cal/x1[0] (idct8_shift7_add64)
-                                                          0.00       1.77 f
-  inst_idct/idct_cal_col/idct8_cal/add_171/A[0] (idct8_shift7_add64_DW01_add_14)
-                                                          0.00       1.77 f
-  inst_idct/idct_cal_col/idct8_cal/add_171/U1/Y (AND2X2)
-                                                          0.20       1.97 f
-  inst_idct/idct_cal_col/idct8_cal/add_171/U1_1/CO (ADDFX2)
-                                                          0.32       2.30 f
-  inst_idct/idct_cal_col/idct8_cal/add_171/U1_2/CO (ADDFX2)
-                                                          0.34       2.64 f
-  inst_idct/idct_cal_col/idct8_cal/add_171/U1_3/CO (ADDFX2)
-                                                          0.34       2.99 f
-  inst_idct/idct_cal_col/idct8_cal/add_171/U1_4/CO (ADDFX2)
-                                                          0.34       3.33 f
-  inst_idct/idct_cal_col/idct8_cal/add_171/U1_5/CO (ADDFX2)
-                                                          0.34       3.67 f
-  inst_idct/idct_cal_col/idct8_cal/add_171/U1_6/CO (ADDFX2)
-                                                          0.34       4.02 f
-  inst_idct/idct_cal_col/idct8_cal/add_171/U1_7/CO (ADDFX2)
-                                                          0.34       4.36 f
-  inst_idct/idct_cal_col/idct8_cal/add_171/U1_8/CO (ADDFX2)
-                                                          0.34       4.71 f
-  inst_idct/idct_cal_col/idct8_cal/add_171/U1_9/CO (ADDFX2)
-                                                          0.34       5.05 f
-  inst_idct/idct_cal_col/idct8_cal/add_171/U1_10/CO (ADDFX2)
-                                                          0.34       5.40 f
-  inst_idct/idct_cal_col/idct8_cal/add_171/U1_11/CO (ADDFX2)
-                                                          0.34       5.74 f
-  inst_idct/idct_cal_col/idct8_cal/add_171/U1_12/CO (ADDFX2)
-                                                          0.34       6.09 f
-  inst_idct/idct_cal_col/idct8_cal/add_171/U1_13/CO (ADDFX2)
-                                                          0.34       6.43 f
-  inst_idct/idct_cal_col/idct8_cal/add_171/U1_14/CO (ADDFX2)
-                                                          0.34       6.78 f
-  inst_idct/idct_cal_col/idct8_cal/add_171/U1_15/CO (ADDFX2)
-                                                          0.34       7.12 f
-  inst_idct/idct_cal_col/idct8_cal/add_171/U1_16/CO (ADDFX2)
-                                                          0.34       7.46 f
-  inst_idct/idct_cal_col/idct8_cal/add_171/U1_17/CO (ADDFX2)
-                                                          0.34       7.81 f
-  inst_idct/idct_cal_col/idct8_cal/add_171/U1_18/CO (ADDFX2)
-                                                          0.34       8.15 f
-  inst_idct/idct_cal_col/idct8_cal/add_171/U1_19/CO (ADDFX2)
-                                                          0.34       8.50 f
-  inst_idct/idct_cal_col/idct8_cal/add_171/U1_20/CO (ADDFX2)
-                                                          0.34       8.84 f
-  inst_idct/idct_cal_col/idct8_cal/add_171/U1_21/CO (ADDFX2)
-                                                          0.34       9.19 f
-  inst_idct/idct_cal_col/idct8_cal/add_171/U1_22/CO (ADDFX2)
-                                                          0.34       9.53 f
-  inst_idct/idct_cal_col/idct8_cal/add_171/U1_23/CO (ADDFX2)
-                                                          0.34       9.88 f
-  inst_idct/idct_cal_col/idct8_cal/add_171/U1_24/CO (ADDFX2)
-                                                          0.35      10.23 f
-  inst_idct/idct_cal_col/idct8_cal/add_171/U1_25/Y (XOR3X2)
-                                                          0.22      10.45 f
-  inst_idct/idct_cal_col/idct8_cal/add_171/SUM[25] (idct8_shift7_add64_DW01_add_14)
-                                                          0.00      10.45 f
-  inst_idct/idct_cal_col/idct8_cal/y1_tmp_reg_25_/D (DFFRHQX1)
-                                                          0.00      10.45 f
-  data arrival time                                                 10.45
+  clock network delay (ideal)                             4.30       4.30
+  inst_fft/butterfly0/multi1_2_3/in_8bit_b_reg_5_/CK (DFFRHQX4)
+                                                          0.00 #     4.30 r
+  inst_fft/butterfly0/multi1_2_3/in_8bit_b_reg_5_/Q (DFFRHQX4)
+                                                          0.32       4.62 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/B[5] (multi16_7_DW02_mult_0)
+                                                          0.00       4.62 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/U68/Y (INVX2)
+                                                          0.17       4.79 f
+  inst_fft/butterfly0/multi1_2_3/mult_79/U52/Y (NOR2X1)
+                                                          0.18       4.97 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/U33/Y (AND2X2)
+                                                          0.18       5.14 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/S3_2_5/CO (CMPR32X1)
+                                                          0.53       5.67 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/S3_3_5/CO (CMPR32X1)
+                                                          0.55       6.22 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/S3_4_5/CO (ADDFX1)
+                                                          0.55       6.77 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/S3_5_5/CO (CMPR32X1)
+                                                          0.55       7.32 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/S3_6_5/CO (ADDFX1)
+                                                          0.55       7.87 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/S3_7_5/CO (CMPR32X1)
+                                                          0.55       8.41 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/S3_8_5/CO (CMPR32X1)
+                                                          0.55       8.96 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/S3_9_5/CO (ADDFX2)
+                                                          0.56       9.53 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/S3_10_5/CO (CMPR32X1)
+                                                          0.54      10.06 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/S3_11_5/CO (ADDFX2)
+                                                          0.56      10.63 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/S3_12_5/CO (CMPR32X1)
+                                                          0.54      11.17 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/S3_13_5/CO (ADDFX1)
+                                                          0.60      11.77 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/S3_14_5/S (ADDFHX1)
+                                                          0.40      12.17 f
+  inst_fft/butterfly0/multi1_2_3/mult_79/S4_4/S (ADDFHX2)
+                                                          0.31      12.48 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/U136/Y (XOR2X1)
+                                                          0.27      12.75 f
+  inst_fft/butterfly0/multi1_2_3/mult_79/U94/Y (AND2XL)
+                                                          0.25      13.00 f
+  inst_fft/butterfly0/multi1_2_3/mult_79/U66/Y (AOI21X2)
+                                                          0.12      13.12 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/U128/Y (XOR2XL)
+                                                          0.34      13.46 f
+  inst_fft/butterfly0/multi1_2_3/mult_79/PRODUCT_20_ (multi16_7_DW02_mult_0)
+                                                          0.00      13.46 f
+  inst_fft/butterfly0/multi1_2_3/sum_reg_20_/D (DFFRHQX1)
+                                                          0.00      13.46 f
+  data arrival time                                                 13.46
 
-  clock clk (rise edge)                                  20.00      20.00
-  clock network delay (ideal)                             0.00      20.00
-  clock uncertainty                                      -0.20      19.80
-  inst_idct/idct_cal_col/idct8_cal/y1_tmp_reg_25_/CK (DFFRHQX1)
-                                                          0.00      19.80 r
-  library setup time                                     -0.35      19.45
-  data required time                                                19.45
+  clock clk (rise edge)                                  10.00      10.00
+  clock network delay (ideal)                             4.30      14.30
+  clock uncertainty                                      -0.50      13.80
+  inst_fft/butterfly0/multi1_2_3/sum_reg_20_/CK (DFFRHQX1)
+                                                          0.00      13.80 r
+  library setup time                                     -0.34      13.46
+  data required time                                                13.46
   --------------------------------------------------------------------------
-  data required time                                                19.45
-  data arrival time                                                -10.45
+  data required time                                                13.46
+  data arrival time                                                -13.46
   --------------------------------------------------------------------------
-  slack (MET)                                                        9.00
+  slack (MET)                                                        0.00
 
 
 1

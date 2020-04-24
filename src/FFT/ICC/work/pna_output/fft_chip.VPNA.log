@@ -1,0 +1,43 @@
+
+Name of design : fft_chip
+Number of cell instances in the design : 8857
+Number of cell instance masters in the library : 78
+
+Processing power net VSS ...
+Number of power net wires : 183
+Number of vias : 3784
+Average power dissipation in fft_chip :  1000.00 mW
+Power supply voltage :     1.98 V
+Assigning vias begins
+Assigning power net wires ...
+Reading virtual power pads
+Extracting power net VSS ...
+Number of power pad nodes connecting to power net VSS : 8
+Number of power pad nodes reaching to the power ports of the leaf cells or blocks : 8
+Number of resistors in VSS : 7114
+Number of nodes in VSS : 5708
+Performing network simulation
+Assigning netlists to simulation engine begins
+Assigning netlists to simulation engine finished
+Maximum IR drop in fft_chip : 207.06 mV
+Maximum current in fft_chip : 150.724 mA
+
+Processing power net VDD ...
+Number of power net wires : 220
+Number of vias : 3816
+Average power dissipation in fft_chip :  1000.00 mW
+Power supply voltage :     1.98 V
+Assigning vias begins
+Assigning power net wires ...
+Reading virtual power pads
+Extracting power net VDD ...
+Number of power pad nodes connecting to power net VDD : 14
+Number of power pad nodes reaching to the power ports of the leaf cells or blocks : 14
+Number of resistors in VDD : 7274
+Number of nodes in VDD : 5866
+Performing network simulation
+Assigning netlists to simulation engine begins
+Assigning netlists to simulation engine finished
+Maximum IR drop in fft_chip : 191.93 mV
+Maximum current in fft_chip : 149.769 mA
+Overall takes     0.30 seconds

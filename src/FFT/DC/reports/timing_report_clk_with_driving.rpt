@@ -1,4 +1,3 @@
-Warning: Design 'fft_chip' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
  
 ****************************************
 Report : timing
@@ -7,7 +6,7 @@ Report : timing
         -max_paths 1
 Design : fft_chip
 Version: D-2010.03-SP5-3
-Date   : Fri Apr 17 22:08:29 2020
+Date   : Sat Apr 18 14:06:10 2020
 ****************************************
 
  # A fanout number of 1000 was used for high fanout net computations.
@@ -15,9 +14,9 @@ Date   : Fri Apr 17 22:08:29 2020
 Operating Conditions: slow   Library: slow
 Wire Load Model Mode: segmented
 
-  Startpoint: inst_fft/butterfly0/multi1_3_2/in_8bit_b_reg[5]
+  Startpoint: inst_fft/butterfly0/multi1_2_3/in_8bit_b_reg[5]
               (rising edge-triggered flip-flop clocked by clk)
-  Endpoint: inst_fft/butterfly0/multi1_3_2/sum_reg[20]
+  Endpoint: inst_fft/butterfly0/multi1_2_3/sum_reg[20]
             (rising edge-triggered flip-flop clocked by clk)
   Path Group: clk
   Path Type: max
@@ -26,64 +25,64 @@ Wire Load Model Mode: segmented
   --------------------------------------------------------------------------
   clock clk (rise edge)                                   0.00       0.00
   clock network delay (ideal)                             4.30       4.30
-  inst_fft/butterfly0/multi1_3_2/in_8bit_b_reg[5]/CK (DFFRHQX1)
+  inst_fft/butterfly0/multi1_2_3/in_8bit_b_reg[5]/CK (DFFRHQX4)
                                                           0.00 #     4.30 r
-  inst_fft/butterfly0/multi1_3_2/in_8bit_b_reg[5]/Q (DFFRHQX1)
-                                                          0.42       4.72 r
-  inst_fft/butterfly0/multi1_3_2/mult_79/B[5] (multi16_4_DW02_mult_0)
-                                                          0.00       4.72 r
-  inst_fft/butterfly0/multi1_3_2/mult_79/U80/Y (INVX1)
-                                                          0.13       4.85 f
-  inst_fft/butterfly0/multi1_3_2/mult_79/U38/Y (NOR2X2)
-                                                          0.13       4.98 r
-  inst_fft/butterfly0/multi1_3_2/mult_79/U35/Y (AND2X4)
-                                                          0.15       5.13 r
-  inst_fft/butterfly0/multi1_3_2/mult_79/S3_2_5/CO (ADDFX2)
-                                                          0.56       5.69 r
-  inst_fft/butterfly0/multi1_3_2/mult_79/S3_3_5/CO (ADDFHX1)
-                                                          0.33       6.03 r
-  inst_fft/butterfly0/multi1_3_2/mult_79/S3_4_5/CO (ADDFX1)
-                                                          0.54       6.57 r
-  inst_fft/butterfly0/multi1_3_2/mult_79/S3_5_5/CO (CMPR32X1)
-                                                          0.55       7.11 r
-  inst_fft/butterfly0/multi1_3_2/mult_79/S3_6_5/CO (ADDFX1)
-                                                          0.55       7.66 r
-  inst_fft/butterfly0/multi1_3_2/mult_79/S3_7_5/CO (CMPR32X1)
-                                                          0.55       8.21 r
-  inst_fft/butterfly0/multi1_3_2/mult_79/S3_8_5/CO (CMPR32X1)
-                                                          0.55       8.76 r
-  inst_fft/butterfly0/multi1_3_2/mult_79/S3_9_5/CO (ADDFX2)
-                                                          0.56       9.32 r
-  inst_fft/butterfly0/multi1_3_2/mult_79/S3_10_5/CO (CMPR32X1)
-                                                          0.54       9.86 r
-  inst_fft/butterfly0/multi1_3_2/mult_79/S3_11_5/CO (ADDFX2)
-                                                          0.56      10.42 r
-  inst_fft/butterfly0/multi1_3_2/mult_79/S3_12_5/CO (CMPR32X1)
-                                                          0.54      10.96 r
-  inst_fft/butterfly0/multi1_3_2/mult_79/S3_13_5/CO (ADDFX1)
-                                                          0.55      11.51 r
-  inst_fft/butterfly0/multi1_3_2/mult_79/S3_14_5/CO (CMPR32X1)
-                                                          0.55      12.06 r
-  inst_fft/butterfly0/multi1_3_2/mult_79/S5_5/S (ADDFX2)
-                                                          0.58      12.64 f
-  inst_fft/butterfly0/multi1_3_2/mult_79/U109/Y (XOR2X1)
-                                                          0.28      12.92 f
-  inst_fft/butterfly0/multi1_3_2/mult_79/U137/Y (NOR2X1)
-                                                          0.14      13.06 r
-  inst_fft/butterfly0/multi1_3_2/mult_79/U138/Y (NAND2BX1)
-                                                          0.17      13.23 r
-  inst_fft/butterfly0/multi1_3_2/mult_79/U84/Y (XOR2XL)
-                                                          0.23      13.46 f
-  inst_fft/butterfly0/multi1_3_2/mult_79/PRODUCT[20] (multi16_4_DW02_mult_0)
+  inst_fft/butterfly0/multi1_2_3/in_8bit_b_reg[5]/Q (DFFRHQX4)
+                                                          0.32       4.62 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/B[5] (multi16_7_DW02_mult_0)
+                                                          0.00       4.62 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/U68/Y (INVX2)
+                                                          0.17       4.79 f
+  inst_fft/butterfly0/multi1_2_3/mult_79/U52/Y (NOR2X1)
+                                                          0.18       4.97 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/U33/Y (AND2X2)
+                                                          0.18       5.14 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/S3_2_5/CO (CMPR32X1)
+                                                          0.53       5.67 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/S3_3_5/CO (CMPR32X1)
+                                                          0.55       6.22 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/S3_4_5/CO (ADDFX1)
+                                                          0.55       6.77 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/S3_5_5/CO (CMPR32X1)
+                                                          0.55       7.32 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/S3_6_5/CO (ADDFX1)
+                                                          0.55       7.87 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/S3_7_5/CO (CMPR32X1)
+                                                          0.55       8.41 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/S3_8_5/CO (CMPR32X1)
+                                                          0.55       8.96 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/S3_9_5/CO (ADDFX2)
+                                                          0.56       9.53 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/S3_10_5/CO (CMPR32X1)
+                                                          0.54      10.06 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/S3_11_5/CO (ADDFX2)
+                                                          0.56      10.63 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/S3_12_5/CO (CMPR32X1)
+                                                          0.54      11.17 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/S3_13_5/CO (ADDFX1)
+                                                          0.60      11.77 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/S3_14_5/S (ADDFHX1)
+                                                          0.40      12.17 f
+  inst_fft/butterfly0/multi1_2_3/mult_79/S4_4/S (ADDFHX2)
+                                                          0.31      12.48 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/U136/Y (XOR2X1)
+                                                          0.27      12.75 f
+  inst_fft/butterfly0/multi1_2_3/mult_79/U94/Y (AND2XL)
+                                                          0.25      13.00 f
+  inst_fft/butterfly0/multi1_2_3/mult_79/U66/Y (AOI21X2)
+                                                          0.12      13.12 r
+  inst_fft/butterfly0/multi1_2_3/mult_79/U128/Y (XOR2XL)
+                                                          0.34      13.46 f
+  inst_fft/butterfly0/multi1_2_3/mult_79/PRODUCT[20] (multi16_7_DW02_mult_0)
                                                           0.00      13.46 f
-  inst_fft/butterfly0/multi1_3_2/sum_reg[20]/D (DFFRHQX1)
+  inst_fft/butterfly0/multi1_2_3/sum_reg[20]/D (DFFRHQX1)
                                                           0.00      13.46 f
   data arrival time                                                 13.46
 
   clock clk (rise edge)                                  10.00      10.00
   clock network delay (ideal)                             4.30      14.30
   clock uncertainty                                      -0.50      13.80
-  inst_fft/butterfly0/multi1_3_2/sum_reg[20]/CK (DFFRHQX1)
+  inst_fft/butterfly0/multi1_2_3/sum_reg[20]/CK (DFFRHQX1)
                                                           0.00      13.80 r
   library setup time                                     -0.34      13.46
   data required time                                                13.46

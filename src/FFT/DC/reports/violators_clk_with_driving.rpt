@@ -1,4 +1,3 @@
-Warning: Design 'fft_chip' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
 Information: Updating graph... (UID-83)
 Warning: Design 'fft_chip' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
 Information: Updating design information... (UID-85)
@@ -9,7 +8,7 @@ Report : constraint
         -all_violators
 Design : fft_chip
 Version: D-2010.03-SP5-3
-Date   : Fri Apr 17 22:08:01 2020
+Date   : Sat Apr 18 14:06:10 2020
 ****************************************
 
 
@@ -62,11 +61,7 @@ Date   : Fri Apr 17 22:08:01 2020
                                 4.78           4.61 f        -0.17  (VIOLATED)
    inst_fft/butterfly0/multi1_2_2/sum_b_reg[16]/D
                                 4.78           4.61 f        -0.17  (VIOLATED)
-   inst_fft/butterfly0/multi1_2_2/sum_b_reg[18]/D
-                                4.78           4.61 f        -0.17  (VIOLATED)
    inst_fft/butterfly0/multi1_2_2/sum_b_reg[19]/D
-                                4.78           4.61 f        -0.17  (VIOLATED)
-   inst_fft/butterfly0/multi1_2_2/sum_b_reg[20]/D
                                 4.78           4.61 f        -0.17  (VIOLATED)
    inst_fft/butterfly0/multi1_2_2/sum_b_reg[21]/D
                                 4.78           4.61 f        -0.17  (VIOLATED)
@@ -92,11 +87,7 @@ Date   : Fri Apr 17 22:08:01 2020
                                 4.78           4.61 f        -0.17  (VIOLATED)
    inst_fft/butterfly0/multi1_2_3/sum_b_reg[16]/D
                                 4.78           4.61 f        -0.17  (VIOLATED)
-   inst_fft/butterfly0/multi1_2_3/sum_b_reg[18]/D
-                                4.78           4.61 f        -0.17  (VIOLATED)
    inst_fft/butterfly0/multi1_2_3/sum_b_reg[19]/D
-                                4.78           4.61 f        -0.17  (VIOLATED)
-   inst_fft/butterfly0/multi1_2_3/sum_b_reg[20]/D
                                 4.78           4.61 f        -0.17  (VIOLATED)
    inst_fft/butterfly0/multi1_2_3/sum_b_reg[21]/D
                                 4.78           4.61 f        -0.17  (VIOLATED)
@@ -122,11 +113,7 @@ Date   : Fri Apr 17 22:08:01 2020
                                 4.78           4.61 f        -0.17  (VIOLATED)
    inst_fft/butterfly0/multi1_3_1/sum_b_reg[16]/D
                                 4.78           4.61 f        -0.17  (VIOLATED)
-   inst_fft/butterfly0/multi1_3_1/sum_b_reg[18]/D
-                                4.78           4.61 f        -0.17  (VIOLATED)
    inst_fft/butterfly0/multi1_3_1/sum_b_reg[19]/D
-                                4.78           4.61 f        -0.17  (VIOLATED)
-   inst_fft/butterfly0/multi1_3_1/sum_b_reg[20]/D
                                 4.78           4.61 f        -0.17  (VIOLATED)
    inst_fft/butterfly0/multi1_3_1/sum_b_reg[21]/D
                                 4.78           4.61 f        -0.17  (VIOLATED)
@@ -274,13 +261,25 @@ Date   : Fri Apr 17 22:08:01 2020
                                 4.77           4.74 f        -0.04  (VIOLATED)
    inst_fft/butterfly0/multi1_2_2/sum_b_reg[17]/D
                                 4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_2/sum_b_reg[18]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_2/sum_b_reg[20]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
    inst_fft/butterfly0/multi1_2_2/sum_b_reg[22]/D
                                 4.77           4.74 f        -0.04  (VIOLATED)
    inst_fft/butterfly0/multi1_2_3/sum_b_reg[17]/D
                                 4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_3/sum_b_reg[18]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_2_3/sum_b_reg[20]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
    inst_fft/butterfly0/multi1_2_3/sum_b_reg[22]/D
                                 4.77           4.74 f        -0.04  (VIOLATED)
    inst_fft/butterfly0/multi1_3_1/sum_b_reg[17]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_1/sum_b_reg[18]/D
+                                4.77           4.74 f        -0.04  (VIOLATED)
+   inst_fft/butterfly0/multi1_3_1/sum_b_reg[20]/D
                                 4.77           4.74 f        -0.04  (VIOLATED)
    inst_fft/butterfly0/multi1_3_1/sum_b_reg[22]/D
                                 4.77           4.74 f        -0.04  (VIOLATED)

@@ -1,10 +1,9 @@
-Warning: Design 'fft_chip' has '2' unresolved references. For more detailed information, use the "link" command. (UID-341)
  
 ****************************************
 Report : area
 Design : fft_chip
 Version: D-2010.03-SP5-3
-Date   : Fri Apr 17 22:08:15 2020
+Date   : Sat Apr 18 14:06:10 2020
 ****************************************
 
 Library(s) Used:
@@ -17,12 +16,10 @@ Number of nets:               140
 Number of cells:               71
 Number of references:           3
 
-Combinational area:       1261542.476968
-Noncombinational area:    109917.563332
+Combinational area:       1269276.357038
+Noncombinational area:    161240.590260
 Net Interconnect area:      undefined  (No wire load specified)
 
-Total cell area:          1371460.040299
+Total cell area:          1430516.947298
 Total area:                 undefined
-
-Information: This design contains black box (unknown) components. (RPT-8)
 1
