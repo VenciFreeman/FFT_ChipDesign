@@ -39,11 +39,11 @@
 
 ## Team division
 
-|                        Member                         |                 Division of Work                 |
-| :---------------------------------------------------: | :----------------------------------------------: |
-| [**@Venci Freeman**](https://github.com/VenciFreeman) |     Butterfly, multi selector and top module     |
-|   [**@Luo Tian**](https://github.com/luotian12345)    | Conversion between series and parallel, register |
-|     [**Mike Qi**](https://github.com/mikeq123456)     |  Control module, test bench and some tcl files   |
+|                        Member                        |                 Division of Work                 |
+| :--------------------------------------------------: | :----------------------------------------------: |
+| [**Venci Freeman**](https://github.com/VenciFreeman) |     Butterfly, multi selector and top module     |
+|   [**Luo Tian**](https://github.com/luotian12345)    | Conversion between series and parallel, register |
+|    [**Mike Qi**](https://github.com/mikeq123456)     |  Control module, test bench and some tcl files   |
 
 ------
 
@@ -75,4 +75,4 @@
 
 [2] [Zulkifli, Siva. Design of 16-point Radix-4 Fast Fourier Transform in 0.18µm CMOS Technology. American Journal of Applied Sciences. 2007.]( https://github.com/VenciFreeman/FFT_ChipDesign/blob/master/doc/ref/Design_of_16-point_Radix-4_Fast_Fourier_Transform_in_0.18μm_CMOS_Technology.pdf  )
 
-[3] [丁晓磊,朱恩,赵梅.16点基4-FFT芯片设计技术研究[J].信息技术,2007(01):64-67+71.]( https://github.com/VenciFreeman/FFT_ChipDesign/blob/master/doc/ref/16%E7%82%B9%E5%9F%BA4_FFT%E8%8A%AF%E7%89%87%E8%AE%BE%E8%AE%A1%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6.pdf )
+[3] [丁晓磊, 朱恩, 赵梅. 16点基4-FFT芯片设计技术研究[J]. 信息技术, 2007(01): 64-67+71.]( https://github.com/VenciFreeman/FFT_ChipDesign/blob/master/doc/ref/16%E7%82%B9%E5%9F%BA4_FFT%E8%8A%AF%E7%89%87%E8%AE%BE%E8%AE%A1%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6.pdf )
