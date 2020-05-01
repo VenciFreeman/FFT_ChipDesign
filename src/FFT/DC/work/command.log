@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version D-2010.03-SP5-3 for amd64 -- Mar 17, 2011
-#@ # Date:   %sSat Apr 18 13:58:59 2020
+#@ # Date:   %sWed Apr 29 21:48:03 2020
 #@ # Run by: student@Student
 #@ 
 
@@ -4681,11 +4681,18 @@ source /usr/synopsys/D-2010.03-SP5-3/admin/setup/.synopsys_dc.setup
 #@ 
 #@ # -- End source /usr/synopsys/D-2010.03-SP5-3/admin/setup/.synopsys_dc.setup
 
-set search_path "$search_path ../rtl/fft ../scripts ../../../SMIC18/db ../../../SMIC18/sdb ../work"
-set target_library   "slow.db"
-set symbol_library   "smic18.sdb SP018W_V1p5.sdb"
-set link_library     "* $target_library $symbol_library SP018W_V1p5_max.db"
-source read.tcl
+source ../scripts/dc.tcl
+#@ #Library Setup
+#@ set search_path "$search_path ../rtl/fft ../scripts ../../../SMIC18/db ../../../SMIC18/sdb ../work"
+#@ set target_library   "slow.db"
+#@ set symbol_library   "smic18.sdb SP018W_V1p5.sdb"
+#@ set link_library     "* $target_library $symbol_library SP018W_V1p5_max.db"
+#@ 
+#@ #Saving svf
+#@ #set_svf ../outputs/idct_chip.svf
+#@ 
+#@ #Reading Design Files and Specify the current design
+#@ source read.tcl
 #@ #analyze -format verilog ../rtl/idct/even_odd.v
 #@ #elaborate even_odd
 #@ #analyze -format verilog ../rtl/idct/idct4.v
@@ -4739,7 +4746,12 @@ source read.tcl
 #@ #read_verilog ../rtl/idct/idct_chip.v
 #@ # -- End source read.tcl
 
-source fft.con
+#@ #current_design idct_chip
+#@ #link
+#@ ###YBR ADD uniquify###
+#@ uniquify
+#@ ###YBR ADD uniquify###
+#@ source fft.con
 #@ # Reset all constraints
 #@ reset_design
 #@ 
@@ -4748,7 +4760,7 @@ source fft.con
 #@ 
 #@ #---------------- SET TIMING CONSTRAINTS ----------------
 #@ # 2.1 Set clock
-#@ create_clock -period 10 [get_ports clk]
+#@ create_clock -period 12.2 [get_ports clk]
 #@ set_clock_uncertainty 0.5 [get_clocks clk]     
 #@ set_clock_transition 0.2 [get_clocks clk]
 #@ 
@@ -4758,9 +4770,9 @@ source fft.con
 #@ ######################## YBR ######################
 #@ 
 #@ # 2.2
-#@ set_input_delay -max 5 -clock clk [remove_from_collection [all_inputs] [get_ports clk]]
+#@ set_input_delay -max 6.1 -clock clk [remove_from_collection [all_inputs] [get_ports clk]]
 #@ # 2.3
-#@ set_output_delay -max 5 -clock clk [all_outputs]
+#@ set_output_delay -max 6.1 -clock clk [all_outputs]
 #@ 
 #@ #---------------- SET ENVIRONMENTAL ATTIBUTES ----------------
 #@ # 3.1 Set interconnect parasitic RCs
@@ -4803,14 +4815,29 @@ source fft.con
 #@ set_fix_multiple_port_nets -all -buffer_constants
 #@ # -- End source fft.con
 
-write_sdc ../outputs/fft_chip_clk_with_driving.sdc
-compile
-remove_unconnected_ports [find -hierarchy cell "*"]
-remove_unconnected_ports -blast_buses [find -hierarchy cell "*"]
-report_constraint -all_violators > ../reports/violators_clk_with_driving.rpt
-report_area > ../reports/area_report_clk_with_driving.rpt
-report_timing > ../reports/timing_report_clk_with_driving.rpt
-change_names -rule verilog -hier
-write -format verilog -hier -out ../outputs/fft_chip_clk_with_driving.v
-write -format ddc -hier -out ../outputs/fft_chip_clk_with_driving.ddc
+#@ 
+#@ #Saving sdc
+#@ write_sdc ../outputs/fft_chip.sdc
+#@ 
+#@ #Compile
+#@ compile
+#@ 
+#@ #Clean-up
+#@ ###YBR ADD -blast_buses###
+#@ remove_unconnected_ports [find -hierarchy cell "*"]
+#@ remove_unconnected_ports -blast_buses [find -hierarchy cell "*"]
+#@ ###YBR ADD -blast_buses###
+#@ #Report
+#@ report_constraint -all_violators > ../reports/violators_clk_with_driving.rpt
+#@ report_area > ../reports/area_report_clk_with_driving.rpt
+#@ report_timing > ../reports/timing_report_clk_with_driving.rpt
+#@ 
+#@ #Saving Designs after Compile
+#@ change_names -rule verilog -hier
+#@ 
+#@ ###YBR
+#@ write -format verilog -hier -out ../outputs/fft_chip.v
+#@ write -format ddc -hier -out ../outputs/fft_chip.ddc
+#@ # -- End source ../scripts/dc.tcl
+
 exit

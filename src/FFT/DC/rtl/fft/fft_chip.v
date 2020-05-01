@@ -1,24 +1,24 @@
-module fft_chip(clk,rstn,din,dout);
+module idct_chip(clk,rstn,mode,start,din,dout,dout_mode);
 
 input clk,rstn;
-// input [1:0] mode;
-// input start;
+input [1:0] mode;
+input start;
 input [33:0] din;
 
 output [33:0] dout;
-// output [1:0] dout_mode;
+output [1:0] dout_mode;
 
 wire net_clk,net_rstn;
-// wire [1:0] net_mode,net_dout_mode;
-// wire net_start;
+wire [1:0] net_mode,net_dout_mode;
+wire net_start;
 wire [33:0] net_din,net_dout;
 
 PIW
 	PIW_clk(.PAD(clk),.C(net_clk)),
 	PIW_rstn(.PAD(rstn),.C(net_rstn)),
-	// PIW_start(.PAD(start),.C(net_start)),
-	// PIW_mode0(.PAD(mode[0]),.C(net_mode[0])),
-	// PIW_mode1(.PAD(mode[1]),.C(net_mode[1])),
+	PIW_start(.PAD(start),.C(net_start)),
+	PIW_mode0(.PAD(mode[0]),.C(net_mode[0])),
+	PIW_mode1(.PAD(mode[1]),.C(net_mode[1])),
 	PIW_din0(.PAD(din[0]),.C(net_din[0])),
 	PIW_din1(.PAD(din[1]),.C(net_din[1])),
 	PIW_din2(.PAD(din[2]),.C(net_din[2])),
@@ -34,7 +34,7 @@ PIW
 	PIW_din12(.PAD(din[12]),.C(net_din[12])),
 	PIW_din13(.PAD(din[13]),.C(net_din[13])),
 	PIW_din14(.PAD(din[14]),.C(net_din[14])),
-	PIW_din15(.PAD(din[15]),.C(net_din[15])),
+	PIW_din15(.PAD(din[15]),.C(net_din[15]));
 	PIW_din16(.PAD(din[16]),.C(net_din[16])),
 	PIW_din17(.PAD(din[17]),.C(net_din[17])),
 	PIW_din18(.PAD(din[18]),.C(net_din[18])),
@@ -50,7 +50,7 @@ PIW
 	PIW_din28(.PAD(din[28]),.C(net_din[28])),
 	PIW_din29(.PAD(din[29]),.C(net_din[29])),
 	PIW_din30(.PAD(din[30]),.C(net_din[30])),
-	PIW_din31(.PAD(din[31]),.C(net_din[31])),
+	PIW_din31(.PAD(din[31]),.C(net_din[31]));
 	PIW_din32(.PAD(din[32]),.C(net_din[32])),
 	PIW_din33(.PAD(din[33]),.C(net_din[33]));
 	
@@ -86,13 +86,13 @@ PO8W
 	PO8W_dout28(.I(net_dout[28]),.PAD(dout[28])),
 	PO8W_dout29(.I(net_dout[29]),.PAD(dout[29])),
 	PO8W_dout30(.I(net_dout[30]),.PAD(dout[30])),
-	PO8W_dout31(.I(net_dout[31]),.PAD(dout[31])),
+	PO8W_dout31(.I(net_dout[31]),.PAD(dout[31]));
 	PO8W_dout32(.I(net_dout[32]),.PAD(dout[32])),
 	PO8W_dout33(.I(net_dout[33]),.PAD(dout[33]));
-	// PO8W_dout_mode0(.I(net_dout_mode[0]),.PAD(dout_mode[0])),
-	// PO8W_dout_mode1(.I(net_dout_mode[1]),.PAD(dout_mode[1]));
+	PO8W_dout_mode0(.I(net_dout_mode[0]),.PAD(dout_mode[0])),
+	PO8W_dout_mode1(.I(net_dout_mode[1]),.PAD(dout_mode[1]));
 	
-fft inst_fft(.clk(net_clk),.rst_n(net_rstn),.data_in(net_din),.data_out(net_dout));
+idct inst_idct(.clk(net_clk),.rstn(net_rstn),.mode(net_mode),.start(net_start),.din(net_din),.dout(net_dout),.dout_mode(net_dout_mode));
 
 endmodule
 	

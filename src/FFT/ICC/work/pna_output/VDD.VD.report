@@ -6,13 +6,10 @@
 *   Length Scale        : 0.001
 *   Voltage Unit        : mV
 *
-* Cell Name : 1_datasetup
+* Cell Name : fft_chip
 * PG Net    : VDD
 *
-* Threshold: 191.935
+* Threshold: 110.775
 *
 * Format: [left bottom right top] on Layer is voltage
 *
-[842270 1494560 1044890 1495360] on METAL1 is 191.935
-[1044890 1494560 1247510 1495360] on METAL1 is 191.935
-[1043920 1494560 1045860 1495360] on VIA12 is 191.935

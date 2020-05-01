@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"    "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+<title>Physical Design Check Summary</title>
+<script type="text/javascript">
+function open_feedback(msg)
+{
+  var link = "http://wwwin/~jichunw/apdFeedback/apdFeedback.html";
+  var url = location.href;
+  var direct = link + "?" + msg + "?" + url; 
+  window.location.assign(direct);
+}
+function open_man(msg)
+{
+  myWindow=window.open();
+  myWindow.document.write("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" ");
+  myWindow.document.write("   \"http://www.w3.org/TR/html4/loose.dtd\">");
+  myWindow.document.write("\n");
+  myWindow.document.write("<HTML><TITLE></TITLE><BODY>\n");
+  myWindow.document.write(msg);
+  myWindow.document.write("\n</BODY></HTML>\n");
+  myWindow.document.close();
+  myWindow.focus();
+}
+var last_hilight;
+function do_highlight()
+{
+  var url = /(.+)#(.+)/;
+  var location_url = self.location;
+  var text = location_url.toString();
+  var result;
+  result = text.match(url);
+  if(result != null) {
+    last_hilight = result[2];
+    document.getElementById(result[2] + "_MSG").style.background="yellow";
+  }
+}
+function set_highlight(id)
+{
+  if (last_hilight) {
+    document.getElementById(last_hilight).style.background="";
+  }
+  last_hilight = id;
+  document.getElementById(last_hilight).style.background="yellow";
+}
+</script>
+
+</head>
+<body>
+<table align="center" width="100%" cellspacing="10%" border="0">
+<tr><td>
+<a href="index.html">Back to main page</a>
+</td></tr>
+<tr><td  bgcolor="#DEB887" align="left" valign="middle">
+<font color="black" size ="4"><b>Summary</b> (Total messages: <b>78</b> warnings)</font>
+</td></tr>
+<tr><td>
+<table align="left" width="100%" cellspacing="1%" border="0">
+<tr>
+  <td align="center" bgcolor="#C6D9F1"><b>Check</b></td>
+  <td align="center" bgcolor="#C6D9F1"><b>Severity<br>(Occurance)</b></td>
+  <td align="center" bgcolor="#C6D9F1"><b>Title</b></td>
+  <td align="center" bgcolor="#C6D9F1"><b>Next Steps To Reduce Severity</b></td>
+  <td align="center" bgcolor="#C6D9F1"><b>Feed Back for Internal User</b></td>
+</tr>
+<tr>
+  <td align="left"><a href="#" onClick="open_man('NAME<br>       PSYN-040 (warning) Cell &quot;%s&quot; is being marked as &quot;dont_touch&quot; because it<br>       has a fixed_placement attribute.<br><br>DESCRIPTION<br>       You see this warning because a cell in your design bears a fixed_place-<br>       ment  attribute  in  the  input  PDEF.   The  tool marks such a cell as<br>       &quot;dont_touch&quot;.<br><br>WHAT NEXT<br>       To modify the cell, remove the fixed_placement attribute in PDEF.  Then<br>       read in the PDEF again, using the read_pdef command.<br><br>SEE ALSO<br>       read_pdef (2).<br><br>D-2010.03-ICC-SP5-2   Synopsys Inc. 1988-2011. All rights reserved.        n-1<br><br>');">PSYN-040</a></td>
+  <td align="left" bgcolor="yellow">Warning (<a href="#PSYN-040" onClick="set_highlight('PSYN-040_MSG')"> 70 </a>)</td>
+  <td align="left"><a href="#PSYN-040" onClick="set_highlight('PSYN-040_MSG')">Cell '%s' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute.</a></td>
+  <td align="left"><a href="#" onClick="open_man('NAME<br>       PSYN-040 (warning) Cell &quot;%s&quot; is being marked as &quot;dont_touch&quot; because it<br>       has a fixed_placement attribute.<br><br>DESCRIPTION<br>       You see this warning because a cell in your design bears a fixed_place-<br>       ment  attribute  in  the  input  PDEF.   The  tool marks such a cell as<br>       &quot;dont_touch&quot;.<br><br>WHAT NEXT<br>       To modify the cell, remove the fixed_placement attribute in PDEF.  Then<br>       read in the PDEF again, using the read_pdef command.<br><br>SEE ALSO<br>       read_pdef (2).<br><br>D-2010.03-ICC-SP5-2   Synopsys Inc. 1988-2011. All rights reserved.        n-1<br><br>');">       To modify the cell, remove the fixed_placement attribute in PDEF.  Then
+       read in the...</a></td>
+  <td align="center"><a href="#" onClick="open_feedback('PSYN-040');">Feedback</a></td>
+</tr>
+<tr>
+  <td align="left"><a href="#" onClick="open_man('NAME<br>       PSYN-884  (warning)  All  metal  layers have the same preferred routing<br>       direction.<br><br>DESCRIPTION<br>       This error message occurs when all metal layers have the same preferred<br>       routing  direction  set  for them. The preferred routing direction of a<br>       metal layer is the library defined preferred routing direction unless a<br>       user defined library direction is explicitly set in the design(CEL).<br><br>WHAT NEXT<br>       This  is  only  a  warning message. Use set_preferred_routing_direction<br>       command to set a user defined direction for a layer in the design(CEL).<br>       To  remove  a  user  defined  direction  &  defult to using the library<br>       defined direction, use remove_preferred_routing_direction command.<br><br>SEE ALSO<br>       set_preferred_routing_layer_direction(2)<br>       remove_preferred_routing_direction<br><br>D-2010.03-ICC-SP5-2   Synopsys Inc. 1988-2011. All rights reserved.        n-1<br><br>');">PSYN-884</a></td>
+  <td align="left" bgcolor="yellow">Warning (<a href="#PSYN-884" onClick="set_highlight('PSYN-884_MSG')"> 1 </a>)</td>
+  <td align="left"><a href="#PSYN-884" onClick="set_highlight('PSYN-884_MSG')">All metal layers have the same preferred routing direction.</a></td>
+  <td align="left"><a href="#" onClick="open_man('NAME<br>       PSYN-884  (warning)  All  metal  layers have the same preferred routing<br>       direction.<br><br>DESCRIPTION<br>       This error message occurs when all metal layers have the same preferred<br>       routing  direction  set  for them. The preferred routing direction of a<br>       metal layer is the library defined preferred routing direction unless a<br>       user defined library direction is explicitly set in the design(CEL).<br><br>WHAT NEXT<br>       This  is  only  a  warning message. Use set_preferred_routing_direction<br>       command to set a user defined direction for a layer in the design(CEL).<br>       To  remove  a  user  defined  direction  &  defult to using the library<br>       defined direction, use remove_preferred_routing_direction command.<br><br>SEE ALSO<br>       set_preferred_routing_layer_direction(2)<br>       remove_preferred_routing_direction<br><br>D-2010.03-ICC-SP5-2   Synopsys Inc. 1988-2011. All rights reserved.        n-1<br><br>');">       This  is  only  a  warning message. Use set_preferred_routing_direction
+       command to ...</a></td>
+  <td align="center"><a href="#" onClick="open_feedback('PSYN-884');">Feedback</a></td>
+</tr>
+<tr>
+  <td align="left"><a href="#" onClick="open_man('NAME<br>       VFP-418  (warning) Unable to open cell %s.%s for OVERLAP layer informa-<br>       tion.<br><br>DESCRIPTION<br>       This error message occurs when placement tries to open a  macro  cell&quot;s<br>       reference to get OVERLAP layer information but fails.<br><br>WHAT NEXT<br>       When  placement  fails to get a macro cell&quot;s OVERLAP layer information,<br>       it will continue with the cell boundary information in the design&quot;s CEL<br>       view.  The  failure  could  be and is most likely because the reference<br>       library for the macro cell is missing. If you know that the macro  cell<br>       has  no  OVERLAP layer shapes, you can ignore this warning. If you know<br>       that the macro cell  has  OVERLAP  layer,  please  find  the  reference<br>       library and setup the correct reference library path for the design.<br><br>D-2010.03-ICC-SP5-2   Synopsys Inc. 1988-2011. All rights reserved.        n-1<br><br>');">VFP-418</a></td>
+  <td align="left" bgcolor="yellow">Warning (<a href="#VFP-418" onClick="set_highlight('VFP-418_MSG')"> 7 </a>)</td>
+  <td align="left"><a href="#VFP-418" onClick="set_highlight('VFP-418_MSG')">Unable to open cell %s.%s for OVERLAP layer information.</a></td>
+  <td align="left"><a href="#" onClick="open_man('NAME<br>       VFP-418  (warning) Unable to open cell %s.%s for OVERLAP layer informa-<br>       tion.<br><br>DESCRIPTION<br>       This error message occurs when placement tries to open a  macro  cell&quot;s<br>       reference to get OVERLAP layer information but fails.<br><br>WHAT NEXT<br>       When  placement  fails to get a macro cell&quot;s OVERLAP layer information,<br>       it will continue with the cell boundary information in the design&quot;s CEL<br>       view.  The  failure  could  be and is most likely because the reference<br>       library for the macro cell is missing. If you know that the macro  cell<br>       has  no  OVERLAP layer shapes, you can ignore this warning. If you know<br>       that the macro cell  has  OVERLAP  layer,  please  find  the  reference<br>       library and setup the correct reference library path for the design.<br><br>D-2010.03-ICC-SP5-2   Synopsys Inc. 1988-2011. All rights reserved.        n-1<br><br>');">       When  placement  fails to get a macro cell's OVERLAP layer information,
+       it will con...</a></td>
+  <td align="center"><a href="#" onClick="open_feedback('VFP-418');">Feedback</a></td>
+</tr>
+</table>
+</td></tr>
+<tr><td  bgcolor="#DEB887" align="left" valign="middle">
+<font color="black" size ="4"><b>Detail</b></font>
+</td></tr>
+<tr><td>
+<a name=PSYN-040></a><span id="PSYN-040_MSG"><br>
+Warning: Cell 'PO8W_dout30' is being marked as "dont_touch" because it has  	a fixed_placement attribute. (PSYN-040)[<a href="cpd_template.html#4342">link to log file</a>]<br>
+Warning: Cell 'PO8W_dout31' is being marked as "dont_touch" because it has  	a fixed_placement attribute. (PSYN-040)[<a href="cpd_template.html#4344">link to log file</a>]<br>
+Warning: Cell 'PO8W_dout32' is being marked as "dont_touch" because it has  	a fixed_placement attribute. (PSYN-040)[<a href="cpd_template.html#4346">link to log file</a>]<br>
+Warning: Cell 'PO8W_dout33' is being marked as "dont_touch" because it has  	a fixed_placement attribute. (PSYN-040)[<a href="cpd_template.html#4348">link to log file</a>]<br>
+Warning: Cell 'PIW_clk' is being marked as "dont_touch" because it has  	a fixed_placement attribute. (PSYN-040)[<a href="cpd_template.html#4350">link to log file</a>]<br>
+Warning: Cell 'PIW_rstn' is being marked as "dont_touch" because it has  	a fixed_placement attribute. (PSYN-040)[<a href="cpd_template.html#4352">link to log file</a>]<br>
+Warning: Cell 'PIW_din0' is being marked as "dont_touch" because it has  	a fixed_placement attribute. (PSYN-040)[<a href="cpd_template.html#4354">link to log file</a>]<br>
+Warning: Cell 'PIW_din1' is being marked as "dont_touch" because it has  	a fixed_placement attribute. (PSYN-040)[<a href="cpd_template.html#4356">link to log file</a>]<br>
+Warning: Cell 'PIW_din2' is being marked as "dont_touch" because it has  	a fixed_placement attribute. (PSYN-040)[<a href="cpd_template.html#4358">link to log file</a>]<br>
+Warning: Cell 'PIW_din3' is being marked as "dont_touch" because it has  	a fixed_placement attribute. (PSYN-040)[<a href="cpd_template.html#4360">link to log file</a>]<br>
+......truncated 60 message PSYN-040<br>
+</span><!--PSYN-040 --><br>
+<a name=PSYN-884></a><span id="PSYN-884_MSG"><br>
+Warning: All metal layers have the same preferred routing direction. (PSYN-884)[<a href="cpd_template.html#37">link to log file</a>]<br>
+</span><!--PSYN-884 --><br>
+<a name=VFP-418></a><span id="VFP-418_MSG"><br>
+Warning: Unable to open cell PO8W.FRAM for OVERLAP layer information. (VFP-418)[<a href="cpd_template.html#4302">link to log file</a>]<br>
+Warning: Unable to open cell PIW.FRAM for OVERLAP layer information. (VFP-418)[<a href="cpd_template.html#4303">link to log file</a>]<br>
+Warning: Unable to open cell PCORNERW.FRAM for OVERLAP layer information. (VFP-418)[<a href="cpd_template.html#4304">link to log file</a>]<br>
+Warning: Unable to open cell PVSS1W.FRAM for OVERLAP layer information. (VFP-418)[<a href="cpd_template.html#4305">link to log file</a>]<br>
+Warning: Unable to open cell PVDD1W.FRAM for OVERLAP layer information. (VFP-418)[<a href="cpd_template.html#4306">link to log file</a>]<br>
+Warning: Unable to open cell PVSS2W.FRAM for OVERLAP layer information. (VFP-418)[<a href="cpd_template.html#4307">link to log file</a>]<br>
+Warning: Unable to open cell PVDD2W.FRAM for OVERLAP layer information. (VFP-418)[<a href="cpd_template.html#4308">link to log file</a>]<br>
+</span><!--VFP-418 --><br>
+</td></tr>
+</table></body></html>

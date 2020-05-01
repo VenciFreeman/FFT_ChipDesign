@@ -1,87 +1,19 @@
 Information: linking reference library : /home/student/Desktop/Workspace/SMIC18/mw_lib/smic18_5ml. (PSYN-878)
 Information: linking reference library : /home/student/Desktop/Workspace/SMIC18/mw_lib/SP018W_V1p5_5MT. (PSYN-878)
-Warning: No driver connected with the Power net 'VDD'. (MWDC-284)
-Warning: No driver connected with the Ground net 'VSS'. (MWDC-284)
 Warning: Could not find valid driver for hierarchical Ground net 'VSS'. (MWDC-285)
 Warning: Could not find valid driver for hierarchical Power net 'VDD'. (MWDC-285)
 
   Linking design 'fft_chip'
   Using the following designs and libraries:
   --------------------------------------------------------------------------
-  * (56 designs)              1_datasetup.CEL, etc
+  * (74 designs)              fft_chip.CEL, etc
   slow (library)              /home/student/Desktop/Workspace/SMIC18/db/slow.db
   SP018W_V1p5_max (library)   /home/student/Desktop/Workspace/SMIC18/db/SP018W_V1p5_max.db
 
 Load global CTS reference options from NID to stack
-# GUI Debug: Building dc from empty. -- Time: 544ms
+# GUI Debug: Building dc from empty. -- Time: 714ms
 Information: The design has horizontal rows, and Y-symmetry has been used for sites. (MWDC-217)
 Floorplan loading succeeded.
-Warning: Cell 'PIW_din0' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din1' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din2' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din3' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din4' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din5' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din6' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din7' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din8' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din9' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din10' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din11' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din12' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din13' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din14' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din15' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din16' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din17' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din18' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din19' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din20' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din21' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din22' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din23' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din24' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din25' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din26' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din27' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din28' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din29' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din30' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din31' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din32' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
 Warning: Cell 'PIW_din33' is being marked as "dont_touch" because it has 
 	a fixed_placement attribute. (PSYN-040)
 Warning: Cell 'PO8W_dout0' is being marked as "dont_touch" because it has 
@@ -155,6 +87,72 @@ Warning: Cell 'PO8W_dout33' is being marked as "dont_touch" because it has
 Warning: Cell 'PIW_clk' is being marked as "dont_touch" because it has 
 	a fixed_placement attribute. (PSYN-040)
 Warning: Cell 'PIW_rstn' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din0' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din1' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din2' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din3' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din4' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din5' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din6' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din7' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din8' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din9' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din10' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din11' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din12' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din13' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din14' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din15' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din16' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din17' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din18' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din19' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din20' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din21' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din22' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din23' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din24' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din25' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din26' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din27' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din28' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din29' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din30' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din31' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din32' is being marked as "dont_touch" because it has 
 	a fixed_placement attribute. (PSYN-040)
 
   Loading design 'fft_chip'
@@ -239,13 +237,13 @@ Information: Resistance Unit from Milkyway design library: 'kohm'
 Information: Design Library and main library resistance units are matched - 1.000 kohm. 
 Information: Capacitance Unit from Milkyway design library: 'pf' 
 Information: Design Library and main library capacitance units are matched - 1.000 pf. 
-9910/9980 nets are routed
+16487/16557 nets are routed
 Warning: Inconsistent library data found for layer POLY1. (RCEX-018)
 Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
 Information: The RC model used is global route TLU+. (RCEX-015)
 Information: Start mixed mode parasitic extraction. (RCEX-023)
 Information: Start rc extraction...
-Memory usage for extraction task 104 Mbytes -- main task 396 Mbytes.
+Memory usage for extraction task 111 Mbytes -- main task 359 Mbytes.
 Warning: Net 'net_clk' is exceeding threshold (over 1000 pins) and will be skipped. (RCEX-020)
 Information: Parasitic source is LPE. (RCEX-040)
 Information: Parasitic mode is RealRVirtualC. (RCEX-041)
@@ -283,72 +281,6 @@ Information: Using region-based R and C coefficients. (RCEX-013)
 Information: Library Derived Via Res : 0.0095 0.001 (RCEX-011)
 Information: End rc update.
 Information: The mixed mode parasitic extraction has been performed. (RCEX-202)
-Warning: Cell 'PIW_din0' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din1' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din2' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din3' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din4' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din5' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din6' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din7' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din8' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din9' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din10' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din11' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din12' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din13' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din14' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din15' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din16' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din17' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din18' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din19' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din20' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din21' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din22' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din23' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din24' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din25' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din26' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din27' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din28' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din29' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din30' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din31' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
-Warning: Cell 'PIW_din32' is being marked as "dont_touch" because it has 
-	a fixed_placement attribute. (PSYN-040)
 Warning: Cell 'PIW_din33' is being marked as "dont_touch" because it has 
 	a fixed_placement attribute. (PSYN-040)
 Warning: Cell 'PO8W_dout0' is being marked as "dont_touch" because it has 
@@ -423,6 +355,72 @@ Warning: Cell 'PIW_clk' is being marked as "dont_touch" because it has
 	a fixed_placement attribute. (PSYN-040)
 Warning: Cell 'PIW_rstn' is being marked as "dont_touch" because it has 
 	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din0' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din1' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din2' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din3' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din4' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din5' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din6' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din7' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din8' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din9' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din10' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din11' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din12' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din13' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din14' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din15' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din16' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din17' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din18' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din19' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din20' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din21' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din22' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din23' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din24' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din25' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din26' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din27' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din28' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din29' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din30' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din31' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
+Warning: Cell 'PIW_din32' is being marked as "dont_touch" because it has 
+	a fixed_placement attribute. (PSYN-040)
 Information: Updating graph... (UID-83)
 Warning: Design 'fft_chip' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
 Information: Updating design information... (UID-85)
@@ -435,7 +433,7 @@ Report : timing
         -max_paths 1
 Design : fft_chip
 Version: D-2010.03-ICC-SP5-2
-Date   : Fri Apr 24 15:28:36 2020
+Date   : Wed Apr 29 21:52:37 2020
 ****************************************
 
  * Some/all delay information is back-annotated.
@@ -448,48 +446,40 @@ Operating Conditions: slow   Library: slow
 	Extraction mode     : MIN_MAX
 	Extraction derating : 125/125/125
 
-  Startpoint: rstn (input port clocked by clk)
-  Endpoint: inst_fft/s_p0/data_out_1_reg_133_
+  Startpoint: din[1] (input port clocked by clk)
+  Endpoint: inst_fft/s_p0/R2_reg_1_
             (rising edge-triggered flip-flop clocked by clk)
   Path Group: INPUTS
   Path Type: max
 
-  Point                                                   Incr       Path
-  --------------------------------------------------------------------------
-  clock clk (rise edge)                                   0.00       0.00
-  clock network delay (ideal)                             4.30       4.30
-  input external delay                                    5.00       9.30 r
-  rstn (in)                                               0.00       9.30 r
-  PIW_rstn/C (PIW)                                        0.00       9.30 r
-  inst_fft/rst_n (fft)                                    0.00       9.30 r
-  inst_fft/s_p0/rst_n (s_p)                               0.00       9.30 r
-  inst_fft/s_p0/U559/Y (NAND2X1)                          2.72 *    12.02 f
-  inst_fft/s_p0/U61/Y (INVX1)                             0.52 *    12.54 r
-  inst_fft/s_p0/U45/Y (INVX1)                             0.46 *    12.99 f
-  inst_fft/s_p0/U57/Y (NOR2BX1)                           2.66 *    15.65 r
-  inst_fft/s_p0/U48/Y (INVX1)                             0.89 *    16.53 f
-  inst_fft/s_p0/U11/Y (INVX1)                             1.76 *    18.30 r
-  inst_fft/s_p0/U348/Y (AOI22X1)                          0.40 *    18.69 f
-  inst_fft/s_p0/U346/Y (OAI211X1)                         0.29 *    18.98 r
-  inst_fft/s_p0/data_out_1_reg_133_/D (DFFHQX1)           0.00 *    18.98 r
-  data arrival time                                                 18.98
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              4.30       4.30
+  input external delay                     6.10      10.40 f
+  din[1] (in)                              0.32      10.72 f
+  PIW_din1/C (PIW)                         1.02 *    11.74 f
+  inst_fft/data_in[1] (fft)                0.00      11.74 f
+  inst_fft/s_p0/data_in_1[1] (s_p)         0.00      11.74 f
+  inst_fft/s_p0/R2_reg_1_/D (EDFFX1)       0.14 *    11.88 f
+  data arrival time                                  11.88
 
-  clock clk (rise edge)                                  10.00      10.00
-  clock network delay (ideal)                             4.30      14.30
-  clock uncertainty                                      -0.50      13.80
-  inst_fft/s_p0/data_out_1_reg_133_/CK (DFFHQX1)          0.00      13.80 r
-  library setup time                                     -0.19      13.61
-  data required time                                                13.61
-  --------------------------------------------------------------------------
-  data required time                                                13.61
-  data arrival time                                                -18.98
-  --------------------------------------------------------------------------
-  slack (VIOLATED)                                                  -5.37
+  clock clk (rise edge)                   12.20      12.20
+  clock network delay (ideal)              4.30      16.50
+  clock uncertainty                       -0.50      16.00
+  inst_fft/s_p0/R2_reg_1_/CK (EDFFX1)      0.00      16.00 r
+  library setup time                      -0.69      15.31
+  data required time                                 15.31
+  -----------------------------------------------------------
+  data required time                                 15.31
+  data arrival time                                 -11.88
+  -----------------------------------------------------------
+  slack (MET)                                         3.43
 
 
-  Startpoint: inst_fft/p_s0/data_out_3_reg_27_
+  Startpoint: inst_fft/p_s0/data_out_3_reg_16_
               (rising edge-triggered flip-flop clocked by clk)
-  Endpoint: dout[27] (output port clocked by clk)
+  Endpoint: dout[16] (output port clocked by clk)
   Path Group: OUTPUTS
   Path Type: max
 
@@ -497,29 +487,29 @@ Operating Conditions: slow   Library: slow
   --------------------------------------------------------------------------
   clock clk (rise edge)                                   0.00       0.00
   clock network delay (ideal)                             4.30       4.30
-  inst_fft/p_s0/data_out_3_reg_27_/CK (DFFHQX1)           0.00 #     4.30 r
-  inst_fft/p_s0/data_out_3_reg_27_/Q (DFFHQX1)            0.95       5.25 r
-  inst_fft/p_s0/data_out_3[27] (p_s)                      0.00       5.25 r
-  inst_fft/data_out[27] (fft)                             0.00       5.25 r
-  PO8W_dout27/PAD (PO8W)                                  1.79 *     7.04 r
-  dout[27] (out)                                          0.00 *     7.04 r
-  data arrival time                                                  7.04
+  inst_fft/p_s0/data_out_3_reg_16_/CK (EDFFX1)            0.00 #     4.30 r
+  inst_fft/p_s0/data_out_3_reg_16_/Q (EDFFX1)             2.57       6.87 r
+  inst_fft/p_s0/data_out_3[16] (p_s)                      0.00       6.87 r
+  inst_fft/data_out[16] (fft)                             0.00       6.87 r
+  PO8W_dout16/PAD (PO8W)                                  2.14 *     9.01 r
+  dout[16] (out)                                          0.00 *     9.01 r
+  data arrival time                                                  9.01
 
-  clock clk (rise edge)                                  10.00      10.00
-  clock network delay (ideal)                             4.30      14.30
-  clock uncertainty                                      -0.50      13.80
-  output external delay                                  -5.00       8.80
-  data required time                                                 8.80
+  clock clk (rise edge)                                  12.20      12.20
+  clock network delay (ideal)                             4.30      16.50
+  clock uncertainty                                      -0.50      16.00
+  output external delay                                  -6.10       9.90
+  data required time                                                 9.90
   --------------------------------------------------------------------------
-  data required time                                                 8.80
-  data arrival time                                                 -7.04
+  data required time                                                 9.90
+  data arrival time                                                 -9.01
   --------------------------------------------------------------------------
-  slack (MET)                                                        1.76
+  slack (MET)                                                        0.89
 
 
-  Startpoint: inst_fft/ctrl0/mux_flag_reg
+  Startpoint: inst_fft/mux0/counter_reg_2_
               (rising edge-triggered flip-flop clocked by clk)
-  Endpoint: inst_fft/butterfly0/multi1_2_1/in_17bit_b_reg_0_
+  Endpoint: inst_fft/p_s0/R2_reg_14_
             (rising edge-triggered flip-flop clocked by clk)
   Path Group: clk
   Path Type: max
@@ -528,64 +518,125 @@ Operating Conditions: slow   Library: slow
   --------------------------------------------------------------------------
   clock clk (rise edge)                                   0.00       0.00
   clock network delay (ideal)                             4.30       4.30
-  inst_fft/ctrl0/mux_flag_reg/CK (DFFRHQX1)               0.00 #     4.30 r
-  inst_fft/ctrl0/mux_flag_reg/Q (DFFRHQX1)                0.43       4.73 r
-  inst_fft/ctrl0/mux_flag (ctrl)                          0.00       4.73 r
-  inst_fft/U1/Y (AND2X1)                                  0.77 *     5.50 r
-  inst_fft/mux0/mux_flag (mux)                            0.00       5.50 r
-  inst_fft/mux0/U195/Y (INVX1)                            0.31 *     5.81 f
-  inst_fft/mux0/U103/Y (INVX1)                            0.15 *     5.96 r
-  inst_fft/mux0/U91/Y (INVX1)                             0.12 *     6.08 f
-  inst_fft/mux0/U71/Y (INVX1)                             0.15 *     6.22 r
-  inst_fft/mux0/U12/Y (INVX1)                             0.17 *     6.39 f
-  inst_fft/mux0/U1/Y (INVX1)                              1.00 *     7.39 r
-  inst_fft/mux0/U112/Y (AOI22X1)                          0.58 *     7.98 f
-  inst_fft/mux0/U111/Y (INVX1)                            0.37 *     8.35 r
-  inst_fft/mux0/data_out[35] (mux)                        0.00       8.35 r
-  inst_fft/butterfly0/calc_in[35] (butterfly)             0.00       8.35 r
-  inst_fft/butterfly0/sub_285/B[1] (butterfly_DW01_sub_16)
-                                                          0.00       8.35 r
-  inst_fft/butterfly0/sub_285/U18/Y (INVX1)               0.12 *     8.47 f
-  inst_fft/butterfly0/sub_285/U2_1/CO (ADDFX2)            0.54 *     9.01 f
-  inst_fft/butterfly0/sub_285/U2_2/CO (ADDFX2)            0.36 *     9.37 f
-  inst_fft/butterfly0/sub_285/U2_3/CO (ADDFX2)            0.37 *     9.74 f
-  inst_fft/butterfly0/sub_285/U2_4/CO (ADDFX2)            0.37 *    10.10 f
-  inst_fft/butterfly0/sub_285/U2_5/CO (ADDFX2)            0.36 *    10.47 f
-  inst_fft/butterfly0/sub_285/U2_6/CO (ADDFX2)            0.36 *    10.83 f
-  inst_fft/butterfly0/sub_285/U2_7/CO (ADDFX2)            0.36 *    11.18 f
-  inst_fft/butterfly0/sub_285/U2_8/CO (ADDFX2)            0.37 *    11.55 f
-  inst_fft/butterfly0/sub_285/U2_9/CO (ADDFX2)            0.37 *    11.92 f
-  inst_fft/butterfly0/sub_285/U2_10/CO (ADDFX2)           0.36 *    12.28 f
-  inst_fft/butterfly0/sub_285/U2_11/CO (ADDFX2)           0.36 *    12.65 f
-  inst_fft/butterfly0/sub_285/U2_12/CO (ADDFX2)           0.36 *    13.01 f
-  inst_fft/butterfly0/sub_285/U2_13/CO (ADDFX2)           0.36 *    13.37 f
-  inst_fft/butterfly0/sub_285/U2_14/CO (ADDFX2)           0.37 *    13.74 f
-  inst_fft/butterfly0/sub_285/U2_15/CO (ADDFX2)           0.37 *    14.12 f
-  inst_fft/butterfly0/sub_285/U2_16/Y (XOR3X2)            0.52 *    14.63 r
-  inst_fft/butterfly0/sub_285/DIFF[16] (butterfly_DW01_sub_16)
-                                                          0.00      14.63 r
-  inst_fft/butterfly0/multi1_2_1/in_17bit[16] (multi16_0)
-                                                          0.00      14.63 r
-  inst_fft/butterfly0/multi1_2_1/U52/Y (BUFX3)            0.43 *    15.06 r
-  inst_fft/butterfly0/multi1_2_1/U3/Y (INVX1)             0.53 *    15.59 f
-  inst_fft/butterfly0/multi1_2_1/U9/Y (AOI22X1)           0.44 *    16.04 r
-  inst_fft/butterfly0/multi1_2_1/U8/Y (INVX1)             0.27 *    16.31 f
-  inst_fft/butterfly0/multi1_2_1/in_17bit_b_reg_0_/D (DFFRHQX4)
-                                                          0.00 *    16.31 f
-  data arrival time                                                 16.31
+  inst_fft/mux0/counter_reg_2_/CK (DFFRHQX2)              0.00 #     4.30 r
+  inst_fft/mux0/counter_reg_2_/Q (DFFRHQX2)               0.43       4.73 r
+  inst_fft/mux0/U698/Y (NAND3BX4)                         0.21 *     4.95 r
+  inst_fft/mux0/U679/Y (INVX8)                            0.08 *     5.03 f
+  inst_fft/mux0/U681/Y (NAND2BX4)                         0.18 *     5.21 r
+  inst_fft/mux0/U163/Y (INVX4)                            0.08 *     5.29 f
+  inst_fft/mux0/U142/Y (INVX2)                            0.13 *     5.42 r
+  inst_fft/mux0/U249/Y (INVX1)                            0.71 *     6.14 f
+  inst_fft/mux0/U212/Y (NAND2XL)                          0.32 *     6.46 r
+  inst_fft/mux0/U317/Y (NAND3X1)                          1.43 *     7.89 f
+  inst_fft/mux0/data_out[90] (mux)                        0.00       7.89 f
+  inst_fft/butterfly0/calc_in[90] (butterfly)             0.00       7.89 f
+  inst_fft/butterfly0/multiCRI/in_17bit[5] (multi16_5)
+                                                          0.00       7.89 f
+  inst_fft/butterfly0/multiCRI/U88/Y (INVXL)              1.26 *     9.15 r
+  inst_fft/butterfly0/multiCRI/U36/Y (XOR2X1)             1.07 *    10.23 r
+  inst_fft/butterfly0/multiCRI/mult_55/A[5] (multi16_5_DW02_mult_0)
+                                                          0.00      10.23 r
+  inst_fft/butterfly0/multiCRI/mult_55/U35/Y (AND2X1)     0.37 *    10.59 r
+  inst_fft/butterfly0/multiCRI/mult_55/S2_5_1/CO (ADDFHX4)
+                                                          0.48 *    11.07 r
+  inst_fft/butterfly0/multiCRI/mult_55/S2_6_1/CO (ADDFHX2)
+                                                          0.37 *    11.45 r
+  inst_fft/butterfly0/multiCRI/mult_55/S2_7_1/S (ADDFHX4)
+                                                          0.41 *    11.86 f
+  inst_fft/butterfly0/multiCRI/mult_55/S1_8_0/S (ADDFHX4)
+                                                          0.33 *    12.19 f
+  inst_fft/butterfly0/multiCRI/mult_55/FS_1/A_6_ (multi16_5_DW01_add_0)
+                                                          0.00      12.19 f
+  inst_fft/butterfly0/multiCRI/mult_55/FS_1/U27/Y (BUFX3)
+                                                          0.17 *    12.36 f
+  inst_fft/butterfly0/multiCRI/mult_55/FS_1/SUM_6_ (multi16_5_DW01_add_0)
+                                                          0.00      12.36 f
+  inst_fft/butterfly0/multiCRI/mult_55/PRODUCT_8_ (multi16_5_DW02_mult_0)
+                                                          0.00      12.36 f
+  inst_fft/butterfly0/multiCRI/U119/Y (INVX1)             0.09 *    12.45 r
+  inst_fft/butterfly0/multiCRI/U166/Y (XOR2X1)            0.23 *    12.68 f
+  inst_fft/butterfly0/multiCRI/U118/Y (AOI22X1)           0.36 *    13.05 r
+  inst_fft/butterfly0/multiCRI/U117/Y (INVX1)             0.24 *    13.29 f
+  inst_fft/butterfly0/multiCRI/out[1] (multi16_5)         0.00      13.29 f
+  inst_fft/butterfly0/add_279/A[1] (butterfly_DW01_add_86)
+                                                          0.00      13.29 f
+  inst_fft/butterfly0/add_279/U95/Y (NAND2XL)             0.26 *    13.55 r
+  inst_fft/butterfly0/add_279/U82/Y (NOR2BXL)             0.34 *    13.88 r
+  inst_fft/butterfly0/add_279/U112/Y (XOR2X1)             1.23 *    15.11 r
+  inst_fft/butterfly0/add_279/SUM[1] (butterfly_DW01_add_86)
+                                                          0.00      15.11 r
+  inst_fft/butterfly0/add_2_root_add_0_root_add_293_3/B[1] (butterfly_DW01_add_51)
+                                                          0.00      15.11 r
+  inst_fft/butterfly0/add_2_root_add_0_root_add_293_3/U75/Y (OR2XL)
+                                                          0.34 *    15.45 r
+  inst_fft/butterfly0/add_2_root_add_0_root_add_293_3/U109/Y (INVX1)
+                                                          0.09 *    15.54 f
+  inst_fft/butterfly0/add_2_root_add_0_root_add_293_3/U81/Y (OAI21XL)
+                                                          0.20 *    15.74 r
+  inst_fft/butterfly0/add_2_root_add_0_root_add_293_3/U59/Y (AOI21XL)
+                                                          0.15 *    15.89 f
+  inst_fft/butterfly0/add_2_root_add_0_root_add_293_3/U79/Y (OAI21XL)
+                                                          0.59 *    16.48 r
+  inst_fft/butterfly0/add_2_root_add_0_root_add_293_3/U77/Y (INVX1)
+                                                          0.18 *    16.65 f
+  inst_fft/butterfly0/add_2_root_add_0_root_add_293_3/U83/Y (OAI21XL)
+                                                          0.35 *    17.00 r
+  inst_fft/butterfly0/add_2_root_add_0_root_add_293_3/U58/Y (INVXL)
+                                                          0.10 *    17.10 f
+  inst_fft/butterfly0/add_2_root_add_0_root_add_293_3/U82/Y (OAI21XL)
+                                                          0.29 *    17.39 r
+  inst_fft/butterfly0/add_2_root_add_0_root_add_293_3/U61/Y (INVXL)
+                                                          0.10 *    17.49 f
+  inst_fft/butterfly0/add_2_root_add_0_root_add_293_3/U99/Y (OAI21XL)
+                                                          0.24 *    17.73 r
+  inst_fft/butterfly0/add_2_root_add_0_root_add_293_3/U98/Y (XOR2X1)
+                                                          0.48 *    18.21 r
+  inst_fft/butterfly0/add_2_root_add_0_root_add_293_3/SUM[7] (butterfly_DW01_add_51)
+                                                          0.00      18.21 r
+  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/A[7] (butterfly_DW01_add_37)
+                                                          0.00      18.21 r
+  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U139/Y (OR2X2)
+                                                          0.23 *    18.44 r
+  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U93/Y (NAND4X1)
+                                                          0.18 *    18.62 f
+  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U33/Y (OAI21XL)
+                                                          0.41 *    19.03 r
+  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U95/Y (INVX1)
+                                                          0.09 *    19.13 f
+  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U94/Y (NOR2X1)
+                                                          0.16 *    19.28 r
+  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U49/Y (NAND4X1)
+                                                          0.16 *    19.44 f
+  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U42/Y (NAND3X2)
+                                                          0.17 *    19.61 r
+  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U28/Y (NAND2X1)
+                                                          0.12 *    19.73 f
+  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U27/Y (NAND2X2)
+                                                          0.13 *    19.86 r
+  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U32/Y (CLKINVX3)
+                                                          0.08 *    19.94 f
+  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U31/Y (OAI21X2)
+                                                          0.21 *    20.15 r
+  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U91/Y (XOR2X1)
+                                                          1.52 *    21.67 r
+  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/SUM[14] (butterfly_DW01_add_37)
+                                                          0.00      21.67 r
+  inst_fft/butterfly0/calc_out[14] (butterfly)            0.00      21.67 r
+  inst_fft/p_s0/data_in_3[14] (p_s)                       0.00      21.67 r
+  inst_fft/p_s0/R2_reg_14_/D (EDFFXL)                     0.06 *    21.74 r
+  data arrival time                                                 21.74
 
-  clock clk (rise edge)                                  10.00      10.00
-  clock network delay (ideal)                             4.30      14.30
-  clock uncertainty                                      -0.50      13.80
-  inst_fft/butterfly0/multi1_2_1/in_17bit_b_reg_0_/CK (DFFRHQX4)
-                                                          0.00      13.80 r
-  library setup time                                     -0.32      13.48
-  data required time                                                13.48
+  clock clk (rise edge)                                  12.20      12.20
+  clock network delay (ideal)                             4.30      16.50
+  clock uncertainty                                      -0.50      16.00
+  inst_fft/p_s0/R2_reg_14_/CK (EDFFXL)                    0.00      16.00 r
+  library setup time                                     -0.36      15.64
+  data required time                                                15.64
   --------------------------------------------------------------------------
-  data required time                                                13.48
-  data arrival time                                                -16.31
+  data required time                                                15.64
+  data arrival time                                                -21.74
   --------------------------------------------------------------------------
-  slack (VIOLATED)                                                  -2.83
+  slack (VIOLATED)                                                  -6.10
 
 
 1

@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"    "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+<title>Physical Design Check Summary</title>
+<script type="text/javascript">
+function open_feedback(msg)
+{
+  var link = "http://wwwin/~jichunw/apdFeedback/apdFeedback.html";
+  var url = location.href;
+  var direct = link + "?" + msg + "?" + url; 
+  window.location.assign(direct);
+}
+function open_man(msg)
+{
+  myWindow=window.open();
+  myWindow.document.write("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" ");
+  myWindow.document.write("   \"http://www.w3.org/TR/html4/loose.dtd\">");
+  myWindow.document.write("\n");
+  myWindow.document.write("<HTML><TITLE></TITLE><BODY>\n");
+  myWindow.document.write(msg);
+  myWindow.document.write("\n</BODY></HTML>\n");
+  myWindow.document.close();
+  myWindow.focus();
+}
+var last_hilight;
+function do_highlight()
+{
+  var url = /(.+)#(.+)/;
+  var location_url = self.location;
+  var text = location_url.toString();
+  var result;
+  result = text.match(url);
+  if(result != null) {
+    last_hilight = result[2];
+    document.getElementById(result[2] + "_MSG").style.background="yellow";
+  }
+}
+function set_highlight(id)
+{
+  if (last_hilight) {
+    document.getElementById(last_hilight).style.background="";
+  }
+  last_hilight = id;
+  document.getElementById(last_hilight).style.background="yellow";
+}
+</script>
+
+</head>
+<body>
+<table align="center" width="100%" cellspacing="10%" border="0">
+<tr><td>
+<a href="index.html">Back to main page</a>
+</td></tr>
+<tr><td  bgcolor="#DEB887" align="left" valign="middle">
+<font color="black" size ="4"><b>NonDocumentedErrors</b></font>
+</td></tr>
+<tr><td>
+ERROR : Unable to open cell 'CLKINVX12.FRAM' for pin/blockage.[<a href="cpd_template.html#4528">link to log file</a>]<br>
+</td></tr>
+</table></body></html>

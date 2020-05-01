@@ -1,43 +1,43 @@
 
 Name of design : fft_chip
-Number of cell instances in the design : 8857
-Number of cell instance masters in the library : 78
+Number of cell instances in the design : 15404
+Number of cell instance masters in the library : 150
 
 Processing power net VSS ...
-Number of power net wires : 183
-Number of vias : 3784
+Number of power net wires : 201
+Number of vias : 4143
 Average power dissipation in fft_chip :  1000.00 mW
 Power supply voltage :     1.98 V
 Assigning vias begins
 Assigning power net wires ...
 Reading virtual power pads
 Extracting power net VSS ...
-Number of power pad nodes connecting to power net VSS : 8
-Number of power pad nodes reaching to the power ports of the leaf cells or blocks : 8
-Number of resistors in VSS : 7114
-Number of nodes in VSS : 5708
+Number of power pad nodes connecting to power net VSS : 12
+Number of power pad nodes reaching to the power ports of the leaf cells or blocks : 12
+Number of resistors in VSS : 7824
+Number of nodes in VSS : 6277
 Performing network simulation
 Assigning netlists to simulation engine begins
 Assigning netlists to simulation engine finished
-Maximum IR drop in fft_chip : 207.06 mV
-Maximum current in fft_chip : 150.724 mA
+Maximum IR drop in fft_chip : 114.86 mV
+Maximum current in fft_chip : 95.565 mA
 
 Processing power net VDD ...
-Number of power net wires : 220
-Number of vias : 3816
+Number of power net wires : 282
+Number of vias : 4188
 Average power dissipation in fft_chip :  1000.00 mW
 Power supply voltage :     1.98 V
 Assigning vias begins
 Assigning power net wires ...
 Reading virtual power pads
 Extracting power net VDD ...
-Number of power pad nodes connecting to power net VDD : 14
-Number of power pad nodes reaching to the power ports of the leaf cells or blocks : 14
-Number of resistors in VDD : 7274
-Number of nodes in VDD : 5866
+Number of power pad nodes connecting to power net VDD : 28
+Number of power pad nodes reaching to the power ports of the leaf cells or blocks : 28
+Number of resistors in VDD : 8208
+Number of nodes in VDD : 6600
 Performing network simulation
 Assigning netlists to simulation engine begins
 Assigning netlists to simulation engine finished
-Maximum IR drop in fft_chip : 191.93 mV
-Maximum current in fft_chip : 149.769 mA
-Overall takes     0.30 seconds
+Maximum IR drop in fft_chip : 110.78 mV
+Maximum current in fft_chip : 48.559 mA
+Overall takes     0.31 seconds

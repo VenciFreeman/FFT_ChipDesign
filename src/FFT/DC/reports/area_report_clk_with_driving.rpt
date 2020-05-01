@@ -3,7 +3,7 @@
 Report : area
 Design : fft_chip
 Version: D-2010.03-SP5-3
-Date   : Sat Apr 18 14:06:10 2020
+Date   : Wed Apr 29 21:50:09 2020
 ****************************************
 
 Library(s) Used:
@@ -16,10 +16,10 @@ Number of nets:               140
 Number of cells:               71
 Number of references:           3
 
-Combinational area:       1269276.357038
-Noncombinational area:    161240.590260
+Combinational area:       1430889.505454
+Noncombinational area:    152372.408863
 Net Interconnect area:      undefined  (No wire load specified)
 
-Total cell area:          1430516.947298
+Total cell area:          1583261.914317
 Total area:                 undefined
 1

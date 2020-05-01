@@ -1,0 +1,525 @@
+Start CPD check: ::check_tlu_plus_files 
+
+Sanity check for TLU+ vs MW-Tech files:
+ max_tlu+: /home/student/Desktop/Workspace/SMIC18/tlup/smiclog018_5lm_cell_max.tluplus
+ min_tlu+: /home/student/Desktop/Workspace/SMIC18/tlup/smiclog018_5lm_cell_min.tluplus
+ mapping_file: /home/student/Desktop/Workspace/SMIC18/tlup/smic018_5lm_map
+ max_emul_tlu+: **NONE**
+ min_emul_tlu+: **NONE**
+ MW design lib: fft_chip.mw
+
+--------- Sanity Check on TLUPlus Files -------------
+1. Checking the conducting layer names in ITF and mapping file ... 
+[ Passed! ]
+2. Checking the via layer names in ITF and mapping file ... 
+[ Passed! ]
+3. Checking the consistency of Min Width and Min Spacing between MW-tech and ITF ... 
+[ Passed! ]
+----------------- Check Ends ------------------
+1
+End CPD check: ::check_tlu_plus_files
+Start CPD check: ::get_placement_area 
+240.000 240.000 1852.380 2004.000
+End CPD check: ::get_placement_area
+Start CPD check: report_routing_metal_info 
+No ignored layers specified.
+Information: Report design vs library layers and preferred routing directions. (PNR-164)
+ 
+****************************************
+Report : Layers
+Design : fft_chip
+Version: D-2010.03-ICC-SP5-2
+Date   : Mon Apr 27 20:55:15 2020
+****************************************
+
+Layer Name                   Library             Design              Tool understands
+METAL1                       Horizontal          Horizontal          Horizontal
+METAL2                       Vertical            Vertical            Vertical
+METAL3                       Horizontal          Horizontal          Horizontal
+METAL4                       Vertical            Vertical            Vertical
+METAL5                       Horizontal          Horizontal          Horizontal
+
+Information: Report track info.  (PNR-165)
+****************************************
+Report track
+Design : fft_chip
+Version: D-2010.03-ICC-SP5-2
+Date   : Mon Apr 27 20:55:15 2020
+****************************************
+Layer          Direction     Start         Tracks    Pitch          Attr
+------------------------------------------------------------------------
+Attributes :
+         usr : User defined
+         def : DEF defined
+
+METAL1             Y         0.600          4006      0.560           
+METAL2             Y         0.600          4006      0.560           
+METAL2             X         0.750          3169      0.660           
+METAL1             X         0.750          3169      0.660           
+METAL3             X         0.750          3169      0.660           
+METAL3             Y         0.600          4006      0.560           
+METAL2             Y         0.600          4006      0.560           
+METAL4             Y         0.600          4006      0.560           
+METAL4             X         0.750          3169      0.660           
+METAL3             X         0.750          3169      0.660           
+METAL5             X         0.750          3169      0.660           
+METAL5             Y         0.880          2361      0.950           
+METAL4             Y         0.880          2361      0.950           
+1
+End CPD check: report_routing_metal_info
+Start CPD check: check_track_and_unit 
+
+End CPD check: check_track_and_unit
+Start CPD check: check_layer_direction 
+
+End CPD check: check_layer_direction
+Start CPD check: check_physical_only_ports 
+Warning: No port objects matched '*' (SEL-004)
+[]
+End CPD check: check_physical_only_ports
+Start CPD check: check_timing 
+
+Information: Checking generated_clocks...
+
+Information: Checking loops...
+
+Information: Checking no_input_delay...
+
+Information: Checking unconstrained_endpoints...
+
+Warning: The following end-points are not constrained for maximum delay.
+
+End point
+---------------
+inst_fft/mux0/R1_reg_0_/D
+inst_fft/mux0/R1_reg_1_/D
+inst_fft/mux0/R1_reg_2_/D
+inst_fft/mux0/R1_reg_3_/D
+inst_fft/mux0/R1_reg_4_/D
+inst_fft/mux0/R1_reg_5_/D
+inst_fft/mux0/R1_reg_6_/D
+inst_fft/mux0/R1_reg_7_/D
+inst_fft/mux0/R1_reg_8_/D
+inst_fft/mux0/R1_reg_9_/D
+inst_fft/mux0/R1_reg_10_/D
+inst_fft/mux0/R1_reg_11_/D
+inst_fft/mux0/R1_reg_12_/D
+inst_fft/mux0/R1_reg_13_/D
+inst_fft/mux0/R1_reg_14_/D
+inst_fft/mux0/R1_reg_15_/D
+inst_fft/mux0/R1_reg_16_/D
+inst_fft/mux0/R1_reg_17_/D
+inst_fft/mux0/R1_reg_18_/D
+inst_fft/mux0/R1_reg_19_/D
+inst_fft/mux0/R1_reg_20_/D
+inst_fft/mux0/R1_reg_21_/D
+inst_fft/mux0/R1_reg_22_/D
+inst_fft/mux0/R1_reg_23_/D
+inst_fft/mux0/R1_reg_24_/D
+inst_fft/mux0/R1_reg_25_/D
+inst_fft/mux0/R1_reg_26_/D
+inst_fft/mux0/R1_reg_27_/D
+inst_fft/mux0/R1_reg_28_/D
+inst_fft/mux0/R1_reg_29_/D
+inst_fft/mux0/R1_reg_30_/D
+inst_fft/mux0/R1_reg_31_/D
+inst_fft/mux0/R1_reg_32_/D
+inst_fft/mux0/R1_reg_33_/D
+inst_fft/mux0/R2_reg_0_/D
+inst_fft/mux0/R2_reg_1_/D
+inst_fft/mux0/R2_reg_2_/D
+inst_fft/mux0/R2_reg_3_/D
+inst_fft/mux0/R2_reg_4_/D
+inst_fft/mux0/R2_reg_5_/D
+inst_fft/mux0/R2_reg_6_/D
+inst_fft/mux0/R2_reg_7_/D
+inst_fft/mux0/R2_reg_8_/D
+inst_fft/mux0/R2_reg_9_/D
+inst_fft/mux0/R2_reg_10_/D
+inst_fft/mux0/R2_reg_11_/D
+inst_fft/mux0/R2_reg_12_/D
+inst_fft/mux0/R2_reg_13_/D
+inst_fft/mux0/R2_reg_14_/D
+inst_fft/mux0/R2_reg_15_/D
+inst_fft/mux0/R2_reg_16_/D
+inst_fft/mux0/R2_reg_17_/D
+inst_fft/mux0/R2_reg_18_/D
+inst_fft/mux0/R2_reg_19_/D
+inst_fft/mux0/R2_reg_20_/D
+inst_fft/mux0/R2_reg_21_/D
+inst_fft/mux0/R2_reg_22_/D
+inst_fft/mux0/R2_reg_23_/D
+inst_fft/mux0/R2_reg_24_/D
+inst_fft/mux0/R2_reg_25_/D
+inst_fft/mux0/R2_reg_26_/D
+inst_fft/mux0/R2_reg_27_/D
+inst_fft/mux0/R2_reg_28_/D
+inst_fft/mux0/R2_reg_29_/D
+inst_fft/mux0/R2_reg_30_/D
+inst_fft/mux0/R2_reg_31_/D
+inst_fft/mux0/R2_reg_32_/D
+inst_fft/mux0/R2_reg_33_/D
+inst_fft/mux0/R3_reg_0_/D
+inst_fft/mux0/R3_reg_1_/D
+inst_fft/mux0/R3_reg_2_/D
+inst_fft/mux0/R3_reg_3_/D
+inst_fft/mux0/R3_reg_4_/D
+inst_fft/mux0/R3_reg_5_/D
+inst_fft/mux0/R3_reg_6_/D
+inst_fft/mux0/R3_reg_7_/D
+inst_fft/mux0/R3_reg_8_/D
+inst_fft/mux0/R3_reg_9_/D
+inst_fft/mux0/R3_reg_10_/D
+inst_fft/mux0/R3_reg_11_/D
+inst_fft/mux0/R3_reg_12_/D
+inst_fft/mux0/R3_reg_13_/D
+inst_fft/mux0/R3_reg_14_/D
+inst_fft/mux0/R3_reg_15_/D
+inst_fft/mux0/R3_reg_16_/D
+inst_fft/mux0/R3_reg_17_/D
+inst_fft/mux0/R3_reg_18_/D
+inst_fft/mux0/R3_reg_19_/D
+inst_fft/mux0/R3_reg_20_/D
+inst_fft/mux0/R3_reg_21_/D
+inst_fft/mux0/R3_reg_22_/D
+inst_fft/mux0/R3_reg_23_/D
+inst_fft/mux0/R3_reg_24_/D
+inst_fft/mux0/R3_reg_25_/D
+inst_fft/mux0/R3_reg_26_/D
+inst_fft/mux0/R3_reg_27_/D
+inst_fft/mux0/R3_reg_28_/D
+inst_fft/mux0/R3_reg_29_/D
+inst_fft/mux0/R3_reg_30_/D
+inst_fft/mux0/R3_reg_31_/D
+inst_fft/mux0/R3_reg_32_/D
+inst_fft/mux0/R3_reg_33_/D
+inst_fft/mux0/R4_reg_0_/D
+inst_fft/mux0/R4_reg_1_/D
+inst_fft/mux0/R4_reg_2_/D
+inst_fft/mux0/R4_reg_3_/D
+inst_fft/mux0/R4_reg_4_/D
+inst_fft/mux0/R4_reg_5_/D
+inst_fft/mux0/R4_reg_6_/D
+inst_fft/mux0/R4_reg_7_/D
+inst_fft/mux0/R4_reg_8_/D
+inst_fft/mux0/R4_reg_9_/D
+inst_fft/mux0/R4_reg_10_/D
+inst_fft/mux0/R4_reg_11_/D
+inst_fft/mux0/R4_reg_12_/D
+inst_fft/mux0/R4_reg_13_/D
+inst_fft/mux0/R4_reg_14_/D
+inst_fft/mux0/R4_reg_15_/D
+inst_fft/mux0/R4_reg_16_/D
+inst_fft/mux0/R4_reg_17_/D
+inst_fft/mux0/R4_reg_18_/D
+inst_fft/mux0/R4_reg_19_/D
+inst_fft/mux0/R4_reg_20_/D
+inst_fft/mux0/R4_reg_21_/D
+inst_fft/mux0/R4_reg_22_/D
+inst_fft/mux0/R4_reg_23_/D
+inst_fft/mux0/R4_reg_24_/D
+inst_fft/mux0/R4_reg_25_/D
+inst_fft/mux0/R4_reg_26_/D
+inst_fft/mux0/R4_reg_27_/D
+inst_fft/mux0/R4_reg_28_/D
+inst_fft/mux0/R4_reg_29_/D
+inst_fft/mux0/R4_reg_30_/D
+inst_fft/mux0/R4_reg_31_/D
+inst_fft/mux0/R4_reg_32_/D
+inst_fft/mux0/R4_reg_33_/D
+
+Information: Checking pulse_clock_cell_type...
+
+Information: Checking no_driving_cell...
+
+Information: Checking partial_input_delay...
+Warning: there are 35 input ports that only have partial input delay specified. (TIM-212)
+--------------------
+din[5]
+din[4]
+din[3]
+din[2]
+din[1]
+din[0]
+din[13]
+din[12]
+din[11]
+din[10]
+din[9]
+din[8]
+din[7]
+din[6]
+din[21]
+din[20]
+din[19]
+din[18]
+din[17]
+din[16]
+din[15]
+din[14]
+din[29]
+din[28]
+din[27]
+din[26]
+din[25]
+din[24]
+din[23]
+din[22]
+din[33]
+din[32]
+din[31]
+din[30]
+rstn
+1
+End CPD check: check_timing
+Start CPD check: check_for_HFN_dont_touch_nets 
+Warning: Net (net_clk) is high fanout net but set as don't touch.     (PNR-179)
+
+End CPD check: check_for_HFN_dont_touch_nets
+Start CPD check: check_ilm -stage pre_place_opt 
+1
+End CPD check: check_ilm -stage pre_place_opt
+Start CPD check: check_placement_utilization_violation 
+ 
+****************************************
+  Report : Chip Summary
+  Design : fft_chip
+  Version: D-2010.03-ICC-SP5-2
+  Date   : Mon Apr 27 20:55:15 2020
+****************************************
+Std cell utilization: 18.93%  (151343/(855050-55370))
+(Non-fixed + Fixed)
+Std cell utilization: 18.93%  (151343/(855050-55370))
+(Non-fixed only)
+Chip area:            855050   sites, bbox (240.00 240.00 1852.38 2004.00) um
+Std cell area:        151343   sites, (non-fixed:151343 fixed:0)
+                      17165    cells, (non-fixed:17165  fixed:0)
+Macro cell area:      0        sites
+                      0        cells
+Placement blockages:  55370    sites, (excluding fixed std cells)
+                      55370    sites, (include fixed std cells & chimney area)
+                      55370    sites, (complete p/g net blockages)
+Routing blockages:    0        sites, (partial p/g net blockages)
+                      0        sites, (routing blockages and signal pre-route)
+Lib cell count:       150 
+Avg. std cell width:  6.02 um 
+Site array:           unit     (width: 0.66 um, height: 5.04 um, rows: 350)
+Physical DB scale:    1000 db_unit = 1 um 
+
+ 
+****************************************
+  Report : pnet options
+  Design : fft_chip
+  Version: D-2010.03-ICC-SP5-2
+  Date   : Mon Apr 27 20:55:15 2020
+****************************************
+
+
+--------------------------------------------------------------------
+Layer      Blockage   Min_width   Min_height   Via_additive     Density
+--------------------------------------------------------------------
+METAL1     none          ---         ---       via additive      ---
+METAL2     none          ---         ---       via additive      ---
+METAL3     none          ---         ---       via additive      ---
+METAL4     complete    0.00        0.00        via additive      ---
+METAL5     complete    0.00        0.00        via additive      ---
+
+**********************************
+      Sub-Region Utilization      
+**********************************
+Number of regions with placement utilization 0 - 0.125 is 4480 (100.00%)
+Number of regions with placement utilization 0.125 - 0.25 is 0 (0.00%)
+Number of regions with placement utilization 0.25 - 0.375 is 0 (0.00%)
+Number of regions with placement utilization 0.375 - 0.5 is 0 (0.00%)
+Number of regions with placement utilization 0.5 - 0.625 is 0 (0.00%)
+Number of regions with placement utilization 0.625 - 0.75 is 0 (0.00%)
+Number of regions with placement utilization 0.75 - 0.875 is 0 (0.00%)
+Number of regions with placement utilization 0.875 - 1 is 0 (0.00%)
+1
+
+1
+End CPD check: check_placement_utilization_violation
+Start CPD check: check_bound_utilization 
+Checking Bounds Utilization:
+Warning: Nothing implicitly matched '*' (SEL-003)
+0
+End CPD check: check_bound_utilization
+Start CPD check: check_bounds 
+Warning: Nothing implicitly matched '*' (SEL-003)
+
+End CPD check: check_bounds
+Start CPD check: placement_check 
+
+  Loading design 'fft_chip'
+
+
+Information: Setting a dont_touch attribute on net 'din[5]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[4]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[3]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[2]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[1]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[0]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[13]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[12]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[11]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[10]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[9]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[8]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[7]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[6]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[21]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[20]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[19]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[18]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[17]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[16]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[15]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[14]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[29]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[28]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[27]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[26]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[25]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[24]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[23]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[22]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[3]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[2]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[1]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[0]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[33]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[32]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[31]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'din[30]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[11]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[10]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[9]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[8]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[7]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[6]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[5]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[4]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[19]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[18]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[17]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[16]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[15]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[14]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[13]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[12]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[27]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[26]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[25]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[24]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[23]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[22]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[21]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[20]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'rstn' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'clk' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[33]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[32]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[31]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[30]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[29]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'dout[28]' because it is connected to a pad cell. (PSYN-088)
+
+
+
+  Total moveable cell area: 1620896.6
+  Total fixed cell area: 0.0
+  Core area: (240000 240000 1852380 2004000)
+false
+End CPD check: placement_check
+Start CPD check: report_fp_placement 
+Reference Point: Lower Left-hand corner of Core Base Array
+  18 blocks freed
+  0 bytes freed
+*********************************************
+Report     : Virtual Flat Placement
+Design     : fft_chip
+Version    : D-2010.03-ICC-SP5-2
+Date       : Mon Apr 27 20:55:16 2020
+*********************************************
+
+Total wirelength: 5516336.21
+Number of 100x100 tracks cell density regions: 868
+Number of low (< 10%) cell density regions: 928 (1.069%)
+Number of high (> 200%) cell density regions: 0 (0.000%)
+Maximum cell density: 0.00% (at 0 2004000 0 240000)
+Checking hard macro to hard macro overlaps...
+Number of hard macro to hard macro overlaps: 0
+Checking hard macro to std cell overlaps...
+Number of hard macro to std cell overlaps: 0
+Checking plan group to plan group overlaps...
+Number of plan group to plan group overlaps: 0
+Number of TL cells overlapping PG: 0
+  Top Level: cell inst_fft/butterfly0/multiBII/mult_55/S4_3 is not inside core
+  Top Level: cell inst_fft/butterfly0/multiBII/mult_55/S5_6 is not inside core
+  Top Level: cell inst_fft/butterfly0/multiBIR/mult_55/S5_6 is not inside core
+  Top Level: cell inst_fft/butterfly0/multiBRI/mult_55/S3_15_6 is not inside core
+  Top Level: cell inst_fft/butterfly0/multiBRI/mult_55/S3_7_6 is not inside core
+  Further messages suppressed ...
+Number of cells violating core area: 17165
+Total number of cells violating plan group or core area: 17165
+1
+End CPD check: report_fp_placement
+Start CPD check: ::check_physical_constraints 
+
+  Loading design 'fft_chip'
+
+
+Total Physical Cells: 24 Fixed: 0 Not fixed :24
+
+Total Area : 495600.00 Fixed Area: 0.00 Unfixed Area:495600.00
+
+ Physical Library: /home/student/Desktop/Workspace/FFT/ICC/fft_chip.mw
+
+ Routing layer : METAL1    width: 230    pitch: 560   space: 230
+
+ Routing Layer : METAL1 Resistance : 7.8e-05 Capacitance : 0.000946442
+
+ Routing layer : METAL2    width: 280    pitch: 660   space: 280
+
+ Routing Layer : METAL2 Resistance : 7.8e-05 Capacitance : 0.000746864
+
+ Routing layer : METAL3    width: 280    pitch: 560   space: 280
+
+ Routing Layer : METAL3 Resistance : 7.8e-05 Capacitance : 0.000888103
+
+ Routing layer : METAL4    width: 280    pitch: 660   space: 280
+
+ Routing Layer : METAL4 Resistance : 7.8e-05 Capacitance : 0.000739245
+
+ Routing layer : METAL5    width: 440    pitch: 950   space: 460
+
+ Routing Layer : METAL5 Resistance : 3.6e-05 Capacitance : 0.000647407
+
+
+ Physical Library: /home/student/Desktop/Workspace/SMIC18/mw_lib/smic18_5ml
+
+ Physical Library: /home/student/Desktop/Workspace/SMIC18/mw_lib/SP018W_V1p5_5MT
+
+
+Total Bounds:0 Group Bounds:0 Move Bounds:0
+[begin initializing data for legality checker]
+Initializing Data Structure ...
+  Reading technology information ...
+    Technology table contains 5 routable metal layers
+    This is considered as a 5-metal-layer design
+    Reading library information from DB ...
+  Reading misc information ...
+    array <unit> has 0 vertical and 350 horizontal rows
+    76 pre-routes for placement blockage/checking
+    8814 pre-routes for map congestion calculation
+  Checking information read in ...
+    design style = Horizontal masters, Horizontal rows
+  Preprocessing design ...
+    splitting rows by natural obstacles ...
+[end initializing data for legality checker]
+
+The maximum cell width in library is 23.100 um (e.g. 35 sites)
+
+There are no narrow placement areas less than 35 sites
+1
+End CPD check: ::check_physical_constraints

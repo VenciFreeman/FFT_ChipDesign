@@ -1,0 +1,4 @@
+set_user_match	$svf_ref/fft_chip/inst_fft/butterfly0/multi1_2_3/in_17bit[16]		$svf_impl/fft_chip/inst_fft/butterfly0/multi1_2_3/in_17bit[16]
+set_user_match	$svf_ref/fft_chip/inst_fft/butterfly0/multi1_2_3/in_17bit[16]		$svf_impl/fft_chip/inst_fft/butterfly0/multi1_2_3/in_17bit[16]_hfs_netlink_0
+set_user_match	$svf_ref/fft_chip/inst_fft/butterfly0/multi1_3_3/in_17bit[16]		$svf_impl/fft_chip/inst_fft/butterfly0/multi1_3_3/in_17bit[16]
+set_user_match	$svf_ref/fft_chip/inst_fft/butterfly0/multi1_3_3/in_17bit[16]		$svf_impl/fft_chip/inst_fft/butterfly0/multi1_3_3/in_17bit[16]_hfs_netlink_1

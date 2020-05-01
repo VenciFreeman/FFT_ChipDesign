@@ -1,7 +1,7 @@
 # Create corners and P/G pads
 create_cell {CornerLL CornerLR CornerTR CornerTL} PCORNERW
-create_cell {vss1_l vss1_r vss1_t vss1_b} PVSS1W
-create_cell {vdd1_l vdd1_r vdd1_t vdd1_b} PVDD1W
+create_cell {vss1_l1 vss1_l2 vss1_r1 vss1_r2 vss1_t vss1_b} PVSS1W
+create_cell {vdd1_l1 vdd1_l2 vdd1_r1 vdd1_r2 vdd1_t vdd1_b} PVDD1W
 create_cell {vss2_l vss2_r vss2_t vss2_b} PVSS2W
 create_cell {vdd2_l vdd2_r vdd2_t vdd2_b} PVDD2W
 
@@ -21,21 +21,23 @@ set_pad_physical_constraints -pad_name "PIW_din3" -side 1 -order 4
 set_pad_physical_constraints -pad_name "PIW_din4" -side 1 -order 5
 set_pad_physical_constraints -pad_name "PIW_din5" -side 1 -order 6
 set_pad_physical_constraints -pad_name "PIW_din6" -side 1 -order 7
-set_pad_physical_constraints -pad_name "PIW_din7" -side 1 -order 8
-set_pad_physical_constraints -pad_name "PIW_din8" -side 1 -order 9
-set_pad_physical_constraints -pad_name "vdd2_l" -side 1 -order 10
-set_pad_physical_constraints -pad_name "vdd1_l" -side 1 -order 11
-set_pad_physical_constraints -pad_name "vss1_l" -side 1 -order 12
+set_pad_physical_constraints -pad_name "vdd1_l1" -side 1 -order 8
+set_pad_physical_constraints -pad_name "vss1_l1" -side 1 -order 9
+set_pad_physical_constraints -pad_name "PIW_din7" -side 1 -order 10
+set_pad_physical_constraints -pad_name "PIW_din8" -side 1 -order 11
+set_pad_physical_constraints -pad_name "vdd2_l" -side 1 -order 12
 set_pad_physical_constraints -pad_name "vss2_l" -side 1 -order 13
 set_pad_physical_constraints -pad_name "PIW_din9" -side 1 -order 14
 set_pad_physical_constraints -pad_name "PIW_din10" -side 1 -order 15
-set_pad_physical_constraints -pad_name "PIW_din11" -side 1 -order 16
-set_pad_physical_constraints -pad_name "PIW_din12" -side 1 -order 17
-set_pad_physical_constraints -pad_name "PIW_din13" -side 1 -order 18
-set_pad_physical_constraints -pad_name "PIW_din14" -side 1 -order 19
-set_pad_physical_constraints -pad_name "PIW_din15" -side 1 -order 20
-set_pad_physical_constraints -pad_name "PIW_din16" -side 1 -order 21
-set_pad_physical_constraints -pad_name "PIW_din17" -side 1 -order 22
+set_pad_physical_constraints -pad_name "vdd1_l2" -side 1 -order 16
+set_pad_physical_constraints -pad_name "vss1_l2" -side 1 -order 17
+set_pad_physical_constraints -pad_name "PIW_din11" -side 1 -order 18
+set_pad_physical_constraints -pad_name "PIW_din12" -side 1 -order 19
+set_pad_physical_constraints -pad_name "PIW_din13" -side 1 -order 20
+set_pad_physical_constraints -pad_name "PIW_din14" -side 1 -order 21
+set_pad_physical_constraints -pad_name "PIW_din15" -side 1 -order 22
+set_pad_physical_constraints -pad_name "PIW_din16" -side 1 -order 23
+set_pad_physical_constraints -pad_name "PIW_din17" -side 1 -order 24
 
 # Top side
 set_pad_physical_constraints -pad_name "PIW_din18" -side 2 -order 1
@@ -68,21 +70,23 @@ set_pad_physical_constraints -pad_name "PO8W_dout2" -side 3 -order 3
 set_pad_physical_constraints -pad_name "PO8W_dout3" -side 3 -order 4
 set_pad_physical_constraints -pad_name "PO8W_dout4" -side 3 -order 5
 set_pad_physical_constraints -pad_name "PO8W_dout5" -side 3 -order 6
-set_pad_physical_constraints -pad_name "PO8W_dout6" -side 3 -order 7
-set_pad_physical_constraints -pad_name "PO8W_dout7" -side 3 -order 8
-set_pad_physical_constraints -pad_name "PO8W_dout8" -side 3 -order 9
-set_pad_physical_constraints -pad_name "vdd2_r" -side 3 -order 10
-set_pad_physical_constraints -pad_name "vdd1_r" -side 3 -order 11
-set_pad_physical_constraints -pad_name "vss1_r" -side 3 -order 12
+set_pad_physical_constraints -pad_name "vdd1_r1" -side 3 -order 7
+set_pad_physical_constraints -pad_name "vss1_r1" -side 3 -order 8
+set_pad_physical_constraints -pad_name "PO8W_dout6" -side 3 -order 9
+set_pad_physical_constraints -pad_name "PO8W_dout7" -side 3 -order 10
+set_pad_physical_constraints -pad_name "PO8W_dout8" -side 3 -order 11
+set_pad_physical_constraints -pad_name "vdd2_r" -side 3 -order 12
 set_pad_physical_constraints -pad_name "vss2_r" -side 3 -order 13
 set_pad_physical_constraints -pad_name "PO8W_dout9" -side 3 -order 14
 set_pad_physical_constraints -pad_name "PO8W_dout10" -side 3 -order 15
 set_pad_physical_constraints -pad_name "PO8W_dout11" -side 3 -order 16
-set_pad_physical_constraints -pad_name "PO8W_dout12" -side 3 -order 17
-set_pad_physical_constraints -pad_name "PO8W_dout13" -side 3 -order 18
-set_pad_physical_constraints -pad_name "PO8W_dout14" -side 3 -order 19
-set_pad_physical_constraints -pad_name "PO8W_dout15" -side 3 -order 20
-set_pad_physical_constraints -pad_name "PO8W_dout16" -side 3 -order 21
+set_pad_physical_constraints -pad_name "vdd1_r2" -side 3 -order 17
+set_pad_physical_constraints -pad_name "vss1_r2" -side 3 -order 18
+set_pad_physical_constraints -pad_name "PO8W_dout12" -side 3 -order 19
+set_pad_physical_constraints -pad_name "PO8W_dout13" -side 3 -order 20
+set_pad_physical_constraints -pad_name "PO8W_dout14" -side 3 -order 21
+set_pad_physical_constraints -pad_name "PO8W_dout15" -side 3 -order 22
+set_pad_physical_constraints -pad_name "PO8W_dout16" -side 3 -order 23
 
 # Bottom side
 set_pad_physical_constraints -pad_name "PO8W_dout17" -side 4 -order 1
