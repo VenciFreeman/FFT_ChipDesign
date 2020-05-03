@@ -1,10 +1,14 @@
+Information: Updating graph... (UID-83)
+Warning: Design 'fft_chip' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Information: Updating design information... (UID-85)
+Warning: Design 'fft_chip' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
  
 ****************************************
 Report : constraint
         -all_violators
 Design : fft_chip
 Version: D-2010.03-SP5-3
-Date   : Thu Mar 21 23:30:10 2019
+Date   : Fri Mar 22 00:02:07 2019
 ****************************************
 
 This design has no violated constraints.

@@ -12,7 +12,7 @@ source read.tcl
 #current_design idct_chip
 #link
 ###YBR ADD uniquify###
-#uniquify
+uniquify
 ###YBR ADD uniquify###
 source fft.con
 
@@ -20,8 +20,9 @@ source fft.con
 write_sdc ../outputs/fft_chip.sdc
 
 #Compile
-set_flatten true
-compile -inc -map high
+#set_flatten true
+compile
+#-inc -map high
 
 #Clean-up
 ###YBR ADD -blast_buses###
