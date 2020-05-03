@@ -19,6 +19,8 @@ source fft.con
 #Saving sdc
 write_sdc ../outputs/fft_chip.sdc
 
+set_flatten true
+
 #Compile
 compile
 

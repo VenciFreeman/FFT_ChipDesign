@@ -6,7 +6,7 @@ reset_design
 
 #---------------- SET TIMING CONSTRAINTS ----------------
 # 2.1 Set clock
-create_clock -period 12.2 [get_ports clk]
+create_clock -period 10 [get_ports clk]
 set_clock_uncertainty 0.5 [get_clocks clk]     
 set_clock_transition 0.2 [get_clocks clk]
 
