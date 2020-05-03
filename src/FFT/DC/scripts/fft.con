@@ -24,7 +24,7 @@ set_output_delay -max 6.1 -clock clk [all_outputs]
 # 3.1 Set interconnect parasitic RCs
 # Set wire Load Model
 set_wire_load_mode segmented
-set_wire_load_model -name smic18_wl10  # add this line
+set_wire_load_model -name smic18_wl10
 set auto_wire_load_selection true
 # Or use topographic mode
 
@@ -56,6 +56,6 @@ set_max_transition 3.0 [current_design]
 #---------------- OTHER ----------------
 # 5
 # Reset network
-set_ideal_network {rstn}
+set_ideal_network {rst_n}
 set_dont_touch [get_cells "PIW* PO8W*"] true
 set_fix_multiple_port_nets -all -buffer_constants

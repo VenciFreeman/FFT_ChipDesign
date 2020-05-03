@@ -55,7 +55,7 @@ module mux(
 
   );
 
-  reg [3:0] counter = 0;
+  reg [3:0] counter;
   reg [33:0] R1;
   reg [33:0] R2;
   reg [33:0] R3;
