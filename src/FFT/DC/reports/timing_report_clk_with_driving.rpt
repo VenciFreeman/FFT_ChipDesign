@@ -1,3 +1,4 @@
+Warning: Design 'fft_chip' has '12' unresolved references. For more detailed information, use the "link" command. (UID-341)
  
 ****************************************
 Report : timing
@@ -6,7 +7,7 @@ Report : timing
         -max_paths 1
 Design : fft_chip
 Version: D-2010.03-SP5-3
-Date   : Wed Apr 29 21:50:09 2020
+Date   : Thu Mar 21 19:38:20 2019
 ****************************************
 
  # A fanout number of 1000 was used for high fanout net computations.
@@ -14,144 +15,93 @@ Date   : Wed Apr 29 21:50:09 2020
 Operating Conditions: slow   Library: slow
 Wire Load Model Mode: segmented
 
-  Startpoint: inst_fft/ctrl0/rotation_reg[0]
+  Startpoint: inst_fft/mux0/counter_reg_2_
               (rising edge-triggered flip-flop clocked by clk)
-  Endpoint: inst_fft/p_s0/R13_reg[16]
+  Endpoint: inst_fft/p_s0/R8_reg_31_
             (rising edge-triggered flip-flop clocked by clk)
   Path Group: clk
   Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  fft_chip           smic18_wl10           slow
 
   Point                                                   Incr       Path
   --------------------------------------------------------------------------
   clock clk (rise edge)                                   0.00       0.00
   clock network delay (ideal)                             4.30       4.30
-  inst_fft/ctrl0/rotation_reg[0]/CK (DFFRHQX4)            0.00 #     4.30 r
-  inst_fft/ctrl0/rotation_reg[0]/Q (DFFRHQX4)             0.37       4.67 r
-  inst_fft/ctrl0/rotation[0] (ctrl)                       0.00       4.67 r
-  inst_fft/butterfly0/rotation[0] (butterfly)             0.00       4.67 r
-  inst_fft/butterfly0/U47/Y (XOR2X2)                      0.32       4.98 r
-  inst_fft/butterfly0/U58/Y (NAND2X4)                     0.16       5.14 f
-  inst_fft/butterfly0/U26/Y (BUFX8)                       0.17       5.31 f
-  inst_fft/butterfly0/U12/Y (INVX8)                       0.05       5.36 r
-  inst_fft/butterfly0/U54/Y (INVX8)                       0.10       5.46 f
-  inst_fft/butterfly0/multiBRR/in_8bit[0] (multi16_11)
-                                                          0.00       5.46 f
-  inst_fft/butterfly0/multiBRR/U68/Y (NAND2BX4)           0.19       5.65 f
-  inst_fft/butterfly0/multiBRR/U57/Y (INVX8)              0.07       5.72 r
-  inst_fft/butterfly0/multiBRR/U59/Y (NAND2X4)            0.06       5.78 f
-  inst_fft/butterfly0/multiBRR/U100/Y (AND2X4)            0.18       5.96 f
-  inst_fft/butterfly0/multiBRR/U12/Y (CLKINVX4)           0.06       6.02 r
-  inst_fft/butterfly0/multiBRR/U8/Y (NAND2X4)             0.06       6.08 f
-  inst_fft/butterfly0/multiBRR/U10/Y (NAND2X4)            0.08       6.16 r
-  inst_fft/butterfly0/multiBRR/mult_55/B[6] (multi16_11_DW02_mult_0)
-                                                          0.00       6.16 r
-  inst_fft/butterfly0/multiBRR/mult_55/U6/Y (AND2X2)      0.20       6.36 r
-  inst_fft/butterfly0/multiBRR/mult_55/U93/Y (NAND2X2)
-                                                          0.09       6.45 f
-  inst_fft/butterfly0/multiBRR/mult_55/U90/Y (INVX4)      0.08       6.53 r
-  inst_fft/butterfly0/multiBRR/mult_55/S3_2_6/S (ADDFHX4)
-                                                          0.38       6.91 f
-  inst_fft/butterfly0/multiBRR/mult_55/U99/Y (NAND2X2)
-                                                          0.10       7.01 r
-  inst_fft/butterfly0/multiBRR/mult_55/U102/Y (NAND3X4)
-                                                          0.12       7.13 f
-  inst_fft/butterfly0/multiBRR/mult_55/S2_4_5/CO (ADDFHX4)
-                                                          0.36       7.49 f
-  inst_fft/butterfly0/multiBRR/mult_55/S2_5_5/CO (ADDFHX4)
-                                                          0.35       7.84 f
-  inst_fft/butterfly0/multiBRR/mult_55/S2_6_5/CO (ADDFHX4)
-                                                          0.35       8.19 f
-  inst_fft/butterfly0/multiBRR/mult_55/S2_7_5/CO (ADDFHX4)
-                                                          0.35       8.54 f
-  inst_fft/butterfly0/multiBRR/mult_55/S2_8_5/CO (ADDFHX2)
-                                                          0.35       8.89 f
-  inst_fft/butterfly0/multiBRR/mult_55/S2_9_5/CO (ADDFHX4)
-                                                          0.36       9.25 f
-  inst_fft/butterfly0/multiBRR/mult_55/S2_10_5/CO (ADDFHX2)
-                                                          0.35       9.61 f
-  inst_fft/butterfly0/multiBRR/mult_55/S2_11_5/S (ADDFHX2)
-                                                          0.37       9.98 f
-  inst_fft/butterfly0/multiBRR/mult_55/U31/Y (NAND2X1)
-                                                          0.17      10.15 r
-  inst_fft/butterfly0/multiBRR/mult_55/U18/Y (NAND3X4)
-                                                          0.13      10.29 f
-  inst_fft/butterfly0/multiBRR/mult_55/S2_13_4/CO (ADDFHX4)
-                                                          0.36      10.65 f
-  inst_fft/butterfly0/multiBRR/mult_55/S2_14_4/CO (ADDFHX2)
-                                                          0.35      11.00 f
-  inst_fft/butterfly0/multiBRR/mult_55/S2_15_4/S (ADDFHX2)
-                                                          0.32      11.33 f
-  inst_fft/butterfly0/multiBRR/mult_55/S4_3/S (ADDFHX4)
-                                                          0.36      11.68 r
-  inst_fft/butterfly0/multiBRR/mult_55/U85/Y (XOR2X4)     0.23      11.92 f
-  inst_fft/butterfly0/multiBRR/mult_55/FS_1/A[17] (multi16_11_DW01_add_0)
-                                                          0.00      11.92 f
-  inst_fft/butterfly0/multiBRR/mult_55/FS_1/U11/Y (NAND2X2)
-                                                          0.10      12.02 r
-  inst_fft/butterfly0/multiBRR/mult_55/FS_1/U7/Y (CLKINVX3)
-                                                          0.10      12.12 f
-  inst_fft/butterfly0/multiBRR/mult_55/FS_1/U41/Y (NOR2X4)
-                                                          0.14      12.26 r
-  inst_fft/butterfly0/multiBRR/mult_55/FS_1/U28/Y (XOR2X4)
-                                                          0.25      12.52 r
-  inst_fft/butterfly0/multiBRR/mult_55/FS_1/SUM[17] (multi16_11_DW01_add_0)
-                                                          0.00      12.52 r
-  inst_fft/butterfly0/multiBRR/mult_55/PRODUCT[19] (multi16_11_DW02_mult_0)
-                                                          0.00      12.52 r
-  inst_fft/butterfly0/multiBRR/U13/Y (NOR2X4)             0.07      12.59 f
-  inst_fft/butterfly0/multiBRR/U160/Y (NAND2BX2)          0.10      12.68 r
-  inst_fft/butterfly0/multiBRR/U48/Y (CLKINVX4)           0.09      12.77 f
-  inst_fft/butterfly0/multiBRR/U52/Y (NOR2BX4)            0.09      12.86 r
-  inst_fft/butterfly0/multiBRR/U22/Y (XOR2X1)             0.28      13.15 r
-  inst_fft/butterfly0/multiBRR/out[14] (multi16_11)       0.00      13.15 r
-  inst_fft/butterfly0/sub_275/A[14] (butterfly_DW01_sub_72)
-                                                          0.00      13.15 r
-  inst_fft/butterfly0/sub_275/U12/Y (INVX2)               0.07      13.22 f
-  inst_fft/butterfly0/sub_275/U52/Y (NAND2X4)             0.11      13.33 r
-  inst_fft/butterfly0/sub_275/U8/Y (NOR2BX4)              0.15      13.48 r
-  inst_fft/butterfly0/sub_275/U45/Y (NAND2BX2)            0.07      13.55 f
-  inst_fft/butterfly0/sub_275/U91/Y (NAND2X2)             0.10      13.65 r
-  inst_fft/butterfly0/sub_275/U186/Y (XOR2X4)             0.26      13.91 r
-  inst_fft/butterfly0/sub_275/DIFF[15] (butterfly_DW01_sub_72)
-                                                          0.00      13.91 r
-  inst_fft/butterfly0/sub_1_root_sub_0_root_sub_299_2/A[15] (butterfly_DW01_sub_38)
-                                                          0.00      13.91 r
-  inst_fft/butterfly0/sub_1_root_sub_0_root_sub_299_2/U8/Y (NAND2BX2)
-                                                          0.15      14.06 r
-  inst_fft/butterfly0/sub_1_root_sub_0_root_sub_299_2/U31/Y (NAND2X1)
-                                                          0.07      14.13 f
-  inst_fft/butterfly0/sub_1_root_sub_0_root_sub_299_2/U33/Y (AOI21XL)
-                                                          0.13      14.26 r
-  inst_fft/butterfly0/sub_1_root_sub_0_root_sub_299_2/U30/Y (NOR2BXL)
-                                                          0.09      14.36 f
-  inst_fft/butterfly0/sub_1_root_sub_0_root_sub_299_2/U173/Y (NAND3X1)
-                                                          0.13      14.48 r
-  inst_fft/butterfly0/sub_1_root_sub_0_root_sub_299_2/U97/Y (XNOR2X1)
-                                                          0.30      14.79 r
-  inst_fft/butterfly0/sub_1_root_sub_0_root_sub_299_2/DIFF[16] (butterfly_DW01_sub_38)
-                                                          0.00      14.79 r
-  inst_fft/butterfly0/add_0_root_sub_0_root_sub_299_2/B[16] (butterfly_DW01_add_34)
-                                                          0.00      14.79 r
-  inst_fft/butterfly0/add_0_root_sub_0_root_sub_299_2/U59/Y (XOR2X2)
-                                                          0.28      15.06 r
-  inst_fft/butterfly0/add_0_root_sub_0_root_sub_299_2/U58/Y (XOR2X2)
-                                                          0.27      15.34 f
-  inst_fft/butterfly0/add_0_root_sub_0_root_sub_299_2/SUM[16] (butterfly_DW01_add_34)
-                                                          0.00      15.34 f
-  inst_fft/butterfly0/calc_out[118] (butterfly)           0.00      15.34 f
-  inst_fft/p_s0/data_in_3[118] (p_s)                      0.00      15.34 f
-  inst_fft/p_s0/R13_reg[16]/D (EDFFX1)                    0.00      15.34 f
-  data arrival time                                                 15.34
+  inst_fft/mux0/counter_reg_2_/CK (DFFRHQX4)              0.00 #     4.30 r
+  inst_fft/mux0/counter_reg_2_/Q (DFFRHQX4)               0.43       4.73 r
+  inst_fft/mux0/U26/Y (CLKINVX3)                          0.26       4.98 f
+  inst_fft/mux0/U32/Y (NAND4X4)                           0.25       5.24 r
+  inst_fft/mux0/U43/Y (AND2X1)                            0.40       5.64 r
+  inst_fft/mux0/U38/Y (BUFX16)                            0.30       5.93 r
+  inst_fft/mux0/U25/Y (AOI22X1)                           0.22       6.15 f
+  inst_fft/mux0/U191/Y (OAI21X4)                          0.38       6.53 r
+  inst_fft/mux0/data_out[17] (mux)                        0.00       6.53 r
+  inst_fft/butterfly0/calc_in[17] (butterfly)             0.00       6.53 r
+  inst_fft/butterfly0/add_2_root_sub_0_root_sub_295_2/A[0] (butterfly_DW01_add_99)
+                                                          0.00       6.53 r
+  inst_fft/butterfly0/add_2_root_sub_0_root_sub_295_2/U40/Y (NAND2XL)
+                                                          0.25       6.78 f
+  inst_fft/butterfly0/add_2_root_sub_0_root_sub_295_2/U3/Y (BUFX4)
+                                                          0.32       7.10 f
+  inst_fft/butterfly0/add_2_root_sub_0_root_sub_295_2/U9/Y (OAI21X4)
+                                                          0.22       7.32 r
+  inst_fft/butterfly0/add_2_root_sub_0_root_sub_295_2/U39/Y (OAI221X1)
+                                                          0.27       7.59 f
+  inst_fft/butterfly0/add_2_root_sub_0_root_sub_295_2/U6/Y (OAI2BB1X2)
+                                                          0.33       7.92 r
+  inst_fft/butterfly0/add_2_root_sub_0_root_sub_295_2/U55/Y (INVX1)
+                                                          0.13       8.05 f
+  inst_fft/butterfly0/add_2_root_sub_0_root_sub_295_2/U54/Y (OAI21XL)
+                                                          0.60       8.65 r
+  inst_fft/butterfly0/add_2_root_sub_0_root_sub_295_2/U12/Y (AOI21X2)
+                                                          0.23       8.89 f
+  inst_fft/butterfly0/add_2_root_sub_0_root_sub_295_2/U5/Y (XOR2X1)
+                                                          0.49       9.38 f
+  inst_fft/butterfly0/add_2_root_sub_0_root_sub_295_2/SUM[6] (butterfly_DW01_add_99)
+                                                          0.00       9.38 f
+  inst_fft/butterfly0/sub_0_root_sub_0_root_sub_295_2/A[6] (butterfly_DW01_sub_64)
+                                                          0.00       9.38 f
+  inst_fft/butterfly0/sub_0_root_sub_0_root_sub_295_2/U87/Y (NOR2X1)
+                                                          0.70      10.08 r
+  inst_fft/butterfly0/sub_0_root_sub_0_root_sub_295_2/U83/Y (AOI211X1)
+                                                          0.26      10.34 f
+  inst_fft/butterfly0/sub_0_root_sub_0_root_sub_295_2/U82/Y (INVX1)
+                                                          0.20      10.53 r
+  inst_fft/butterfly0/sub_0_root_sub_0_root_sub_295_2/U81/Y (AOI31X1)
+                                                          0.31      10.84 f
+  inst_fft/butterfly0/sub_0_root_sub_0_root_sub_295_2/U19/Y (AOI21X2)
+                                                          0.37      11.21 r
+  inst_fft/butterfly0/sub_0_root_sub_0_root_sub_295_2/U34/Y (OR2X4)
+                                                          0.20      11.40 r
+  inst_fft/butterfly0/sub_0_root_sub_0_root_sub_295_2/U16/Y (NAND2X2)
+                                                          0.16      11.57 f
+  inst_fft/butterfly0/sub_0_root_sub_0_root_sub_295_2/U31/Y (NOR2X2)
+                                                          0.24      11.80 r
+  inst_fft/butterfly0/sub_0_root_sub_0_root_sub_295_2/U57/Y (INVX1)
+                                                          0.20      12.00 f
+  inst_fft/butterfly0/sub_0_root_sub_0_root_sub_295_2/U35/Y (AOI31XL)
+                                                          0.47      12.48 r
+  inst_fft/butterfly0/sub_0_root_sub_0_root_sub_295_2/U39/Y (XOR2X2)
+                                                          0.59      13.07 f
+  inst_fft/butterfly0/sub_0_root_sub_0_root_sub_295_2/DIFF[14] (butterfly_DW01_sub_64)
+                                                          0.00      13.07 f
+  inst_fft/butterfly0/calc_out[99] (butterfly)            0.00      13.07 f
+  inst_fft/p_s0/data_in_3[99] (p_s)                       0.00      13.07 f
+  inst_fft/p_s0/R8_reg_31_/D (EDFFX1)                     0.00      13.07 f
+  data arrival time                                                 13.07
 
-  clock clk (rise edge)                                  12.20      12.20
-  clock network delay (ideal)                             4.30      16.50
-  clock uncertainty                                      -0.50      16.00
-  inst_fft/p_s0/R13_reg[16]/CK (EDFFX1)                   0.00      16.00 r
-  library setup time                                     -0.66      15.34
-  data required time                                                15.34
+  clock clk (rise edge)                                  10.00      10.00
+  clock network delay (ideal)                             4.30      14.30
+  clock uncertainty                                      -0.50      13.80
+  inst_fft/p_s0/R8_reg_31_/CK (EDFFX1)                    0.00      13.80 r
+  library setup time                                     -0.73      13.07
+  data required time                                                13.07
   --------------------------------------------------------------------------
-  data required time                                                15.34
-  data arrival time                                                -15.34
+  data required time                                                13.07
+  data arrival time                                                -13.07
   --------------------------------------------------------------------------
   slack (MET)                                                        0.00
 
