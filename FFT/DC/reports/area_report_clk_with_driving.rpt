@@ -1,0 +1,25 @@
+ 
+****************************************
+Report : area
+Design : fft_chip
+Version: D-2010.03-SP5-3
+Date   : Thu Mar 21 23:30:10 2019
+****************************************
+
+Library(s) Used:
+
+    slow (File: /home/student/Desktop/Workspace/SMIC18/db/slow.db)
+    SP018W_V1p5_max (File: /home/student/Desktop/Workspace/SMIC18/db/SP018W_V1p5_max.db)
+
+Number of ports:               70
+Number of nets:               140
+Number of cells:               71
+Number of references:           3
+
+Combinational area:       1458821.283228
+Noncombinational area:    154278.436001
+Net Interconnect area:    2051383.712036
+
+Total cell area:          1613099.719229
+Total area:               3664483.431265
+1

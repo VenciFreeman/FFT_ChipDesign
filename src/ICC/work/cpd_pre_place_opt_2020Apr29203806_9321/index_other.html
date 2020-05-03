@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"    "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+<title>Physical Design Check Summary</title>
+<script type="text/javascript">
+function open_feedback(msg)
+{
+  var link = "http://wwwin/~jichunw/apdFeedback/apdFeedback.html";
+  var url = location.href;
+  var direct = link + "?" + msg + "?" + url; 
+  window.location.assign(direct);
+}
+function open_man(msg)
+{
+  myWindow=window.open();
+  myWindow.document.write("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" ");
+  myWindow.document.write("   \"http://www.w3.org/TR/html4/loose.dtd\">");
+  myWindow.document.write("\n");
+  myWindow.document.write("<HTML><TITLE></TITLE><BODY>\n");
+  myWindow.document.write(msg);
+  myWindow.document.write("\n</BODY></HTML>\n");
+  myWindow.document.close();
+  myWindow.focus();
+}
+var last_hilight;
+function do_highlight()
+{
+  var url = /(.+)#(.+)/;
+  var location_url = self.location;
+  var text = location_url.toString();
+  var result;
+  result = text.match(url);
+  if(result != null) {
+    last_hilight = result[2];
+    document.getElementById(result[2] + "_MSG").style.background="yellow";
+  }
+}
+function set_highlight(id)
+{
+  if (last_hilight) {
+    document.getElementById(last_hilight).style.background="";
+  }
+  last_hilight = id;
+  document.getElementById(last_hilight).style.background="yellow";
+}
+</script>
+
+</head>
+<body>
+<table align="center" width="100%" cellspacing="10%" border="0">
+<tr><td>
+<a href="index.html">Back to main page</a>
+</td></tr>
+<tr><td  bgcolor="#DEB887" align="left" valign="middle">
+<font color="black" size ="4"><b>Summary</b> (Total messages: <b>2</b> warnings)</font>
+</td></tr>
+<tr><td>
+<table align="left" width="100%" cellspacing="1%" border="0">
+<tr>
+  <td align="center" bgcolor="#C6D9F1"><b>Check</b></td>
+  <td align="center" bgcolor="#C6D9F1"><b>Severity<br>(Occurance)</b></td>
+  <td align="center" bgcolor="#C6D9F1"><b>Title</b></td>
+  <td align="center" bgcolor="#C6D9F1"><b>Next Steps To Reduce Severity</b></td>
+  <td align="center" bgcolor="#C6D9F1"><b>Feed Back for Internal User</b></td>
+</tr>
+<tr>
+  <td align="left"><a href="#" onClick="open_man('NAME<br>       PNR-179 (Warning) Net (%s) is high fanout net but set as don&quot;t touch.<br><br>DESCRIPTION<br>       This message tells you that the design has high fanout nets but are set<br>       as dont touch before place_opt.<br><br>WHAT_NEXT<br>       Check to  see  where  don&quot;t  touch  attributes  are  coming  from.  Use<br>       set_dont_touch to remove the don&quot;t touch attribute .<br><br>SEE ALSO<br>       set_attribute(2)<br>       set_dont_touch(2)<br><br>D-2010.03-ICC-SP5-2   Synopsys Inc. 1988-2011. All rights reserved.        n-1<br><br>');">PNR-179</a></td>
+  <td align="left" bgcolor="yellow">Warning (<a href="#PNR-179" onClick="set_highlight('PNR-179_MSG')"> 1 </a>)</td>
+  <td align="left"><a href="#PNR-179" onClick="set_highlight('PNR-179_MSG')">Net (%s) is high fanout net but set as don't touch.    </a></td>
+  <td align="left"><a href="#" onClick="open_man('NAME<br>       PNR-179 (Warning) Net (%s) is high fanout net but set as don&quot;t touch.<br><br>DESCRIPTION<br>       This message tells you that the design has high fanout nets but are set<br>       as dont touch before place_opt.<br><br>WHAT_NEXT<br>       Check to  see  where  don&quot;t  touch  attributes  are  coming  from.  Use<br>       set_dont_touch to remove the don&quot;t touch attribute .<br><br>SEE ALSO<br>       set_attribute(2)<br>       set_dont_touch(2)<br><br>D-2010.03-ICC-SP5-2   Synopsys Inc. 1988-2011. All rights reserved.        n-1<br><br>');">       Check to  see  where  don't  touch  attributes  are  coming  from.  Use
+       set_dont_to...</a></td>
+  <td align="center"><a href="#" onClick="open_feedback('PNR-179');">Feedback</a></td>
+</tr>
+<tr>
+  <td align="left"><a href="#" onClick="open_man('NAME<br>       TIM-212 (Warning) there are %d input ports that only have partial input<br>       delay specified.<br><br>DESCRIPTION<br>       This warning message occurs when  check_timing  command  finds  partial<br>       input   delay   specified   on   an   input  port.  This  happens  when<br>       set_input_delay -min is appliedon a port to set  the  min  input  delay<br>       with  respect to a clock, however no set_input_delay -max is applied to<br>       that port to specify the max delay, or vice versa. As  a  result,  some<br>       paths  starting  from  the  port with partially defined input delay may<br>       become unconstrained and some potential  violations  could  be  missed.<br>       Command  set_input_delay could be used to set both min and max delay on<br>       the port.<br><br>SEE ALSO<br>       check_timing (2), timing_check_defaults (3).<br><br>D-2010.03-ICC-SP5-2   Synopsys Inc. 1988-2011. All rights reserved.        n-1<br><br>');">TIM-212</a></td>
+  <td align="left" bgcolor="yellow">Warning (<a href="#TIM-212" onClick="set_highlight('TIM-212_MSG')"> 1 </a>)</td>
+  <td align="left"><a href="#TIM-212" onClick="set_highlight('TIM-212_MSG')">there are %d input ports that only have partial input delay specified.</a></td>
+  <td align="left"><a href="#" onClick="open_man('NAME<br>       TIM-212 (Warning) there are %d input ports that only have partial input<br>       delay specified.<br><br>DESCRIPTION<br>       This warning message occurs when  check_timing  command  finds  partial<br>       input   delay   specified   on   an   input  port.  This  happens  when<br>       set_input_delay -min is appliedon a port to set  the  min  input  delay<br>       with  respect to a clock, however no set_input_delay -max is applied to<br>       that port to specify the max delay, or vice versa. As  a  result,  some<br>       paths  starting  from  the  port with partially defined input delay may<br>       become unconstrained and some potential  violations  could  be  missed.<br>       Command  set_input_delay could be used to set both min and max delay on<br>       the port.<br><br>SEE ALSO<br>       check_timing (2), timing_check_defaults (3).<br><br>D-2010.03-ICC-SP5-2   Synopsys Inc. 1988-2011. All rights reserved.        n-1<br><br>');">Not Available</a></td>
+  <td align="center"><a href="#" onClick="open_feedback('TIM-212');">Feedback</a></td>
+</tr>
+</table>
+</td></tr>
+<tr><td  bgcolor="#DEB887" align="left" valign="middle">
+<font color="black" size ="4"><b>Detail</b></font>
+</td></tr>
+<tr><td>
+<a name=PNR-179></a><span id="PNR-179_MSG"><br>
+Warning: Net (net_clk) is high fanout net but set as don't touch.     (PNR-179)[<a href="cpd_template.html#276">link to log file</a>]<br>
+</span><!--PNR-179 --><br>
+<a name=TIM-212></a><span id="TIM-212_MSG"><br>
+Warning: there are 35 input ports that only have partial input delay specified. (TIM-212)[<a href="cpd_template.html#236">link to log file</a>]<br>
+</span><!--TIM-212 --><br>
+</td></tr>
+</table></body></html>

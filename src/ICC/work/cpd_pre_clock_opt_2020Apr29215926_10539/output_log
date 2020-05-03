@@ -1,0 +1,560 @@
+Start CPD check: ::check_tlu_plus_files 
+
+Sanity check for TLU+ vs MW-Tech files:
+ max_tlu+: /home/student/Desktop/Workspace/SMIC18/tlup/smiclog018_5lm_cell_max.tluplus
+ min_tlu+: /home/student/Desktop/Workspace/SMIC18/tlup/smiclog018_5lm_cell_min.tluplus
+ mapping_file: /home/student/Desktop/Workspace/SMIC18/tlup/smic018_5lm_map
+ max_emul_tlu+: **NONE**
+ min_emul_tlu+: **NONE**
+ MW design lib: fft_chip.mw
+
+--------- Sanity Check on TLUPlus Files -------------
+1. Checking the conducting layer names in ITF and mapping file ... 
+[ Passed! ]
+2. Checking the via layer names in ITF and mapping file ... 
+[ Passed! ]
+3. Checking the consistency of Min Width and Min Spacing between MW-tech and ITF ... 
+[ Passed! ]
+----------------- Check Ends ------------------
+1
+End CPD check: ::check_tlu_plus_files
+Start CPD check: ::get_placement_area 
+240.000 240.000 1852.380 2004.000
+End CPD check: ::get_placement_area
+Start CPD check: report_routing_metal_info 
+No ignored layers specified.
+Information: Report design vs library layers and preferred routing directions. (PNR-164)
+ 
+****************************************
+Report : Layers
+Design : fft_chip
+Version: D-2010.03-ICC-SP5-2
+Date   : Wed Apr 29 21:59:26 2020
+****************************************
+
+Layer Name                   Library             Design              Tool understands
+METAL1                       Horizontal          Horizontal          Horizontal
+METAL2                       Vertical            Vertical            Vertical
+METAL3                       Horizontal          Horizontal          Horizontal
+METAL4                       Vertical            Vertical            Vertical
+METAL5                       Horizontal          Horizontal          Horizontal
+
+Information: Report track info.  (PNR-165)
+****************************************
+Report track
+Design : fft_chip
+Version: D-2010.03-ICC-SP5-2
+Date   : Wed Apr 29 21:59:26 2020
+****************************************
+Layer          Direction     Start         Tracks    Pitch          Attr
+------------------------------------------------------------------------
+Attributes :
+         usr : User defined
+         def : DEF defined
+
+METAL1             Y         0.600          4006      0.560           
+METAL2             Y         0.600          4006      0.560           
+METAL2             X         0.750          3169      0.660           
+METAL1             X         0.750          3169      0.660           
+METAL3             X         0.750          3169      0.660           
+METAL3             Y         0.600          4006      0.560           
+METAL2             Y         0.600          4006      0.560           
+METAL4             Y         0.600          4006      0.560           
+METAL4             X         0.750          3169      0.660           
+METAL3             X         0.750          3169      0.660           
+METAL5             X         0.750          3169      0.660           
+METAL5             Y         0.880          2361      0.950           
+METAL4             Y         0.880          2361      0.950           
+1
+End CPD check: report_routing_metal_info
+Start CPD check: check_track_and_unit 
+
+End CPD check: check_track_and_unit
+Start CPD check: check_layer_direction 
+
+End CPD check: check_layer_direction
+Start CPD check: check_physical_only_ports 
+Warning: No port objects matched '*' (SEL-004)
+[]
+End CPD check: check_physical_only_ports
+Start CPD check: check_timing 
+
+Information: Checking generated_clocks...
+
+Information: Checking loops...
+
+Information: Checking no_input_delay...
+
+Information: Checking unconstrained_endpoints...
+
+Warning: The following end-points are not constrained for maximum delay.
+
+End point
+---------------
+inst_fft/mux0/R1_reg_0_/D
+inst_fft/mux0/R1_reg_1_/D
+inst_fft/mux0/R1_reg_2_/D
+inst_fft/mux0/R1_reg_3_/D
+inst_fft/mux0/R1_reg_4_/D
+inst_fft/mux0/R1_reg_5_/D
+inst_fft/mux0/R1_reg_6_/D
+inst_fft/mux0/R1_reg_7_/D
+inst_fft/mux0/R1_reg_8_/D
+inst_fft/mux0/R1_reg_9_/D
+inst_fft/mux0/R1_reg_10_/D
+inst_fft/mux0/R1_reg_11_/D
+inst_fft/mux0/R1_reg_12_/D
+inst_fft/mux0/R1_reg_13_/D
+inst_fft/mux0/R1_reg_14_/D
+inst_fft/mux0/R1_reg_15_/D
+inst_fft/mux0/R1_reg_16_/D
+inst_fft/mux0/R1_reg_17_/D
+inst_fft/mux0/R1_reg_18_/D
+inst_fft/mux0/R1_reg_19_/D
+inst_fft/mux0/R1_reg_20_/D
+inst_fft/mux0/R1_reg_21_/D
+inst_fft/mux0/R1_reg_22_/D
+inst_fft/mux0/R1_reg_23_/D
+inst_fft/mux0/R1_reg_24_/D
+inst_fft/mux0/R1_reg_25_/D
+inst_fft/mux0/R1_reg_26_/D
+inst_fft/mux0/R1_reg_27_/D
+inst_fft/mux0/R1_reg_28_/D
+inst_fft/mux0/R1_reg_29_/D
+inst_fft/mux0/R1_reg_30_/D
+inst_fft/mux0/R1_reg_31_/D
+inst_fft/mux0/R1_reg_32_/D
+inst_fft/mux0/R1_reg_33_/D
+inst_fft/mux0/R2_reg_0_/D
+inst_fft/mux0/R2_reg_1_/D
+inst_fft/mux0/R2_reg_2_/D
+inst_fft/mux0/R2_reg_3_/D
+inst_fft/mux0/R2_reg_4_/D
+inst_fft/mux0/R2_reg_5_/D
+inst_fft/mux0/R2_reg_6_/D
+inst_fft/mux0/R2_reg_7_/D
+inst_fft/mux0/R2_reg_8_/D
+inst_fft/mux0/R2_reg_9_/D
+inst_fft/mux0/R2_reg_10_/D
+inst_fft/mux0/R2_reg_11_/D
+inst_fft/mux0/R2_reg_12_/D
+inst_fft/mux0/R2_reg_13_/D
+inst_fft/mux0/R2_reg_14_/D
+inst_fft/mux0/R2_reg_15_/D
+inst_fft/mux0/R2_reg_16_/D
+inst_fft/mux0/R2_reg_17_/D
+inst_fft/mux0/R2_reg_18_/D
+inst_fft/mux0/R2_reg_19_/D
+inst_fft/mux0/R2_reg_20_/D
+inst_fft/mux0/R2_reg_21_/D
+inst_fft/mux0/R2_reg_22_/D
+inst_fft/mux0/R2_reg_23_/D
+inst_fft/mux0/R2_reg_24_/D
+inst_fft/mux0/R2_reg_25_/D
+inst_fft/mux0/R2_reg_26_/D
+inst_fft/mux0/R2_reg_27_/D
+inst_fft/mux0/R2_reg_28_/D
+inst_fft/mux0/R2_reg_29_/D
+inst_fft/mux0/R2_reg_30_/D
+inst_fft/mux0/R2_reg_31_/D
+inst_fft/mux0/R2_reg_32_/D
+inst_fft/mux0/R2_reg_33_/D
+inst_fft/mux0/R3_reg_0_/D
+inst_fft/mux0/R3_reg_1_/D
+inst_fft/mux0/R3_reg_2_/D
+inst_fft/mux0/R3_reg_3_/D
+inst_fft/mux0/R3_reg_4_/D
+inst_fft/mux0/R3_reg_5_/D
+inst_fft/mux0/R3_reg_6_/D
+inst_fft/mux0/R3_reg_7_/D
+inst_fft/mux0/R3_reg_8_/D
+inst_fft/mux0/R3_reg_9_/D
+inst_fft/mux0/R3_reg_10_/D
+inst_fft/mux0/R3_reg_11_/D
+inst_fft/mux0/R3_reg_12_/D
+inst_fft/mux0/R3_reg_13_/D
+inst_fft/mux0/R3_reg_14_/D
+inst_fft/mux0/R3_reg_15_/D
+inst_fft/mux0/R3_reg_16_/D
+inst_fft/mux0/R3_reg_17_/D
+inst_fft/mux0/R3_reg_18_/D
+inst_fft/mux0/R3_reg_19_/D
+inst_fft/mux0/R3_reg_20_/D
+inst_fft/mux0/R3_reg_21_/D
+inst_fft/mux0/R3_reg_22_/D
+inst_fft/mux0/R3_reg_23_/D
+inst_fft/mux0/R3_reg_24_/D
+inst_fft/mux0/R3_reg_25_/D
+inst_fft/mux0/R3_reg_26_/D
+inst_fft/mux0/R3_reg_27_/D
+inst_fft/mux0/R3_reg_28_/D
+inst_fft/mux0/R3_reg_29_/D
+inst_fft/mux0/R3_reg_30_/D
+inst_fft/mux0/R3_reg_31_/D
+inst_fft/mux0/R3_reg_32_/D
+inst_fft/mux0/R3_reg_33_/D
+inst_fft/mux0/R4_reg_0_/D
+inst_fft/mux0/R4_reg_1_/D
+inst_fft/mux0/R4_reg_2_/D
+inst_fft/mux0/R4_reg_3_/D
+inst_fft/mux0/R4_reg_4_/D
+inst_fft/mux0/R4_reg_5_/D
+inst_fft/mux0/R4_reg_6_/D
+inst_fft/mux0/R4_reg_7_/D
+inst_fft/mux0/R4_reg_8_/D
+inst_fft/mux0/R4_reg_9_/D
+inst_fft/mux0/R4_reg_10_/D
+inst_fft/mux0/R4_reg_11_/D
+inst_fft/mux0/R4_reg_12_/D
+inst_fft/mux0/R4_reg_13_/D
+inst_fft/mux0/R4_reg_14_/D
+inst_fft/mux0/R4_reg_15_/D
+inst_fft/mux0/R4_reg_16_/D
+inst_fft/mux0/R4_reg_17_/D
+inst_fft/mux0/R4_reg_18_/D
+inst_fft/mux0/R4_reg_19_/D
+inst_fft/mux0/R4_reg_20_/D
+inst_fft/mux0/R4_reg_21_/D
+inst_fft/mux0/R4_reg_22_/D
+inst_fft/mux0/R4_reg_23_/D
+inst_fft/mux0/R4_reg_24_/D
+inst_fft/mux0/R4_reg_25_/D
+inst_fft/mux0/R4_reg_26_/D
+inst_fft/mux0/R4_reg_27_/D
+inst_fft/mux0/R4_reg_28_/D
+inst_fft/mux0/R4_reg_29_/D
+inst_fft/mux0/R4_reg_30_/D
+inst_fft/mux0/R4_reg_31_/D
+inst_fft/mux0/R4_reg_32_/D
+inst_fft/mux0/R4_reg_33_/D
+
+Information: Checking pulse_clock_cell_type...
+
+Information: Checking no_driving_cell...
+
+Information: Checking partial_input_delay...
+Warning: there are 35 input ports that only have partial input delay specified. (TIM-212)
+--------------------
+din[5]
+din[4]
+din[3]
+din[2]
+din[1]
+din[0]
+din[13]
+din[12]
+din[11]
+din[10]
+din[9]
+din[8]
+din[7]
+din[6]
+din[21]
+din[20]
+din[19]
+din[18]
+din[17]
+din[16]
+din[15]
+din[14]
+din[29]
+din[28]
+din[27]
+din[26]
+din[25]
+din[24]
+din[23]
+din[22]
+din[33]
+din[32]
+din[31]
+din[30]
+rstn
+1
+End CPD check: check_timing
+Start CPD check: check_for_HFN_ideal 
+
+End CPD check: check_for_HFN_ideal
+Start CPD check: check_for_dont_touch_net_with_drc_violation 
+
+End CPD check: check_for_dont_touch_net_with_drc_violation
+Start CPD check: check_ilm -stage pre_clock_opt 
+1
+End CPD check: check_ilm -stage pre_clock_opt
+Start CPD check: check_placement_utilization_violation 
+ 
+****************************************
+  Report : Chip Summary
+  Design : fft_chip
+  Version: D-2010.03-ICC-SP5-2
+  Date   : Wed Apr 29 21:59:27 2020
+****************************************
+Std cell utilization: 21.83%  (174572/(855050-55370))
+(Non-fixed + Fixed)
+Std cell utilization: 21.83%  (174572/(855050-55370))
+(Non-fixed only)
+Chip area:            855050   sites, bbox (240.00 240.00 1852.38 2004.00) um
+Std cell area:        174572   sites, (non-fixed:174572 fixed:0)
+                      20391    cells, (non-fixed:20391  fixed:0)
+Macro cell area:      0        sites
+                      0        cells
+Placement blockages:  55370    sites, (excluding fixed std cells)
+                      55370    sites, (include fixed std cells & chimney area)
+                      55370    sites, (complete p/g net blockages)
+Routing blockages:    0        sites, (partial p/g net blockages)
+                      0        sites, (routing blockages and signal pre-route)
+Lib cell count:       163 
+Avg. std cell width:  6.60 um 
+Site array:           unit     (width: 0.66 um, height: 5.04 um, rows: 350)
+Physical DB scale:    1000 db_unit = 1 um 
+
+ 
+****************************************
+  Report : pnet options
+  Design : fft_chip
+  Version: D-2010.03-ICC-SP5-2
+  Date   : Wed Apr 29 21:59:27 2020
+****************************************
+
+
+--------------------------------------------------------------------
+Layer      Blockage   Min_width   Min_height   Via_additive     Density
+--------------------------------------------------------------------
+METAL1     none          ---         ---       via additive      ---
+METAL2     none          ---         ---       via additive      ---
+METAL3     none          ---         ---       via additive      ---
+METAL4     complete    0.00        0.00        via additive      ---
+METAL5     complete    0.00        0.00        via additive      ---
+
+**********************************
+      Sub-Region Utilization      
+**********************************
+Number of regions with placement utilization 0 - 0.125 is 321 (7.17%)
+Number of regions with placement utilization 0.125 - 0.25 is 2777 (61.99%)
+Number of regions with placement utilization 0.25 - 0.375 is 1323 (29.53%)
+Number of regions with placement utilization 0.375 - 0.5 is 51 (1.14%)
+Number of regions with placement utilization 0.5 - 0.625 is 7 (0.16%)
+Number of regions with placement utilization 0.625 - 0.75 is 1 (0.02%)
+Number of regions with placement utilization 0.75 - 0.875 is 0 (0.00%)
+Number of regions with placement utilization 0.875 - 1 is 0 (0.00%)
+1
+
+1
+End CPD check: check_placement_utilization_violation
+Start CPD check: check_legality_violation 
+
+  Loading design 'fft_chip'
+
+
+[begin initializing data for legality checker]
+Initializing Data Structure ...
+  Reading technology information ...
+    Technology table contains 5 routable metal layers
+    This is considered as a 5-metal-layer design
+    Reading library information from DB ...
+  Reading misc information ...
+    array <unit> has 0 vertical and 350 horizontal rows
+    76 pre-routes for placement blockage/checking
+    8814 pre-routes for map congestion calculation
+  Checking information read in ...
+    design style = Horizontal masters, Horizontal rows
+  Preprocessing design ...
+    splitting rows by natural obstacles ...
+[end initializing data for legality checker]
+Warning: Die area is not integer multiples of min site height (5040), object's width and height(2092380,2244000). (PSYN-523)
+Warning: Die area is not integer multiples of min site width (660), object's width and height(2092380,2244000). (PSYN-523)
+Warning: Cell PIW_din32 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PIW_din32 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PIW_din31 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PIW_din31 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PIW_din30 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PIW_din30 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PIW_din29 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PIW_din29 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PIW_din28 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PIW_din28 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PIW_din27 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PIW_din27 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PIW_din26 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PIW_din26 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PIW_din25 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PIW_din25 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PIW_din24 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PIW_din24 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PIW_din23 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PIW_din23 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PIW_din22 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PIW_din22 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PIW_din21 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PIW_din21 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PIW_din20 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PIW_din20 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PIW_din19 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PIW_din19 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PIW_din18 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PIW_din18 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PIW_din17 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PIW_din17 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PIW_din16 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PIW_din16 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PIW_din15 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PIW_din15 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PIW_din14 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PIW_din14 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PIW_din13 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PIW_din13 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PIW_din12 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PIW_din12 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PIW_din11 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PIW_din11 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PIW_din10 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PIW_din10 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PIW_din9 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PIW_din9 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PIW_din8 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PIW_din8 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PIW_din7 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PIW_din7 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PIW_din6 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PIW_din6 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PIW_din5 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PIW_din5 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PIW_din4 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PIW_din4 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PIW_din3 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PIW_din3 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PIW_din2 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PIW_din2 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PIW_din1 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PIW_din1 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PIW_din0 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PIW_din0 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PIW_rstn is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PIW_rstn is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PIW_clk is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PIW_clk is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PO8W_dout33 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PO8W_dout33 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PO8W_dout32 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PO8W_dout32 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PO8W_dout31 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PO8W_dout31 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PO8W_dout30 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PO8W_dout30 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PO8W_dout29 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PO8W_dout29 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PO8W_dout28 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PO8W_dout28 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PO8W_dout27 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PO8W_dout27 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PO8W_dout26 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PO8W_dout26 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PO8W_dout25 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PO8W_dout25 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PO8W_dout24 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PO8W_dout24 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PO8W_dout23 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PO8W_dout23 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PO8W_dout22 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PO8W_dout22 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PO8W_dout21 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PO8W_dout21 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PO8W_dout20 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PO8W_dout20 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PO8W_dout19 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PO8W_dout19 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PO8W_dout18 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PO8W_dout18 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PO8W_dout17 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PO8W_dout17 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+Warning: Cell PO8W_dout16 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PO8W_dout16 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PO8W_dout15 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PO8W_dout15 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PO8W_dout14 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PO8W_dout14 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PO8W_dout13 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PO8W_dout13 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PO8W_dout12 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PO8W_dout12 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PO8W_dout11 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PO8W_dout11 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PO8W_dout10 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PO8W_dout10 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PO8W_dout9 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PO8W_dout9 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PO8W_dout8 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PO8W_dout8 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PO8W_dout7 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PO8W_dout7 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PO8W_dout6 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PO8W_dout6 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PO8W_dout5 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PO8W_dout5 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PO8W_dout4 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PO8W_dout4 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PO8W_dout3 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PO8W_dout3 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PO8W_dout2 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PO8W_dout2 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PO8W_dout1 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PO8W_dout1 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PO8W_dout0 is not integer multiples of min site width (660), object's width and height(210000,76000). (PSYN-523)
+Warning: Cell PO8W_dout0 is not integer multiples of min site height (5040), object's width and height(76000,76000). (PSYN-523)
+Warning: Cell PIW_din33 is not integer multiples of min site width (660), object's width and height(76000,210000). (PSYN-523)
+Warning: Cell PIW_din33 is not integer multiples of min site height (5040), object's width and height(210000,210000). (PSYN-523)
+
+**************************************************** 
+Check_legality: Report for Fixed Placement Cells
+Information: Use the -verbose option to get details about the legality violations. (PSYN-054)
+**************************************************** 
+(fixed placement) Cells Not on Row            : 0
+(fixed placement) Cell Overlaps               : 0
+(fixed placement) Cells overlapping blockages : 0
+(fixed placement) Orientation Violations      : 0
+(fixed placement) Site Violations             : 0
+(fixed placement) Power Strap Violations      : 0
+****************************************************** 
+
+****************************************************** 
+Check_legality: Report for Non-fixed Placement Cells
+Information: Use the -verbose option to get details about the legality violations. (PSYN-054)
+****************************************************** 
+Number of Cells Not on Row            : 0
+Number of Cell Overlaps               : 0
+Number of Cells overlapping blockages : 0
+Number of Orientation Violations      : 0
+Number of Site Violations             : 0
+Number of Power Strap Violations      : 0
+******************************************** 
+
+  Total moveable cell area: 1698243.6
+  Total fixed cell area: 0.0
+  Core area: (240000 240000 1852380 2004000)
+1
+
+
+End CPD check: check_legality_violation
+Start CPD check: check_unplaced_cells 
+1
+End CPD check: check_unplaced_cells
+Start CPD check: check_clock_tree 
+Information: Updating design information... (UID-85)
+Warning: Design 'fft_chip' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+1
+End CPD check: check_clock_tree
+Start CPD check: check_net_routing_rules 
+
+****************************************
+Report : net routing rules
+Design : fft_chip
+Version: D-2010.03-ICC-SP5-2
+Date   : Wed Apr 29 21:59:28 2020
+****************************************
+
+
+ ---------- All nets use DEFAULT routing rule ----------
+ -------------------------------------------------------
+
+1
+End CPD check: check_net_routing_rules

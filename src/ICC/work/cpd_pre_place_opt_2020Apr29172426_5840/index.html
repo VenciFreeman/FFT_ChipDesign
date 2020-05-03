@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"    "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+<title>Physical Design Check Summary</title>
+<script type="text/javascript">
+function open_feedback(msg)
+{
+  var link = "http://wwwin/~jichunw/apdFeedback/apdFeedback.html";
+  var url = location.href;
+  var direct = link + "?" + msg + "?" + url; 
+  window.location.assign(direct);
+}
+function open_man(msg)
+{
+  myWindow=window.open();
+  myWindow.document.write("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" ");
+  myWindow.document.write("   \"http://www.w3.org/TR/html4/loose.dtd\">");
+  myWindow.document.write("\n");
+  myWindow.document.write("<HTML><TITLE></TITLE><BODY>\n");
+  myWindow.document.write(msg);
+  myWindow.document.write("\n</BODY></HTML>\n");
+  myWindow.document.close();
+  myWindow.focus();
+}
+var last_hilight;
+function do_highlight()
+{
+  var url = /(.+)#(.+)/;
+  var location_url = self.location;
+  var text = location_url.toString();
+  var result;
+  result = text.match(url);
+  if(result != null) {
+    last_hilight = result[2];
+    document.getElementById(result[2] + "_MSG").style.background="yellow";
+  }
+}
+function set_highlight(id)
+{
+  if (last_hilight) {
+    document.getElementById(last_hilight).style.background="";
+  }
+  last_hilight = id;
+  document.getElementById(last_hilight).style.background="yellow";
+}
+</script>
+
+</head>
+<body>
+<table align="center" width="100%" cellspacing="10%" border="0">
+<tr><td bgcolor="#C6D9F1"  align="left" valign="middle">
+<font color="black" size ="4">
+<b>Report : check_physical_design</b> -stage pre_place_opt<br>
+Design : fft_chip; 
+Version: D-2010.03-ICC-SP5-2; 
+Date   : Wed Apr 29 17:25:16 2020<br>
+CPU Runtime for Checking:          2 s (  0.00 hr)<br>
+</font>
+</td></tr>
+<tr><td  bgcolor="#DEB887" align="left" valign="middle">
+<font color="black" size ="4"><b>Summary</b> (Total messages: <b>0</b>  errors, <b>113</b> warnings)</font>
+</td></tr>
+<tr><td>
+<table align="left" width="100%" cellspacing="1%" border="0">
+<tr>
+  <td align="center" bgcolor="#C6D9F1"><b>Check</b></td>
+  <td align="center" bgcolor="#C6D9F1"><b>Severity<br>(Occurance)</b></td>
+  <td align="center" bgcolor="#C6D9F1"><b>Title</b></td>
+  <td align="center" bgcolor="#C6D9F1"><b>Next Steps To Reduce Severity</b></td>
+  <td align="center" bgcolor="#C6D9F1"><b>Feed Back for Internal User</b></td>
+</tr>
+<tr>
+  <td align="left"><a href="#" onClick="open_man('NAME<br>       PSYN-256  (warning)  The  orientation  of  the fixed cell &quot;%s&quot; does not<br>       match legal orientations. Ignoring the legal orientations.<br><br>DESCRIPTION<br>       You received this warning because the named cell is fixed but its  ori-<br>       entation  does  not match any of the legal orientations defined for the<br>       cell.  Because it is a fixed cell, the tool uses  its  orientation  and<br>       ignores the legal orientations.<br><br>WHAT NEXT<br>       No  action  is  required on your part if the cell is in the orientation<br>       you want.  Otherwise, you can set the legal orientations for the  fixed<br>       cell by using the set_fp_macro_options command with the -legal_orienta-<br>       tions option.<br><br>SEE ALSO<br>       set_fp_macro_options(2)<br><br>D-2010.03-ICC-SP5-2   Synopsys Inc. 1988-2011. All rights reserved.        n-1<br><br>');">PSYN-256</a></td>
+  <td align="left" bgcolor="yellow">Warning (<a href="#PSYN-256" onClick="set_highlight('PSYN-256_MSG')"> 35 </a>)</td>
+  <td align="left"><a href="#PSYN-256" onClick="set_highlight('PSYN-256_MSG')">orientation of fixed cell does not match legal orientation </a></td>
+  <td align="left"><a href="#" onClick="open_man('NAME<br>       PSYN-256  (warning)  The  orientation  of  the fixed cell &quot;%s&quot; does not<br>       match legal orientations. Ignoring the legal orientations.<br><br>DESCRIPTION<br>       You received this warning because the named cell is fixed but its  ori-<br>       entation  does  not match any of the legal orientations defined for the<br>       cell.  Because it is a fixed cell, the tool uses  its  orientation  and<br>       ignores the legal orientations.<br><br>WHAT NEXT<br>       No  action  is  required on your part if the cell is in the orientation<br>       you want.  Otherwise, you can set the legal orientations for the  fixed<br>       cell by using the set_fp_macro_options command with the -legal_orienta-<br>       tions option.<br><br>SEE ALSO<br>       set_fp_macro_options(2)<br><br>D-2010.03-ICC-SP5-2   Synopsys Inc. 1988-2011. All rights reserved.        n-1<br><br>');">       No  action  is  required on your part if the cell is in the orientation
+       you want.  ...</a></td>
+  <td align="center"><a href="#" onClick="open_feedback('PSYN-256');">Feedback</a></td>
+</tr>
+</table>
+</td></tr>
+<tr><td><a href="index_other.html">Other messages: 78 warnings</a></td></tr>
+<tr><td><a href="index_undocumented.html">Un documente errors: 1 errors</a></td></tr>
+<tr><td  bgcolor="#DEB887" align="left" valign="middle">
+<font color="black" size ="4"><b>Detail</b></font>
+</td></tr>
+<tr><td>
+<a name=PSYN-256></a><span id="PSYN-256_MSG"><br>
+Warning: The orientation of the fixed cell 'PO8W_dout16' does not match legal orientations. Ignoring the legal orientations. (PSYN-256)[<a href="cpd_template.html#4530">link to log file</a>]<br>
+Warning: The orientation of the fixed cell 'PO8W_dout15' does not match legal orientations. Ignoring the legal orientations. (PSYN-256)[<a href="cpd_template.html#4531">link to log file</a>]<br>
+Warning: The orientation of the fixed cell 'PO8W_dout14' does not match legal orientations. Ignoring the legal orientations. (PSYN-256)[<a href="cpd_template.html#4532">link to log file</a>]<br>
+Warning: The orientation of the fixed cell 'PO8W_dout13' does not match legal orientations. Ignoring the legal orientations. (PSYN-256)[<a href="cpd_template.html#4533">link to log file</a>]<br>
+Warning: The orientation of the fixed cell 'PO8W_dout12' does not match legal orientations. Ignoring the legal orientations. (PSYN-256)[<a href="cpd_template.html#4534">link to log file</a>]<br>
+Warning: The orientation of the fixed cell 'PO8W_dout11' does not match legal orientations. Ignoring the legal orientations. (PSYN-256)[<a href="cpd_template.html#4535">link to log file</a>]<br>
+Warning: The orientation of the fixed cell 'PO8W_dout10' does not match legal orientations. Ignoring the legal orientations. (PSYN-256)[<a href="cpd_template.html#4536">link to log file</a>]<br>
+Warning: The orientation of the fixed cell 'PO8W_dout9' does not match legal orientations. Ignoring the legal orientations. (PSYN-256)[<a href="cpd_template.html#4537">link to log file</a>]<br>
+Warning: The orientation of the fixed cell 'PO8W_dout8' does not match legal orientations. Ignoring the legal orientations. (PSYN-256)[<a href="cpd_template.html#4538">link to log file</a>]<br>
+Warning: The orientation of the fixed cell 'PO8W_dout7' does not match legal orientations. Ignoring the legal orientations. (PSYN-256)[<a href="cpd_template.html#4539">link to log file</a>]<br>
+......truncated 25 message PSYN-256<br>
+</span><!--PSYN-256 --><br>
+</td></tr>
+</table></body></html>

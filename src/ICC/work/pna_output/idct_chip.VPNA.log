@@ -1,0 +1,43 @@
+
+Name of design : idct_chip
+Number of cell instances in the design : 27106
+Number of cell instance masters in the library : 73
+
+Processing power net VSS ...
+Number of power net wires : 141
+Number of vias : 2818
+Average power dissipation in idct_chip :  1000.00 mW
+Power supply voltage :     1.98 V
+Assigning vias begins
+Assigning power net wires ...
+Reading virtual power pads
+Extracting power net VSS ...
+Number of power pad nodes connecting to power net VSS : 8
+Number of power pad nodes reaching to the power ports of the leaf cells or blocks : 8
+Number of resistors in VSS : 5345
+Number of nodes in VSS : 4279
+Performing network simulation
+Assigning netlists to simulation engine begins
+Assigning netlists to simulation engine finished
+Maximum IR drop in idct_chip : 186.78 mV
+Maximum current in idct_chip : 171.213 mA
+
+Processing power net VDD ...
+Number of power net wires : 181
+Number of vias : 2827
+Average power dissipation in idct_chip :  1000.00 mW
+Power supply voltage :     1.98 V
+Assigning vias begins
+Assigning power net wires ...
+Reading virtual power pads
+Extracting power net VDD ...
+Number of power pad nodes connecting to power net VDD : 18
+Number of power pad nodes reaching to the power ports of the leaf cells or blocks : 18
+Number of resistors in VDD : 5511
+Number of nodes in VDD : 4431
+Performing network simulation
+Assigning netlists to simulation engine begins
+Assigning netlists to simulation engine finished
+Maximum IR drop in idct_chip : 211.15 mV
+Maximum current in idct_chip : 109.337 mA
+Overall takes     0.28 seconds
