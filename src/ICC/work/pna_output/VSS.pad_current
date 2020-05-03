@@ -1,8 +1,0 @@
-Pad Cell vss1_t at (362.020 1958.400) Supplies  143.47 mA Current (28.41%)
-Pad Cell vss1_r2 at (1958.280 590.090) Supplies  133.41 mA Current (26.42%)
-Pad Cell vss1_l2 at (0.000 590.090) Supplies  129.66 mA Current (25.67%)
-Pad Cell vss1_r1 at (1958.280 286.015) Supplies   45.89 mA Current (9.09%)
-Pad Cell vss1_l1 at (0.000 286.015) Supplies   33.14 mA Current (6.56%)
-Pad Cell vss1_b at (377.225 0.000) Supplies   19.48 mA Current (3.86%)
-Total Current from Pad Cells:  505.05 mA (100.00%)
-Total Current from Virtual Pads:    0.00 mA (0.00%)
