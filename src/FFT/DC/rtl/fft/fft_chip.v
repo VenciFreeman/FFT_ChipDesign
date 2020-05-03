@@ -5,6 +5,7 @@ input [33:0] data_in;
 
 output [33:0] data_out;
 
+
 wire net_clk,net_rst_n;
 wire [33:0] net_data_in,net_data_out;
 
