@@ -16,9 +16,9 @@ set_clock_latency 0.3 [get_clocks clk]
 ######################## YBR ######################
 
 # 2.2
-set_input_delay -max 6.1 -clock clk [remove_from_collection [all_inputs] [get_ports clk]]
+set_input_delay -max 5 -clock clk [remove_from_collection [all_inputs] [get_ports clk]]
 # 2.3
-set_output_delay -max 6.1 -clock clk [all_outputs]
+set_output_delay -max 5 -clock clk [all_outputs]
 
 #---------------- SET ENVIRONMENTAL ATTIBUTES ----------------
 # 3.1 Set interconnect parasitic RCs
