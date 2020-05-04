@@ -6,7 +6,7 @@ Report : timing
         -max_paths 1
 Design : fft_chip
 Version: D-2010.03-ICC-SP5-2
-Date   : Fri Mar 22 00:08:48 2019
+Date   : Fri Mar 22 01:27:53 2019
 ****************************************
 
  # A fanout number of 1000 was used for high fanout net computations.

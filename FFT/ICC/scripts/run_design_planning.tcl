@@ -14,8 +14,8 @@ source pns.tcl
 commit_fp_rail
 preroute_instances
 preroute_standard_cells -fill_empty_rows -remove_floating_pieces
-analyze_fp_rail -nets {VDD VSS} -voltage_supply 1.98 -pad_masters {PVSS1W PVDD1W}
-save_mw_cel -as 2_2_floorplan_pns
+analyze_fp_rail -nets {VDD VSS} -voltage_supply 1.62 -pad_masters {PVSS1W PVDD1W}
+
 
 set_pnet_options -complete "METAL4 METAL5"
 create_fp_placement -timing_driven -no_hierarchy_gravity

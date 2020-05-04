@@ -22,7 +22,7 @@ write_sdc ../outputs/fft_chip.sdc
 #Compile
 #set_flatten true
 compile
-#-inc -map high
+# -map high
 
 #Clean-up
 ###YBR ADD -blast_buses###
