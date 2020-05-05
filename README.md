@@ -1,7 +1,7 @@
 # DIC-Design
 > A 16-point radix-4 FFT chip, including Verilog codes, netlists and layout. Group project.
 
- <img src="https://img.shields.io/badge/Language-Verilog_HDL-red.svg" alt="Generic badge"  /><img src="https://img.shields.io/badge/Status-Physical_Design-yellow.svg" alt="Generic badge"  /><img src="https://img.shields.io/badge/Deadline-April_30-green.svg" alt="Generic badge"/><img src="https://img.shields.io/badge/Schedule-Design_Script-blue.svg" alt="Generic badge"/>
+ <img src="https://img.shields.io/badge/Language-Verilog_HDL-red.svg" alt="Generic badge"  /><img src="https://img.shields.io/badge/Status-Physical_Design-yellow.svg" alt="Generic badge"  /><img src="https://img.shields.io/badge/Deadline-May_10-green.svg" alt="Generic badge"/><img src="https://img.shields.io/badge/Schedule-Design_Script-blue.svg" alt="Generic badge"/>
 
 ## Goal
 
@@ -39,11 +39,11 @@
 
 ## Team division
 
-|                        Member                        |                 Division of Work                 |
-| :--------------------------------------------------: | :----------------------------------------------: |
-| [**Venci Freeman**](https://github.com/VenciFreeman) |     Butterfly, multi selector and top module     |
-|   [**Luo Tian**](https://github.com/luotian12345)    | Conversion between series and parallel, register |
-|    [**Mike Qi**](https://github.com/mikeq123456)     |  Control module, test bench and some tcl files   |
+|                        Member                        |                       Division of Work                       |
+| :--------------------------------------------------: | :----------------------------------------------------------: |
+| [**Venci Freeman**](https://github.com/VenciFreeman) |    Butterfly, multi selector and top module, DC and ICC.     |
+|   [**Luo Tian**](https://github.com/luotian12345)    | Conversion between series and parallel, register, DC and ICC. |
+|    [**Mike Qi**](https://github.com/mikeq123456)     |  Control module, test bench and some tcl files, DC and ICC.  |
 
 ------
 
