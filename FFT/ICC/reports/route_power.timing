@@ -1,4 +1,166 @@
-Warning: Clock network timing may not be up-to-date since only 96.875000 percentage of clock nets are routed. (TIM-233)
+
+  Loading design 'fft_chip'
+
+
+Information: Setting a dont_touch attribute on net 'data_in[5]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[4]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[3]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[2]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[1]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[0]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[13]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[12]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[11]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[10]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[9]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[8]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[7]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[6]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[21]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[20]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[19]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[18]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[17]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[16]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[15]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[14]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[29]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[28]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[27]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[26]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[25]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[24]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[23]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[22]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[3]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[2]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[1]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[0]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[33]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[32]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[31]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_in[30]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[11]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[10]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[9]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[8]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[7]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[6]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[5]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[4]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[19]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[18]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[17]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[16]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[15]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[14]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[13]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[12]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[27]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[26]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[25]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[24]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[23]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[22]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[21]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[20]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'rst_n' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'clk' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[33]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[32]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[31]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[30]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[29]' because it is connected to a pad cell. (PSYN-088)
+Information: Setting a dont_touch attribute on net 'data_out[28]' because it is connected to a pad cell. (PSYN-088)
+
+
+Information: Library Manufacturing Grid(GridResolution) : 5
+Information: Time Unit from Milkyway design library: 'ns' 
+Information: Design Library and main library timing units are matched - 1.000 ns. 
+Information: Resistance Unit from Milkyway design library: 'kohm' 
+Information: Design Library and main library resistance units are matched - 1.000 kohm. 
+Information: Capacitance Unit from Milkyway design library: 'pf' 
+Information: Design Library and main library capacitance units are matched - 1.000 pf. 
+Warning: Inconsistent library data found for layer POLY1. (RCEX-018)
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is detail route TLU+. (RCEX-015)
+Information: Start mixed mode parasitic extraction. (RCEX-023)
+Information: Start rc extraction...
+Memory usage for extraction task 131 Mbytes -- main task 528 Mbytes.
+Information: Parasitic source is LPE. (RCEX-040)
+Information: Parasitic mode is RealRC. (RCEX-041)
+Information: Using virtual shield extraction. (RCEX-081)
+Information: Extraction mode is MIN_MAX. (RCEX-042)
+Information: Extraction derate is 0/25/125. (RCEX-043)
+Information: Coupling capacitances are explicitly created. (RCEX-044)
+Information: Start back annotation for parasitic extraction. (RCEX-023)
+Information: End back annotation for parasitic extraction. (RCEX-023)
+Information: Start timing update for parasitic extraction. (RCEX-023)
+Information: End timing update for parasitic extraction. (RCEX-023)
+Information: End parasitic extraction. (RCEX-023)
+Information: Start rc update...
+****************************************************************
+Information: TLUPlus based RC computation is enabled. (RCEX-141)
+****************************************************************
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is TLU+. (RCEX-015)
+Information: Library Derived Cap for layer METAL1 : 0.00022 0.0002 (RCEX-011)
+Information: Library Derived Res for layer METAL1 : 0.00044 0.00024 (RCEX-011)
+Information: Library Derived Cap for layer METAL2 : 0.00021 0.00019 (RCEX-011)
+Information: Library Derived Res for layer METAL2 : 0.00036 0.0002 (RCEX-011)
+Information: Library Derived Cap for layer METAL3 : 0.00025 0.00023 (RCEX-011)
+Information: Library Derived Res for layer METAL3 : 0.00036 0.0002 (RCEX-011)
+Information: Library Derived Cap for layer METAL4 : 0.00021 0.00019 (RCEX-011)
+Information: Library Derived Res for layer METAL4 : 0.00036 0.0002 (RCEX-011)
+Information: Library Derived Cap for layer METAL5 : 0.00028 0.00026 (RCEX-011)
+Information: Library Derived Res for layer METAL5 : 0.0001 6.1e-05 (RCEX-011)
+Information: Library Derived Horizontal Cap : 0.00025 0.00023 (RCEX-011)
+Information: Library Derived Horizontal Res : 0.0003 0.00017 (RCEX-011)
+Information: Library Derived Vertical Cap : 0.00021 0.00019 (RCEX-011)
+Information: Library Derived Vertical Res : 0.00036 0.0002 (RCEX-011)
+Information: Using derived R and C coefficients. (RCEX-008)
+Information: Using region-based R and C coefficients. (RCEX-013)
+Information: Library Derived Via Res : 0.0095 0.001 (RCEX-011)
+Information: End rc update.
+Information: The mixed mode parasitic extraction has been performed. (RCEX-202)
+Information: Updating graph... (UID-83)
+
+************************************************************
+SI options:
+Delta Delay Computation:           true
+Static Noise Computation:          false
+Timing window analysis for SI:     false
+Reselection in timing window:      false
+Min Delta Delay for SI:            true
+Analysis Effort:                   low
+Max Transition Mode:               normal_slew
+Static Noise Thresholds:           0.35 (0.57V) above low
+                                   0.35 (0.57V) below high
+Route xtalk prevention:            true
+Route xtalk prevention threshold:  0.25
+************************************************************
+
+Information: Updating design information... (UID-85)
+
+************************************************************
+SI options:
+Delta Delay Computation:           true
+Static Noise Computation:          false
+Timing window analysis for SI:     false
+Reselection in timing window:      false
+Min Delta Delay for SI:            true
+Analysis Effort:                   low
+Max Transition Mode:               normal_slew
+Static Noise Thresholds:           0.35 (0.57V) above low
+                                   0.35 (0.57V) below high
+Route xtalk prevention:            true
+Route xtalk prevention threshold:  0.25
+************************************************************
+
+Information: Input delay ('rise') on clock port 'clk' will be added to the clock's propagated skew. (TIM-112)
+Information: Input delay ('fall') on clock port 'clk' will be added to the clock's propagated skew. (TIM-112)
+Information: Input delay ('rise') on clock port 'clk' will be added to the clock's propagated skew. (TIM-112)
+Information: Input delay ('fall') on clock port 'clk' will be added to the clock's propagated skew. (TIM-112)
  
 ****************************************
 Report : timing
@@ -7,7 +169,7 @@ Report : timing
         -max_paths 1
 Design : fft_chip
 Version: D-2010.03-ICC-SP5-2
-Date   : Fri Mar 22 01:57:41 2019
+Date   : Fri Mar 22 05:24:08 2019
 ****************************************
 
  * Some/all delay information is back-annotated.
@@ -16,12 +178,12 @@ Operating Conditions: slow   Library: slow
 	Parasitic source    : LPE
 	Parasitic mode      : RealRC
 	Extraction mode     : MIN_MAX
-	Extraction derating : 125/125/125
+	Extraction derating : 0/25/125
 
-Information: Percent of Arnoldi-based delays =  3.42%
+Information: Percent of Arnoldi-based delays = 18.40%
 
-  Startpoint: data_in[5] (input port clocked by clk)
-  Endpoint: inst_fft/s_p0/R15_reg_5_
+  Startpoint: data_in[1] (input port clocked by clk)
+  Endpoint: inst_fft/s_p0/R11_reg_1_
             (rising edge-triggered flip-flop clocked by clk)
   Path Group: INPUTS
   Path Type: max
@@ -29,26 +191,27 @@ Information: Percent of Arnoldi-based delays =  3.42%
   Point                                    Incr       Path
   -----------------------------------------------------------
   clock clk (rise edge)                    0.00       0.00
-  clock network delay (ideal)              5.72       5.72
-  input external delay                     3.70       9.42 f
-  data_in[5] (in)                          0.32       9.74 f
-  PIW_data_in5/C (PIW)                     1.01 *    10.75 f
-  inst_fft/data_in[5] (fft)                0.00      10.75 f
-  inst_fft/s_p0/data_in_1[5] (s_p)         0.00      10.75 f
-  inst_fft/s_p0/R15_reg_5_/D (EDFFX1)      0.10 &    10.85 f
-  data arrival time                                  10.85
+  clock network delay (ideal)              5.76       5.76
+  input external delay                     3.70       9.46 f
+  data_in[1] (in)                          0.32       9.78 f
+  PIW_data_in1/C (PIW)                     0.98 *    10.76 f
+  inst_fft/data_in[1] (fft)                0.00      10.76 f
+  inst_fft/s_p0/data_in_1[1] (s_p)         0.00      10.76 f
+  inst_fft/s_p0/R11_reg_1_/D (EDFFX1)      0.12 &    10.88 f
+  data arrival time                                  10.88
 
   clock clk (rise edge)                    7.40       7.40
-  clock network delay (propagated)         5.64      13.04
-  clock uncertainty                       -0.20      12.84
-  inst_fft/s_p0/R15_reg_5_/CK (EDFFX1)     0.00      12.84 r
-  library setup time                      -0.67      12.17
-  data required time                                 12.17
+  clock network delay (propagated)         5.71      13.11
+  clock reconvergence pessimism            0.00      13.11
+  clock uncertainty                       -0.20      12.91
+  inst_fft/s_p0/R11_reg_1_/CK (EDFFX1)     0.00      12.91 r
+  library setup time                      -0.68      12.23
+  data required time                                 12.23
   -----------------------------------------------------------
-  data required time                                 12.17
-  data arrival time                                 -10.85
+  data required time                                 12.23
+  data arrival time                                 -10.88
   -----------------------------------------------------------
-  slack (MET)                                         1.32
+  slack (MET)                                         1.35
 
 
   Startpoint: inst_fft/p_s0/data_out_3_reg_26_
@@ -63,28 +226,29 @@ Information: Percent of Arnoldi-based delays =  3.42%
   clock clk (rise edge)                                   0.00       0.00
   clock network delay (propagated)                        5.83       5.83
   inst_fft/p_s0/data_out_3_reg_26_/CK (EDFFX2)            0.00       5.83 r
-  inst_fft/p_s0/data_out_3_reg_26_/Q (EDFFX2)             0.80       6.63 r
-  inst_fft/p_s0/data_out_3[26] (p_s)                      0.00       6.63 r
-  inst_fft/data_out[26] (fft)                             0.00       6.63 r
-  PO8W_data_out26/PAD (PO8W)                              1.76 &     8.39 r
-  data_out[26] (out)                                      0.00 *     8.39 r
-  data arrival time                                                  8.39
+  inst_fft/p_s0/data_out_3_reg_26_/Q (EDFFX2)             0.79       6.62 r
+  inst_fft/p_s0/data_out_3[26] (p_s)                      0.00       6.62 r
+  inst_fft/data_out[26] (fft)                             0.00       6.62 r
+  PO8W_data_out26/PAD (PO8W)                              1.75 &     8.37 r
+  data_out[26] (out)                                      0.00 *     8.37 r
+  data arrival time                                                  8.37
 
   clock clk (rise edge)                                   7.40       7.40
-  clock network delay (ideal)                             5.72      13.12
-  clock uncertainty                                      -0.20      12.92
-  output external delay                                  -3.70       9.22
-  data required time                                                 9.22
+  clock network delay (ideal)                             5.76      13.16
+  clock reconvergence pessimism                           0.00      13.16
+  clock uncertainty                                      -0.20      12.96
+  output external delay                                  -3.70       9.26
+  data required time                                                 9.26
   --------------------------------------------------------------------------
-  data required time                                                 9.22
-  data arrival time                                                 -8.39
+  data required time                                                 9.26
+  data arrival time                                                 -8.37
   --------------------------------------------------------------------------
-  slack (MET)                                                        0.84
+  slack (MET)                                                        0.88
 
 
   Startpoint: inst_fft/mux0/counter_reg_0_
               (rising edge-triggered flip-flop clocked by clk)
-  Endpoint: inst_fft/reg10/R8_reg_16_
+  Endpoint: inst_fft/p_s0/R12_reg_15_
             (rising edge-triggered flip-flop clocked by clk)
   Path Group: clk
   Path Type: max
@@ -92,87 +256,85 @@ Information: Percent of Arnoldi-based delays =  3.42%
   Point                                                   Incr       Path
   --------------------------------------------------------------------------
   clock clk (rise edge)                                   0.00       0.00
-  clock network delay (propagated)                        5.76       5.76
-  inst_fft/mux0/counter_reg_0_/CK (JKFFRX4)               0.00       5.76 r
-  inst_fft/mux0/counter_reg_0_/Q (JKFFRX4)                0.70       6.46 r
-  inst_fft/mux0/U77/Y (INVX8)                             0.06 &     6.52 f
-  inst_fft/mux0/U76/Y (CLKINVX8)                          0.07 &     6.59 r
-  inst_fft/mux0/U24/Y (OR2X2)                             0.31 &     6.90 r
-  inst_fft/mux0/U17/Y (CLKBUFX20)                         0.18 &     7.07 r
-  inst_fft/mux0/U109/Y (NAND2XL)                          0.12 &     7.19 f
-  inst_fft/mux0/U36/Y (INVX2)                             0.18 &     7.37 r
-  inst_fft/mux0/U37/Y (INVX8)                             0.08 &     7.45 f
-  inst_fft/mux0/U18/Y (CLKINVX20)                         0.37 &     7.82 r
-  inst_fft/mux0/U82/Y (AOI22X1)                           0.15 &     7.96 f
-  inst_fft/mux0/U541/Y (OAI2BB1X1)                        1.18 &     9.15 r
-  inst_fft/mux0/data_out[3] (mux)                         0.00       9.15 r
-  inst_fft/butterfly0/calc_in[3] (butterfly)              0.00       9.15 r
-  inst_fft/butterfly0/add_2_root_add_0_root_add_293_3/A[3] (butterfly_DW01_add_129)
-                                                          0.00       9.15 r
-  inst_fft/butterfly0/add_2_root_add_0_root_add_293_3/U60/Y (CLKINVX12)
-                                                          0.52 &     9.66 f
-  inst_fft/butterfly0/add_2_root_add_0_root_add_293_3/U59/Y (NAND2BX4)
-                                                          0.10 &     9.76 r
-  inst_fft/butterfly0/add_2_root_add_0_root_add_293_3/U149/Y (INVX8)
-                                                          0.05 &     9.82 f
-  inst_fft/butterfly0/add_2_root_add_0_root_add_293_3/U13/Y (NOR2X4)
-                                                          0.09 &     9.91 r
-  inst_fft/butterfly0/add_2_root_add_0_root_add_293_3/U75/Y (NAND2BX4)
-                                                          0.06 &     9.97 f
-  inst_fft/butterfly0/add_2_root_add_0_root_add_293_3/U142/Y (NOR2BX4)
-                                                          0.16 &    10.12 f
-  inst_fft/butterfly0/add_2_root_add_0_root_add_293_3/U141/Y (NAND2X4)
-                                                          0.11 &    10.23 r
-  inst_fft/butterfly0/add_2_root_add_0_root_add_293_3/U194/Y (NAND2X4)
-                                                          0.11 &    10.34 f
-  inst_fft/butterfly0/add_2_root_add_0_root_add_293_3/U162/Y (NAND2X4)
-                                                          0.11 &    10.45 r
-  inst_fft/butterfly0/add_2_root_add_0_root_add_293_3/U223/Y (AOI21X4)
-                                                          0.10 &    10.55 f
-  inst_fft/butterfly0/add_2_root_add_0_root_add_293_3/U61/Y (XNOR2X4)
-                                                          0.24 &    10.80 r
-  inst_fft/butterfly0/add_2_root_add_0_root_add_293_3/SUM[6] (butterfly_DW01_add_129)
-                                                          0.00      10.80 r
-  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/A[6] (butterfly_DW01_add_50)
-                                                          0.00      10.80 r
-  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U204/Y (OR2X4)
-                                                          0.16 &    10.95 r
-  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U154/Y (INVX8)
-                                                          0.05 &    11.01 f
-  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U118/Y (NAND3BX1)
-                                                          0.25 &    11.26 f
-  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U134/Y (AOI21X2)
-                                                          0.23 &    11.49 r
-  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U127/Y (OAI21X4)
-                                                          0.12 &    11.60 f
-  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U44/Y (NAND3X4)
-                                                          0.12 &    11.73 r
-  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U141/Y (NAND2X4)
-                                                          0.08 &    11.80 f
-  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U140/Y (NAND2X4)
-                                                          0.08 &    11.88 r
-  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U70/Y (XOR2X4)
-                                                          0.25 &    12.14 r
-  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U1/Y (INVX8)
-                                                          0.14 &    12.27 f
-  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/SUM[16] (butterfly_DW01_add_50)
-                                                          0.00      12.27 f
-  inst_fft/butterfly0/calc_out[16] (butterfly)            0.00      12.27 f
-  inst_fft/reg10/data_in_2[16] (reg1)                     0.00      12.27 f
-  inst_fft/reg10/R8_reg_16_/D (EDFFXL)                    0.03 &    12.31 f
-  data arrival time                                                 12.31
+  clock network delay (propagated)                        5.83       5.83
+  inst_fft/mux0/counter_reg_0_/CK (JKFFRX4)               0.00       5.83 r
+  inst_fft/mux0/counter_reg_0_/QN (JKFFRX4)               0.56       6.39 f
+  inst_fft/mux0/U107/Y (CLKINVX8)                         0.05 &     6.44 r
+  inst_fft/mux0/U557/Y (NAND2BX4)                         0.20 &     6.64 r
+  inst_fft/mux0/U95/Y (NAND2X2)                           0.08 &     6.72 f
+  inst_fft/mux0/U102/Y (AND2X4)                           0.19 &     6.91 f
+  inst_fft/mux0/U65/Y (OAI2BB1X4)                         0.10 &     7.01 r
+  inst_fft/mux0/U36/Y (BUFX16)                            0.14 &     7.15 r
+  inst_fft/mux0/data_out[50] (mux)                        0.00       7.15 r
+  inst_fft/butterfly0/calc_in[50] (butterfly)             0.00       7.15 r
+  inst_fft/butterfly0/U2/Y (BUFX20)                       0.25 &     7.40 r
+  inst_fft/butterfly0/multiBII/in_17bit[16] (multi16_11)
+                                                          0.00       7.40 r
+  inst_fft/butterfly0/multiBII/U7/Y (NOR2X1)              0.14 &     7.54 f
+  inst_fft/butterfly0/multiBII/U33/Y (AOI211X2)           0.20 &     7.75 r
+  inst_fft/butterfly0/multiBII/U15/Y (BUFX8)              0.16 &     7.91 r
+  inst_fft/butterfly0/multiBII/out[5] (multi16_11)        0.00       7.91 r
+  inst_fft/butterfly0/sub_275/B[5] (butterfly_DW01_sub_84)
+                                                          0.00       7.91 r
+  inst_fft/butterfly0/sub_275/U264/Y (NAND2BXL)           0.47 &     8.38 r
+  inst_fft/butterfly0/sub_275/U193/Y (AOI21X2)            0.19 &     8.57 f
+  inst_fft/butterfly0/sub_275/U56/Y (NAND3X4)             0.15 &     8.71 r
+  inst_fft/butterfly0/sub_275/U173/Y (NAND4X2)            0.15 &     8.86 f
+  inst_fft/butterfly0/sub_275/U162/Y (NOR2X4)             0.11 &     8.97 r
+  inst_fft/butterfly0/sub_275/U237/Y (XOR2XL)             0.53 &     9.50 r
+  inst_fft/butterfly0/sub_275/U186/Y (BUFX12)             0.25 &     9.75 r
+  inst_fft/butterfly0/sub_275/DIFF[9] (butterfly_DW01_sub_84)
+                                                          0.00       9.75 r
+  inst_fft/butterfly0/sub_1_root_sub_0_root_sub_299_2/A[9] (butterfly_DW01_sub_123)
+                                                          0.00       9.75 r
+  inst_fft/butterfly0/sub_1_root_sub_0_root_sub_299_2/U12/Y (NAND2BXL)
+                                                          0.77 &    10.52 r
+  inst_fft/butterfly0/sub_1_root_sub_0_root_sub_299_2/U103/Y (NAND2XL)
+                                                          0.35 &    10.87 f
+  inst_fft/butterfly0/sub_1_root_sub_0_root_sub_299_2/U202/Y (OAI21X4)
+                                                          0.20 &    11.07 r
+  inst_fft/butterfly0/sub_1_root_sub_0_root_sub_299_2/U68/Y (XNOR2X4)
+                                                          0.24 &    11.31 f
+  inst_fft/butterfly0/sub_1_root_sub_0_root_sub_299_2/DIFF[11] (butterfly_DW01_sub_123)
+                                                          0.00      11.31 f
+  inst_fft/butterfly0/add_0_root_sub_0_root_sub_299_2/B[11] (butterfly_DW01_add_141)
+                                                          0.00      11.31 f
+  inst_fft/butterfly0/add_0_root_sub_0_root_sub_299_2/U58/Y (OR2X4)
+                                                          0.24 &    11.55 f
+  inst_fft/butterfly0/add_0_root_sub_0_root_sub_299_2/U135/Y (OAI2BB1X4)
+                                                          0.11 &    11.66 r
+  inst_fft/butterfly0/add_0_root_sub_0_root_sub_299_2/U16/Y (INVX8)
+                                                          0.05 &    11.71 f
+  inst_fft/butterfly0/add_0_root_sub_0_root_sub_299_2/U84/Y (OR2X4)
+                                                          0.21 &    11.92 f
+  inst_fft/butterfly0/add_0_root_sub_0_root_sub_299_2/U19/Y (AOI2BB1X2)
+                                                          0.18 &    12.09 r
+  inst_fft/butterfly0/add_0_root_sub_0_root_sub_299_2/U186/Y (OAI21X4)
+                                                          0.09 &    12.19 f
+  inst_fft/butterfly0/add_0_root_sub_0_root_sub_299_2/U161/Y (XNOR2X4)
+                                                          0.19 &    12.37 f
+  inst_fft/butterfly0/add_0_root_sub_0_root_sub_299_2/U68/Y (BUFX12)
+                                                          0.17 &    12.54 f
+  inst_fft/butterfly0/add_0_root_sub_0_root_sub_299_2/SUM[15] (butterfly_DW01_add_141)
+                                                          0.00      12.54 f
+  inst_fft/butterfly0/calc_out[117] (butterfly)           0.00      12.54 f
+  inst_fft/p_s0/data_in_3[117] (p_s)                      0.00      12.54 f
+  inst_fft/p_s0/U44/Y (MX2X4)                             0.28 &    12.82 f
+  inst_fft/p_s0/R12_reg_15_/D (DFFHQXL)                   0.00 &    12.82 f
+  data arrival time                                                 12.82
 
   clock clk (rise edge)                                   7.40       7.40
-  clock network delay (propagated)                        5.64      13.04
-  clock uncertainty                                      -0.20      12.84
-  inst_fft/reg10/R8_reg_16_/CK (EDFFXL)                   0.00      12.84 r
-  library setup time                                     -0.36      12.48
-  data required time                                                12.48
+  clock network delay (propagated)                        5.73      13.13
+  clock reconvergence pessimism                           0.06      13.19
+  clock uncertainty                                      -0.20      12.99
+  inst_fft/p_s0/R12_reg_15_/CK (DFFHQXL)                  0.00      12.99 r
+  library setup time                                     -0.20      12.79
+  data required time                                                12.79
   --------------------------------------------------------------------------
-  data required time                                                12.48
-  data arrival time                                                -12.31
+  data required time                                                12.79
+  data arrival time                                                -12.82
   --------------------------------------------------------------------------
-  slack (MET)                                                        0.18
+  slack (VIOLATED)                                                  -0.04
 
 
 1

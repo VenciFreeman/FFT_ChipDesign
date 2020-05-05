@@ -81,13 +81,13 @@ Information: Resistance Unit from Milkyway design library: 'kohm'
 Information: Design Library and main library resistance units are matched - 1.000 kohm. 
 Information: Capacitance Unit from Milkyway design library: 'pf' 
 Information: Design Library and main library capacitance units are matched - 1.000 pf. 
-17800/18134 nets are routed
+17800/18124 nets are routed
 Warning: Inconsistent library data found for layer POLY1. (RCEX-018)
 Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
 Information: The RC model used is global route TLU+. (RCEX-015)
 Information: Start mixed mode parasitic extraction. (RCEX-023)
 Information: Start rc extraction...
-Memory usage for extraction task 118 Mbytes -- main task 475 Mbytes.
+Memory usage for extraction task 118 Mbytes -- main task 472 Mbytes.
 Warning: Net 'net_data_out[4]' is not fully connected and will be estimated. (RCEX-060)
 Warning: Net 'net_data_out[5]' is not fully connected and will be estimated. (RCEX-060)
 Warning: Net 'net_data_out[6]' is not fully connected and will be estimated. (RCEX-060)
@@ -162,6 +162,7 @@ Warning: Net 'inst_fft/n5' is not fully connected and will be estimated. (RCEX-0
 Warning: Net 'inst_fft/n3' is not fully connected and will be estimated. (RCEX-060)
 Warning: Net 'inst_fft/s_p_flag' is not fully connected and will be estimated. (RCEX-060)
 Warning: Net 'inst_fft/mux_flag' is not fully connected and will be estimated. (RCEX-060)
+Warning: Net 'inst_fft/n9' is not fully connected and will be estimated. (RCEX-060)
 Warning: Net 'inst_fft/n26' is not fully connected and will be estimated. (RCEX-060)
 Warning: Net 'inst_fft/n19' is not fully connected and will be estimated. (RCEX-060)
 Warning: Net 'inst_fft/n20' is not fully connected and will be estimated. (RCEX-060)
@@ -187,7 +188,6 @@ Warning: Net 'inst_fft/data_1[85]' is not fully connected and will be estimated.
 Warning: Net 'inst_fft/data_1[86]' is not fully connected and will be estimated. (RCEX-060)
 Warning: Net 'inst_fft/data_1[87]' is not fully connected and will be estimated. (RCEX-060)
 Warning: Net 'inst_fft/data_1[88]' is not fully connected and will be estimated. (RCEX-060)
-Warning: Net 'inst_fft/data_1[89]' is not fully connected and will be estimated. (RCEX-060)
 Warning: not to display message after 100.(RCEX-060)
 Warning: total 17795 open nets.(RCEX-060)
 Information: Parasitic source is LPE. (RCEX-040)
@@ -199,7 +199,7 @@ Information: Coupling capacitances are lumped to ground. (RCEX-044)
 Information: Start back annotation for parasitic extraction. (RCEX-023)
 Information: End back annotation for parasitic extraction. (RCEX-023)
 Information: Start timing update for parasitic extraction. (RCEX-023)
-Warning: Cannot reset clock timing frozen to FALSE since percentage of routed and extracted clock nets is 15.625000 and threshold expected is 92.031250. (TIM-223)
+Warning: Cannot reset clock timing frozen to FALSE since percentage of routed and extracted clock nets is 16.666666 and threshold expected is 91.833328. (TIM-223)
 Information: End timing update for parasitic extraction. (RCEX-023)
 Information: End parasitic extraction. (RCEX-023)
 Information: Start rc update...
@@ -232,7 +232,7 @@ Information: Saving clock skews and source latencies on layer  since clock timin
 Information: Updating design information... (UID-85)
 Information: Input delay ('rise') on clock port 'clk' will be added to the clock's propagated skew. (TIM-112)
 Information: Input delay ('fall') on clock port 'clk' will be added to the clock's propagated skew. (TIM-112)
-Warning: Clock network timing may not be up-to-date since only 15.625000 percentage of clock nets are routed. (TIM-233)
+Warning: Clock network timing may not be up-to-date since only 16.666666 percentage of clock nets are routed. (TIM-233)
  
 ****************************************
 Report : timing
@@ -241,7 +241,7 @@ Report : timing
         -max_paths 1
 Design : fft_chip
 Version: D-2010.03-ICC-SP5-2
-Date   : Fri Mar 22 01:50:42 2019
+Date   : Fri Mar 22 05:21:07 2019
 ****************************************
 
  * Some/all delay information is back-annotated.
@@ -252,7 +252,7 @@ Operating Conditions: slow   Library: slow
 	Extraction mode     : MIN_MAX
 	Extraction derating : 125/125/125
 
-Information: Percent of Arnoldi-based delays =  0.09%
+Information: Percent of Arnoldi-based delays =  0.08%
 
   Startpoint: data_in[1] (input port clocked by clk)
   Endpoint: inst_fft/s_p0/R3_reg_1_
@@ -263,26 +263,26 @@ Information: Percent of Arnoldi-based delays =  0.09%
   Point                                    Incr       Path
   -----------------------------------------------------------
   clock clk (rise edge)                    0.00       0.00
-  clock network delay (ideal)              5.72       5.72
-  input external delay                     3.70       9.42 f
-  data_in[1] (in)                          0.32       9.74 f
-  PIW_data_in1/C (PIW)                     1.02 *    10.77 f
-  inst_fft/data_in[1] (fft)                0.00      10.77 f
-  inst_fft/s_p0/data_in_1[1] (s_p)         0.00      10.77 f
-  inst_fft/s_p0/R3_reg_1_/D (EDFFX1)       0.15 *    10.91 f
-  data arrival time                                  10.91
+  clock network delay (ideal)              5.76       5.76
+  input external delay                     3.70       9.46 f
+  data_in[1] (in)                          0.32       9.78 f
+  PIW_data_in1/C (PIW)                     1.03 *    10.81 f
+  inst_fft/data_in[1] (fft)                0.00      10.81 f
+  inst_fft/s_p0/data_in_1[1] (s_p)         0.00      10.81 f
+  inst_fft/s_p0/R3_reg_1_/D (EDFFX1)       0.15 *    10.96 f
+  data arrival time                                  10.96
 
   clock clk (rise edge)                    7.40       7.40
-  clock network delay (propagated)         5.67      13.07
-  clock uncertainty                       -0.20      12.87
-  inst_fft/s_p0/R3_reg_1_/CK (EDFFX1)      0.00      12.87 r
-  library setup time                      -0.68      12.19
-  data required time                                 12.19
+  clock network delay (propagated)         5.70      13.10
+  clock uncertainty                       -0.20      12.90
+  inst_fft/s_p0/R3_reg_1_/CK (EDFFX1)      0.00      12.90 r
+  library setup time                      -0.68      12.22
+  data required time                                 12.22
   -----------------------------------------------------------
-  data required time                                 12.19
-  data arrival time                                 -10.91
+  data required time                                 12.22
+  data arrival time                                 -10.96
   -----------------------------------------------------------
-  slack (MET)                                         1.27
+  slack (MET)                                         1.26
 
 
   Startpoint: inst_fft/p_s0/data_out_3_reg_26_
@@ -295,30 +295,30 @@ Information: Percent of Arnoldi-based delays =  0.09%
   Point                                                   Incr       Path
   --------------------------------------------------------------------------
   clock clk (rise edge)                                   0.00       0.00
-  clock network delay (propagated)                        5.77       5.77
-  inst_fft/p_s0/data_out_3_reg_26_/CK (EDFFX2)            0.00       5.77 r
-  inst_fft/p_s0/data_out_3_reg_26_/Q (EDFFX2)             0.86       6.63 r
-  inst_fft/p_s0/data_out_3[26] (p_s)                      0.00       6.63 r
-  inst_fft/data_out[26] (fft)                             0.00       6.63 r
-  PO8W_data_out26/PAD (PO8W)                              1.78 *     8.40 r
-  data_out[26] (out)                                      0.00 *     8.40 r
-  data arrival time                                                  8.40
+  clock network delay (propagated)                        5.81       5.81
+  inst_fft/p_s0/data_out_3_reg_26_/CK (EDFFX2)            0.00       5.81 r
+  inst_fft/p_s0/data_out_3_reg_26_/Q (EDFFX2)             0.86       6.66 r
+  inst_fft/p_s0/data_out_3[26] (p_s)                      0.00       6.66 r
+  inst_fft/data_out[26] (fft)                             0.00       6.66 r
+  PO8W_data_out26/PAD (PO8W)                              1.77 *     8.44 r
+  data_out[26] (out)                                      0.00 *     8.44 r
+  data arrival time                                                  8.44
 
   clock clk (rise edge)                                   7.40       7.40
-  clock network delay (ideal)                             5.72      13.12
-  clock uncertainty                                      -0.20      12.92
-  output external delay                                  -3.70       9.22
-  data required time                                                 9.22
+  clock network delay (ideal)                             5.76      13.16
+  clock uncertainty                                      -0.20      12.96
+  output external delay                                  -3.70       9.26
+  data required time                                                 9.26
   --------------------------------------------------------------------------
-  data required time                                                 9.22
-  data arrival time                                                 -8.40
+  data required time                                                 9.26
+  data arrival time                                                 -8.44
   --------------------------------------------------------------------------
   slack (MET)                                                        0.82
 
 
-  Startpoint: inst_fft/ctrl0/rotation_reg_1_
+  Startpoint: inst_fft/ctrl0/mux_flag_reg
               (rising edge-triggered flip-flop clocked by clk)
-  Endpoint: inst_fft/p_s0/R6_reg_31_
+  Endpoint: inst_fft/p_s0/R0_reg_16_
             (rising edge-triggered flip-flop clocked by clk)
   Path Group: clk
   Path Type: max
@@ -326,95 +326,93 @@ Information: Percent of Arnoldi-based delays =  0.09%
   Point                                                   Incr       Path
   --------------------------------------------------------------------------
   clock clk (rise edge)                                   0.00       0.00
-  clock network delay (propagated)                        5.77       5.77
-  inst_fft/ctrl0/rotation_reg_1_/CK (DFFRHQX4)            0.00       5.77 r
-  inst_fft/ctrl0/rotation_reg_1_/Q (DFFRHQX4)             0.29       6.06 f
-  inst_fft/ctrl0/U4/Y (BUFX12)                            0.14 *     6.20 f
-  inst_fft/ctrl0/rotation[1] (ctrl)                       0.00       6.20 f
-  inst_fft/butterfly0/rotation[1] (butterfly)             0.00       6.20 f
-  inst_fft/butterfly0/U104/Y (OAI21X2)                    0.21 *     6.41 r
-  inst_fft/butterfly0/U114/Y (CLKBUFX12)                  0.19 *     6.60 r
-  inst_fft/butterfly0/U111/Y (CLKBUFX20)                  0.13 *     6.73 r
-  inst_fft/butterfly0/U110/Y (CLKINVX20)                  0.38 *     7.11 f
-  inst_fft/butterfly0/multiBRI/in_8bit[7] (multi16_10)
-                                                          0.00       7.11 f
-  inst_fft/butterfly0/multiBRI/U24/Y (AOI2BB2X2)          0.32 *     7.44 f
-  inst_fft/butterfly0/multiBRI/U306/Y (OAI21X2)           0.17 *     7.61 r
-  inst_fft/butterfly0/multiBRI/U307/Y (AOI21X2)           0.09 *     7.70 f
-  inst_fft/butterfly0/multiBRI/out[3] (multi16_10)        0.00       7.70 f
-  inst_fft/butterfly0/add_276/A[3] (butterfly_DW01_add_184)
-                                                          0.00       7.70 f
-  inst_fft/butterfly0/add_276/U231/Y (OR2X4)              0.27 *     7.97 f
-  inst_fft/butterfly0/add_276/U117/Y (AND2X4)             0.23 *     8.20 f
-  inst_fft/butterfly0/add_276/U227/Y (NAND2X4)            0.11 *     8.30 r
-  inst_fft/butterfly0/add_276/U35/Y (NAND3X4)             0.10 *     8.41 f
-  inst_fft/butterfly0/add_276/U204/Y (NAND3BX4)           0.13 *     8.53 r
-  inst_fft/butterfly0/add_276/U66/Y (NAND4BX2)            0.14 *     8.67 f
-  inst_fft/butterfly0/add_276/U226/Y (OAI2BB1X4)          0.18 *     8.85 f
-  inst_fft/butterfly0/add_276/U224/Y (XOR2X1)             0.38 *     9.23 r
-  inst_fft/butterfly0/add_276/U1/Y (BUFX8)                0.17 *     9.40 r
-  inst_fft/butterfly0/add_276/U172/Y (BUFX20)             0.20 *     9.60 r
-  inst_fft/butterfly0/add_276/SUM[10] (butterfly_DW01_add_184)
-                                                          0.00       9.60 r
-  inst_fft/butterfly0/add_2_root_sub_0_root_sub_300_2/B[10] (butterfly_DW01_add_151)
-                                                          0.00       9.60 r
-  inst_fft/butterfly0/add_2_root_sub_0_root_sub_300_2/U142/Y (NAND2X4)
-                                                          0.16 *     9.76 f
-  inst_fft/butterfly0/add_2_root_sub_0_root_sub_300_2/U175/Y (NAND2BX4)
-                                                          0.15 *     9.91 f
-  inst_fft/butterfly0/add_2_root_sub_0_root_sub_300_2/U27/Y (AND2X4)
-                                                          0.16 *    10.08 f
-  inst_fft/butterfly0/add_2_root_sub_0_root_sub_300_2/U159/Y (NAND2X4)
-                                                          0.09 *    10.17 r
-  inst_fft/butterfly0/add_2_root_sub_0_root_sub_300_2/U186/Y (AOI21X4)
-                                                          0.07 *    10.24 f
-  inst_fft/butterfly0/add_2_root_sub_0_root_sub_300_2/U221/Y (NAND2X4)
-                                                          0.14 *    10.38 r
-  inst_fft/butterfly0/add_2_root_sub_0_root_sub_300_2/U108/Y (XNOR2X4)
-                                                          0.20 *    10.58 f
-  inst_fft/butterfly0/add_2_root_sub_0_root_sub_300_2/U28/Y (BUFX12)
-                                                          0.12 *    10.71 f
-  inst_fft/butterfly0/add_2_root_sub_0_root_sub_300_2/SUM[12] (butterfly_DW01_add_151)
-                                                          0.00      10.71 f
-  inst_fft/butterfly0/sub_0_root_sub_0_root_sub_300_2/A[12] (butterfly_DW01_sub_76)
-                                                          0.00      10.71 f
-  inst_fft/butterfly0/sub_0_root_sub_0_root_sub_300_2/U100/Y (BUFX8)
-                                                          0.12 *    10.83 f
-  inst_fft/butterfly0/sub_0_root_sub_0_root_sub_300_2/U181/Y (NAND2BX4)
-                                                          0.10 *    10.92 r
-  inst_fft/butterfly0/sub_0_root_sub_0_root_sub_300_2/U80/Y (INVX8)
-                                                          0.05 *    10.97 f
-  inst_fft/butterfly0/sub_0_root_sub_0_root_sub_300_2/U65/Y (CLKBUFX8)
-                                                          0.13 *    11.10 f
-  inst_fft/butterfly0/sub_0_root_sub_0_root_sub_300_2/U135/Y (AOI21X2)
-                                                          0.15 *    11.25 r
-  inst_fft/butterfly0/sub_0_root_sub_0_root_sub_300_2/U178/Y (OAI2BB1X4)
-                                                          0.12 *    11.37 f
-  inst_fft/butterfly0/sub_0_root_sub_0_root_sub_300_2/U70/Y (NAND2X2)
-                                                          0.12 *    11.49 r
-  inst_fft/butterfly0/sub_0_root_sub_0_root_sub_300_2/U105/Y (NAND2X4)
-                                                          0.07 *    11.56 f
-  inst_fft/butterfly0/sub_0_root_sub_0_root_sub_300_2/U89/Y (XNOR2X4)
-                                                          0.20 *    11.76 f
-  inst_fft/butterfly0/sub_0_root_sub_0_root_sub_300_2/DIFF[14] (butterfly_DW01_sub_76)
-                                                          0.00      11.76 f
-  inst_fft/butterfly0/calc_out[65] (butterfly)            0.00      11.76 f
-  inst_fft/U19/Y (BUFX20)                                 0.17 *    11.92 f
-  inst_fft/p_s0/data_in_3[65] (p_s)                       0.00      11.92 f
-  inst_fft/p_s0/R6_reg_31_/D (EDFFXL)                     0.04 *    11.96 f
-  data arrival time                                                 11.96
+  clock network delay (propagated)                        5.80       5.80
+  inst_fft/ctrl0/mux_flag_reg/CK (DFFRHQX4)               0.00       5.80 r
+  inst_fft/ctrl0/mux_flag_reg/Q (DFFRHQX4)                0.38       6.18 r
+  inst_fft/ctrl0/U1/Y (BUFX16)                            0.13 *     6.31 r
+  inst_fft/ctrl0/mux_flag (ctrl)                          0.00       6.31 r
+  inst_fft/mux0/mux_flag (mux)                            0.00       6.31 r
+  inst_fft/mux0/U26/Y (BUFX20)                            0.13 *     6.44 r
+  inst_fft/mux0/U51/Y (OR2XL)                             0.19 *     6.64 r
+  inst_fft/mux0/U31/Y (CLKINVX2)                          0.11 *     6.75 f
+  inst_fft/mux0/U32/Y (INVX4)                             0.06 *     6.81 r
+  inst_fft/mux0/U61/Y (OR2X4)                             0.15 *     6.96 r
+  inst_fft/mux0/U60/Y (NAND3X4)                           0.25 *     7.20 f
+  inst_fft/mux0/data_out[135] (mux)                       0.00       7.20 f
+  inst_fft/butterfly0/calc_in[135] (butterfly)            0.00       7.20 f
+  inst_fft/butterfly0/U8/Y (CLKBUFX20)                    0.33 *     7.53 f
+  inst_fft/butterfly0/multiDRI/in_17bit[16]_hfs_netlink_24 (multi16_2)
+                                                          0.00       7.53 f
+  inst_fft/butterfly0/multiDRI/U34/Y (NOR2BX4)            0.27 *     7.80 f
+  inst_fft/butterfly0/multiDRI/U33/Y (NOR3X4)             0.14 *     7.94 r
+  inst_fft/butterfly0/multiDRI/U26/Y (BUFX12)             0.14 *     8.08 r
+  inst_fft/butterfly0/multiDRI/out[3] (multi16_2)         0.00       8.08 r
+  inst_fft/butterfly0/add_282/A[3] (butterfly_DW01_add_116)
+                                                          0.00       8.08 r
+  inst_fft/butterfly0/add_282/U98/Y (NOR2X4)              0.06 *     8.14 f
+  inst_fft/butterfly0/add_282/U82/Y (INVX8)               0.10 *     8.24 r
+  inst_fft/butterfly0/add_282/U68/Y (AND2X4)              0.16 *     8.41 r
+  inst_fft/butterfly0/add_282/U76/Y (NAND2BX4)            0.06 *     8.47 f
+  inst_fft/butterfly0/add_282/U17/Y (AND2X4)              0.17 *     8.63 f
+  inst_fft/butterfly0/add_282/U122/Y (NAND2X4)            0.08 *     8.71 r
+  inst_fft/butterfly0/add_282/U144/Y (AOI21X4)            0.09 *     8.80 f
+  inst_fft/butterfly0/add_282/U207/Y (OAI21X4)            0.14 *     8.95 r
+  inst_fft/butterfly0/add_282/U120/Y (XOR2X4)             0.23 *     9.18 f
+  inst_fft/butterfly0/add_282/U124/Y (BUFX20)             0.18 *     9.36 f
+  inst_fft/butterfly0/add_282/SUM[7] (butterfly_DW01_add_116)
+                                                          0.00       9.36 f
+  inst_fft/butterfly0/add_1_root_add_0_root_add_293_3/B[7] (butterfly_DW01_add_185)
+                                                          0.00       9.36 f
+  inst_fft/butterfly0/add_1_root_add_0_root_add_293_3/U82/Y (OR2X2)
+                                                          0.27 *     9.63 f
+  inst_fft/butterfly0/add_1_root_add_0_root_add_293_3/U79/Y (BUFX8)
+                                                          0.15 *     9.78 f
+  inst_fft/butterfly0/add_1_root_add_0_root_add_293_3/U35/Y (NAND2X1)
+                                                          0.24 *    10.03 r
+  inst_fft/butterfly0/add_1_root_add_0_root_add_293_3/U51/Y (XNOR2X4)
+                                                          0.26 *    10.28 f
+  inst_fft/butterfly0/add_1_root_add_0_root_add_293_3/SUM[7] (butterfly_DW01_add_185)
+                                                          0.00      10.28 f
+  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/B[7] (butterfly_DW01_add_50)
+                                                          0.00      10.28 f
+  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U200/Y (OR2X4)
+                                                          0.25 *    10.54 f
+  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U92/Y (BUFX20)
+                                                          0.15 *    10.69 f
+  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U106/Y (NAND3X1)
+                                                          0.19 *    10.88 r
+  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U61/Y (NAND3BX4)
+                                                          0.14 *    11.02 f
+  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U127/Y (OAI21X4)
+                                                          0.16 *    11.17 r
+  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U44/Y (NAND3X4)
+                                                          0.11 *    11.28 f
+  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U141/Y (NAND2X4)
+                                                          0.11 *    11.39 r
+  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U140/Y (NAND2X4)
+                                                          0.07 *    11.46 f
+  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U70/Y (XOR2X4)
+                                                          0.25 *    11.71 r
+  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/U109/Y (INVX8)
+                                                          0.15 *    11.86 f
+  inst_fft/butterfly0/add_0_root_add_0_root_add_293_3/SUM[16] (butterfly_DW01_add_50)
+                                                          0.00      11.86 f
+  inst_fft/butterfly0/calc_out[16] (butterfly)            0.00      11.86 f
+  inst_fft/p_s0/data_in_3[16] (p_s)                       0.00      11.86 f
+  inst_fft/p_s0/R0_reg_16_/D (EDFFXL)                     0.04 *    11.91 f
+  data arrival time                                                 11.91
 
   clock clk (rise edge)                                   7.40       7.40
-  clock network delay (propagated)                        5.67      13.07
-  clock uncertainty                                      -0.20      12.87
-  inst_fft/p_s0/R6_reg_31_/CK (EDFFXL)                    0.00      12.87 r
-  library setup time                                     -0.35      12.52
-  data required time                                                12.52
+  clock network delay (propagated)                        5.70      13.10
+  clock uncertainty                                      -0.20      12.90
+  inst_fft/p_s0/R0_reg_16_/CK (EDFFXL)                    0.00      12.90 r
+  library setup time                                     -0.37      12.53
+  data required time                                                12.53
   --------------------------------------------------------------------------
-  data required time                                                12.52
-  data arrival time                                                -11.96
+  data required time                                                12.53
+  data arrival time                                                -11.91
   --------------------------------------------------------------------------
-  slack (MET)                                                        0.56
+  slack (MET)                                                        0.62
 
 
 1
