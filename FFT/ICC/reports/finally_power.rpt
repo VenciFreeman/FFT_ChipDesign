@@ -1,0 +1,39 @@
+Warning: The following library cells don't have power description:PCORNERW   (PWR-682)
+Warning: The following physical-only library cells don't have power description that matches design's operation condition:PVSS1W  PVDD1W  PVSS2W  PVDD2W   (PWR-681)
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : fft_chip
+Version: D-2010.03-ICC-SP5-2
+Date   : Fri Mar 22 07:03:38 2019
+****************************************
+
+
+Library(s) Used:
+
+    SP018W_V1p5_max (File: /home/student/Desktop/Workspace/SMIC18/db/SP018W_V1p5_max.db)
+    slow (File: /home/student/Desktop/Workspace/SMIC18/db/slow.db)
+
+
+Operating Conditions: slow   Library: slow
+Wire Load Model Mode: top
+
+
+Global Operating Voltage = 1.62 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+  Cell Internal Power  =  33.6445 mW   (73%)
+  Net Switching Power  =  12.7067 mW   (27%)
+                         ---------
+Total Dynamic Power    =  46.3512 mW  (100%)
+
+Cell Leakage Power     =  26.0446 uW
+
+1
