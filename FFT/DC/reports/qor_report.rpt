@@ -1,0 +1,62 @@
+ 
+****************************************
+Report : qor
+Design : fft_chip
+Version: D-2010.03-SP5-3
+Date   : Fri Mar 22 08:38:24 2019
+****************************************
+
+
+  Timing Path Group 'clk'
+  -----------------------------------
+  Levels of Logic:              31.00
+  Critical Path Length:          6.67
+  Critical Path Slack:           0.00
+  Critical Path Clk Period:      7.40
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:         85
+  Hierarchical Port Count:       5373
+  Leaf Cell Count:              16473
+  Buf/Inv Cell Count:            2815
+  CT Buf/Inv Cell Count:            0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:  1483546.414358
+  Noncombinational Area:
+                        153599.850292
+  Net Area:            2089790.568665
+  -----------------------------------
+  Cell Area:           1637146.264650
+  Design Area:         3726936.833315
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:         18307
+  Nets With Violations:             0
+  -----------------------------------
+
+
+  Hostname: Student
+
+  Compile CPU Statistics
+  -----------------------------------
+  Resource Sharing:              9.05
+  Logic Optimization:           95.97
+  Mapping Optimization:        268.60
+  -----------------------------------
+  Overall Compile Time:        379.66
+
+1

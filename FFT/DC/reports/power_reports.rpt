@@ -1,0 +1,41 @@
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : fft_chip
+Version: D-2010.03-SP5-3
+Date   : Fri Mar 22 08:38:07 2019
+****************************************
+
+
+Library(s) Used:
+
+    slow (File: /home/student/Desktop/Workspace/SMIC18/db/slow.db)
+    SP018W_V1p5_max (File: /home/student/Desktop/Workspace/SMIC18/db/SP018W_V1p5_max.db)
+
+
+Operating Conditions: slow   Library: slow
+Wire Load Model Mode: segmented
+
+Design        Wire Load Model            Library
+------------------------------------------------
+fft_chip               smic18_wl10       slow
+
+
+Global Operating Voltage = 1.62 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+  Cell Internal Power  = 756.0848 mW   (67%)
+  Net Switching Power  = 375.6310 mW   (33%)
+                         ---------
+Total Dynamic Power    =   1.1317  W  (100%)
+
+Cell Leakage Power     =  28.5281 uW
+
+1
