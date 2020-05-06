@@ -19,7 +19,7 @@
 // - Version 1.3 20/04/14: Add statements;
 // - Version 1.4 20/04/16: Fix some errors;
 // - Version 1.5 20/04/21: Update connection, fix some errors;
-// - Version 1/6 20/04/21: Delete wire data_5.
+// - Version 1.6 20/04/21: Delete wire data_5.
 //
 // Notes:
 // - Many modules still have not specific signal names.
