@@ -1,41 +1,79 @@
  
 ****************************************
-Report : power
-        -analysis_effort low
+Report : design
 Design : fft_chip
 Version: D-2010.03-SP5-3
-Date   : Fri Mar 22 08:37:34 2019
+Date   : Fri Mar 22 09:02:48 2019
 ****************************************
 
+Design allows ideal nets on clock nets.
 
 Library(s) Used:
 
     slow (File: /home/student/Desktop/Workspace/SMIC18/db/slow.db)
     SP018W_V1p5_max (File: /home/student/Desktop/Workspace/SMIC18/db/SP018W_V1p5_max.db)
 
+Local Link Library:
 
-Operating Conditions: slow   Library: slow
-Wire Load Model Mode: segmented
+    {slow.db}
 
-Design        Wire Load Model            Library
-------------------------------------------------
-fft_chip               smic18_wl10       slow
+Flip-Flop Types:
 
+    No flip-flop types specified.
 
-Global Operating Voltage = 1.62 
-Power-specific unit information :
-    Voltage Units = 1V
-    Capacitance Units = 1.000000pf
-    Time Units = 1ns
-    Dynamic Power Units = 1mW    (derived from V,C,T units)
-    Leakage Power Units = 1pW
+Latch Types:
+
+    No latch types specified.
+
+Operating Conditions:
 
 
-  Cell Internal Power  = 756.0848 mW   (67%)
-  Net Switching Power  = 375.6310 mW   (33%)
-                         ---------
-Total Dynamic Power    =   1.1317  W  (100%)
+    Operating Condition Name : slow
+    Library : slow
+    Process :   1.00
+    Temperature : 125.00
+    Voltage :   1.62
+    Interconnect Model : balanced_tree
 
-Cell Leakage Power     =  28.5281 uW
+Wire Loading Model:
 
+    Selected manually by the user.
+
+Name           :   smic18_wl10
+Location       :   slow
+Resistance     :   8.5e-08
+Capacitance    :   0.00015
+Area           :   0.7
+Slope          :   66.667
+Fanout   Length   Points Average Cap Std Deviation
+--------------------------------------------------------------
+     1    66.67
+
+
+
+Wire Loading Model Mode: segmented.
+
+Timing Ranges:
+
+    No timing ranges specified.
+
+Pin Input Delays:
+
+    None specified.
+
+Pin Output Delays:
+
+    None specified.
+
+Disabled Timing Arcs:
+
+    No arcs disabled.
+
+Required Licenses:
+
+    None Required
+
+Design Parameters:
+
+    None specified.
 1
