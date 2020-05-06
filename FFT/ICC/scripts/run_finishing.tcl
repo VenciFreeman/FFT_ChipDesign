@@ -23,44 +23,21 @@ widen_zrt_wires
 report_critical_area -fault_type open
 sh mv output_heatmap ../reports/cca.open.after.rpt
 
+report_design -physical
+redirect -tee ../reports/finally_design.rpt { report_design -physical }
+
+report_qor
+redirect -tee ../reports/finally_qor.rpt { report_qor }
+
+report_power
+redirect -tee ../reports/finally_power.rpt { report_power }
+
+
 verify_zrt_route
 #verify_lvs
 #rc
 
 save_mw_cel -as 6_1_chip_finish_critical_area
-
-##############################################
-# FIXING ANTENNA RULE VIOLATIONS WITH DIODES  #
-##############################################
-
-#source -echo scripts/cb13_6m_antenna.tcl
-
-#report_antenna_rules	
-#verify_zrt_route
-
-#set_route_zrt_detail_options -insert_diodes_during_routing true
-#route_zrt_detail -incremental true
-
-#verify_lvs
-
-#derive_pg_connection -power_net VDD -power_pin VDD -ground_net VSS -ground_pin VSS 
-#derive_pg_connection -power_net VDD -ground_net VSS -tie
-
-#verify_zrt_route
-#verify_lvs
-#rc
-
-#If there were any timing or logical DRC violations use below commands
-#route_opt incremental
-#derive_pg_connection -power_net VDD -power_pin VDD \
-#                     -ground_net VSS -ground_pin VSS
-#derive_pg_connection -power_net VDD \
-#                     -ground_net VSS -tie
-#verify_zrt_route
-#verify_lvs
-#rc 
-
-#save_mw_cel -as chip_finish_antenna
 
 ########################################
 # INSERT STANDARD CELL FILLERS         #

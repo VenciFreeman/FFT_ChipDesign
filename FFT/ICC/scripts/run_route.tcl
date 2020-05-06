@@ -28,7 +28,7 @@ report_clock_timing -type skew
 report_qor
 report_constraint -all
 
-route_opt -skip_initial_route  -power
+route_opt -skip_initial_route -power
 redirect -tee ../reports/route_power.timing { report_timing }
 source derive_pg.tcl
 verify_zrt_route
