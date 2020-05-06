@@ -31,7 +31,7 @@ report_disable_timing
 report_case_analysis
 report_clock
 report_clock -skew
-redirect -tee ../reports/data_setup.timing { report_timing }
+redirect -tee ../reports/data_setup.rpt { report_timing }
 
 source opt_ctrl.tcl
 source zic_timing.tcl

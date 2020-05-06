@@ -24,13 +24,13 @@ report_critical_area -fault_type open
 sh mv output_heatmap ../reports/cca.open.after.rpt
 
 report_design -physical
-redirect -tee ../reports/finally_design.rpt { report_design -physical }
+redirect -tee ../reports/final_design.rpt { report_design -physical }
 
 report_qor
-redirect -tee ../reports/finally_qor.rpt { report_qor }
+redirect -tee ../reports/final_qor.rpt { report_qor }
 
 report_power
-redirect -tee ../reports/finally_power.rpt { report_power }
+redirect -tee ../reports/final_power.rpt { report_power }
 
 
 verify_zrt_route
@@ -78,7 +78,7 @@ save_mw_cel -as 6_2_chip_finish_final
 set_write_stream_options -child_depth 200
 write_stream -cells 6_2_chip_finish_final ../outputs/fft_chip.gdsii
 write_verilog -no_corner_pad_cells ../outputs/fft_chip.v
-#close_mw_cel
-#close_mw_lib
+close_mw_cel
+close_mw_lib
 
-#exit
+exit

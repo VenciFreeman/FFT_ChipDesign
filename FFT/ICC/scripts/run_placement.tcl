@@ -7,7 +7,7 @@ check_physical_constraints
 save_mw_cel -as 3_1_place_setup
 
 place_opt
-redirect -tee ../reports/placement.timing { report_timing }
+redirect -tee ../reports/placement.rpt { report_timing }
 report_design -physical
 report_qor
 report_power

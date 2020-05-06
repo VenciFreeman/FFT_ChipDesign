@@ -22,7 +22,7 @@ create_fp_placement -timing_driven -no_hierarchy_gravity
 route_zrt_global
 
 #Perform timing analysis
-redirect -tee ../reports/floorplan.timing { report_timing }
+redirect -tee ../reports/floorplan.rpt { report_timing }
 save_mw_cel -as 2_3_floorplan_complete
 
 remove_placement -object_type standard_cell

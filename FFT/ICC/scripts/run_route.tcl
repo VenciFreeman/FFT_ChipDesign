@@ -22,14 +22,14 @@ report_route_zrt_track_options
 report_route_zrt_detail_options
 
 route_opt -initial_route_only
-redirect -tee ../reports/route_initial.timing { report_timing }
+redirect -tee ../reports/route_initial.rpt { report_timing }
 report_clock_tree -summary
 report_clock_timing -type skew
 report_qor
 report_constraint -all
 
 route_opt -skip_initial_route -power
-redirect -tee ../reports/route_power.timing { report_timing }
+redirect -tee ../reports/route_power.rpt { report_timing }
 source derive_pg.tcl
 verify_zrt_route
 #verify_lvs
