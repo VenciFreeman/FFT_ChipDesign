@@ -33,7 +33,7 @@ report_area > ../reports/area_report.rpt
 report_timing > ../reports/timing_report.rpt
 report_power > ../reports/power_report.rpt
 report_qor > ../reports/qor_report.rpt
-report_design -physical > ../reports/design_physical_report.rpt
+report_design > ../reports/design_physical_report.rpt
 
 ###Saving Designs after Compile###
 change_names -rule verilog -hier
