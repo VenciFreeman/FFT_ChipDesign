@@ -7,10 +7,11 @@
 //
 // Type: Sequential
 //
-// Purpose: Top moudule.
+// Purpose: Top moudule. Connect the modules according to the hardware
+// structure diagram.
 // 
 //
-// Details:
+// Details: Ports of all wires are marked by comments.
 //
 // Release History:
 // - Version 1.0 20/03/24: Create;

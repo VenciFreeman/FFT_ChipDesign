@@ -9,7 +9,6 @@
 //
 // Purpose: <Specific Function Description>
 // 
-//
 // Details: Convert parallel output to series output.
 //
 //
@@ -17,7 +16,8 @@
 // - Version 1.0 20/03/27: Create;
 // - Version 1.1 20/02/20: Modify;
 // - Version 1.2 20/04/21: Edit format by @VenciFreeman;
-// - Version 1.3 20/04/21: Delete next_1 and next_2.
+// - Version 1.3 20/04/21: Delete next_1 and next_2 by @VenciFreeman;
+// - Version 1.4 20/05/07: Optimize。
 //
 // Notes:
 //
@@ -120,24 +120,24 @@ module p_s(
   always @ ( posedge clk ) begin
     if ( p_s_flag_out ) begin
       case( counter_2 )
-        4'b0000: data_out_3 <= R7;
-        4'b0001: data_out_3 <= R11;
+        4'b0000: data_out_3 <= R13;
+        4'b0001: data_out_3 <= R14;
         4'b0010: data_out_3 <= R15;
         4'b0011: data_out_3 <= R0;
-        4'b0100: data_out_3 <= R4;
-        4'b0101: data_out_3 <= R8;
-        4'b0110: data_out_3 <= R12;
-        4'b0111: data_out_3 <= R1;
+        4'b0100: data_out_3 <= R1;
+        4'b0101: data_out_3 <= R2;
+        4'b0110: data_out_3 <= R3;
+        4'b0111: data_out_3 <= R4;
         4'b1000: data_out_3 <= R5;
-        4'b1001: data_out_3 <= R9;
-        4'b1010: data_out_3 <= R13;
-        4'b1011: data_out_3 <= R2;
-        4'b1100: data_out_3 <= R6;
+        4'b1001: data_out_3 <= R6;
+        4'b1010: data_out_3 <= R7;
+        4'b1011: data_out_3 <= R8;
+        4'b1100: data_out_3 <= R9;
         4'b1101: data_out_3 <= R10;
-        4'b1110: data_out_3 <= R14;
-        4'b1111: data_out_3 <= R3;
+        4'b1110: data_out_3 <= R11;
+        4'b1111: data_out_3 <= R12;
       endcase
     end
   end
-  
+   
 endmodule

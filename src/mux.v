@@ -12,7 +12,8 @@
 // Details: 
 //
 // Release History:
-// - Version 1.0 20/04/14: Create.
+// - Version 1.0 20/04/14: Create；
+// - Version 1.1 20/04/30: Fix error by @luotian12345.
 //
 // Notes:
 //
@@ -35,6 +36,7 @@ module mux(
   reg [33:0] R3;
   reg [33:0] R4;
 
+// This always part controls signal data_out. 
   always @ ( mux_flag or data_in_1 or data_in_2) begin
     if(counter == 2)
       data_out <= {R4,R3,R2,R1};
@@ -44,35 +46,40 @@ module mux(
       data_out <= data_in_2;
   end
 
+// This always part controls signal counter. 
   always @(posedge clk or negedge rst_n)begin
     if(!rst_n)
-      counter <= 0;
+    counter <= 0;
    else  
-      counter <= counter + 1;
+    counter <= counter + 1;
   end
 
+  // This always part controls signal R1. 
   always @ ( mux_flag or data_in_1 or data_in_2) 
-      if(counter == 14)
-        R1 <= data_in_3[33:0];
+    if(counter == 14)
+      R1 <= data_in_3[33:0];
     else
-        R1 <= R1;
+      R1 <= R1;
 
-   always @ ( mux_flag or data_in_1 or data_in_2) 
-      if(counter == 15)
-        R2 <= data_in_3[33:0];
+  // This always part controls signal R2. 
+  always @ ( mux_flag or data_in_1 or data_in_2) 
+    if(counter == 15)
+      R2 <= data_in_3[33:0];
     else
-        R2 <= R2;
+      R2 <= R2;
 
-   always @ ( mux_flag or data_in_1 or data_in_2) 
-      if(counter == 0)
-        R3 <= data_in_3[33:0];
+  // This always part controls signal R3. 
+  always @ ( mux_flag or data_in_1 or data_in_2) 
+    if(counter == 0)
+      R3 <= data_in_3[33:0];
     else
-        R3 <= R3;
+      R3 <= R3;
 
-   always @ ( mux_flag or data_in_1 or data_in_2) 
-      if(counter == 1)
-        R4 <= data_in_3[33:0];
+  // This always part controls signal R4. 
+  always @ ( mux_flag or data_in_1 or data_in_2) 
+    if(counter == 1)
+      R4 <= data_in_3[33:0];
     else
-        R4 <= R4;
+      R4 <= R4;
 
 endmodule
