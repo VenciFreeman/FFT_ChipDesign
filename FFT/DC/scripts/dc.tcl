@@ -28,12 +28,12 @@ remove_unconnected_ports -blast_buses [find -hierarchy cell "*"]
 
 ###YBR ADD -blast_buses###
 #Report
-report_constraint -all_violators > ../reports/violators_report.rpt
+report_constraint -all_violators > ../reports/violation_report.rpt
 report_area > ../reports/area_report.rpt
 report_timing > ../reports/timing_report.rpt
 report_power > ../reports/power_report.rpt
 report_qor > ../reports/qor_report.rpt
-report_design > ../reports/design_physical_report.rpt
+report_design > ../reports/design_report.rpt
 
 ###Saving Designs after Compile###
 change_names -rule verilog -hier
