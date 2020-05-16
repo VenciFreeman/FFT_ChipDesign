@@ -28,7 +28,7 @@
 |                  Operation voltage                   |                1.62 V                 |
 |                      Total area                      |        4.695300 mm<sup>2</sup>        |
 |      Power consumption per calculate operation       |     5.25118208×10<sup>-6</sup> mJ     |
-| FT operands per unit area and unit power consumption | 41987.688 times/(mm<sup>2</sup>·mW·s) |
+| FFT operands per unit area and unit power consumption | 41987.688 times/(mm<sup>2</sup>·mW·s) |
 |                      Bandwidth                       |              510.51 MB/s              |
 |                 Parallel throughput                  |       4.5946×10<sup>9</sup> bps       |
 
