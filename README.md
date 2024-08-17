@@ -1,5 +1,5 @@
 # FFT_ChipDesign
-> A 16-point radix-4 FFT chip, including Verilog codes, netlists and layout. Group project.
+> A 16-point radix-4 FFT chip, including Verilog codes, netlists, and layout. Group project.
 
  <img src="https://img.shields.io/badge/Language-Verilog_HDL-red.svg" alt="Generic badge"  /><img src="https://img.shields.io/badge/Status-Achieved-yellow.svg" alt="Generic badge"  /><img src="https://img.shields.io/badge/Deadline-May_10_2020-green.svg" alt="Generic badge"/><img src="https://img.shields.io/badge/Schedule-Finished!-blue.svg" alt="Generic badge"/>
 
@@ -12,35 +12,35 @@
   - Bit 16 is the sign bit;
   - Bit 8-15 are decimal bits;
   - Bit 0-7 are integer bits.
-- Both the real and imaginary parts of rotation factors are 8 **bits**;
+- Both the real and imaginary parts of the rotation factors are 8 **bits**;
   - Bit 8 is the sign bit;
   - Bit 0-7 are decimal bits;
   - No integer bits, the default is 0.
-- Make sure that the FFT function is correct.
+- Ensure that the FFT function is correct.
 
 ### Evaluation index
 
-|                   Evaluation Index                   |                 Value                 |
-| :--------------------------------------------------: | :-----------------------------------: |
-|                       Process                        |             SMIC 0.18 μm              |
-|                    Number of Pins                    |                  90                   |
-|                 Operation frequency                  |              135.135 MHz              |
-|                  Operation voltage                   |                1.62 V                 |
-|                      Total area                      |        4.695300 mm<sup>2</sup>        |
-|      Power consumption per calculate operation       |     5.25118208×10<sup>-6</sup> mJ     |
+|                   Evaluation Index                   |                 Value                  |
+| :--------------------------------------------------: | :------------------------------------: |
+|                       Process                        |             SMIC 0.18 μm               |
+|                    Number of Pins                    |                  90                    |
+|                 Operation frequency                  |              135.135 MHz               |
+|                  Operation voltage                   |                1.62 V                  |
+|                      Total area                      |        4.695300 mm<sup>2</sup>         |
+|      Power consumption per calculate operation       |     5.25118208×10<sup>-6</sup> mJ      |
 | FFT operands per unit area and unit power consumption | 41987.688 times/(mm<sup>2</sup>·mW·s) |
-|                      Bandwidth                       |              510.51 MB/s              |
-|                 Parallel throughput                  |       4.5946×10<sup>9</sup> bps       |
+|                      Bandwidth                       |              510.51 MB/s               |
+|                 Parallel throughput                  |       4.5946×10<sup>9</sup> bps        |
 
-| File Name |     Type      |                    Functional description                    |
-| :-------: | :-----------: | :----------------------------------------------------------: |
-|   ctrl    |  Sequential   |           Control the data flow of the entire chip           |
-|    s_p    |  Sequential   | Integrate serial input data into parallel and change the order |
-|    mux    |  Sequential   |        Select the data entering the arithmetic module        |
-|   reg1    |  Sequential   |   Store and forward operation data between two FFT stages    |
-| butterfly | Combinational |             Perform 4-input butterfly operation              |
-|  multi16  | Combinational | Calculate the multiplication between the data and the rotation factor |
-|    p_s    |  Sequential   | Integrate parallel output data into serial and change the order |
+| File Name |     Type      |                       Functional description                           |
+| :-------: | :-----------: | :--------------------------------------------------------------------: |
+|   ctrl    |  Sequential   |                  Controls the data flow of the entire chip             |
+|    s_p    |  Sequential   |    Integrates serial input data into parallel and changes the order    |
+|    mux    |  Sequential   |              Selects the data entering the arithmetic module           |
+|   reg1    |  Sequential   |       Stores and forwards operation data between two FFT stages        |
+| butterfly | Combinational |                   Performs 4-input butterfly operation                 |
+|  multi16  | Combinational | Calculates the multiplication between the data and the rotation factor |
+|    p_s    |  Sequential   |    Integrates parallel output data into serial and changes the order   |
 
 ### Chip overview
 
@@ -100,20 +100,19 @@
 
 |                        Member                        |                       Division of Work                       |
 | :--------------------------------------------------: | :----------------------------------------------------------: |
-| [**Venci Freeman**](https://github.com/VenciFreeman) |    Butterfly, multi selector and top module, DC and ICC.     |
-|   [**Luo Tian**](https://github.com/luotian12345)    | Conversion between series and parallel, register, DC and ICC. |
-|    [**Mike Qi**](https://github.com/mikeq123456)     |  Control module, test bench and some tcl files, DC and ICC.  |
+| [**Venci Freeman**](https://github.com/VenciFreeman) |    Butterfly, multi selector and top module; DC and ICC.     |
+|   [**Luo Tian**](https://github.com/luotian12345)    | Conversion between series and parallel, register; DC and ICC. |
+|    [**Mike Qi**](https://github.com/mikeq123456)     |  Control module, test bench and some tcl files; DC and ICC.  |
 
 ------
 
 ## Acknowledgement
 
-- Frist of all, we want to thank ***Prof. He Weifeng***,  his course providing us with the opportunity to learn the complete chip design process, and he also answered the questions we encountered in detail in class. The twice-weekly discussion held by the him during the design workflow greatly helped us optimize our design of the chip and also taught us a lot.
-- Then we want to thank ***the assistant Zhang Chao***. The materials provided by him greatly helped us optimize the design of the chip, and he patiently answered all the unknown error messages we encountered throughout the workflow, which helped us a lot.
-- And I would like to personally thank ***Zhang Jialing*** of Group 1 and ***Zhang Yunfang*** of Group 4 who also design FFT chips. Although the algorithms we adopt are different, their ideas also have reference value for our optimization. Especially when our design work frequency is too low in the early stage, their two sets of multiplier implementation solutions inspired us to optimize the multiplier.
-- Finally, I would also like to thank other assistants and classmates who helped us complete the design and help the course go smoothly.
-- In addition, when we didn't know the direction in the early stage, the work of others on **GitHub** and **CSDN** blog also gave us a lot of inspiration. I would like to thank you here.
-- Our version management work is also implemented through GitHub. After the project achieved, we adopted the Mozilla 2.0 public license for open source, as a small contribution to the open source community.
+- First and foremost, we would like to thank ***Prof. He Weifeng*** for providing the opportunity to learn the complete chip design process. His detailed answers to our questions during class and the twice-weekly discussions greatly helped us optimize our chip design and taught us a lot；
+- We also extend our gratitude to Assistant ***Zhang Chao***. The materials provided by him were instrumental in optimizing our chip design, and he patiently addressed all the error messages we encountered throughout the workflow；
+- I would also like to personally thank ***Zhang Jialing*** from Group 1 and ***Zhang Yunfang*** from Group 4, who also designed FFT chips. Although our algorithms differed, their ideas were valuable for our optimization. Particularly, their multiplier implementation solutions inspired us to improve our own multiplier when our initial design frequency was too low；
+- Finally, we would like to thank all other assistants and classmates who helped us complete the design and ensured the course ran smoothly. Additionally, the work of others on GitHub and CSDN blogs provided us with significant inspiration in the early stages. We are grateful for their contributions;
+- Our version management was implemented through GitHub. Upon completion of the project, we adopted the Mozilla 2.0 Public License for open source, contributing to the open-source community.
 
 ## References
 
