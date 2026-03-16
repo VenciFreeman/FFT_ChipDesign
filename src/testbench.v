@@ -30,6 +30,7 @@ module testbench();
   reg         rst_n;
   reg  [33:0] InputData [0:47];
   reg  [5:0]  i;
+  integer     data_file;
   reg  [33:0] data_in;
   wire [33:0] data_out;
 
@@ -40,17 +41,23 @@ module testbench();
 
   initial begin
     rst_n = 1'b0;
+    data_in = 34'b0;
     $display("\nLoad Data\n");  
-    $readmemb("../src/testfile/Data_input.txt", InputData); // Need to modify.
-
-    #8 begin
-      rst_n = 1'b1;
-      for (i = 0; i < 47; i = i + 1) begin
-        data_in = InputData[i];
-        #8
-        $display("[%d] %b_%b_%b %b_%b_%b\n", (i+13)%16, data_out[33], data_out[32:25], data_out[24:17], data_out[16], data_out[15:8], data_out[7:0]);
-      end 
+    data_file = $fopen("src/testfile/Data_Input.txt", "r");
+    if (data_file) begin
+      $fclose(data_file);
+      $readmemb("src/testfile/Data_Input.txt", InputData);
+    end else begin
+      $readmemb("../src/testfile/Data_Input.txt", InputData);
     end
+
+    #8 rst_n = 1'b1;
+    for (i = 0; i < 48; i = i + 1) begin
+      @(negedge clk) data_in = InputData[i];
+      @(posedge clk) #1;
+      $display("[%d] %b_%b_%b %b_%b_%b\n", (i+13)%16, data_out[33], data_out[32:25], data_out[24:17], data_out[16], data_out[15:8], data_out[7:0]);
+    end
+    #8 $finish;
   end
 
   fft fft0(.clk(clk), 

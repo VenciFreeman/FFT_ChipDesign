@@ -66,7 +66,24 @@ module p_s(
 
 // This always part controls registers. 
   always @ ( posedge clk ) begin
-    if ( !p_s_flag_in ) begin
+    if ( !rst_n ) begin
+      R0  <= 34'b0;
+      R1  <= 34'b0;
+      R2  <= 34'b0;
+      R3  <= 34'b0;
+      R4  <= 34'b0;
+      R5  <= 34'b0;
+      R6  <= 34'b0;
+      R7  <= 34'b0;
+      R8  <= 34'b0;
+      R9  <= 34'b0;
+      R10 <= 34'b0;
+      R11 <= 34'b0;
+      R12 <= 34'b0;
+      R13 <= 34'b0;
+      R14 <= 34'b0;
+      R15 <= 34'b0;
+    end else if ( !p_s_flag_in ) begin
       case ( counter_1 )
         2'b10: begin
           R0  <= data_in_3[33:0];
@@ -118,7 +135,9 @@ module p_s(
 
 // This always part controls data_out_3.          
   always @ ( posedge clk ) begin
-    if ( p_s_flag_out ) begin
+    if ( !rst_n )
+      data_out_3 <= 34'b0;
+    else if ( p_s_flag_out ) begin
       case( counter_2 )
         4'b0000: data_out_3 <= R13;
         4'b0001: data_out_3 <= R14;

@@ -77,6 +77,7 @@ module ctrl(
         3'b101: mux_flag <= REG_SEL_1;  // 19
         3'b110: mux_flag <= REG_SEL_2;  // 20
         3'b111: mux_flag <= REG_SEL_3;  // 21
+        default: mux_flag <= MUX_IDLE;
         // If MUX/DEMUX has 3 OPTIONS (SP/PS, REG, IDLE), but no use to lower power consumption because still need compute IDLE
       endcase
     end
@@ -96,6 +97,7 @@ module ctrl(
         3'b101: demux_flag <= P_S_SEL_1;  // 19
         3'b110: demux_flag <= P_S_SEL_2;  // 20
         3'b111: demux_flag <= P_S_SEL_3;  // 21
+        default: demux_flag <= DEMUX_IDLE;
         // If MUX/DEMUX has 3 OPTIONS (SP/PS, REG, IDLE), but no use to lower power consumption because still need compute IDLE
       endcase
     end

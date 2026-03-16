@@ -108,6 +108,7 @@ module butterfly(
       3'b101: rotation_factor1_real = para9239;  //   cos(pi/8)  =   0.9239   W_16^1
       3'b110: rotation_factor1_real = para7071;  //   cos(pi/4)  =   0.7071   W_16^2
       3'b111: rotation_factor1_real = para3827;  //   cos(3pi/8) =   0.3827   W_16^3
+      default: rotation_factor1_real = para1111;
     endcase
   end
 
@@ -122,6 +123,7 @@ module butterfly(
       3'b101: rotation_factor1_imag = parn3827;  // - sin(pi/8)  = - 0.3827   W_16^1
       3'b110: rotation_factor1_imag = parn7071;  // - sin(pi/4)  = - 0.7071   W_16^2
       3'b111: rotation_factor1_imag = parn9239;  // - sin(3pi/8) = - 0.9239   W_16^3
+      default: rotation_factor1_imag = para0000;
     endcase
   end
 
@@ -136,6 +138,7 @@ module butterfly(
       3'b101: rotation_factor2_real = para7071;  //   cos(pi/4)  =   0.7071   W_16^2
       3'b110: rotation_factor2_real = para0000;  //   cos(pi/2)  =   0        W_16^4
       3'b111: rotation_factor2_real = parn7071;  //   cos(3pi/4) = - 0.7071   W_16^6
+      default: rotation_factor2_real = para1111;
     endcase
   end
 
@@ -150,6 +153,7 @@ module butterfly(
       3'b101: rotation_factor2_imag = parn7071;  // - sin(pi/8)  = - 0.7071   W_16^2
       3'b110: rotation_factor2_imag = parn1111;  // - sin(pi/4)  = - 1        W_16^4
       3'b111: rotation_factor2_imag = parn7071;  // - sin(3pi/8) = - 0.7071   W_16^6
+      default: rotation_factor2_imag = para0000;
     endcase
   end
 
@@ -164,6 +168,7 @@ module butterfly(
       3'b101: rotation_factor3_real = para3827;  //   cos(3pi/8) =   0.7071   W_16^3
       3'b110: rotation_factor3_real = parn7071;  //   cos(6pi/8) =   0        W_16^6
       3'b111: rotation_factor3_real = parn9239;  //   cos(9pi/8) = - 0.7071   W_16^9
+      default: rotation_factor3_real = para1111;
     endcase
   end
 
@@ -178,6 +183,7 @@ module butterfly(
       3'b101: rotation_factor3_imag = parn9239;  // - sin(3pi/8) = - 0.7071   W_16^3
       3'b110: rotation_factor3_imag = parn7071;  // - sin(6pi/8) = - 0.1      W_16^6
       3'b111: rotation_factor3_imag = para3827;  // - sin(9pi/8) =   0.7071   W_16^9
+      default: rotation_factor3_imag = para0000;
     endcase
   end
 

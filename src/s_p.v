@@ -87,34 +87,58 @@ module s_p(
 
 // This always part controls signal data_in_1.
   always @ ( posedge clk or negedge rst_n ) begin
-    case ( counter )
-      4'b0000: data_out_1  = {R15,  R11, R7,  R3};
-      4'b1101: data_out_1  = {R12,  R8,  R4,  R0};
-      4'b1110: data_out_1  = {R13,  R9,  R5,  R1};
-      4'b1111: data_out_1  = {R14,  R10, R6,  R2};
-    endcase
-end
+    if ( !rst_n )
+      data_out_1 <= 136'b0;
+    else begin
+      case ( counter )
+        4'b0000: data_out_1 <= {R15,  R11, R7,  R3};
+        4'b1101: data_out_1 <= {R12,  R8,  R4,  R0};
+        4'b1110: data_out_1 <= {R13,  R9,  R5,  R1};
+        4'b1111: data_out_1 <= {R14,  R10, R6,  R2};
+        default: data_out_1 <= data_out_1;
+      endcase
+    end
+  end
 
 // This always part controls register.
   always @(posedge clk or negedge rst_n)begin
-    case(counter)
-      4'b0000: R0  <= data_in_1;
-      4'b0001: R1  <= data_in_1;
-      4'b0010: R2  <= data_in_1;
-      4'b0011: R3  <= data_in_1;
-      4'b0100: R4  <= data_in_1;
-      4'b0101: R5  <= data_in_1;
-      4'b0110: R6  <= data_in_1;
-      4'b0111: R7  <= data_in_1;
-      4'b1000: R8  <= data_in_1;
-      4'b1001: R9  <= data_in_1;
-      4'b1010: R10 <= data_in_1;
-      4'b1011: R11 <= data_in_1;
-      4'b1100: R12 <= data_in_1;
-      4'b1101: R13 <= data_in_1;
-      4'b1110: R14 <= data_in_1;
-      4'b1111: R15 <= data_in_1;
-    endcase
+    if ( !rst_n ) begin
+      R0  <= 34'b0;
+      R1  <= 34'b0;
+      R2  <= 34'b0;
+      R3  <= 34'b0;
+      R4  <= 34'b0;
+      R5  <= 34'b0;
+      R6  <= 34'b0;
+      R7  <= 34'b0;
+      R8  <= 34'b0;
+      R9  <= 34'b0;
+      R10 <= 34'b0;
+      R11 <= 34'b0;
+      R12 <= 34'b0;
+      R13 <= 34'b0;
+      R14 <= 34'b0;
+      R15 <= 34'b0;
+    end else begin
+      case(counter)
+        4'b0000: R0  <= data_in_1;
+        4'b0001: R1  <= data_in_1;
+        4'b0010: R2  <= data_in_1;
+        4'b0011: R3  <= data_in_1;
+        4'b0100: R4  <= data_in_1;
+        4'b0101: R5  <= data_in_1;
+        4'b0110: R6  <= data_in_1;
+        4'b0111: R7  <= data_in_1;
+        4'b1000: R8  <= data_in_1;
+        4'b1001: R9  <= data_in_1;
+        4'b1010: R10 <= data_in_1;
+        4'b1011: R11 <= data_in_1;
+        4'b1100: R12 <= data_in_1;
+        4'b1101: R13 <= data_in_1;
+        4'b1110: R14 <= data_in_1;
+        4'b1111: R15 <= data_in_1;
+      endcase
+    end
   end
   
 endmodule

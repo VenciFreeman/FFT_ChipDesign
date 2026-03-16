@@ -62,7 +62,24 @@ module reg1(
 
 // This always part controls registers. 
   always @ ( posedge clk ) begin
-    if ( reg_datain_flag )begin
+    if ( !rst_n ) begin
+      R0  <= 34'b0;
+      R1  <= 34'b0;
+      R2  <= 34'b0;
+      R3  <= 34'b0;
+      R4  <= 34'b0;
+      R5  <= 34'b0;
+      R6  <= 34'b0;
+      R7  <= 34'b0;
+      R8  <= 34'b0;
+      R9  <= 34'b0;
+      R10 <= 34'b0;
+      R11 <= 34'b0;
+      R12 <= 34'b0;
+      R13 <= 34'b0;
+      R14 <= 34'b0;
+      R15 <= 34'b0;
+    end else if ( reg_datain_flag )begin
       case ( counter1 )
         2'b01: begin
           R0  <= data_in_2[33:0];
@@ -115,7 +132,9 @@ module reg1(
 
 // This always part controls signal data_out_2. 
   always @ ( posedge clk ) begin
-    if ( reg_flag_mux ) begin
+    if ( !rst_n )
+      data_out_2 <= 136'b0;
+    else if ( reg_flag_mux ) begin
       case ( counter2 )
         2'b00: data_out_2 <= {R12,  R8,  R4,  R0};
         2'b01: data_out_2 <= {R13,  R9,  R5,  R1};
